@@ -1,0 +1,24 @@
+#+TITLE: index.org
+#+DESCRIPTION: index.org
+#+STARTUP: fninline overview
+
+Hello world!
+
+* Heading 1
+:PROPERTIES:
+:ID:       00054fa7-c035-4b5f-8da8-c8bbf93085a5
+:CUSTOM_ID: 00054fa7-c035-4b5f-8da8-c8bbf93085a5
+:END:
+Hello
+*** Heading 1.1
+:PROPERTIES:
+:ID:       4d981395-d769-4af5-8ae7-0d81a62e121d
+:CUSTOM_ID: 4d981395-d769-4af5-8ae7-0d81a62e121d
+:END:
+Hello.
+* Heading 2
+:PROPERTIES:
+:ID:       8d4a9a54-906d-46de-8bad-bb884f875fbf
+:CUSTOM_ID: 8d4a9a54-906d-46de-8bad-bb884f875fbf
+:END:
+Hello.
