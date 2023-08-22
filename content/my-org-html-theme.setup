@@ -1,0 +1,197 @@
+#+OPTIONS: org-html-head-include-default-style:nil
+
+#+HTML_HEAD: <style type="text/css">
+
+#+HTML_HEAD: h1.title { text-align: center; }
+#+HTML_HEAD: h2 { border-bottom: 1px solid #f0c; padding-bottom: 0.5em; padding-top: 0.5em; font-size: 1.75em; }
+#+HTML_HEAD: h3 { margin-bottom: 0; padding-bottom: 0; font-size: 1.4em; }
+#+HTML_HEAD: h4 { margin-bottom: 0; padding-bottom: 0; font-size: 1.15em; }
+#+HTML_HEAD: h5 { margin-bottom: 0; padding-bottom: 0; font-size: 1em; font-style: italic; }
+#+HTML_HEAD: h6 { margin-bottom: 0; padding-bottom: 0; font-size: 0.8em; font-style: italic; }
+
+#+HTML_HEAD: .outline-text-4 > :first-child { margin-top: .5em; }
+
+#+HTML_HEAD: #table-of-contents { position: fixed; left: 0; top: 0; width: 300px; height: 100%; overflow: auto; padding-left: 5px; padding-right: 5px; text-align:center; font-size: 0.85em; }
+#+HTML_HEAD: #table-of-contents ul { padding: 0; margin: 5px; padding-left: 15px; text-align:left; }
+
+#+HTML_HEAD: pre { margin-left: 3em; border-left: 2px solid #767676; background: #F1F1F1; padding: 1em 0em 1em 1em; font-size: 0.95em; }
+
+#+HTML_HEAD: #postamble { text-align: center; font-size: 0.7em; border-top: 1px solid #ABA6A6; margin-top: 4em; color: #808080; }
+#+HTML_HEAD: #postamble p { width: 100%; }
+
+#+HTML_HEAD: body { font-family: Palatino; font-size: 1.00em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+#+HTML_HEAD: html { scrollbar-color: #ABA6A6 #fff7f4; }
+
+#+HTML_HEAD: code { background: #EDEDED; font-size: 1.2em; font-weight: normal; font-style: normal; }
+
+#+HTML_HEAD: p, li { max-width: 59em; }
+
+#+HTML_HEAD: li p { margin: 0px; }
+
+#+HTML_HEAD: dt { margin-top: 1.5em; margin-bottom: 0.5em; font-weight: normal; font-style: italic; }
+
+#+HTML_HEAD: span.todo, span.done { font-size: 50%; text-decoration: none; border-radius: 5px; padding: 3px; color: white; }
+#+HTML_HEAD: span.todo { background: #dd0000; }
+#+HTML_HEAD: span.done { background: #00dd00; }
+
+#+HTML_HEAD: blockquote { background: #dddddd; padding: .5em 1em .5em 1em; }
+
+#+HTML_HEAD: .figure { padding: 5px; }
+
+#+HTML_HEAD: table { margin-bottom:24px; }
+
+#+HTML_HEAD: a { cursor: pointer; color: #217ab7; line-height: inherit; transition: .14s; }
+#+HTML_HEAD: a:hover { color: white; background-color: #3297d3; }
+#+HTML_HEAD: a:visited { color: #43458b; border-color: #43458b; }
+#+HTML_HEAD: a:visited:hover { color: white; background-color: #9251ac; }
+
+#+HTML_HEAD: ::selection { color: white; background: #ff4081; }
+
+#+HTML_HEAD: .org-bold { /* bold */ font-weight: bold; }
+#+HTML_HEAD: .org-bold-italic { /* bold-italic */ font-weight: bold; font-style: italic; }
+#+HTML_HEAD: .org-buffer-menu-buffer { /* buffer-menu-buffer */ font-weight: bold; }
+#+HTML_HEAD: .org-builtin { /* font-lock-builtin-face */ color: #7a378b; }
+#+HTML_HEAD: .org-button { /* button */ text-decoration: underline; }
+#+HTML_HEAD: .org-calendar-today { /* calendar-today */ text-decoration: underline; }
+#+HTML_HEAD: .org-change-log-acknowledgement { /* change-log-acknowledgement */ color: #b22222; }
+#+HTML_HEAD: .org-change-log-conditionals { /* change-log-conditionals */ color: #a0522d; }
+#+HTML_HEAD: .org-change-log-date { /* change-log-date */ color: #8b2252; }
+#+HTML_HEAD: .org-change-log-email { /* change-log-email */ color: #a0522d; }
+#+HTML_HEAD: .org-change-log-file { /* change-log-file */ color: #0000ff; }
+#+HTML_HEAD: .org-change-log-function { /* change-log-function */ color: #a0522d; }
+#+HTML_HEAD: .org-change-log-list { /* change-log-list */ color: #a020f0; }
+#+HTML_HEAD: .org-change-log-name { /* change-log-name */ color: #008b8b; }
+#+HTML_HEAD: .org-comint-highlight-input { /* comint-highlight-input */ font-weight: bold; }
+#+HTML_HEAD: .org-comint-highlight-prompt { /* comint-highlight-prompt */ color: #00008b; }
+#+HTML_HEAD: .org-comment { /* font-lock-comment-face */ color: #999988; font-style: italic; }
+#+HTML_HEAD: .org-comment-delimiter { /* font-lock-comment-delimiter-face */ color: #999988; font-style: italic; }
+#+HTML_HEAD: .org-completions-annotations { /* completions-annotations */ font-style: italic; }
+#+HTML_HEAD: .org-completions-common-part { /* completions-common-part */ color: #000000; background-color: #ffffff; }
+#+HTML_HEAD: .org-completions-first-difference { /* completions-first-difference */ font-weight: bold; }
+#+HTML_HEAD: .org-constant { /* font-lock-constant-face */ color: #008b8b; }
+#+HTML_HEAD: .org-diary { /* diary */ color: #ff0000; }
+#+HTML_HEAD: .org-diff-context { /* diff-context */ color: #7f7f7f; }
+#+HTML_HEAD: .org-diff-file-header { /* diff-file-header */ background-color: #b3b3b3; font-weight: bold; }
+#+HTML_HEAD: .org-diff-function { /* diff-function */ background-color: #cccccc; }
+#+HTML_HEAD: .org-diff-header { /* diff-header */ background-color: #cccccc; }
+#+HTML_HEAD: .org-diff-hunk-header { /* diff-hunk-header */ background-color: #cccccc; }
+#+HTML_HEAD: .org-diff-index { /* diff-index */ background-color: #b3b3b3; font-weight: bold; }
+#+HTML_HEAD: .org-diff-nonexistent { /* diff-nonexistent */ background-color: #b3b3b3; font-weight: bold; }
+#+HTML_HEAD: .org-diff-refine-change { /* diff-refine-change */ background-color: #d9d9d9; }
+#+HTML_HEAD: .org-dired-directory { /* dired-directory */ color: #0000ff; }
+#+HTML_HEAD: .org-dired-flagged { /* dired-flagged */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-dired-header { /* dired-header */ color: #228b22; }
+#+HTML_HEAD: .org-dired-ignored { /* dired-ignored */ color: #7f7f7f; }
+#+HTML_HEAD: .org-dired-mark { /* dired-mark */ color: #008b8b; }
+#+HTML_HEAD: .org-dired-marked { /* dired-marked */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-dired-perm-write { /* dired-perm-write */ color: #b22222; }
+#+HTML_HEAD: .org-dired-symlink { /* dired-symlink */ color: #a020f0; }
+#+HTML_HEAD: .org-dired-warning { /* dired-warning */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-doc { /* font-lock-doc-face */ color: #8b2252; }
+#+HTML_HEAD: .org-escape-glyph { /* escape-glyph */ color: #a52a2a; }
+#+HTML_HEAD: .org-file-name-shadow { /* file-name-shadow */ color: #7f7f7f; }
+#+HTML_HEAD: .org-flyspell-duplicate { /* flyspell-duplicate */ color: #cdad00; font-weight: bold; text-decoration: underline; }
+#+HTML_HEAD: .org-flyspell-incorrect { /* flyspell-incorrect */ color: #ff4500; font-weight: bold; text-decoration: underline; }
+#+HTML_HEAD: .org-fringe { /* fringe */ background-color: #f2f2f2; }
+#+HTML_HEAD: .org-function-name { /* font-lock-function-name-face */ color: teal; }
+#+HTML_HEAD: .org-header-line { /* header-line */ color: #333333; background-color: #e5e5e5; }
+#+HTML_HEAD: .org-help-argument-name { /* help-argument-name */ font-style: italic; }
+#+HTML_HEAD: .org-highlight { /* highlight */ background-color: #b4eeb4; }
+#+HTML_HEAD: .org-holiday { /* holiday */ background-color: #ffc0cb; }
+#+HTML_HEAD: .org-isearch { /* isearch */ color: #b0e2ff; background-color: #cd00cd; }
+#+HTML_HEAD: .org-isearch-fail { /* isearch-fail */ background-color: #ffc1c1; }
+#+HTML_HEAD: .org-italic { /* italic */ font-style: italic; }
+#+HTML_HEAD: .org-keyword { /* font-lock-keyword-face */ color: #0086b3; }
+#+HTML_HEAD: .org-lazy-highlight { /* lazy-highlight */ background-color: #afeeee; }
+#+HTML_HEAD: .org-link { /* link */ color: #0000ff; text-decoration: underline; }
+#+HTML_HEAD: .org-link-visited { /* link-visited */ color: #8b008b; text-decoration: underline; }
+#+HTML_HEAD: .org-log-edit-header { /* log-edit-header */ color: #a020f0; }
+#+HTML_HEAD: .org-log-edit-summary { /* log-edit-summary */ color: #0000ff; }
+#+HTML_HEAD: .org-log-edit-unknown-header { /* log-edit-unknown-header */ color: #b22222; }
+#+HTML_HEAD: .org-match { /* match */ background-color: #ffff00; }
+#+HTML_HEAD: .org-next-error { /* next-error */ background-color: #eedc82; }
+#+HTML_HEAD: .org-nobreak-space { /* nobreak-space */ color: #a52a2a; text-decoration: underline; }
+#+HTML_HEAD: .org-org-archived { /* org-archived */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-block { /* org-block */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-block-begin-line { /* org-block-begin-line */ color: #b22222; }
+#+HTML_HEAD: .org-org-block-end-line { /* org-block-end-line */ color: #b22222; }
+#+HTML_HEAD: .org-org-checkbox { /* org-checkbox */ font-weight: bold; }
+#+HTML_HEAD: .org-org-checkbox-statistics-done { /* org-checkbox-statistics-done */ color: #228b22; font-weight: bold; }
+#+HTML_HEAD: .org-org-checkbox-statistics-todo { /* org-checkbox-statistics-todo */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-org-clock-overlay { /* org-clock-overlay */ background-color: #ffff00; }
+#+HTML_HEAD: .org-org-code { /* org-code */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-column { /* org-column */ background-color: #e5e5e5; }
+#+HTML_HEAD: .org-org-column-title { /* org-column-title */ background-color: #e5e5e5; font-weight: bold; text-decoration: underline; }
+#+HTML_HEAD: .org-org-date { /* org-date */ color: #a020f0; text-decoration: underline; }
+#+HTML_HEAD: .org-org-document-info { /* org-document-info */ color: #191970; }
+#+HTML_HEAD: .org-org-document-info-keyword { /* org-document-info-keyword */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-document-title { /* org-document-title */ color: #191970; font-size: 144%; font-weight: bold; }
+#+HTML_HEAD: .org-org-done { /* org-done */ color: #228b22; font-weight: bold; }
+#+HTML_HEAD: .org-org-drawer { /* org-drawer */ color: #0000ff; }
+#+HTML_HEAD: .org-org-ellipsis { /* org-ellipsis */ color: #b8860b; text-decoration: underline; }
+#+HTML_HEAD: .org-org-footnote { /* org-footnote */ color: #a020f0; text-decoration: underline; }
+#+HTML_HEAD: .org-org-formula { /* org-formula */ color: #b22222; }
+#+HTML_HEAD: .org-org-headline-done { /* org-headline-done */ color: #bc8f8f; }
+#+HTML_HEAD: .org-org-hide { /* org-hide */ color: #ffffff; }
+#+HTML_HEAD: .org-org-latex-and-export-specials { /* org-latex-and-export-specials */ color: #8b4513; }
+#+HTML_HEAD: .org-org-level-1 { /* org-level-1 */ color: #0000ff; }
+#+HTML_HEAD: .org-org-level-2 { /* org-level-2 */ color: #a0522d; }
+#+HTML_HEAD: .org-org-level-3 { /* org-level-3 */ color: #a020f0; }
+#+HTML_HEAD: .org-org-level-4 { /* org-level-4 */ color: #b22222; }
+#+HTML_HEAD: .org-org-level-5 { /* org-level-5 */ color: #228b22; }
+#+HTML_HEAD: .org-org-level-6 { /* org-level-6 */ color: #008b8b; }
+#+HTML_HEAD: .org-org-level-7 { /* org-level-7 */ color: #7a378b; }
+#+HTML_HEAD: .org-org-level-8 { /* org-level-8 */ color: #8b2252; }
+#+HTML_HEAD: .org-org-link { /* org-link */ color: #0000ff; text-decoration: underline; }
+#+HTML_HEAD: .org-org-meta-line { /* org-meta-line */ color: #b22222; }
+#+HTML_HEAD: .org-org-mode-line-clock { /* org-mode-line-clock */ color: #000000; background-color: #bfbfbf; }
+#+HTML_HEAD: .org-org-mode-line-clock-overrun { /* org-mode-line-clock-overrun */ color: #000000; background-color: #ff0000; }
+#+HTML_HEAD: .org-org-quote { /* org-quote */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-scheduled { /* org-scheduled */ color: #006400; }
+#+HTML_HEAD: .org-org-scheduled-previously { /* org-scheduled-previously */ color: #b22222; }
+#+HTML_HEAD: .org-org-scheduled-today { /* org-scheduled-today */ color: #006400; }
+#+HTML_HEAD: .org-org-sexp-date { /* org-sexp-date */ color: #a020f0; }
+#+HTML_HEAD: .org-org-special-keyword { /* org-special-keyword */ color: #a020f0; }
+#+HTML_HEAD: .org-org-table { /* org-table */ color: #0000ff; }
+#+HTML_HEAD: .org-org-tag { /* org-tag */ font-weight: bold; }
+#+HTML_HEAD: .org-org-target { /* org-target */ text-decoration: underline; }
+#+HTML_HEAD: .org-org-time-grid { /* org-time-grid */ color: #b8860b; }
+#+HTML_HEAD: .org-org-todo { /* org-todo */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-org-upcoming-deadline { /* org-upcoming-deadline */ color: #b22222; }
+#+HTML_HEAD: .org-org-verbatim { /* org-verbatim */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-verse { /* org-verse */ color: #7f7f7f; }
+#+HTML_HEAD: .org-org-warning { /* org-warning */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-outline-1 { /* outline-1 */ color: #0000ff; }
+#+HTML_HEAD: .org-outline-2 { /* outline-2 */ color: #a0522d; }
+#+HTML_HEAD: .org-outline-3 { /* outline-3 */ color: #a020f0; }
+#+HTML_HEAD: .org-outline-4 { /* outline-4 */ color: #b22222; }
+#+HTML_HEAD: .org-outline-5 { /* outline-5 */ color: #228b22; }
+#+HTML_HEAD: .org-outline-6 { /* outline-6 */ color: #008b8b; }
+#+HTML_HEAD: .org-outline-7 { /* outline-7 */ color: #7a378b; }
+#+HTML_HEAD: .org-outline-8 { /* outline-8 */ color: #8b2252; }
+#+HTML_HEAD: .org-preprocessor { /* font-lock-preprocessor-face */ color: #7a378b; }
+#+HTML_HEAD: .org-query-replace { /* query-replace */ color: #b0e2ff; background-color: #cd00cd; }
+#+HTML_HEAD: .org-regexp-grouping-backslash { /* font-lock-regexp-grouping-backslash */ font-weight: bold; }
+#+HTML_HEAD: .org-regexp-grouping-construct { /* font-lock-regexp-grouping-construct */ font-weight: bold; }
+#+HTML_HEAD: .org-region { /* region */ background-color: #eedc82; }
+#+HTML_HEAD: .org-secondary-selection { /* secondary-selection */ background-color: #ffff00; }
+#+HTML_HEAD: .org-shadow { /* shadow */ color: #7f7f7f; }
+#+HTML_HEAD: .org-show-paren-match { /* show-paren-match */ background-color: #40e0d0; }
+#+HTML_HEAD: .org-show-paren-mismatch { /* show-paren-mismatch */ color: #ffffff; background-color: #a020f0; }
+#+HTML_HEAD: .org-string { /* font-lock-string-face */ color: #dd1144; }
+#+HTML_HEAD: .org-tool-bar { /* tool-bar */ color: #000000; background-color: #bfbfbf; }
+#+HTML_HEAD: .org-tooltip { /* tooltip */ color: #000000; background-color: #ffffe0; }
+#+HTML_HEAD: .org-trailing-whitespace { /* trailing-whitespace */ background-color: #ff0000; }
+#+HTML_HEAD: .org-type { /* font-lock-type-face */ color: #228b22; }
+#+HTML_HEAD: .org-underline { /* underline */ text-decoration: underline; }
+#+HTML_HEAD: .org-variable-name { /* font-lock-variable-name-face */ color: teal; }
+#+HTML_HEAD: .org-warning { /* font-lock-warning-face */ color: #ff0000; font-weight: bold; }
+#+HTML_HEAD: .org-widget-button { /* widget-button */ font-weight: bold; }
+#+HTML_HEAD: .org-widget-button-pressed { /* widget-button-pressed */ color: #ff0000; }
+#+HTML_HEAD: .org-widget-documentation { /* widget-documentation */ color: #006400; }
+#+HTML_HEAD: .org-widget-field { /* widget-field */ background-color: #d9d9d9; }
+#+HTML_HEAD: .org-widget-inactive { /* widget-inactive */ color: #7f7f7f; }
+#+HTML_HEAD: .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }
+
+#+HTML_HEAD: </style>
