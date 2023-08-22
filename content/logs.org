@@ -1,0 +1,806 @@
+# -*- coding: utf-8; -*-
+#+TITLE: logs/
+#+SETUPFILE: my-org-html-theme.setup
+#+STARTUP: fninline overview
+
+#+LATEX_HEADER: \usepackage{amsmath}
+
+#+OPTIONS: num:nil
+#+OPTIONS: toc:nil
+#+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
+
+* Wednesday, 21 June, 2023
+:PROPERTIES:
+:ID:       d93ec70e-fc24-446e-a747-d9fde1bd70b2
+:CUSTOM_ID: d93ec70e-fc24-446e-a747-d9fde1bd70b2
+:END:
+A random collation of Wittgenstein-exegesis, courtesy of P.M.S. Hacker (from
+/Insight and Illusion/, 3rd. ed):
+
+ch. 8.2:
+#+begin_quote
+[As Wittgenstein points out,] phenomenological propositions are not verifiable
+at all.  It makes no sense to ask how "I have toothache" is verified.  "How do
+you know that you have toothache?" is a nonsense question.  The two standard
+ploys of those who take the pseudo-question to be a genuine question with a
+trivial answer are misguided.  "I know I have pain because I feel it" is
+vacuous because "I feel pain" and "I have pain" have the same meaning.  "I
+know by introspection" is wrong because it erroneously suggests a perceptual
+model of inner sense.  I cannot look and see whether I have pain.  [I merely
+infer from an observation of pain behaviour occurring in this body.]
+#+end_quote
+
+ch. 10.2:
+#+begin_quote
+The Cartesian picture of self-consciousness or self-awareness neither
+originates with Descartes nor is it adopted only by those who embrace the
+doctrines propounded by him.  But it was he who articulated this conception
+with mesmerising brilliance; hence it may justly be denominated "Cartesian".
+Each person sees, hears, and feels objects in his vicinity, experiences joy or
+sorrow, suffers pain or grief.  He thinks, believes, doubts, or is certain,
+has purposes and intentions.  If we ask someone what he perceives, thinks, or
+intends, whether he is in pain or is sad, he may tell us.  And in telling us
+how things are with him, he uses such sentences as "I see red" or "I have
+toothache", "I am thinking of the weather" or "I intend to go to London", just
+as in telling us how things are with another he would say "He sees red (has
+toothache)" or "He is thinking (intends to go to London)".  In the latter
+cases he ascribes experiences (broadly and loosely speaking) to another; so,
+in the former cases, it seems, he ascribes experiences to himself.  Hence, we
+are inclined to think, he says of the self which is his, that it has certain
+experiences.  This is possible, it appears, because he is self-conscious,
+aware of the experiences which are the experiences of the self.  In telling us
+how things are with him, he refers by means of the pronoun "I" to himself, and
+ascribes experiences of which he is aware to the self thus referred to.  The
+self seems then to be something which has its seat in the body, although it is
+not identical with the body --- it is that of which one is inclined to say
+"/Sum res cogitans/" ["I am a thinking thing"], it is the essence of the person.
+Awareness or consciousness of the self thus conceived is introspection, a
+looking into oneself, a form of perception or "inner sense".  When one
+introspects one observes that one's self is in a certain state (e.g. that one
+has a headache) or is engaging in a certain activity (e.g. thinking).  One's
+observations of what goes on in one's self are privileged, the "inner" is
+accessible /directly/ only /to/ the self.  Only he who "has" it, really knows it.
+I /know/, with /certainty/, how things are with me, others can only guess.  For I
+can perceive what is "inner" whereas others must judge how things are with me
+on the basis of my behaviour, i.e., mere externalities.  And much that is
+"inner" may remain for ever hidden from others.  But, of course, I may, and
+sometimes do, tell them.  My utterances of first-person psychological
+sentences thus seem to be reports of how things are with me, /descriptions/ of
+"inner" events which I observe /in foro interno/ ["in an internal forum"].
+
+In every respect this picture is misguided.  It correctly notes important
+grammatical connections and features of first- and third-person psychological
+utterances, and draws the wrong conclusions from them.  It understandably
+invokes natural metaphors and similes, and misapplies them.  It rightly
+employs an array of ordinary expressions which are used --- differently --- in
+different language-games, but it wrongly projects features of their use in one
+language-game on to a quite different one in which those features have no
+place.  First, it is true and important that if a person avows that he is
+having a certain experience or thinking a certain thought, one cannot dispute
+his word.  He may be untruthful, lying to us about what he feels or thinks,
+but he cannot (with insignificant qualifications) be /mistaken/.  If someone
+sincerely says "I have toothache", then (/ceteris paribus/) he does have
+toothache, for his saying this is a criterion for it being so.  But the fact
+that there is no room for mistake is not because the inner eye enjoys perfect
+vision.  It is further true that there is no room for doubt in my own case;
+but not because the inner stage is so well lit.  It is also true that another
+person can conceal his feelings, dissimulate, pretend, play-act, that often we
+cannot say what he is thinking or what he intends unless he tells us.  But
+that is not because he is better informed than we.  Nor does the fact that all
+this is possible suggest for one moment that we can never really know what
+another thinks, feels, or sees.  Secondly, it is natural, when moving within
+the ambit of psychological expressions to talk of what is /inner/ and what is
+/outer/ (experience and behaviour).  Others know of my experiences from my
+behaviour, from what I do and say; I do not.  But it is quite wrong to
+construe this metaphor in such a way that suggests that I know of my
+experiences from the "inside", by observing them, that I know "directly" in my
+own case, but only indirectly in the case of others.  And it is equally
+misguided to think that when I reveal my thoughts or feelings to you, I let
+you see inside, where hitherto only I saw.  Moreover, it is no better to
+intimate that when I banish all pretence I still do not /really/ reveal what is
+"inside".  Thirdly, it is certainly true that we talk of observing,
+describing, and reporting objects in the room, people, and their behaviour.
+It is also true that there is such a thing as observing our own mental states,
+describing our experiences, reporting them.  But the latter kinds of
+describing are deeply and importantly different from the former, as different
+as knowing John is from knowing the alphabet.  It is a cardinal error of the
+Cartesian picture to take avowals of experience as descriptions of experience
+and to construe descriptions of experience on the model of descriptions of
+objects of experience.
+#+end_quote
+
+ch. 11.2:
+#+begin_quote
+Criteria for $q$ verify that $q$ is the case.  If the criteria for $q$ are
+/satisfed/, i.e. if $p$ is the case /in these circumstances/, then it is certain
+that $q$.  If someone touches a red-hot poker and screams, hugs his burned
+hand, etc., then it is certain that he has hurt himself.  "I can be as /certain/
+of someone else's sensations as of any fact".  We could perhaps imagine
+/different/ circumstances in which this behaviour would be compatible with the
+person's not being in pain, but it does not follow that in these circumstances
+there could be any intelligible doubt.  "'But, if you are /certain/, isn't it
+that you are shutting your eyes in face of doubt?'-'They are shut.'".  Doubt,
+in such circumstances, would betoken a failure of understanding, lack of
+mastery of the concept of pain, not admirable caution.  Wittgenstein equates
+the criteria for seeing with /proofs/ that someone sees.  Again, to say of
+someone who moves around the room confidently in daylight, obviously using his
+eyes, or of someone who reads a passage aloud from a book in certain
+circumstances, that it is only probable that they see would be unintelligible.
+Similarly with respect to abilities.  If someone conducts a normal
+conversation with us in English, or plays a game of chess, there is no
+question but that he understands English and can play chess.  If someone were
+to say that understanding or being able to play chess are inner processes,
+hidden from view behind their overt manifestations, we should contradict him.
+Understanding and abilities are not inner processes at all, although they are
+not behaviour either.  We should remind the person "of the /criteria/ which
+would prove his capacity to us".
+#+end_quote
+
+ch. 11.4:
+#+begin_quote
+The contemporary concept of a truth-condition is a philosophical and
+metaphysical misconception resulting from a distorted view of a pair of
+grammatical propositions: first, "It is true that $p$" = "$p$" and secondly,
+"The proposition that $p$" = "The proposition made true by the fact that $p$".
+The latter triviality is /not/ a statement of the relation between language and
+the world or an expression of the metaphysics of "realism" according to which
+what is true is true "in virtue of" objective facts-in-the-world.  On the
+contrary, it points at the source of the confused thought that there is any
+such thing to be said /or denied/.
+#+end_quote
+
+#+begin_center
+○
+#+end_center
+
+According to Wittgenstein, meaning /is/ use, not in a metaphorical sense but in
+a literal one (alternatively: meaning /logically presupposes/ a use).  Meanings
+are erroneously conceived as the cash-value of words, like money and the cow
+one can buy with it, but the relation should be viewed as analogous to that of
+money and its use.
+
+#+begin_center
+○
+#+end_center
+
+With regard to 10.2: polycephalic twins (or perhaps just twins that are
+inseparable) would be an interesting case study here.  Just how little are
+cohabitating minds in need of this "Cartesian introspection" to be able to
+speak of their mental counterpart, despite them being physically and
+phenomenologically disjoint?
+
+#+begin_center
+○
+#+end_center
+
+The private is not the mental.
+
+The concept is not the object.
+
+[[https://www.artic.edu/artworks/118718/the-banquet][The sun is not the sunset.]]
+#+begin_center
+#+ATTR_HTML: :width 85%
+#+NAME: rene-magritte-the-banquet
+[[https://www.artic.edu/iiif/2/d2c459c3-c6cf-551b-fd27-5a2854b9fa81/full/843,/0/default.jpg]]
+#+end_center
+
+#+begin_center
+○
+#+end_center
+
+To say what I think is never to /describe/ those thoughts, it is to /express/
+them.  One can only describe what one is acquainted with, but I am not
+acquainted with my thoughts --- I think them.
+
+#+begin_center
+○
+#+end_center
+
+A cloud of philosophy condensed into a drop of grammar: It is right to say "I
+know what you are thinking"; it is wrong to say "I know what I am thinking".
+
+#+begin_center
+○
+#+end_center
+
+What we think of as awareness, consciousness or one's own intention belongs to
+the category of /capacity/ (i.e. to say what one purposes) not that of
+experience let alone that of information.
+
+#+begin_center
+○
+#+end_center
+
+How much cross-cultural (and cross-sub-cultural) misunderstanding is a result
+of applying the grammar of a native language-game to a foreign one?
+
+#+begin_center
+○
+#+end_center
+
+Just as meaning logically presupposes a use, it would seem that an instance of
+use (of language) presupposes a certainty.  One is obviously capable of
+/expressing/ uncertainty, but such an expression could not rest upon a
+/foundation/ of uncertainty.
+* Friday, 16 June, 2023
+:PROPERTIES:
+:ID:       e6c1d84c-1278-4759-8b8f-9d3383477d5a
+:CUSTOM_ID: e6c1d84c-1278-4759-8b8f-9d3383477d5a
+:END:
+Some more ChatGPT goodness, prompted by [[https://www.youtube.com/watch?v=5uLxFmhYnl0][this explanation]] of Poisson point
+processes and exponential distributions (see also: [[https://en.wikipedia.org/wiki/Exponential_distribution][Wikipedia]]).
+
+User:
+#+begin_quote
+In probability theory and statistics, the exponential distribution, or
+negative exponential distribution, is the probability distribution of the time
+between events in a Poisson point process, i.e., a process in which events
+occur continuously and independently at a constant average rate.
+
+Why is this distribution over values of $x$ greater than or equal to zero?  If
+it is assumed that two points cannot occur at the same time, then shouldn't
+the distribution be undefined at $x = 0$?
+#+end_quote
+
+ChatGPT:
+#+begin_quote
+The exponential distribution is indeed defined for values greater than or
+equal to zero, and it is a continuous probability distribution.  The reason
+for this is that even though the probability of observing an event exactly at
+time zero is theoretically zero, the probability of observing an event within
+an infinitesimally small interval around zero is still non-zero.
+
+In probability theory, the probability density function (PDF) describes the
+likelihood of a random variable taking on a specific value. For the
+exponential distribution, the PDF is given by:
+
+$f(x) = \lambda \cdot e^{-\lambda x}$
+
+Where $\lambda$ is the rate parameter of the distribution.  When $x = 0$, the
+PDF evaluates to $f(0) = \lambda$.  Although the value of the PDF at $x = 0$
+is non-zero, it represents a point of discontinuity, meaning that the
+distribution is not continuous at that specific point.  However, the integral
+of the PDF over any interval that includes zero is still well-defined and
+yields a meaningful probability.
+
+When we calculate probabilities or expectations involving the exponential
+distribution, we usually consider intervals starting from a value greater than
+zero.  This is because the exponential distribution is often used to model the
+time between events in a Poisson process, where the events are assumed to
+occur independently and continuously starting from time zero.  Therefore, the
+distribution is typically defined and analyzed for values greater than or
+equal to zero.
+
+In summary, while the exponential distribution is technically discontinuous at
+$x = 0$, it is still defined for values greater than or equal to zero, and the
+probabilities associated with intervals that include zero are well-defined.
+#+end_quote
+* Tuesday, 6 June, 2023
+:PROPERTIES:
+:ID:       775d8d65-72c1-4785-808c-472d4641d07e
+:CUSTOM_ID: 775d8d65-72c1-4785-808c-472d4641d07e
+:END:
+A metaphor for the acquisition of knowledge:
+- using our army to capture a city = accomplishing a goal
+- making a straight-line advance toward the city = progress
+  - this feels easy
+- engaging in a fight = working through problems
+  - feels harder, as we're standing still now, not advancing
+  - still, we feel like we're making progress by conquering a necessary
+    obstacle; we know exactly what needs to be done to progress
+- strafing = we're stuck, so try another tack
+  - the current fight feels /too/ hard, we are flailing, we should come at this
+    from another angle, seek other resources that explain things in an
+    alternative set of words, or try to shore up our knowledge in adjacent
+    areas
+- siege warfare = accepting that the goal will take many months or even years
+  to reach
+  - a major investment of time is required (time = money)
+- retreat = coming back to the problem later
+  - this can be hard to accept, getting up to speed again at a later time will
+    have an additional cost, supposing we can find the will to get back on the
+    horse
+- surrender = abandoning the goal
+  - the hardest thing to accept
+* Thursday, 1 June, 2023
+:PROPERTIES:
+:ID:       dd285cf9-f153-4478-8252-3c2ac0305c88
+:CUSTOM_ID: dd285cf9-f153-4478-8252-3c2ac0305c88
+:END:
+With regard to the [[https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems][incompleteness of logic]], I was curious as to what it means
+for something to be "true but unprovable", which led me to the discussions
+[[https://math.stackexchange.com/questions/3338958/what-does-it-mean-for-something-to-be-true-but-unprovable][here]] and [[https://www.reddit.com/r/math/comments/56bbd3/what_does_it_mean_for_something_to_be_true_but/][here]].
+
+This seems to relate to the difference between syntax and semantics.  Syntax
+concerns formal proofs; what is "provable", i.e. with respect to a particular
+set of axioms.  Semantics concerns structure and what lacks counter-examples
+or contradictions; what is "true", i.e. with respect to a particular
+structure.  In the former, we derive the proposition from the axioms; in the
+latter, we take the proposition to be true in advance as part of the model (or
+"interpretation").
+
+The example given:
+#+begin_quote
+Raymond Smullyan likes to frame this problem as an accurate and consistent
+logician who doesn't know that he is accurate or consistent visiting one of
+those islands where some of the people always tell the truth and the rest
+always lie.  Imagine a native coming up to the logician and saying "You will
+never be able to prove that I am a truth-teller".
+
+You and I looking at this problem can tell that the native is a truth-teller
+--- if he were a liar, then the logician would be able to prove that he was a
+truth-teller, which violates his accuracy. But from the logician's
+perspective, he will remain undecided about the native's reliability, because
+he doesn't have the perspective to know his own accuracy.
+
+So, as far as provability goes, the reasoner's logic is like the axioms of a
+particular logical system, and our logic is like the axioms of a meta-system
+that is able to prove things about the simple system that it can not prove
+about itself.
+#+end_quote
+
+If we assume that the uttered Gödel sentence is true (an assumption that is
+made /outside/ the system), we can't go on to prove it.  If we instead assume
+that the sentence is false, then we can't prove its negation.
+
+#+begin_center
+○
+#+end_center
+
+Another interesting discussion I found [[https://www.reddit.com/r/askphilosophy/comments/13win2m/in_line_with_rogers_penrose_argumentation_why_is/jmcss8i/][here]].  I interpret this to be saying
+that, were the mind taken to be something governed by a formal system, then
+this system would be one that short-circuits its evaluation of propositions
+--- should it be capable of performing recursion, it would not be the same
+sort of recursion that a formal system performs.
+* Wednesday, 17 May, 2023
+:PROPERTIES:
+:ID:       dfbf5fb4-3b3d-4326-a95b-7f96b12b4171
+:CUSTOM_ID: dfbf5fb4-3b3d-4326-a95b-7f96b12b4171
+:END:
+Because I was curious about this for a long time:
+#+begin_quote
+What lessons did the allies learn from the handling of Germany in the
+aftermath of World War 1 and the rise of Nazism, and what did they do
+differently in the aftermath of World War 2 to ensure that those mistakes were
+not repeated?
+#+end_quote
+
+ChatGPT:
+#+begin_quote
+The Allies learned several lessons from the handling of Germany after World
+War I and the rise of Nazism.  These lessons influenced their approach to
+post-World War II Germany to avoid repeating the mistakes of the past:
+- Harsh Treaty of Versailles :: The Allies realized that imposing excessively
+  punitive terms on Germany, as done in the Treaty of Versailles after World
+  War I, can breed resentment and economic instability.  They aimed to create
+  a more balanced and fair peace settlement after World War II.
+- Economic Stability and Rebuilding :: The Allies recognized the importance of
+  promoting economic stability and assisting in the rebuilding of Germany.
+  They understood that economic hardship could contribute to political
+  instability and extremist movements.  Initiatives like the Marshall Plan
+  were implemented to support the recovery and reconstruction of war-torn
+  nations, including Germany.
+- Democratization and Denazification :: The Allies understood the need to
+  dismantle the Nazi regime and promote democracy in Germany.  They conducted
+  extensive denazification programs to remove Nazi influence from various
+  spheres of society.  Additionally, they implemented democratic reforms,
+  including free elections and the establishment of a parliamentary system.
+- Occupation and Division :: In contrast to the lack of a unified and coherent
+  occupation strategy after World War I, the Allies established a
+  comprehensive occupation plan for Germany after World War II.  Germany was
+  divided into four zones controlled by the United States, the Soviet Union,
+  Britain, and France.  Each zone had a distinct approach to occupation, but
+  the Allies maintained coordination and cooperation to ensure stability and
+  prevent a resurgence of Nazism.
+- Focus on Education and Re-education :: The Allies prioritized education and
+  re-education programs to counter Nazi ideology and promote democratic
+  values.  They implemented curriculum reforms, conducted propaganda
+  campaigns, and supported initiatives aimed at fostering a democratic mindset
+  among the German population.
+
+Overall, the Allies learned from the mistakes of the post-World War I era and
+adopted a more comprehensive and thoughtful approach in the aftermath of World
+War II.  They sought to address the root causes of extremism, promote
+democracy, rebuild Germany's economy, and establish a cooperative occupation
+strategy to ensure lasting peace.
+#+end_quote
+* Thursday, 23 February, 2023
+:PROPERTIES:
+:ID:       001f745e-80e8-47fa-8131-2b494354e345
+:CUSTOM_ID: 001f745e-80e8-47fa-8131-2b494354e345
+:END:
+Two illuminating maxims about math I learned this week:
+
+#+begin_verse
+/Mathematics is the art of giving the same name to different things/.[fn::Courtesy of Henry Poincaré.]
+#+end_verse
+
+This phrase emphasises the importance of assigning a single, unified name to a
+concept that can be expressed in a variety of ways.  This helps to simplify
+the language of mathematics, making it easier to communicate, understand, and
+work with.  It also helps to create a unified language that mathematicians can
+use to discuss and compare different concepts, regardless of how they are
+expressed.  For example: complex numbers of the form $r + 0i$ are synonyms for
+the ordinary real numbers $r$ with respect to the normal rules of combination.
+Specifically, $r + 0i$ plus $s + 0i$ equals $(r+s) + 0i$, while $r + 0i$ times
+$s + 0i$ equals $(rs) + 0i$.  There just so happens to be a whole 'nother
+edifice on top of them.
+
+
+#+begin_verse
+/Mathematics is the art of giving different names to the same thing/.[fn::Courtesy of [[https://mathenchant.wordpress.com/2023/02/17/things-names-and-numbers/][James Propp]].]
+#+end_verse
+
+For example, things like real numbers can be expressed in multiple ways
+(e.g. as infinite "Cauchy sequences" of rational numbers).  Having multiple
+names for points on the real number line means we can use whichever naming
+system is best for the task at hand.  The modest price we pay for having more
+Names than Things is that we have to specify when two names name the same
+thing.  For instance, in the case of fractions, we have a rule that says that
+the fractions $a/b$ and $c/d$ are different names for the same number when $ad
+= bc$ (and that they represent different numbers otherwise).  In the case of
+irrational numbers, two sequences represent the same thing if they provably
+always get closer together the further you extend them out.  This is
+reminiscent of the Tractatus, and the notion that logic is merely giving
+different names for the same thing: tautology.
+
+#+begin_center
+○
+#+end_center
+
+I've since learned that the same name can be assigned to different things even
+/within/ the realm of mathematics, as though a number could have different
+interpretations.  Courtesy of [[https://mathenchant.wordpress.com/2023/03/18/unlimited-powers/][this follow-up post]]:
+#+begin_quote
+Both Euler's approach to $1+2+3+4+\ldots$ and Ramanujan's approach start from
+the idea that you shouldn't think about that particular numerical expression
+in isolation; you should think of it as the value taken on by some function
+$f(x)$ for some particular value of $x$.  But which function?  And which
+particular value?  There's the rub.  Euler treated $1+2+3+4+\ldots$ as the
+value associated with the function $1+2x+3x^{2}+4x^{3}+\ldots$ at $x = 1$, and
+(after algebraic extrapolation) got the answer $\infty$.  Ramanujan and Hardy
+and Littlewood treated $1+2+3+4+\ldots$ as the value associated with the
+function $1^{x}+2^{x}+3^{x}+4^{x}+\ldots$ at $x = 1$, and (after analytic
+continuation) got the answer $-1/12$. [This last equation is akin to the
+solution to the [[https://en.wikipedia.org/wiki/Riemann_zeta_function][Reimann zeta function]] at $-1$, i.e. $\zeta(-1) =
+-\frac{1}{12}$.]
+#+end_quote
+
+I shouldn't be too surprised about this, given the contradictions [[https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems][inherent to
+mathematics]].
+
+#+begin_center
+○
+#+end_center
+
+Another treatise on [[https://www.lesswrong.com/posts/MG8Yhsxqu9JY4xRPr/mental-context-for-model-theory#The_Right_to_use_a_name][names in mathematics]]:
+#+begin_quote
+Many math textbooks treat properties that justify a name of a thing as
+statements about the thing after naming it.
+
+This is a little abstract, so I'll make a silly example.  Imagine someone is
+trying to show that, in category theory, composition of arrows is associative.
+They shouldn't appeal to visual intuition or any diagrams of arrows.
+
+The concept that following arrows is an associative operation is so ingrained
+in the concept of "arrow" that it's difficult to describe the property in
+English without sounding dumb:
+#+begin_verse
+/If you move from A to B, then move B-to-D-through-C in one step, and if I follow the same paths but move A-to-C-through-B in one step and then from C to D, then we will end up at the same place./
+#+end_verse
+
+This property of arrows is so stupidly obvious that the statement is
+frustrating. Further, it hides the following fact:
+#+begin_verse
+/Associative composition between thingies is something we must have before we're justified in calling the thingies "Arrows"./
+#+end_verse
+
+Associative composition is what allows you to use the name "arrow" and draw
+visual diagrams.  You can't appeal to my intuition about "arrows" to show that
+composition is associative.  It's the other way around! Only after you show
+that your thingies have associative composition are you allowed to label them
+as "arrows".
+
+[...]
+
+I imagine this is not a problem for experienced mathematicians, for whom it
+goes without saying that you must formally specify (or disregard) all
+intuitive baggage that comes attached to the names.  However, I remember
+distinctly a number of times when I gnashed my teeth with boredom as teachers
+made obvious statements (of course ≤ is reflexive, why do we even need to say
+this?), simply because I didn't understand this idea.
+
+I mention this because the first few sections of the /Model Theory/ textbook
+make statements that seem quite obvious.  It's easy to grind your teeth and
+say "duh, hurry up".  It's a little harder to understand exactly why such
+things must be said.  In that light, I think this is a good piece of advice
+for learning mathematics in general:
+#+begin_verse
+/If you find yourself wondering why a statement must be said, check whether the statement is justifying any names./
+#+end_verse
+
+[...]
+
+The early parts of /Model Theory/ will go down much easier if you realize that
+they're binding logical symbols to the appropriate meaning (and thus
+justifying the name "model").
+
+For example, when we state "$\mathcal{M}$ models $\varphi \land \psi$ if and
+only if it models $\varphi$ and it models $\psi$", it's easy to say "well
+duh".  It's a little harder to understand that this is the mechanism by which
+the symbol $\land$ is bound to the interpretation "and".
+#+end_quote
+* Thursday, 22 September, 2022
+:PROPERTIES:
+:ID:       e8ae9869-b754-44a1-af01-3661e52c22e7
+:CUSTOM_ID: e8ae9869-b754-44a1-af01-3661e52c22e7
+:END:
+#+begin_quote
+/Now I lay me down to sleep()/, \\
+/Pray to OOM my stack to keep/. \\
+/If SIGKILL'd before I wake/, \\
+/Pray PID 1 my zombie reaped/.
+#+end_quote
+
+(Inspired by a half-finished quote I saw online which I just had to finish.)
+* Tuesday, 13 September, 2022
+:PROPERTIES:
+:ID:       1020c982-c193-42d5-b3a5-4435b8d51660
+:CUSTOM_ID: 1020c982-c193-42d5-b3a5-4435b8d51660
+:END:
+A random collation of Nietzsche quotes:
+
+/D/, I.50:
+#+begin_quote
+Men who enjoy moments of exaltation and ecstasy and who, on account of the
+contrast other states present and because of the way they have squandered
+their nervous energy, are ordinarily in a wretched and miserable condition,
+regard these moments as their real "self" and their wretchedness and misery as
+the /effect of what is 'outside the self'/; and thus they harbour feelings of
+revengefulness towards their environment, their age, their entire world.
+Intoxication counts as their real life, as their actual ego: they see in
+everything else the opponent and obstructor of intoxication, no matter whether
+its nature be spiritual, moral, religious or artistic.
+#+end_quote
+
+/D/, II.124:
+#+begin_quote
+We laugh at him who steps out of his room at the moment when the sun steps out
+of its room, and then says: "I will that the sun shall rise"; and at him who
+cannot stop a wheel, and says: "I will that it shall roll"; and at him who is
+thrown down in wrestling, and says: "here I lie, but I will lie here!"  But,
+all laughter aside, are we ourselves ever acting any differently whenever we
+employ the expression: "/I will/"?
+#+end_quote
+
+/GS/, IV.279:
+#+begin_quote
+/Star friendship/. --- We were friends and have become estranged.  But this was
+right, and we do not want to conceal and obscure it from ourselves as if we
+had reason to feel ashamed.  We are two ships each of which has its goal and
+course; our paths may cross and we may celebrate a feast together, as we did
+--- and then the good ships rested so quietly in one harbor and one sunshine
+that it may have looked as if they had reached their goal and as if they had
+one goal.  But then the almighty force of our tasks drove us apart again into
+different seas and sunny zones, and perhaps we shall never see one another
+again; perhaps we shall meet again but fail to recognize each other --- our
+exposure to different seas and suns has changed us!  That we have to become
+estranged is the law /above/ us: by the same token we should also become more
+venerable for each other!  And thus the memory of our former friendship should
+become more sacred!  There is probably a tremendous but invisible stellar
+orbit in which our very different ways and goals may be /included/ as small
+parts of this path; let us rise up to this thought!  But our life is too short
+and our power of vision too small for us to be more than friends in the sense
+of this sublime possibility. --- Let us then /believe/ in our star friendship
+even if we should be compelled to be earth enemies.
+#+end_quote
+
+/GS/, V.344:
+#+begin_quote
+/How we, too, are still pious/. --- In science convictions have no rights of
+citizenship, as one says with good reason.  Only when they decide to descend
+to the modesty of hypotheses, of a provisional experimental point of view, of
+a regulative fiction, they may be granted admission and even a certain value
+in the realm of knowledge --- though always with the restriction that they
+remain under police supervision, under the police of mistrust. --- But does
+this not mean, if you consider it more precisely, that a conviction may obtain
+admission to science only when it /ceases/ to be a conviction?  Would it not be
+the first step in the discipline of the scientific spirit that one would not
+permit oneself any more convictions?
+
+Probably this is so; only we still have to ask: /To make it possible for this
+discipline to begin/, must there not be some prior conviction --- even one that
+is so commanding and unconditional that it sacrifices all other convictions to
+itself?  We see that science also rests on a faith; there simply is no science
+"without presuppositions."  The question whether /truth/ is needed must not only
+have been affirmed in advance, but affirmed to such a degree that the
+principle, the faith, the conviction finds expression: "/Nothing/ is needed /more/
+than truth, and in relation to it everything else has only second-rate value."
+
+This unconditional will to truth --- what is it?  Is it the will /not to allow
+oneself to be deceived/?  Or is it the will /not to deceive/?  For the will to
+truth could be interpreted in the second way, too --- if only the special case
+"I do not want to deceive myself" is subsumed under the generalization "I do
+not want to deceive."  But why not deceive?  But why not allow oneself to be
+deceived?
+
+Note that the reasons for the former principle belong to an altogether
+different realm from those for the second.  One does not want to allow oneself
+to be deceived because one assumes that it is harmful, dangerous, calamitous
+to be deceived.  In this sense, science would be a long-range prudence, a
+caution, a utility; but one could object in all fairness: How is that?  Is
+wanting not to allow oneself to be deceived really less harmful, less
+dangerous, less calamitous?  What do you know in advance of the character of
+existence to be able to decide whether the greater advantage is on the side of
+the unconditionally mistrustful or of the unconditionally trusting?  But if
+both should be required, much trust /as well as/ much mistrust, from where would
+science then be permitted to take its unconditional faith or conviction on
+which it rests, that truth is more important than any other thing, including
+every other conviction.  Precisely this conviction could never have come into
+being if both truth and untruth constantly proved to be useful, which is the
+case.  Thus --- the faith in science, which after all exists undeniably,
+cannot owe its origin to such a calculus of utility; it must have originated
+in /spite/ of the fact that the disutility and dangerousness of "the will to
+truth," of "truth at any price" is proved to it constantly.  "At any price":
+how well we understand these words once we have offered and slaughtered one
+faith after another on this altar!
+
+Consequently, "will to truth" does /not/ mean "I will not allow myself to be
+deceived" but --- there is no alternative --- "I will not deceive, not even
+myself"; /and with that we stand on moral ground/.  For you only have to ask
+yourself carefully, "Why do you not want to deceive?" especially if it should
+seem --- and it does seem! --- as if life aimed at semblance, meaning error,
+deception, simulation, delusion, self-delusion, and when the great sweep of
+life has actually always shown itself to be on the side of the most scrupulous
+/polytropoi/ [Greek word used in the first line of the /Odyssey/ to describe
+Odysseus; meaning ranges from much turned to much traveled, versatile, wily,
+and manifold].  Charitably interpreted, such a resolve might perhaps be a
+quixotism, a minor slightly mad enthusiasm; but it might also be something
+more serious, namely, a principle that is hostile to life and destructive. ---
+"Will to truth" --- that might be a concealed will to death.
+
+Thus the question "Why science?" leads back to the moral problem: /Why have
+morality at all/ when life, nature, and history are "not moral"?  No doubt,
+those who are truthful in that audacious and ultimate sense that is
+presupposed by the faith in science /thus affirm another world/ than the world
+of life, nature, and history; and insofar as they affirm this "other world"
+--- look, must they not by the same token negate its counterpart, this world,
+/our/ world? --- But you will have gathered what I am driving at, namely, that
+it is still a /metaphysical faith/ upon which our faith in science rests ---
+that even we seekers after knowledge today, we godless anti-metaphysicians
+still take our fire, too, from the flame lit by a faith that is thousands of
+years old, that Christian faith which was also the faith of Plato, that God is
+the truth, that truth is divine. --- But what if this should become more and
+more incredible, if nothing should prove to be divine any more unless it were
+error, blindness, the lie --- if God himself should prove to be our most
+enduring lie? ---
+#+end_quote
+* Monday, 18 July, 2022
+:PROPERTIES:
+:ID:       ce782ae0-4e76-4d3d-abe5-98277e4fc03b
+:CUSTOM_ID: ce782ae0-4e76-4d3d-abe5-98277e4fc03b
+:END:
+​(*cough​*)
+
+#+begin_quote
+Ah, at last!  This forceful exhalation of breath, and the resulting
+dislodgement of phlegm from my throat, has finally drawn to conclusion this
+wretched episode of convalescence.  Never again will my throat be fettered
+with such a miserable and incessant source of irritation.
+#+end_quote
+
+(​​*30 seconds pass​*)
+
+(​*cough​*)
+
+#+BEGIN_CENTER
+○
+#+END_CENTER
+
+It would be reasonable, I think, regarding Nietzsche's maxim that "what
+doesn't kill me, makes me stronger", should have the proviso that it does not
+apply to mortal wounds.  But what we are to consider a mortal wound is up for
+debate --- a most serious one.
+* Sunday, 22 May, 2022
+:PROPERTIES:
+:ID:       ebb60e9c-5a7f-4104-8309-a328d5518f35
+:CUSTOM_ID: ebb60e9c-5a7f-4104-8309-a328d5518f35
+:END:
+#+begin_quote
+Such a right to live, which allows a chance to make amends, is the natural
+right of every man, even the worst man.  The lowest of criminals and the most
+upright of judges meet side by side, equally wretched in their solidarity.
+Without that right, moral life is utterly impossible.
+#+end_quote
+--- Albert Camus, /Reflections on the Guillotine/
+* Monday, 18 April, 2022
+:PROPERTIES:
+:ID:       1136f3fd-78b8-4fd6-b9bc-810345999640
+:CUSTOM_ID: 1136f3fd-78b8-4fd6-b9bc-810345999640
+:END:
+I didn't realise how many pairs of terms there are which, to some extent, seem
+to overlap with the two halves of dual processing theory:
+- type 1 vs. type 2 processing
+- automatic vs. controlled
+- experiential vs. rational
+- heuristic vs. systematic
+- synchrony vs. diachrony
+- implicit vs. explicit
+- associative vs. rule-based
+- intuitive vs. analytic
+- unconscious vs. conscious
+- reflexive vs. reflective
+- perceiving vs. ordering
+- abstract vs. detailed
+- chaos vs. order
+- far vs. near thinking
+- metaphor vs. metonymy
+- intension vs. extension
+- connotation vs. denotation
+- sense vs. reference[fn::See: Frege.]
+- symbol vs. sign[fn::See: Wittgenstein.]
+- type vs. token
+- opaque vs. transparent
+- Dionysian/Apollonian[fn::These have dual interpretations; see: Nietzsche, GS: 370.]
+- exploit vs. explore
+- babble vs. prune[fn::As defined [[https://www.lesswrong.com/s/pC6DYFLPMTCbEwH8W/p/i42Dfoh4HtsCAfXxL][here]].]
+- id vs. superego
+- freedom vs. security
+- liberation vs. containment
+- adventure vs. discipline
+- evil vs. virtue
+- parallel vs. serial
+- abstraction vs. concretion
+- mentalistic vs. mechanistic
+- poetic vs. prosaic
+- deontology vs. consequentialism
+- normative vs. descriptive language[fn::Ostensibly descriptive claims always
+  conceal a normative one; that something /ought/ to be.  Ostensibly normative
+  claims always conceal a descriptive one; that this ontology is the rule and
+  not the exception.  Similarly: all performative utterances have constative
+  properties; all constative utterances have performative properties.]
+- art vs. science
+- seeking vs. skepticism
+- unity vs. division
+- identity vs. individuation
+- continuity vs. discontinuity[fn:bataille:Birth/death vs. life; see: Bataille.]
+- sex/violence vs. work[fn:bataille][fn::Bataille defines taboo as that which
+  keeps the former in check in service of the latter.]
+- sacred vs. profane[fn::Ibid.]
+- ecstasy vs. awe/horror[fn::Ibid.][fn::Or trangression vs. taboo.]
+- explosion vs. compression
+- subject vs. object
+- spirit vs. matter
+- universal vs. particular
+- Romanticism vs. the Enlightenment
+- free will vs. determinism
+- freedom vs. want[fn::cf. morality, free-will w.r.t. existentialism.]
+- faith vs. reason
+- pure vs. impure
+- instinct vs. intellect
+- street smart vs. book smart
+- schizotypal vs. autistic[fn::More on this [[https://slatestarcodex.com/2018/12/11/diametrical-model-of-autism-and-schizophrenia/][here]] and [[https://www.lesswrong.com/posts/4zuFpLi7bYbwmEhoX/the-opposite-of-autism][here]].]
+- know-how vs. know-what
+- right-brain vs. left-brain
+- heart vs. head
+- body vs. mind
+- tacit vs. formal knowledge
+- procedural vs. declarative memory
+- passive vs. active
+- effortless vs. effortful
+- dialectic vs. eristic
+- monotonic vs. non-monotonic
+- ambiguity vs. certainty[fn::Though at their limits, certainty is
+  nevertheless contingent, and ambiguity impossible.]
+- content vs. form
+- semantics vs. syntax
+- elites vs. experts
+- contextualising vs. decoupling norms
+
+Arguably these similarities are tenuous, moreso if you just skip straight to
+the end of the list --- I've ended up somewhere quite far from where I
+started.  But I find this interesting nevertheless.
+
+(I've been adding to this list for ages, including stuff from a couple of
+similar posts I later stumbled across [[https://intellectualizing.net/2013/10/23/what-are-intellect-and-instinct/][here]] and [[https://srconstantin.wordpress.com/2017/10/10/distinctions-in-types-of-thought/][here]].  I found it oddly
+validating knowing that others might have had the exact same thoughts.)
