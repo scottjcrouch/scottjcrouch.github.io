@@ -38,10 +38,13 @@
              )))
 
 ;; Customise the HTML output
-(setq org-html-validation-link nil            ;; Omit the "validate" link at the bottom
-      org-html-head-include-scripts nil       ;; Use our own scripts in lieu of defaults
-      org-html-head-include-default-style nil ;; Use our own CSS in lieu of defaults
-      org-html-head "<link rel=\"stylesheet\" href=\"https://cdn.simplecss.org/simple.min.css\" />")
+(setq
+ org-html-validation-link nil         ;; omit the "validate" link at the bottom
+ org-html-htmlize-output-type 'css    ;; style the org src blocks using the css
+ org-html-htmlize-font-prefix "org-"  ;; the prefix to expect for css class names for htmlize font specs
+ org-export-with-smart-quotes t       ;; convert quotes to inverted commas
+ org-confirm-babel-evaluate nil       ;; evaluate src blocks without asking
+ )
 
 ;; Generate the project output
 (org-publish-all t)
