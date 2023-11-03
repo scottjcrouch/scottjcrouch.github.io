@@ -7,12 +7,11 @@
 #+STARTUP: fninline overview
 #+OPTIONS: H:4
 #+OPTIONS: num:4
-#+OPTIONS: broken-links:t
 
 * Introduction
 :PROPERTIES:
 :ID:       7b320482-5d72-4c5c-9ec0-beff19101cc0
-:CUSTOM_ID: introduction
+:CUSTOM_ID: 7b320482-5d72-4c5c-9ec0-beff19101cc0
 :UNNUMBERED: t
 :END:
 Why did I decide to do the eudyptula challenge?  And why bother writing about
@@ -80,8 +79,8 @@ this up were as follows:
 - configure automounting of the samba share[fn::In order to share files, we
   need to specify some "fake" file permissions at mount time.  I was lazy and
   just used 0777 enable all the bits, but this turned out to have problems,
-  which you can read about [[id:db5b3b96-8ee6-4f86-8208-6958c1b28a34][here]].][fn::Yet another problem with the samba share
-  I discuss [[id:062d9a4b-848d-4faf-8456-65d7546d08e9][here]].]
+  which you can read about [[#db5b3b96-8ee6-4f86-8208-6958c1b28a34][here]].][fn::Yet another problem with the samba share
+  I discuss [[#062d9a4b-848d-4faf-8456-65d7546d08e9][here]].]
   #+begin_src bash
     mkdir -p /mnt/qemu
     echo "//10.0.2.4/qemu /mnt/qemu cifs x-systemd.automount,username=guest,file_mode=0777,dir_mode=0777 0 0" >> /etc/fstab
@@ -137,7 +136,7 @@ brevity were omitted.)
 * Task 01
 :PROPERTIES:
 :ID:       c2b28cc5-a489-41c1-a830-8434bc1a63ac
-:CUSTOM_ID: task-01
+:CUSTOM_ID: c2b28cc5-a489-41c1-a830-8434bc1a63ac
 :END:
 #+begin_quote
 Write a Linux kernel module, and stand-alone Makefile, that when loaded prints
@@ -196,7 +195,7 @@ exported to user-space.  This pre-processing step includes:
 - removing sections that are kernel internal, i.e., guarded by =#ifdef
   __KERNEL__=.
 
-UAPI headers will be covered again in [[#task-15][task 15]].
+UAPI headers will be covered again in [[#7b9b2b15-ca21-4f76-964b-93edc2d98ba0][task 15]].
 *** Kbuild summarised
 :PROPERTIES:
 :ID:       870e35ef-9ef0-47ca-a22b-20af91cd2d3d
@@ -325,7 +324,7 @@ them in the build process will be recompiled.
 :ID:       087cb4b9-c8e8-4c47-91c9-1f4d269118f9
 :CUSTOM_ID: 087cb4b9-c8e8-4c47-91c9-1f4d269118f9
 :END:
-Punch it![fn::See [[id:062d9a4b-848d-4faf-8456-65d7546d08e9][appendix]] regarding an issue I encountered here.]
+Punch it![fn::See [[#062d9a4b-848d-4faf-8456-65d7546d08e9][appendix]] regarding an issue I encountered here.]
 #+begin_src bash
   make modules
 #+END_SRC
@@ -350,7 +349,7 @@ actually represent?
   symbols.  (Deprecated??)
 - =built-in.o= :: This file only applies to built-in modules, not loadable ones
   like ours.  Kbuild links this file together from module object files in
-  ~$(obj-y)~.  It later forms the =vmlinux= ELF binary.  ([[#task-02][Task 02]] will revisit
+  ~$(obj-y)~.  It later forms the =vmlinux= ELF binary.  ([[#80b1401c-ac7d-41a0-af2a-4d29c6183058][Task 02]] will revisit
   this.)
 *** Loading the module
 :PROPERTIES:
@@ -400,7 +399,7 @@ terminal.  Likewise, the module should disappear from =lsmod= output.
 * Task 02
 :PROPERTIES:
 :ID:       80b1401c-ac7d-41a0-af2a-4d29c6183058
-:CUSTOM_ID: task-02
+:CUSTOM_ID: 80b1401c-ac7d-41a0-af2a-4d29c6183058
 :END:
 #+begin_quote
 Now that you have written your first kernel module, it's time to take off the
@@ -439,7 +438,7 @@ discard it like was a broken umbrella, it deserves better than that.
 :CUSTOM_ID: 49e5b5b3-ef8e-44e1-b2d6-7ab6ed31d6b8
 :END:
 Linus's main development tree, and many others, can be obtained from
-[[https://git.kernel.org/][git.kernel.org]].  We'll talk about these a bit more in [[#task-07][task 07]], but for now,
+[[https://git.kernel.org/][git.kernel.org]].  We'll talk about these a bit more in [[#8401a002-06f1-444a-bed4-9cbe35161e52][task 07]], but for now,
 let's fetch the main development tree:
 #+begin_src bash
   git clone https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/
@@ -483,7 +482,7 @@ preferable to link any modules that might be required directly into the kernel
 image.  Thus I would recommend running src_bash[:exports code]{make
 mod2yesconfig} on the config.
 
-For further notes on paring down a configuration file, see the [[id:db5b3b96-8ee6-4f86-8208-6958c1b28a34][appendices]].
+For further notes on paring down a configuration file, see the [[#db5b3b96-8ee6-4f86-8208-6958c1b28a34][appendices]].
 *** Editing the configuration
 :PROPERTIES:
 :ID:       6b1dd7f0-89ff-48ff-a59a-b58515eba1f9
@@ -590,11 +589,11 @@ If the user defines the =C= variable to "1" or "2", this will cause =CHECK= to b
 invoked on some or all C files respectively.  By default, =CHECK= is set to a
 static analysis tool called =sparse=.  While we're on that topic, the user may
 add their own flags, such as =-Wextra=, to =EXTRA_CFLAGS= if desired.  (More on
-static analysis in [[id:e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]].)
+static analysis in [[#e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]].)
 
 With regard to the =modules= target, the user may also define the =M= variable to
 specify the location of an out-of-tree kernel module to build (as was
-demonstrated in [[id:4fafb3ff-d889-4385-8d19-5f19fe4038bc][task 01]]).
+demonstrated in [[#4fafb3ff-d889-4385-8d19-5f19fe4038bc][task 01]]).
 
 Definitions for various tools involved in the build process are pulled in from
 =scripts/Kbuild.include=; this includes =CC=, =AS= etc.  The purpose of the =HOSTCC=,
@@ -675,7 +674,7 @@ Here are some helpful make variables I found:
   trying out multiple configurations, and want their build artefacts to be
   kept apart --- just specify a different output directory for each.
 - =C={1,2}= :: This will perform static analysis on source files, as mentioned
-  [[id:9b02819b-b51b-4339-8adc-99031847779a][above]].  =C=1= will check only those files that are [re]compiled; =C=2= will
+  [[#9b02819b-b51b-4339-8adc-99031847779a][above]].  =C=1= will check only those files that are [re]compiled; =C=2= will
   check all files.
 - =W={1,2,3}= :: This will enable various levels of checks, from least to most
   verbose.  Usually, =W=1= by itself is sufficient.
@@ -694,7 +693,7 @@ Once built, the resulting =bzImage= can be copied over to =/boot/= by running th
 =install= target.  In brief, this target will (usually) end up running a
 distro-specific kernel install script that copies the image over to =/boot/=
 with a sensible filename, regenerates the initramfs, and updates the
-bootloader entries.  (The =install= target is covered in more detail in [[id:97f80e94-2336-494f-a4f3-57a3f6c1d635][task
+bootloader entries.  (The =install= target is covered in more detail in [[#97f80e94-2336-494f-a4f3-57a3f6c1d635][task
 11]].)
 
 (N.B.: If we compiled any loadable modules, we'll need to run the
@@ -734,7 +733,7 @@ it was invoked with:
 If we ran src_bash[:exports code]{make mod2yesconfig} as mentioned earlier,
 then we should not need to provide an init ramdisk to the VM, so we shouldn't
 need to specify =initrd==, but I imagine it would play out similarly.  (Later on
-I transition to [[id:670db2c8-3179-4003-9323-cd50b2b2a5bf][building and installing the kernel entirely within the VM]], as
+I transition to [[#670db2c8-3179-4003-9323-cd50b2b2a5bf][building and installing the kernel entirely within the VM]], as
 this setup was getting annoying.)
 
 In any case, let's fire up our virtual machine and confirm the change we made
@@ -753,7 +752,7 @@ thing?), but for our purposes it's probably harmless.]
 * Task 03
 :PROPERTIES:
 :ID:       89ff7eea-432e-4ee0-a17c-516b11107734
-:CUSTOM_ID: task-03
+:CUSTOM_ID: 89ff7eea-432e-4ee0-a17c-516b11107734
 :END:
 #+begin_quote
 Now that you have your custom kernel up and running, it's time to modify it!
@@ -979,7 +978,7 @@ Then, to generate this string for a particular revision given by the hash:
   =*.{c,h}= source files rather than patch files.  Ways to use or integrate
   clang-format into certain development environments, including git, are given
   [[https://clang.llvm.org/docs/ClangFormat.html][here]].)  Additionally, we should run our patch file through
-  =scripts/checkpatch.pl= (which will be employed in the [[id:bc6ba800-d10d-41c9-a9b3-646f4ea93c53][next task]]).  There is
+  =scripts/checkpatch.pl= (which will be employed in the [[#bc6ba800-d10d-41c9-a9b3-646f4ea93c53][next task]]).  There is
   more to coding style than what these tools are able to identify (a tool
   cannot tell you that your choice of variable name stinks, nor that a
   function is too large and unwieldy), but they encode most of the formal
@@ -1039,7 +1038,7 @@ headers and all, and then run =git am= on it --- this applies the patch to our
 local repository (literally "​*a*​pply ​*m*​ail"), where we can verify that it
 looks and works fine.
 
-More on this is covered later on in [[id:4cf49816-7559-408c-bea0-5f39131bba5d][task 10]], where we actually develop and
+More on this is covered later on in [[#4cf49816-7559-408c-bea0-5f39131bba5d][task 10]], where we actually develop and
 send a patch.
 ***** Feedback
 :PROPERTIES:
@@ -1135,7 +1134,7 @@ accepted upstream):
 * Task 04
 :PROPERTIES:
 :ID:       ac689271-0c7e-4816-b5ce-b81777b0b02d
-:CUSTOM_ID: task-04
+:CUSTOM_ID: ac689271-0c7e-4816-b5ce-b81777b0b02d
 :END:
 #+begin_quote
 Wonderful job in making it this far, I hope you have been having fun.  Oh,
@@ -1178,7 +1177,7 @@ not remove lines of code.
 Hmm --- the github page I found online that lists the eudyptula tasks didn't
 disclose the modules mentioned, so I had to do some digging.  Supposedly, the
 two modules that this task wants us to clean up are (a) our original =hello.c=
-module from [[id:5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a][task 01]], and (b) this other one I found:
+module from [[#5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a][task 01]], and (b) this other one I found:
 #+name: coding_style.c
 #+begin_src c
   #include <linux/module.h>
@@ -1235,16 +1234,9 @@ module from [[id:5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a][task 01]], and (b) this o
 :ID:       3059ef5f-6256-4674-8e98-63f1ab336f8a
 :CUSTOM_ID: 3059ef5f-6256-4674-8e98-63f1ab336f8a
 :END:
-I mentioned the official coding style of the Linux kernel in
-
-1 - [[id:503e1947-f374-4f8e-af59-7f30a9927256][task 03]]; [[id:f991e442-3bfb-40e5-a0d5-9252bfee2424][Patch submission overview]]
-
-2 - [[503e1947-f374-4f8e-af59-7f30a9927256][task 03]];
-
-3 - [[#89ff7eea-432e-4ee0-a17c-516b11107734][Task 03]]
-
-[[https://www.kernel.org/doc/html/latest/process/coding-style.html][here's the link again]].  It's worth giving it read if you want to understand
-the rationale behind each decision.
+I mentioned the official coding style of the Linux kernel in [[#89ff7eea-432e-4ee0-a17c-516b11107734][task 03]]; [[https://www.kernel.org/doc/html/latest/process/coding-style.html][here's
+the link again]].  It's worth giving it read if you want to understand the
+rationale behind each decision.
 
 Some personal remarks:
 - In my opinion, the most important overarching reason for any set of coding
@@ -1301,7 +1293,7 @@ Some personal remarks:
 :ID:       bc6ba800-d10d-41c9-a9b3-646f4ea93c53
 :CUSTOM_ID: bc6ba800-d10d-41c9-a9b3-646f4ea93c53
 :END:
-[[id:503e1947-f374-4f8e-af59-7f30a9927256][As mentioned]], the =script/checkpatch.pl= script performs static analysis.  The
+[[#503e1947-f374-4f8e-af59-7f30a9927256][As mentioned]], the =script/checkpatch.pl= script performs static analysis.  The
 =-help= flag shows the list of options available.  Basic usage looks something
 like this:
 #+begin_src bash
@@ -1380,7 +1372,7 @@ accident.  Nevertheless, we should pull in both.
 * Task 05
 :PROPERTIES:
 :ID:       c5e3bcd6-dd71-4efd-8f51-eb62ba994307
-:CUSTOM_ID: task-05
+:CUSTOM_ID: c5e3bcd6-dd71-4efd-8f51-eb62ba994307
 :END:
 #+begin_quote
 Yeah, you survived the coding style mess!  Now, on to some "real" things, as I
@@ -1417,7 +1409,7 @@ monitoring what udev is seeing and doing (which in doing the actual task
 turned out to be needed for troubleshooting).
 
 If you're not interested in learning about udev rules and whatnot, you can
-ignore those sections and [[id:88750d69-5d84-478c-9ea6-a4f5388fa3be][skip ahead]].
+ignore those sections and [[#88750d69-5d84-478c-9ea6-a4f5388fa3be][skip ahead]].
 *** The device model: a super-quick primer
 :PROPERTIES:
 :ID:       7dec8acc-8de6-4b4c-93d1-59850d71e7f7
@@ -1436,7 +1428,7 @@ That is, it represents one "node" in this hierarchy, and is associated with a
 particular kernel object in memory.  In fact, the sysfs directory tree is a
 direct reflection of this hierarchy --- every nested subdirectory in =/sys/= has
 a kobject associated with it.  In an overly simplified sense, it is similar to
-a =struct list_head= (more on that data structure [[id:459bf909-97d0-4e70-a002-e9c11ebca950][later]]), though its
+a =struct list_head= (more on that data structure [[#459bf909-97d0-4e70-a002-e9c11ebca950][later]]), though its
 responsibilities extend beyond merely linking objects together.
 
 One of these additional responsibilities is to facilitate the generation of
@@ -1444,7 +1436,7 @@ events that notify user-space when the system toplogy changes; the comings and
 goings of hardware.  A hotplug event is generated whenever a driver creates or
 destroys a kobject.
 
-(We will go over this topic more thoroughly in [[id:29787ffa-a04c-44ac-a030-7b1452bf710c][task 09]].)
+(We will go over this topic more thoroughly in [[#29787ffa-a04c-44ac-a030-7b1452bf710c][task 09]].)
 *** A detour through udev
 :PROPERTIES:
 :ID:       c94004f2-c0ce-490c-895c-1569717784b2
@@ -1685,7 +1677,7 @@ By default, this command will simulate a =change= action for all matching
 devices.  If we want to simulate a specific event for a device to see what
 rules /would be/ evaluated, without actually doing so, we can run
 src_bash[:exports code]{udevadm test --action=$action $dev_path}, as touched
-on [[id:013c2fc3-cc14-4a15-918b-9044cef2102b][earlier]].  (In my experience, this didn't seem to process all consequents in
+on [[#013c2fc3-cc14-4a15-918b-9044cef2102b][earlier]].  (In my experience, this didn't seem to process all consequents in
 the matching rules --- =RUN= commands were not run, which I can only speculate
 to be because they aren't guaranteed to be idempotent --- but it did create
 the symlinks.)
@@ -1704,7 +1696,7 @@ device, driver, or vendor, such as the UUID or the device tree path.[fn::I use
 the PARTUUID symlinks in a backup script so that I can be certain that I'm
 mounting and backing up the correct partition.]  Another directory is
 =/dev/block/=, which names symlinks by the =major:minor= number pair of the
-associated block device (more on major and minor numbers later in [[id:628566a0-dd52-425e-b686-b6e31e2ebdfe][task 06]]).
+associated block device (more on major and minor numbers later in [[#628566a0-dd52-425e-b686-b6e31e2ebdfe][task 06]]).
 
 On my distro (Debian), these in-built rules could be seen in
 =/usr/lib/udev/rules.d/=.
@@ -1730,7 +1722,7 @@ device, try src_bash[:exports code]{udevadm monitor --udev --environment}.
 :ID:       3dc9b642-60d9-4cb1-9531-cb07d0cc5d90
 :CUSTOM_ID: 3dc9b642-60d9-4cb1-9531-cb07d0cc5d90
 :END:
-(Again, this is not what the task asked, so [[id:88750d69-5d84-478c-9ea6-a4f5388fa3be][skip ahead]] if you're not
+(Again, this is not what the task asked, so [[#88750d69-5d84-478c-9ea6-a4f5388fa3be][skip ahead]] if you're not
 interested in witnessing a wrestling match between udev and I.  There was
 quite a bit of trial and error involved, and I've included the gory details
 here.)
@@ -1903,7 +1895,7 @@ job in lieu of a call to =modprobe=:
 I'm not sure whether this built-in command handles dependencies or module
 unloading, and I struggled to find any udev documentation about it online.  To
 venture a guess, it might be duplicating the job of module loading normally
-handled by the =kmod= family of utilities[fn::See the [[id:b4a93119-0bd3-4bac-8275-68a40f8a6f69][appendix]] for more detail
+handled by the =kmod= family of utilities[fn::See the [[#b4a93119-0bd3-4bac-8275-68a40f8a6f69][appendix]] for more detail
 on the kmod project.] for the sake of speed and/or ditching a dependency.  In
 any case, the module has to be installed first.  Copying =hello.ko= over to
 =/lib/modules/$(uname -r)/mymodules/= is enough for [[https://wiki.debian.org/depmod][depmod]] to find it.
@@ -1948,7 +1940,7 @@ of device the driver supports.  This information is exported with the module,
 namely, to:
 - the driver-specific subsystem, so that it knows which driver to bequeath a
   new device to (or if no such drivers are present); and
-- user-space (in a manner that requires further explication; see [[id:1b41b15a-5d3b-4eb9-a2f4-a2246de3533d][next
+- user-space (in a manner that requires further explication; see [[#1b41b15a-5d3b-4eb9-a2f4-a2246de3533d][next
   section]]), so that it knows what kind(s) of device a module can handle, and
   thus when to hotload it.
 
@@ -2040,7 +2032,7 @@ Before testing this, the module will need to be installed so that udev can
 find it.  Copying it over to =/lib/modules/$(uname -r)/mymodules/= will be
 enough for [[https://wiki.debian.org/depmod][depmod]] to find it.
 
-If you took the [[id:c94004f2-c0ce-490c-895c-1569717784b2][earlier detour]], you will have already learnt a way to test
+If you took the [[#c94004f2-c0ce-490c-895c-1569717784b2][earlier detour]], you will have already learnt a way to test
 this without needing to plug in a real keyboard --- src_bash[:exports
 code]{udevadm trigger}!
 
@@ -2071,7 +2063,7 @@ So, what do these aliases represent, and how are they used?
 :ID:       1b41b15a-5d3b-4eb9-a2f4-a2246de3533d
 :CUSTOM_ID: 1b41b15a-5d3b-4eb9-a2f4-a2246de3533d
 :END:
-As mentioned in my earlier [[id:c94004f2-c0ce-490c-895c-1569717784b2][detour]], when a uevent is sent from kernel to
+As mentioned in my earlier [[#c94004f2-c0ce-490c-895c-1569717784b2][detour]], when a uevent is sent from kernel to
 user-space, a string of key--value pairs is provided to help identify the
 device in question.  What I missed from this is that a specially-formatted
 string, called a module alias, is also disclosed (shout-out to the [[https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-udev.html][SLE docs]]).
@@ -2085,7 +2077,7 @@ alias published to user-space after having plugged in a USB mouse:
 
 On the user-space side, a module (=.ko=) file contains information regarding
 supported devices in the ELF metadata.  This data is constructed from the
-module device table we covered [[id:88750d69-5d84-478c-9ea6-a4f5388fa3be][earlier]].  This information may then be collated
+module device table we covered [[#88750d69-5d84-478c-9ea6-a4f5388fa3be][earlier]].  This information may then be collated
 into a modalias string, as is done when we run =modinfo=.
 
 The rules for constructing a modalias string from the module device table
@@ -2137,7 +2129,7 @@ subdirectories of this directory --- which one applies?  There are none in the
           82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,\
           B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw
 #+end_src
-Huh?  This looks nothing like the alias that we [[id:88750d69-5d84-478c-9ea6-a4f5388fa3be][spotted earlier]] in the
+Huh?  This looks nothing like the alias that we [[#88750d69-5d84-478c-9ea6-a4f5388fa3be][spotted earlier]] in the
 =modules.alias= file for our module.  What are we to make of this?
 
 It looks as though, when the device is added, not one but /multiple/ uevents are
@@ -2197,7 +2189,7 @@ set the interface subclass to 1.  The modalias strings are now a match.
 ​*​knees buckle in despair​*​ OTL
 
 Ok, perhaps it wasn't quite that dramatic.  I soon figured out that the
-=udevadm trigger= call I devised [[id:88750d69-5d84-478c-9ea6-a4f5388fa3be][earlier]] was not triggering the uevent for the
+=udevadm trigger= call I devised [[#88750d69-5d84-478c-9ea6-a4f5388fa3be][earlier]] was not triggering the uevent for the
 USB interface, but only the uevents representing its sysfs subdirectories:
 #+begin_src text
   /sys/devices/pci0000:00/0000:00:01.2/usb1/1-1/1-1:1.0/0003:0627:0001.0001/input/input5
@@ -2224,7 +2216,7 @@ usb_driver= at module init, complete with =probe()= and =disconnect()= callbacks
 (The =probe()= function is invoked by the USB core when it finds a device
 matched to our driver, and this function is our final confirmation that it may
 go ahead and register the device to us; vice versa for =disconnect()=.  We'll
-come across this again in [[id:253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][task 11]].)  Presumably, the USB subsystem would then
+come across this again in [[#253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][task 11]].)  Presumably, the USB subsystem would then
 bind the device to this driver, provided that the generic USB driver had not
 already claimed it; I'm not sure what exactly would happen here.  In any case,
 this isn't necessary for getting udev to auto-load your module.
@@ -2254,11 +2246,11 @@ created/registered.  These functions are used to signal this explicitly:
 Finally, in addition to devices, there exists one other way for modules to be
 loaded: The kernel may request a module on demand (consider that not every
 module controls a device).  This is called auto-loading.  I cover this briefly
-in the [[id:b4a93119-0bd3-4bac-8275-68a40f8a6f69][appendices]] if you are interested in learning more.
+in the [[#b4a93119-0bd3-4bac-8275-68a40f8a6f69][appendices]] if you are interested in learning more.
 * Task 06
 :PROPERTIES:
 :ID:       1158c320-30bc-48d3-a42c-feea3eeb6e71
-:CUSTOM_ID: task-06
+:CUSTOM_ID: 1158c320-30bc-48d3-a42c-feea3eeb6e71
 :END:
 #+begin_quote
 The task this time is this:
@@ -2302,8 +2294,8 @@ So, what are the fundamental things that a char driver requires?  Broadly:
   within a larger, driver-specific device structure).
 
 My knowledge of driver registration interfaces is mostly limited to what you
-can read in [[id:fb318868-a843-4e6c-8483-db73d832b726][LDD 3rd ed]].  This text was written in the 2.6.x era, before the
-interface ([[id:0ead0429-3ed9-423d-ad8b-d38ab99e0df7][as I will describe]]) had existed.  After a cursory google, this
+can read in [[#fb318868-a843-4e6c-8483-db73d832b726][LDD 3rd ed]].  This text was written in the 2.6.x era, before the
+interface ([[#0ead0429-3ed9-423d-ad8b-d38ab99e0df7][as I will describe]]) had existed.  After a cursory google, this
 seems to be a simplified interface for implementing basic char drivers for
 single devices.  Our device also needs to show up as =/dev/eudyptula=; hopefully
 this interface takes care of that for us --- I'd rather not have to write a
@@ -2459,7 +2451,7 @@ Both implementations should return either:
 Implementations often need to copy data of some arbitrary length to/from
 user-space.  Rather than dereferencing the =char __user *= parameter[fn::The
 =__user= thing is a special type annotation to help with static analysis; more
-on this [[id:e174e541-7e7c-4077-956a-217cb3c4154d][later]].] directly, we must use the following:
+on this [[#e174e541-7e7c-4077-956a-217cb3c4154d][later]].] directly, we must use the following:
 #+BEGIN_SRC c
   unsigned long copy_to_user(void __user *to, const void *from, unsigned long count);
   unsigned long copy_from_user(void *to, const void __user *from, unsigned long count);
@@ -2502,7 +2494,7 @@ implementing these functions; minor stuff for which advice was not sought:
 - From a glance of the error codes listed in =include/uapi/asm-generic/errno*=
   and the [[https://man7.org/linux/man-pages/man3/errno.3.html][errno(3) manpage]], it is difficult to determine exactly when to use
   which code.  Often the best instruction comes from looking at what other
-  code is doing.  ([[id:d93ec70e-fc24-446e-a747-d9fde1bd70b2][Meaning is use]], as Wittgenstein would say.)  From what I
+  code is doing.  ([[file:logs.org::#d93ec70e-fc24-446e-a747-d9fde1bd70b2][Meaning is use]], as Wittgenstein would say.)  From what I
   gathered, an error during the copy should return =-EFAULT=, and an invalid
   input should return =-EINVAL=.  If the user tries to append to the file beyond
   the size of our ID, it's unclear whether we're supposed to return =-EFBIG= or
@@ -2545,7 +2537,7 @@ At the end I did a final =clang-format= to correct the formatting:
 * Task 07
 :PROPERTIES:
 :ID:       8401a002-06f1-444a-bed4-9cbe35161e52
-:CUSTOM_ID: task-07
+:CUSTOM_ID: 8401a002-06f1-444a-bed4-9cbe35161e52
 :END:
 #+begin_quote
 The tasks this round are:
@@ -2648,7 +2640,7 @@ Here's my best summary of what's in the guide, which may be perused in full
     drivers and filesystems live on their way to being added to the kernel
     (this directory is maintained in a separate tree by GKH; =staging=)
   - as the name suggests, this directory is available for people to work on as
-    yet incomplete drivers in public view (we'll encounter this again in [[id:4cf49816-7559-408c-bea0-5f39131bba5d][task
+    yet incomplete drivers in public view (we'll encounter this again in [[#4cf49816-7559-408c-bea0-5f39131bba5d][task
     10]])
   - each subdirectory contains, as well as the source files, a =TODO= file
     listing pending work, and people that need to be CC'd if/when patches are
@@ -2784,7 +2776,7 @@ the old tag (or just clone a new copy of Linus's git tree).]):
 #+end_src
 
 Note that when it's time to update our work against =linux-next=, never run =git
-pull=!  As I mentioned [[id:51d453ee-3820-493c-9a0b-7a1ef245fa14][above]], this tree doesn't work that way.  Always run =git
+pull=!  As I mentioned [[#51d453ee-3820-493c-9a0b-7a1ef245fa14][above]], this tree doesn't work that way.  Always run =git
 fetch --tags= first, and then rebase to today's tag.  In fact, our
 feature-branch doesn't need to be tracking any remote branch at all.
 *** Building and booting
@@ -2812,7 +2804,7 @@ Punch it!
   make -j$(($(nproc) + 1))
 #+end_src
 
-To boot this, we just repeat what we did in [[id:80b1401c-ac7d-41a0-af2a-4d29c6183058][task 02]].  Once there, we should
+To boot this, we just repeat what we did in [[#80b1401c-ac7d-41a0-af2a-4d29c6183058][task 02]].  Once there, we should
 double-check what we're running:
 #+begin_src text
   debian@debian:~$ uname -r
@@ -2821,7 +2813,7 @@ double-check what we're running:
 * Task 08
 :PROPERTIES:
 :ID:       314f2c84-9822-4972-ba28-2d42d2953299
-:CUSTOM_ID: task-08
+:CUSTOM_ID: 314f2c84-9822-4972-ba28-2d42d2953299
 :END:
 #+begin_quote
 We will come back to the linux-next kernel in a later exercise, so don't go
@@ -2918,12 +2910,12 @@ char pointer, depending on the mode bits provided:
 :ID:       318c0505-15a5-484e-97dc-0e77ebe8741a
 :CUSTOM_ID: 318c0505-15a5-484e-97dc-0e77ebe8741a
 :END:
-For the "id" file, we can just copy the code we used in [[id:1158c320-30bc-48d3-a42c-feea3eeb6e71][task 06]].  For the
+For the "id" file, we can just copy the code we used in [[#1158c320-30bc-48d3-a42c-feea3eeb6e71][task 06]].  For the
 "jiffies" file, our file ops struct will only need to implement a =read()=
 method, one that just returns the jiffies value.
 
 That just leaves us with the "foo" file.  For this, we'll need to allocate a
-page at module load time.  To allocate this page, [[id:fb318868-a843-4e6c-8483-db73d832b726][LDD]] suggests calling
+page at module load time.  To allocate this page, [[#fb318868-a843-4e6c-8483-db73d832b726][LDD]] suggests calling
 =__get_free_page()= with the =GFP_KERNEL= flag.  I have a couple of questions
 though.  Firstly, do I need to zero this memory, or will that be unnecessary
 here?  Also, in C, it is convention to prefix symbols with underscores to mark
@@ -2957,7 +2949,7 @@ something like this (documented [[https://www.kernel.org/doc/html/latest/locking
 
 I must also remember to check for a [[https://en.wikipedia.org/wiki/Spurious_wakeup][spurious wakeup]] upon acquiring the lock
 (in brief, the lock can be woken prematurely for no particular reason; more on
-this later in [[id:51ac94e1-515d-4e7f-a7ee-7a186091f63d][task 17]]).  If one occurred, we start over and ask the user to
+this later in [[#51ac94e1-515d-4e7f-a7ee-7a186091f63d][task 17]]).  If one occurred, we start over and ask the user to
 retry:
 #+begin_src c
   if (mutex_lock_interruptible(&mut))
@@ -2987,7 +2979,7 @@ Some miscellanea:
   retry --- but kernel code elsewhere suggests it might be an error condition,
   that I should return =-EFAULT= unconditionally if anything less than a full
   copy takes place.
-- I forgot to run =checkpatch.pl -f= on the module from [[id:1158c320-30bc-48d3-a42c-feea3eeb6e71][task 06]], so I did it
+- I forgot to run =checkpatch.pl -f= on the module from [[#1158c320-30bc-48d3-a42c-feea3eeb6e71][task 06]], so I did it
   here (after a =clang-format -i= for good measure.)  It seems to complain about
   the "id" file being world-writable, but since these are non-permanent
   debugfs files and I'm doing exactly what the exercise asks, I'll ignore
@@ -3003,7 +2995,7 @@ emacs-based editor.  Conveniently, any null characters show up as =^@=.)
 * Task 09
 :PROPERTIES:
 :ID:       29787ffa-a04c-44ac-a030-7b1452bf710c
-:CUSTOM_ID: task-09
+:CUSTOM_ID: 29787ffa-a04c-44ac-a030-7b1452bf710c
 :END:
 #+begin_quote
 Nice job with debugfs, that is a handy thing to remember when wanting to print
@@ -3032,7 +3024,7 @@ want to see you go away just because sysfs is so damn complicated.
 :ID:       0f44c8ce-e15d-4def-9581-af00df326fdf
 :CUSTOM_ID: 0f44c8ce-e15d-4def-9581-af00df326fdf
 :END:
-As I already touched on [[id:7dec8acc-8de6-4b4c-93d1-59850d71e7f7][earlier]], the structure of =/sys/= reflects the structure
+As I already touched on [[#7dec8acc-8de6-4b4c-93d1-59850d71e7f7][earlier]], the structure of =/sys/= reflects the structure
 of the various kobjects --- each of which is embedded in some kernel data
 structure --- that are linked together.  The sysfs hierarchy thus mirrors the
 structure of the kernel subsystems it represents.
@@ -3161,7 +3153,7 @@ The top-level sysfs directories are:
   cores and clocks, and virtual devices, such as
   =/sys/devices/virtual/mem/null=.
   
-  The value of =DEVPATH= --- as disclosed in a uevent (see [[id:c5e3bcd6-dd71-4efd-8f51-eb62ba994307][task 05]]) for a device
+  The value of =DEVPATH= --- as disclosed in a uevent (see [[#c5e3bcd6-dd71-4efd-8f51-eb62ba994307][task 05]]) for a device
   --- corresponds to the path to that device in this tree (the =/sys= prefix is
   omitted).  This represents a kind of unique key for the device at the time
   of the uevent.
@@ -3191,7 +3183,7 @@ Sysfs was introduced to take some responsibilities away from the older procfs.
 Still, procfs exports a lot of helpful data, much of it being
 process-specific.  The files and subdirectories of procfs are described more
 comprehensively in the [[https://man7.org/linux/man-pages/man5/proc.5.html][proc(5) manpage]].  I've summarised some of its more
-notable contents in the [[#procfs][appendix]].  (Of most similarity to sysfs might be the
+notable contents in the [[#ad4353ca-42df-48b3-98ac-e9ebbf309dab][appendix]].  (Of most similarity to sysfs might be the
 =/proc/sys/= tree, which you can read more about by reading the documentation in
 =Documentation/admin-guide/sysctl/= and the [[https://man7.org/linux/man-pages/man8/sysctl.8.html][sysctl(8) manpage]].)
 *** The sysfs interface (kernel-space)
@@ -3206,7 +3198,7 @@ online [[https://www.kernel.org/doc/html/latest/core-api/kobject.html][here]].  
 relevant.  Additionally, there exists some code samples in =samples/kobject/=.
 These resources should be plenty sufficient for grokking the topic, but I also
 provide my own description below, in case one becomes stuck and wants to
-[[id:775d8d65-72c1-4785-808c-472d4641d07e][strafe]] around to view things in a different set of words.
+[[file:logs.org::#775d8d65-72c1-4785-808c-472d4641d07e][strafe]] around to view things in a different set of words.
 
 One could describe =struct kobject= as a kind of top-level abstract class, one
 which all sysfs entities must implement.  To implement this class is to
@@ -3306,7 +3298,7 @@ Some miscellanea:
 * Task 10
 :PROPERTIES:
 :ID:       4cf49816-7559-408c-bea0-5f39131bba5d
-:CUSTOM_ID: task-10
+:CUSTOM_ID: 4cf49816-7559-408c-bea0-5f39131bba5d
 :END:
 #+begin_quote
 Yeah, you conquered the sysfs monster, great job!
@@ -3355,7 +3347,7 @@ communities tend to lean conservative with regard to their tooling ecosystems
 (for better or worse) certainly explains at least some of this obstinacy.)
 
 As always, all of the information I made use of to complete this task has been
-documented below.  The actual patch I submitted I will leave to [[id:a316f564-f9e6-450e-ad1f-8a1659a6f35c][the end]].
+documented below.  The actual patch I submitted I will leave to [[#a316f564-f9e6-450e-ad1f-8a1659a6f35c][the end]].
 *** Email
 :PROPERTIES:
 :ID:       a027dab5-0f27-47e8-96bd-6545365c4f11
@@ -3368,7 +3360,7 @@ content-type.  Plus, sending and receiving patches via the browser interface
 would be an unwieldy and impractical cut-and-paste job.  Fortunately, git has
 tools to automate this process, namely:
 - =git send-email= :: This generates and sends patch files.  Under the hood, it
-  generates the patches with =git format-patch= (which we covered in [[id:89ff7eea-432e-4ee0-a17c-516b11107734][task 03]]).
+  generates the patches with =git format-patch= (which we covered in [[#89ff7eea-432e-4ee0-a17c-516b11107734][task 03]]).
 - =git am= :: This creates new commits out of the contents of an email/mailbox
   file.  Under the hood, this applies patches to the working tree using =git
   apply=.
@@ -3564,7 +3556,7 @@ Finally, he applies the mbox file with =git am=, including the =-s= flag to sign
 off on it himself.
 
 For patches that must be applied to the stable tree in particular, he uses
-=quilt= (a tool I mentioned earlier in [[id:51d453ee-3820-493c-9a0b-7a1ef245fa14][task 07]]) in lieu of =git am=.  The stable
+=quilt= (a tool I mentioned earlier in [[#51d453ee-3820-493c-9a0b-7a1ef245fa14][task 07]]) in lieu of =git am=.  The stable
 tree is developed as a giant patch series applied on top of the previous
 stable release.  The need for =quilt= arises where changes require an unwieldy
 amount of rebasing; often patches will need to be added or dropped from the
@@ -3674,7 +3666,7 @@ The former means I would have to enter the app password manually; the latter
 would mean it's cached on disk.  Neither of these appealed to me, so I opted
 for an external credential helper.  What external credential helper you might
 decide to use will be OS-specific, and the instructions on how to set it up
-may vary.  (If you want to see how I set up mine, check out the [[id:61c6e16b-a1bf-49ef-8bd9-4385461387b8][appendix]].)
+may vary.  (If you want to see how I set up mine, check out the [[#61c6e16b-a1bf-49ef-8bd9-4385461387b8][appendix]].)
 ******* Miscellaneous settings
 :PROPERTIES:
 :ID:       95f2185c-3c3a-4513-b67f-a0daeecd7509
@@ -3712,7 +3704,7 @@ Since, as stated, send-email (documented [[https://git-scm.com/docs/git-send-ema
 #+end_src
 The section for git-format-patch-specific options includes the revisions we
 wish to send as a patch set.  (We covered [[https://git-scm.com/docs/git-format-patch][format-patch]] and the [[https://git-scm.com/docs/gitrevisions][syntax for
-specifying revisions and ranges]] earlier in [[id:89ff7eea-432e-4ee0-a17c-516b11107734][task 03]].)  But if we already have
+specifying revisions and ranges]] earlier in [[#89ff7eea-432e-4ee0-a17c-516b11107734][task 03]].)  But if we already have
 at hand the patch files we want to send, we can just provide those instead.
 
 Some typical examples:
@@ -3997,7 +3989,7 @@ to ensure our changes aren't obsolete or conflict with recent changes.
 :ID:       696e1817-149c-4d21-95a5-0662bbfc0589
 :CUSTOM_ID: 696e1817-149c-4d21-95a5-0662bbfc0589
 :END:
-We tested out the =checkpatch.pl= and =clang-format= tools [[id:bc6ba800-d10d-41c9-a9b3-646f4ea93c53][earlier]].
+We tested out the =checkpatch.pl= and =clang-format= tools [[#bc6ba800-d10d-41c9-a9b3-646f4ea93c53][earlier]].
 
 To use clang-format, for example:
 #+begin_src bash
@@ -4033,7 +4025,7 @@ more ossified parts of the kernel.  I suppose these are left alone because
 such areas of the kernel are already battle-tested, and not worth polluting
 the commit history with fixes for.
 
-(I mention the actual patch /I/ submitted at [[id:a316f564-f9e6-450e-ad1f-8a1659a6f35c][the end]].)
+(I mention the actual patch /I/ submitted at [[#a316f564-f9e6-450e-ad1f-8a1659a6f35c][the end]].)
 ***** Bonus: Setting up a git hook
 :PROPERTIES:
 :ID:       693d8d1f-7542-4be1-a1cc-0878ac475f20
@@ -4234,7 +4226,7 @@ far too much time before I figured this out.  Don't make the same mistake I
 did!)  In general, if you are setting the =M= variable, you should also be
 specifying the root of the kernel tree with the =-C= flag.
 
-We'll get to try this out in [[id:fde2b5a7-5542-42b5-a1f0-1bad9b560563][task 16]].
+We'll get to try this out in [[#fde2b5a7-5542-42b5-a1f0-1bad9b560563][task 16]].
 
 Otherwise, there are some make targets of interest here:
 - =coccicheck=
@@ -4350,7 +4342,7 @@ output of =make tools/help=).  This includes:
   - for testing the radix tree implementation
 - =scatterlist/=
   - for testing scatterlists, which relate to Linux's [[https://en.wikipedia.org/wiki/Direct_memory_access][DMA]] layer (discussed in
-    chapter 15 of [[id:fb318868-a843-4e6c-8483-db73d832b726][LDD]])
+    chapter 15 of [[#fb318868-a843-4e6c-8483-db73d832b726][LDD]])
 - =selftests/=
   - small tests run from user-space, for various subsystems
   - these tests may be supported or extended by writing additional helper
@@ -4517,7 +4509,7 @@ available:
   - performs build, boot, functional, and performance testing, covering a wide
     number of kernel subsystems and components
 - [[https://syzkaller.appspot.com/upstream][Syzbot]]
-  - see [[id:776e802a-d218-4a2a-8bda-4d37fd36d915][above]]
+  - see [[#776e802a-d218-4a2a-8bda-4d37fd36d915][above]]
 ***** Other test frameworks
 :PROPERTIES:
 :ID:       ddd09c11-fd01-4937-8316-9d2346105c32
@@ -4569,7 +4561,7 @@ all):
   developers that help to ascertain whether they are actively involved
   contributors to patch-adjacent code.  This flag must be added if we're
   feeding the output of this script into =send-email= via the =--to-cmd= and
-  =--cc-cmd= flags (see [[id:27563f63-557d-4f7b-afa4-39bd7107b4e7][below]]).
+  =--cc-cmd= flags (see [[#27563f63-557d-4f7b-afa4-39bd7107b4e7][below]]).
 - =--scm= prints the URLs of associated repos for each matching entry.
 - =--subsystem= prints the relevant subsystems for each matching entry.
 - =--interactive= lets us interactively select or deselect matching entries to
@@ -4608,12 +4600,12 @@ final checklist is in order:
   impractical)
 - includes the URL of any bug it references
 - includes the output of ~git log -1 --pretty=fixes <hash>~ of a commit that
-  this patch fixes, if applicable (see my config from [[id:f94fde9c-9319-4be1-a04c-c065dc93d257][earlier]])
+  this patch fixes, if applicable (see my config from [[#f94fde9c-9319-4be1-a04c-c065dc93d257][earlier]])
 - includes a =Signed-off-by:= line
 
 If everything looks good, we can re-run =git send-email= with the full list of
 recipients, and send it on its way.  (If we set =sendemail.confirm= to "always",
-we'll get one final confirmation; see my config from [[id:58bd21c9-148d-49df-ad6d-ae92d1252601][earlier]].)
+we'll get one final confirmation; see my config from [[#58bd21c9-148d-49df-ad6d-ae92d1252601][earlier]].)
 
 It may take a while for the patch to be accepted, or to receive feedback, so
 be patient and give it at least a week or two.  (Things may be especially slow
@@ -4693,7 +4685,7 @@ this patch:
 - booted the kernel up in the VM and loaded a copy of the module file as a
   sanity check
   - at this point I reconsidered whether to compile and install the kernel
-    directly inside the VM instead (I bite the bullet on this in [[id:253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][the following
+    directly inside the VM instead (I bite the bullet on this in [[#253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][the following
     task]])
 - looked at the existing checkpatch errors in =drivers/staging/rtl8723bs/=
   - the ones that seemed possibly dangerous and not just cosmetic:
@@ -4792,7 +4784,7 @@ this patch:
 * Task 11
 :PROPERTIES:
 :ID:       253a35cd-3887-4b5c-a67b-b0dbdbed3cb0
-:CUSTOM_ID: task-11
+:CUSTOM_ID: 253a35cd-3887-4b5c-a67b-b0dbdbed3cb0
 :END:
 #+begin_quote
 You made a successful patch to the kernel source tree, that's a great step!
@@ -5058,7 +5050,7 @@ Rather than continuing to compile and run kitchen-sink kernels with all the
 modules built in, I scrapped this and started building them inside the VM
 within which they were to run.  This meant I could install the compiled
 modules to their usual place in =/lib/modules/=.[fn::As it turned, my root
-filesystem didn't have enough space for this.  See the [[id:51a7d5ac-e259-4d53-aa3d-27f4893f3a77][appendices]] for how I
+filesystem didn't have enough space for this.  See the [[#51a7d5ac-e259-4d53-aa3d-27f4893f3a77][appendices]] for how I
 remedied this.]
 
 This also meant I needed a new kernel configuration.  For this I just copied
@@ -5076,7 +5068,7 @@ To tell different kernels apart, I also set =CONFIG_LOCALVERSION= to something
 sufficiently informative.
 
 I encountered an odd message during boot regarding, coincidentally, the pcspkr
-module.  I address this in the [[id:b32dc6ad-81bf-41fd-8c1d-24a72d6468f1][appendices]].
+module.  I address this in the [[#b32dc6ad-81bf-41fd-8c1d-24a72d6468f1][appendices]].
 ***** Bonus: Installing a kernel
 :PROPERTIES:
 :ID:       97f80e94-2336-494f-a4f3-57a3f6c1d635
@@ -5125,7 +5117,7 @@ shown above.[fn::The only exception is the message about =CONFIG_X86_X32=.  This
 option enables support on 64-bit processors for running binaries built against
 the x32 native 32-bit ABI.  A version of binutils that supports =elf32_x86_64=
 is required to compile a kernel with this option set, which I didn't have
-installed; I just ignored this.][fn::As mentioned in [[id:f7859da4-52ed-4327-a352-7c892bf99cd8][task 02]], we should always
+installed; I just ignored this.][fn::As mentioned in [[#f7859da4-52ed-4327-a352-7c892bf99cd8][task 02]], we should always
 run the =modules_install= target /before/ we run =install=.]
 
 Should I later wish to /uninstall/ one of these kernels, I would have to delete
@@ -5147,7 +5139,7 @@ Some initial notes about the pcspkr module:
 - It's quite small.  The source code is very simple and easy to read.
 - The source code hasn't been modified for a very long time.
 - Interestingly, the device is registered with the input subsystem (and thus
-  the driver lives in =drivers/input/=).  As to why I discuss [[id:d1a45dbc-5ca3-4b81-bc7b-bbe22295f591][later on]].
+  the driver lives in =drivers/input/=).  As to why I discuss [[#d1a45dbc-5ca3-4b81-bc7b-bbe22295f591][later on]].
 ***** What is a platform driver?
 :PROPERTIES:
 :ID:       16e442bc-e96b-442f-abbd-bb166f268f7a
@@ -5319,7 +5311,7 @@ generated endogenously by the kernel.  In this case, the kernel generate an
 =EV_SND= event (perhaps triggered by the user sending a [[https://en.wikipedia.org/wiki/Bell_character][special control code to
 the tty]][fn::There is also an input device file symlinked at
 =/dev/input/by-path/platform-pcspkr-event-spkr/=.  I'm not sure how to use it.
-Likely it's related to the =snd-pcsp= module (see [[id:b32dc6ad-81bf-41fd-8c1d-24a72d6468f1][appendix]]).]) that this driver
+Likely it's related to the =snd-pcsp= module (see [[#b32dc6ad-81bf-41fd-8c1d-24a72d6468f1][appendix]]).]) that this driver
 has been registered to respond to.  That response is implemented in the
 =pcspkr_event()= event handler (shown further down).
 
@@ -5467,14 +5459,14 @@ Some miscellanea regarding my patch:
   included.  Also, the number of kernels I had installed was starting to
   balloon, so I also wrote a Debian-specific uninstall script; a kind of
   counterpart to src_bash[:exports code]{make modules_install && make
-  install}.  I have given this in the [[id:11713263-20ae-4326-a076-dd7fcb4d0b76][appendices]].
+  install}.  I have given this in the [[#11713263-20ae-4326-a076-dd7fcb4d0b76][appendices]].
 - To previous implementations of this =id= file, I have made a couple of fixes.
   Firstly, it now accepts as valid input strings with or without a trailing
   newline, or anything else beyond the length of the reference string, so long
   as the beginning of the string is a match.  Additionally, the string
   returned by a =read()= now includes a newline, such that it prints properly on
   a terminal like other sysfs attributes do (fixing the cosmetic issue I
-  mentioned [[id:ddfd869d-eaa0-492d-85fb-e2827a3ec726][here]]).
+  mentioned [[#ddfd869d-eaa0-492d-85fb-e2827a3ec726][here]]).
 - In the earlier tasks, attributes were defined in a =struct attribute=.  But in
   this case, creation and deletion require a =struct kobj_attribute=, which
   contains an instance of the former.  The reason for this: the latter bundles
@@ -5499,7 +5491,7 @@ changes.
 * Task 12
 :PROPERTIES:
 :ID:       3155bc29-4d2c-4b83-958b-c29008e1beee
-:CUSTOM_ID: task-12
+:CUSTOM_ID: 3155bc29-4d2c-4b83-958b-c29008e1beee
 :END:
 #+begin_quote
 Nice job with the driver patch.  That took some work in finding the
@@ -5581,7 +5573,7 @@ Bonus points for properly checking return values of the above functions.
 :ID:       459bf909-97d0-4e70-a002-e9c11ebca950
 :CUSTOM_ID: 459bf909-97d0-4e70-a002-e9c11ebca950
 :END:
-The texts mentioned in the [[id:fb318868-a843-4e6c-8483-db73d832b726][introduction]] provide very helpful explanations on
+The texts mentioned in the [[#fb318868-a843-4e6c-8483-db73d832b726][introduction]] provide very helpful explanations on
 how the kernel's linked list implementation works, so I would highly recommend
 reading these.  The core list management functions are provided by
 =include/linux/list.h=, and documented [[https://docs.kernel.org/core-api/kernel-api.html#list-management-functions][here]].  What I will do here is highlight
@@ -5682,7 +5674,7 @@ Also, I have no idea what the "busy" flag in =struct identity= was intended for.
 * Task 13
 :PROPERTIES:
 :ID:       32fe9de9-7258-47db-9439-b8742c4e842e
-:CUSTOM_ID: task-13
+:CUSTOM_ID: 32fe9de9-7258-47db-9439-b8742c4e842e
 :END:
 #+begin_quote
 Weren't those lists fun to play with?  You should get used to them, they are
@@ -5714,7 +5706,7 @@ Also show the output of =/proc/slabinfo= with your module loaded.
 :ID:       c0314dff-4d49-485b-bd4b-2664baa3d5e9
 :CUSTOM_ID: c0314dff-4d49-485b-bd4b-2664baa3d5e9
 :END:
-As for [[id:3155bc29-4d2c-4b83-958b-c29008e1beee][task 12]], I'll just mention the most salient details here.
+As for [[#3155bc29-4d2c-4b83-958b-c29008e1beee][task 12]], I'll just mention the most salient details here.
 
 In low-level programming, a common pattern employed when one needs to allocate
 many same-size objects is to allocate a giant chunk of contiguous memory
@@ -5770,7 +5762,7 @@ underlying slab cache.  (The name of my slab cache, for example, symlinked to
 * Task 14
 :PROPERTIES:
 :ID:       e6179887-4177-4b70-8dcd-389de0dd6c74
-:CUSTOM_ID: task-14
+:CUSTOM_ID: e6179887-4177-4b70-8dcd-389de0dd6c74
 :END:
 #+begin_quote
 Now that you have the basics of lists, and we glossed over the custom
@@ -5800,7 +5792,7 @@ These days, sysfs is regarded as the more appropriate place to expose new
 kernel mechanisms and data to user-space.  Nevertheless, I found this task to
 be a fun learning experience.
 
-A brief overview of =/proc/= can be seen in the [[id:ad4353ca-42df-48b3-98ac-e9ebbf309dab][appendix]].  The =/proc/${PID}/=
+A brief overview of =/proc/= can be seen in the [[#ad4353ca-42df-48b3-98ac-e9ebbf309dab][appendix]].  The =/proc/${PID}/=
 directories in particular contain a bunch of files, so it would make sense to
 sniff out where, and how, those files are created.  My first instinct was to
 look to where a new process is born.  To do that, I need to take another brief
@@ -5953,7 +5945,7 @@ compiler might throw a warning if we were compiling on a 32-bit arch.
 * Task 15
 :PROPERTIES:
 :ID:       7b9b2b15-ca21-4f76-964b-93edc2d98ba0
-:CUSTOM_ID: task-15
+:CUSTOM_ID: 7b9b2b15-ca21-4f76-964b-93edc2d98ba0
 :END:
 #+begin_quote
 That process task turned out to not be all that complex, but digging
@@ -5988,7 +5980,7 @@ So you need to send in a =.c= user-space program, a kernel patch, and "proof"
 that it all works, as a response.
 #+end_quote
 
-Ooh, this looks like fun!  I'm going to start with chapter 5 of [[id:fb318868-a843-4e6c-8483-db73d832b726][LKD]]; hopefully
+Ooh, this looks like fun!  I'm going to start with chapter 5 of [[#fb318868-a843-4e6c-8483-db73d832b726][LKD]]; hopefully
 the details haven't changed /too/ much since 2.6.32.
 *** System calls
 :PROPERTIES:
@@ -6179,7 +6171,7 @@ Some final remarks:
 * Task 16
 :PROPERTIES:
 :ID:       fde2b5a7-5542-42b5-a1f0-1bad9b560563
-:CUSTOM_ID: task-16
+:CUSTOM_ID: fde2b5a7-5542-42b5-a1f0-1bad9b560563
 :END:
 #+begin_quote
 Good job with the new syscall.  The odds of you ever having to write a new
@@ -6257,7 +6249,7 @@ kinds of coding style issues we looked at previously, but let's have a look.
 :ID:       e174e541-7e7c-4077-956a-217cb3c4154d
 :CUSTOM_ID: e174e541-7e7c-4077-956a-217cb3c4154d
 :END:
-I mentioned sparse briefly back in [[id:e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]].  The primary sources of
+I mentioned sparse briefly back in [[#e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]].  The primary sources of
 documentation for sparse seem to be [[https://sparse.docs.kernel.org/en/latest/][here]] and [[https://www.kernel.org/doc/html/latest/dev-tools/sparse.html][here]].  The [[https://man7.org/linux/man-pages/man1/sparse.1.html][sparse manpage]] also
 explains various flags (which we can override using the =CF= make variable).
 
@@ -6565,7 +6557,7 @@ I came across the following messages:
 :CUSTOM_ID: 168c4d3e-a3b8-4728-88c4-c5477e5c3698
 :END:
 If we want to compile only a particular subdirectory, we just give that
-directory as the make target.  (As I noted earlier in [[id:e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]], we /do not/
+directory as the make target.  (As I noted earlier in [[#e91e9b02-d5b6-4120-b040-587ffafd9573][task 10]], we /do not/
 specify the subdirectory with =M=.)  Thus, in the case of the staging directory:
 #+begin_src bash
   make C=2 drivers/staging/ # make sure the path contains a trailing slash!
@@ -6623,11 +6615,11 @@ test-compile the module (nor run sparse) on x86.
 As a final note, during this task I had to trawl through the most recent
 messages in the mailing lists to see if any newer patches had been submitted
 for the driver in question.  I compiled a list of the online mailing list
-archives I found most useful, which you can see in the [[id:5bf573bb-0efb-4e59-b714-df47a537a1ea][appendices]].
+archives I found most useful, which you can see in the [[#5bf573bb-0efb-4e59-b714-df47a537a1ea][appendices]].
 * Task 17
 :PROPERTIES:
 :ID:       51ac94e1-515d-4e7f-a7ee-7a186091f63d
-:CUSTOM_ID: task-17
+:CUSTOM_ID: 51ac94e1-515d-4e7f-a7ee-7a186091f63d
 :END:
 #+begin_quote
 Another patch made and sent in.  See, that wasn't so hard.  Keep sending in
@@ -6684,7 +6676,7 @@ groups of =$(nproc)=.  In such cases, their names will be appended with the
 index of the core they run on.
 
 Among the most notable of these, for example, is =ksoftirqd=, whose job is to
-process softirqs (and by extension tasklets; read [[id:fb318868-a843-4e6c-8483-db73d832b726][LKD]] to learn all about this
+process softirqs (and by extension tasklets; read [[#fb318868-a843-4e6c-8483-db73d832b726][LKD]] to learn all about this
 stuff).
 
 Kthreads can only be spawned by other kthreads.  How then, you might ask, do
@@ -6829,7 +6821,7 @@ A few other concerns:
 * Task 18
 :PROPERTIES:
 :ID:       258b4714-e7ff-42bb-97e8-bc5b211bf260
-:CUSTOM_ID: task-18
+:CUSTOM_ID: 258b4714-e7ff-42bb-97e8-bc5b211bf260
 :END:
 #+begin_quote
 Nice job with the kernel thread.  It really doesn't take much code at all to
@@ -6898,7 +6890,7 @@ Removing the module while there is pending work is always a good stress test.
 This task doesn't introduce anything too fancy, but there's nevertheless lots
 to talk about:
 - In =identity_create()=, I switched from =strncpy()= to the safer,
-  null-terminating =strscpy()=.  (See my notes at end of [[id:de624811-3fef-4e50-86ce-73058ece10be][task 12]].)
+  null-terminating =strscpy()=.  (See my notes at end of [[#de624811-3fef-4e50-86ce-73058ece10be][task 12]].)
 - I wrote the kthread function to sleep for only 1 second so that my test
   script can run a bit quicker.
 - I wrapped the list of identities in a mutex.  This mutex also protects the
@@ -7008,7 +7000,7 @@ to talk about:
   being unloaded while such a file is open.  (Oops!  That was probably
   important.)
 - I /still/ have no idea what the =busy= flag in =struct identity= (introduced in
-  [[id:3155bc29-4d2c-4b83-958b-c29008e1beee][task 12]]) was for.
+  [[#3155bc29-4d2c-4b83-958b-c29008e1beee][task 12]]) was for.
   - Currently, the mutex I used to protect the list of identities is a
     separate, static object.  Perhaps this =busy= flag should have been a mutex
     field all along?
@@ -7039,7 +7031,7 @@ to talk about:
   - But this is all academic; I don't have someone senior to review my code.
 - Regarding =mutex_lock_interruptible()=, =wait_event_interruptible()=, and
   returning early from signals or spurious wakeups, see my
-  [[id:1fa85feb-1770-490d-a705-2af56f13e57a][earlier discussion in task 17]].
+  [[#1fa85feb-1770-490d-a705-2af56f13e57a][earlier discussion in task 17]].
 - Some thoughts on wait queue condition variables:
   - My kthread's entry onto the wait queue looks like this:
     #+begin_src c
@@ -7068,7 +7060,7 @@ to talk about:
 * Task 19
 :PROPERTIES:
 :ID:       43f17fcc-501c-419c-b172-ef769dee9d39
-:CUSTOM_ID: task-19
+:CUSTOM_ID: 43f17fcc-501c-419c-b172-ef769dee9d39
 :END:
 #+begin_quote
 Handling delayed work is easy now, right?  So, time to move on to something
@@ -7269,7 +7261,7 @@ to short-circuit this process --- they will still have to pass through
 
 This will be relevant when it comes to sending email to ourselves on the same
 machine.  (And yet also relevant is the fact that, in recognising this, the
-[[id:bfbf5793-b0db-4708-bf7e-34ff8fcd1424][MUA]] may not involve the network stack at all.  That is, if the email is
+[[#bfbf5793-b0db-4708-bf7e-34ff8fcd1424][MUA]] may not involve the network stack at all.  That is, if the email is
 between two local users, whose mailboxes are on the same filesystem, it may
 simply be copied --- more on this later.)
 *** Registering hook ops
@@ -7464,7 +7456,7 @@ Finally, what is the most efficient way to search for a specific string inside
 a packet?  I could perhaps just call =strstr()= on the whole packet, but this
 function expects null-terminated input, which our packet is not.  (This also
 applies to =strnstr()=.)  Worse, the packet data may be scattered across
-multiple buffers, [[id:3f8d9bca-747a-4107-9011-a75747c533ed][as already discussed]].
+multiple buffers, [[#3f8d9bca-747a-4107-9011-a75747c533ed][as already discussed]].
 
 Fortunately, there exist solutions to both these problems.  Respectively:
 - the [[https://docs.kernel.org/core-api/kernel-api.html#text-searching][textsearch]] API; and
@@ -7565,10 +7557,10 @@ And everything turned out great! 🖒
 
 Some final notes:
 - I was printing out packet data to the console in printable ascii and noticed
-  that many of the packets were samba packets.  (Recall that I [[id:32aca210-6455-4ad6-9f83-78aba01cb38a][set up a samba
+  that many of the packets were samba packets.  (Recall that I [[#32aca210-6455-4ad6-9f83-78aba01cb38a][set up a samba
   share]] in my VM.)  I noticed this because the SMB headers contain a 4-byte
   string: ={ '\xFF', 'S', 'M', 'B' }=.
-- As stated [[id:5574be25-c38b-4242-9017-f3e3fb9483c7][above]], the textsearch API depends on =CONFIG_TEXTSEARCH=.  I forgot
+- As stated [[#5574be25-c38b-4242-9017-f3e3fb9483c7][above]], the textsearch API depends on =CONFIG_TEXTSEARCH=.  I forgot
   to enable this, and modpost complained about undefined symbols.  This
   wouldn't have happened in the first place if our module lived in the kernel
   tree, because such modules must provide their own =Kconfig= file, where the
@@ -7613,7 +7605,7 @@ Some final notes:
 * Task 20
 :PROPERTIES:
 :ID:       7271318d-2789-4669-9d55-e1da2d06f5ac
-:CUSTOM_ID: task-20
+:CUSTOM_ID: 7271318d-2789-4669-9d55-e1da2d06f5ac
 :END:
 #+begin_quote
 Networking filters turned out to be not all that complex in the end, great
@@ -8275,7 +8267,7 @@ Macros for assembling/disassembling these magic numbers live in
 Some further remarks:
 - Normally, a driver need not be concerned with checking for file permissions,
   as that's handled in the upper layers.  That's not the case for ioctls
-  though.  Chapter 6 of [[id:fb318868-a843-4e6c-8483-db73d832b726][LDD]] goes into this in more detail.[fn::ff.
+  though.  Chapter 6 of [[#fb318868-a843-4e6c-8483-db73d832b726][LDD]] goes into this in more detail.[fn::ff.
   "Capabilities and Restricted Operations", pg. 144.]
   - This is perhaps part of why sysfs is the more preferred option for
     exposing this kind of functionality.
@@ -8475,13 +8467,13 @@ On testing, and other miscellanea:
 * Appendices
 :PROPERTIES:
 :ID:       efb0188f-a193-403d-8b47-1bd0f761600f
-:CUSTOM_ID: appendices
+:CUSTOM_ID: efb0188f-a193-403d-8b47-1bd0f761600f
 :UNNUMBERED: t
 :END:
 *** Paring down a kernel configuration
 :PROPERTIES:
 :ID:       db5b3b96-8ee6-4f86-8208-6958c1b28a34
-:CUSTOM_ID: paring-down-a-kernel-config
+:CUSTOM_ID: db5b3b96-8ee6-4f86-8208-6958c1b28a34
 :END:
 How do the ~local{mod,yes}config~ make targets work?  The =README= file has this
 to say about =localmodconfig= specifically:
@@ -8553,7 +8545,7 @@ in there.)
 *** Troubleshooting CIFS
 :PROPERTIES:
 :ID:       062d9a4b-848d-4faf-8456-65d7546d08e9
-:CUSTOM_ID: troubleshooting-cifs
+:CUSTOM_ID: 062d9a4b-848d-4faf-8456-65d7546d08e9
 :END:
 The very first time I tried compiling a module, I was getting an error like
 this:
@@ -8636,7 +8628,7 @@ remount:
 *** Resizing a VM image
 :PROPERTIES:
 :ID:       51a7d5ac-e259-4d53-aa3d-27f4893f3a77
-:CUSTOM_ID: resizing-a-vm-image
+:CUSTOM_ID: 51a7d5ac-e259-4d53-aa3d-27f4893f3a77
 :END:
 As it turns out, the amount of space I gave to my QEMU disk image was not
 sufficient.  Fixing this was a simple two-step process.
@@ -8678,7 +8670,7 @@ problem, I'm not sure which:
 *** The pc speaker device
 :PROPERTIES:
 :ID:       b32dc6ad-81bf-41fd-8c1d-24a72d6468f1
-:CUSTOM_ID: the-pc-speaker-device
+:CUSTOM_ID: b32dc6ad-81bf-41fd-8c1d-24a72d6468f1
 :END:
 Upon compiling and installing from a custom configuration, I was seeing this
 ostensibly benign error at boot-time:
@@ -8704,7 +8696,7 @@ To provide the option, =snd-pcsp= is enabled in the kernel configuration that
 Debian supplies; other distros may differ.  To ensure that only =pcspkr= is
 loaded at boot, one can blacklist =snd-pcsp= in their [[https://man7.org/linux/man-pages/man5/modprobe.d.5.html][modprobe config]].  Debian
 instead omits =snd-pcsp= from the =modules.alias= file.[fn::Module aliases are
-covered in [[id:1b41b15a-5d3b-4eb9-a2f4-a2246de3533d][task 05]].].  But when we compile our own kernel, with both modules
+covered in [[#1b41b15a-5d3b-4eb9-a2f4-a2246de3533d][task 05]].].  But when we compile our own kernel, with both modules
 enabled, =modules.alias= will contain both:
 #+begin_src text
   alias platform:pcspkr pcspkr
@@ -8715,7 +8707,7 @@ thus explaining the error above.
 *** Module auto-loading
 :PROPERTIES:
 :ID:       b4a93119-0bd3-4bac-8275-68a40f8a6f69
-:CUSTOM_ID: module-auto-loading
+:CUSTOM_ID: b4a93119-0bd3-4bac-8275-68a40f8a6f69
 :END:
 As noted in [[Task 05][task 05]], when a new device turns up, the kernel signals a hotplug
 event to user-space (via a netlink socket); a user-space daemon (such as udev)
@@ -8747,7 +8739,7 @@ This request can fail:
 *** Source kernel uninstall script
 :PROPERTIES:
 :ID:       11713263-20ae-4326-a076-dd7fcb4d0b76
-:CUSTOM_ID: source-kernel-uninstall-script
+:CUSTOM_ID: 11713263-20ae-4326-a076-dd7fcb4d0b76
 :END:
 #+begin_src bash
   #!/usr/bin/env bash
@@ -8847,7 +8839,7 @@ This request can fail:
 *** Procfs
 :PROPERTIES:
 :ID:       ad4353ca-42df-48b3-98ac-e9ebbf309dab
-:CUSTOM_ID: procfs
+:CUSTOM_ID: ad4353ca-42df-48b3-98ac-e9ebbf309dab
 :END:
 The documentation for procfs is given [[https://docs.kernel.org/filesystems/proc.html][here]].  Here I've listed some of the more
 notable files and directories in procfs:
@@ -8873,7 +8865,7 @@ notable files and directories in procfs:
 - =/proc/kcore= is a pseudo-file which represents a coredump of the running
   kernel in ELF format, generated at the moment when the file is opened.  This
   file can be loaded into GDB, though this will require the original symbols
-  from an unstripped =vmlinux= file (see my notes on [[id:9b02819b-b51b-4339-8adc-99031847779a][the build process]]).
+  from an unstripped =vmlinux= file (see my notes on [[#9b02819b-b51b-4339-8adc-99031847779a][the build process]]).
 - =/proc/kmsg= provides access to the kernel ring buffer.  Kernel log messages
   are read from this file (typically by a dedicated daemon, like =klogd=), and
   thereby consumed.  (The more recent =/dev/kmsg= file is similar, except that
@@ -8894,9 +8886,9 @@ notable files and directories in procfs:
 *** Setting up a credential helper for git
 :PROPERTIES:
 :ID:       61c6e16b-a1bf-49ef-8bd9-4385461387b8
-:CUSTOM_ID: setting-up-a-credential-helper-for-git
+:CUSTOM_ID: 61c6e16b-a1bf-49ef-8bd9-4385461387b8
 :END:
-Following on from [[id:10772f62-bbcb-430a-8dae-e4e3d9902419][here]]: I use [[https://wiki.gnome.org/Projects/Libsecret][libsecret]] + [[https://wiki.gnome.org/action/show/Projects/GnomeKeyring][Gnome Keyring daemon]] as my
+Following on from [[#10772f62-bbcb-430a-8dae-e4e3d9902419][here]]: I use [[https://wiki.gnome.org/Projects/Libsecret][libsecret]] + [[https://wiki.gnome.org/action/show/Projects/GnomeKeyring][Gnome Keyring daemon]] as my
 credential helper.  To get that working, I had to fumble around a bit with the
 documentation [[https://wiki.archlinux.org/title/GNOME/Keyring][here]] and [[https://wiki.archlinux.org/title/Git#Using_git-credential-libsecret_as_credential-helper][here]] --- in the first place I was to add this to my
 =.gitconfig=:
@@ -8947,7 +8939,7 @@ figure out how to do it manually:
 *** Mailing list archives
 :PROPERTIES:
 :ID:       5bf573bb-0efb-4e59-b714-df47a537a1ea
-:CUSTOM_ID: mailing-list-archives
+:CUSTOM_ID: 5bf573bb-0efb-4e59-b714-df47a537a1ea
 :END:
 Here I have compiled some mailing list archives that I found to be the most
 helpful/readable/searchable:
