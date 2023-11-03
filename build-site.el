@@ -50,6 +50,7 @@
  org-html-htmlize-font-prefix "org-"  ;; the prefix to expect for css class names for htmlize font specs
  org-export-with-smart-quotes t       ;; convert quotes to inverted commas
  org-confirm-babel-evaluate nil       ;; evaluate src blocks without asking
+ org-odd-levels-only t                ;; all my org files assume this
  )
 
 ;; Generate the project output
