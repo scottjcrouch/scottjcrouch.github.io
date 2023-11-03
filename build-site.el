@@ -51,6 +51,7 @@
  org-export-with-smart-quotes t       ;; convert quotes to inverted commas
  org-confirm-babel-evaluate nil       ;; evaluate src blocks without asking
  org-odd-levels-only t                ;; all my org files assume this
+ org-src-fontify-natively t
  )
 
 ;; Generate the project output
