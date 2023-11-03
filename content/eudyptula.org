@@ -7249,7 +7249,6 @@ protocol-agnostic view is given [[https://upload.wikimedia.org/wikipedia/commons
   }
 #+end_src
 #+CAPTION: /A simplified view of Netfilter hooks for the IPv4 packet handler (circumscribed by the dotted-line).  Boxes with solid-lines represent hook sites; diamonds represent where routing logic occurs./
-#+LABEL: fig-netfilter-hooks
 #+NAME: fig-netfilter-hooks
 #+ATTR_HTML: :width 100%
 #+RESULTS:
