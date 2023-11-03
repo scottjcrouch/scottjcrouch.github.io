@@ -52,9 +52,6 @@
  org-confirm-babel-evaluate nil       ;; evaluate src blocks without asking
  )
 
-;; Update org id locations
-(org-id-update-id-locations)
-
 ;; Generate the project output
 (org-publish-all t)
 

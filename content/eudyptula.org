@@ -7,6 +7,7 @@
 #+STARTUP: fninline overview
 #+OPTIONS: H:4
 #+OPTIONS: num:4
+#+OPTIONS: broken-links:t
 
 * Introduction
 :PROPERTIES:
