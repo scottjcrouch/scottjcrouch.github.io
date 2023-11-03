@@ -23,7 +23,7 @@
   - [[file:eudyptula.org::#c2b28cc5-a489-41c1-a830-8434bc1a63ac][task-01/]]
   - [[file:eudyptula.org::#80b1401c-ac7d-41a0-af2a-4d29c6183058][task-02/]]
   - [[file:eudyptula.org::#89ff7eea-432e-4ee0-a17c-516b11107734][task-03/]]
-  - [[file:eudyptula.org::#n making it this far, I hope you have been having fun.  Oh,][task-04/]]
+  - [[file:eudyptula.org::#ac689271-0c7e-4816-b5ce-b81777b0b02d][task-04/]]
   - [[file:eudyptula.org::#c5e3bcd6-dd71-4efd-8f51-eb62ba994307][task-05/]]
   - [[file:eudyptula.org::#1158c320-30bc-48d3-a42c-feea3eeb6e71][task-06/]]
   - [[file:eudyptula.org::#8401a002-06f1-444a-bed4-9cbe35161e52][task-07/]]

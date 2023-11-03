@@ -45,6 +45,8 @@ yourself, I would suggest only referring to these notes when you're stuck, or
 as a sanity check once you've completed a task.  At some point after
 publishing this, I'll include my solutions on github.
 
+(🚨 [[https://github.com/scottjcrouch/eudyptula-challenge][WEEWW HERE THEY ARE!]] 🚨)
+
 Occasionally in the course of completing the tasks I will go over information
 that's already available from cited texts or websites, or branch off into
 tangentially-related topics --- feel free to skip those subsections.
