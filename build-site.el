@@ -35,6 +35,12 @@
              :with-toc t                ;; Include a table of contents
              :section-numbers nil       ;; Omit section numbers
              :time-stamp-file nil       ;; Omit time stamp
+             )
+       (list "public-org-blog-images"
+             :base-directory "./content/img"
+             :base-extension "png\\|jpg\\|jpeg\\|svg"
+             :publishing-directory "./public/img"
+             :publishing-function 'org-publish-attachment
              )))
 
 ;; Customise the HTML output

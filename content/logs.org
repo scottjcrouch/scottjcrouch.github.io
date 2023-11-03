@@ -180,8 +180,8 @@ The concept is not the object.
 [[https://www.artic.edu/artworks/118718/the-banquet][The sun is not the sunset.]]
 #+begin_center
 #+ATTR_HTML: :width 85%
-#+NAME: rene-magritte-the-banquet
-[[https://www.artic.edu/iiif/2/d2c459c3-c6cf-551b-fd27-5a2854b9fa81/full/843,/0/default.jpg]]
+#+NAME: fig-rene-magritte-the-banquet
+[[file:img/rene-magritte-the-banquet.jpg]]
 #+end_center
 
 #+begin_center

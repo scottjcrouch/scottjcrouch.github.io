@@ -3,10 +3,7 @@
 #+SETUPFILE: my-org-html-theme.setup
 #+STARTUP: fninline
 
-#+LATEX_HEADER: \usepackage{amsmath}
-
 # #+OPTIONS: H:4
-# #+OPTIONS: num:4
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
@@ -14,42 +11,36 @@
 * projects/
 :PROPERTIES:
 :ID:       ae62b1d2-7ea6-4c58-8bd6-adb3e38e72a5
-:CUSTOM_ID: proj
+:CUSTOM_ID: projects
 :END:
-- [COMING SOON!] Eudyptula challenge/
+- Eudyptula-Challenge/
   - README.txt
     #+begin_src text
       A series of challenges relating to Linux kernel development
     #+end_src
-  - #introduction/
-  - #task-01/
-  - #task-02/
-  - #task-03/
-  - #task-04/
-  - #task-05/
-  - #task-06/
-  - #task-07/
-  - #task-08/
-  - #task-09/
-  - #task-10/
-  - #task-11/
-  - #task-12/
-  - #task-13/
-  - #task-14/
-  - #task-15/
-  - #task-16/
-  - #task-17/
-  - #task-18/
-  - #task-19/
-  - #task-20/
-  - #appendices/
-    - #paring-down-a-kernel-config/
-    - #troubleshooting-cifs/
-    - #resizing-a-vm-image/
-    - #the-pc-speaker-device/
-    - #module-auto-loading/
-    - #source-kernel-uninstall-script/
-  - src/
+  - [[file:eudyptula.org::#introduction][introduction/]]
+  - [[file:eudyptula.org::#task-01][task-01/]]
+  - [[file:eudyptula.org::#task-02][task-02/]]
+  - [[file:eudyptula.org::#task-03][task-03/]]
+  - [[file:eudyptula.org::#task-04][task-04/]]
+  - [[file:eudyptula.org::#task-05][task-05/]]
+  - [[file:eudyptula.org::#task-06][task-06/]]
+  - [[file:eudyptula.org::#task-07][task-07/]]
+  - [[file:eudyptula.org::#task-08][task-08/]]
+  - [[file:eudyptula.org::#task-09][task-09/]]
+  - [[file:eudyptula.org::#task-10][task-10/]]
+  - [[file:eudyptula.org::#task-11][task-11/]]
+  - [[file:eudyptula.org::#task-12][task-12/]]
+  - [[file:eudyptula.org::#task-13][task-13/]]
+  - [[file:eudyptula.org::#task-14][task-14/]]
+  - [[file:eudyptula.org::#task-15][task-15/]]
+  - [[file:eudyptula.org::#task-16][task-16/]]
+  - [[file:eudyptula.org::#task-17][task-17/]]
+  - [[file:eudyptula.org::#task-18][task-18/]]
+  - [[file:eudyptula.org::#task-19][task-19/]]
+  - [[file:eudyptula.org::#task-20][task-20/]]
+  - [[file:eudyptula.org::#appendices][appendices/]]
+  - src/ (TODO TODO TODO TODO TODO TODO TODO TODO)
 - Tinyrenderer/
   - README.txt
     #+begin_src text
@@ -65,7 +56,7 @@
 * logs/
 :PROPERTIES:
 :ID:       5c2b30b2-15b6-49dc-acfd-d02dfc17316e
-:CUSTOM_ID: log
+:CUSTOM_ID: logs
 :END:
 - [[file:logs.org::#d93ec70e-fc24-446e-a747-d9fde1bd70b2][wittgenstein-exegesis]]/
 - [[file:logs.org::#e6c1d84c-1278-4759-8b8f-9d3383477d5a][poisson-point-processes-at-zero]]/
