@@ -1235,9 +1235,16 @@ module from [[id:5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a][task 01]], and (b) this o
 :ID:       3059ef5f-6256-4674-8e98-63f1ab336f8a
 :CUSTOM_ID: 3059ef5f-6256-4674-8e98-63f1ab336f8a
 :END:
-I mentioned the official coding style of the Linux kernel in [[id:503e1947-f374-4f8e-af59-7f30a9927256][task 03]]; [[https://www.kernel.org/doc/html/latest/process/coding-style.html][here's
-the link again]].  It's worth giving it read if you want to understand the
-rationale behind each decision.
+I mentioned the official coding style of the Linux kernel in
+
+1 - [[id:503e1947-f374-4f8e-af59-7f30a9927256][task 03]]; [[id:f991e442-3bfb-40e5-a0d5-9252bfee2424][Patch submission overview]]
+
+2 - [[503e1947-f374-4f8e-af59-7f30a9927256][task 03]];
+
+3 - [[#89ff7eea-432e-4ee0-a17c-516b11107734][Task 03]]
+
+[[https://www.kernel.org/doc/html/latest/process/coding-style.html][here's the link again]].  It's worth giving it read if you want to understand
+the rationale behind each decision.
 
 Some personal remarks:
 - In my opinion, the most important overarching reason for any set of coding
