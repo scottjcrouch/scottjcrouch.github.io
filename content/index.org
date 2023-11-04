@@ -18,29 +18,32 @@
     #+begin_src text
       A series of challenges relating to Linux kernel development
     #+end_src
-  - [[https://github.com/scottjcrouch/eudyptula-challenge][src/]]
-  - [[file:eudyptula.org::#7b320482-5d72-4c5c-9ec0-beff19101cc0][introduction/]]
-  - [[file:eudyptula.org::#c2b28cc5-a489-41c1-a830-8434bc1a63ac][task-01/]]
-  - [[file:eudyptula.org::#80b1401c-ac7d-41a0-af2a-4d29c6183058][task-02/]]
-  - [[file:eudyptula.org::#89ff7eea-432e-4ee0-a17c-516b11107734][task-03/]]
-  - [[file:eudyptula.org::#ac689271-0c7e-4816-b5ce-b81777b0b02d][task-04/]]
-  - [[file:eudyptula.org::#c5e3bcd6-dd71-4efd-8f51-eb62ba994307][task-05/]]
-  - [[file:eudyptula.org::#1158c320-30bc-48d3-a42c-feea3eeb6e71][task-06/]]
-  - [[file:eudyptula.org::#8401a002-06f1-444a-bed4-9cbe35161e52][task-07/]]
-  - [[file:eudyptula.org::#314f2c84-9822-4972-ba28-2d42d2953299][task-08/]]
-  - [[file:eudyptula.org::#29787ffa-a04c-44ac-a030-7b1452bf710c][task-09/]]
-  - [[file:eudyptula.org::#4cf49816-7559-408c-bea0-5f39131bba5d][task-10/]]
-  - [[file:eudyptula.org::#253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][task-11/]]
-  - [[file:eudyptula.org::#3155bc29-4d2c-4b83-958b-c29008e1beee][task-12/]]
-  - [[file:eudyptula.org::#32fe9de9-7258-47db-9439-b8742c4e842e][task-13/]]
-  - [[file:eudyptula.org::#e6179887-4177-4b70-8dcd-389de0dd6c74][task-14/]]
-  - [[file:eudyptula.org::#7b9b2b15-ca21-4f76-964b-93edc2d98ba0][task-15/]]
-  - [[file:eudyptula.org::#fde2b5a7-5542-42b5-a1f0-1bad9b560563][task-16/]]
-  - [[file:eudyptula.org::#51ac94e1-515d-4e7f-a7ee-7a186091f63d][task-17/]]
-  - [[file:eudyptula.org::#258b4714-e7ff-42bb-97e8-bc5b211bf260][task-18/]]
-  - [[file:eudyptula.org::#43f17fcc-501c-419c-b172-ef769dee9d39][task-19/]]
-  - [[file:eudyptula.org::#7271318d-2789-4669-9d55-e1da2d06f5ac][task-20/]]
-  - [[file:eudyptula.org::#efb0188f-a193-403d-8b47-1bd0f761600f][appendices/]]
+  - [[https://github.com/scottjcrouch/eudyptula-challenge][src]]/
+  - [[file:eudyptula.org::#7b320482-5d72-4c5c-9ec0-beff19101cc0][introduction]]/
+  - [[file:eudyptula.org::#c2b28cc5-a489-41c1-a830-8434bc1a63ac][hello-world-module]]/
+  - [[file:eudyptula.org::#80b1401c-ac7d-41a0-af2a-4d29c6183058][creating-a-custom-kernel]]/
+  - [[file:eudyptula.org::#89ff7eea-432e-4ee0-a17c-516b11107734][decorating-the-version-string]]/
+  - [[file:eudyptula.org::#ac689271-0c7e-4816-b5ce-b81777b0b02d][kernel-coding-style-linting]]/
+  - [[file:eudyptula.org::#c5e3bcd6-dd71-4efd-8f51-eb62ba994307][udev-and-module-aliases]]/
+  - [[file:eudyptula.org::#1158c320-30bc-48d3-a42c-feea3eeb6e71][the-misc-driver-interface]]/
+  - [[file:eudyptula.org::#8401a002-06f1-444a-bed4-9cbe35161e52][linux-next]]/
+  - [[file:eudyptula.org::#314f2c84-9822-4972-ba28-2d42d2953299][debugfs]]/
+  - [[file:eudyptula.org::#29787ffa-a04c-44ac-a030-7b1452bf710c][sysfs-and-kobjects]]/
+  - [[file:eudyptula.org::#4cf49816-7559-408c-bea0-5f39131bba5d][submitting-a-patch]]/
+  - [[file:eudyptula.org::#253a35cd-3887-4b5c-a67b-b0dbdbed3cb0][adding-attributes-to-an-existing-kobject]]/
+  - [[file:eudyptula.org::#3155bc29-4d2c-4b83-958b-c29008e1beee][intrusive-linked-lists]]/
+  - [[file:eudyptula.org::#32fe9de9-7258-47db-9439-b8742c4e842e][the-slab-layer]]/
+  - [[file:eudyptula.org::#e6179887-4177-4b70-8dcd-389de0dd6c74][procfs-and-task-structs]]/
+  - [[file:eudyptula.org::#7b9b2b15-ca21-4f76-964b-93edc2d98ba0][creating-a-new-syscall]]/
+  - [[file:eudyptula.org::#fde2b5a7-5542-42b5-a1f0-1bad9b560563][semantic-checking-and-kbuild-issues]]/
+  - [[file:eudyptula.org::#51ac94e1-515d-4e7f-a7ee-7a186091f63d][kthreads-and-wait-queues]]/
+  - [[file:eudyptula.org::#258b4714-e7ff-42bb-97e8-bc5b211bf260][kthreads-and-wait-queues-part-two]]/
+  - [[file:eudyptula.org::#43f17fcc-501c-419c-b172-ef769dee9d39][netfilter-hooks]]/
+  - [[file:eudyptula.org::#7271318d-2789-4669-9d55-e1da2d06f5ac][patching-fatfs]]/
+  - [[file:eudyptula.org::#efb0188f-a193-403d-8b47-1bd0f761600f][appendices]]/
+    - [[file:eudyptula.org::#db5b3b96-8ee6-4f86-8208-6958c1b28a34][paring-down-a-kernel-config]]/
+    - ...
+    - [[file:eudyptula.org::#5bf573bb-0efb-4e59-b714-df47a537a1ea][mailing-list-archives]]/
 - Tinyrenderer/
   - README.txt
     #+begin_src text
