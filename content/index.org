@@ -61,6 +61,7 @@
 :ID:       5c2b30b2-15b6-49dc-acfd-d02dfc17316e
 :CUSTOM_ID: logs
 :END:
+- [[file:logs.org::#4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c][semantic-adjacency]]/
 - [[file:logs.org::#d93ec70e-fc24-446e-a747-d9fde1bd70b2][wittgenstein-exegesis]]/
 - [[file:logs.org::#e6c1d84c-1278-4759-8b8f-9d3383477d5a][poisson-point-processes-at-zero]]/
 - [[file:logs.org::#775d8d65-72c1-4785-808c-472d4641d07e][a-metaphor-for-the-acquisition-of-knowledge]]/

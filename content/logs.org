@@ -9,6 +9,64 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
 
+* Wednesday, 15 November, 2023
+:PROPERTIES:
+:ID:       4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c
+:CUSTOM_ID: 4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c
+:END:
+A binary relation is a subset of the set of ordered pairs between two sets
+(which could be the same set).  In other words, it is defined as a subset of a
+cartesian product: $R \subseteq X \times Y$.
+
+Thus a relation could be thought of as a kind of carving out of the space of
+possibility, such that an inference can be made about one element given
+another in the same pair.
+
+Note that this simple definition does not imply symmetry, that $x \sim y \iff
+y \sim x$.  As such, the term "relation" does not necessarily imply
+bidirectionality.  In [[https://en.wikipedia.org/wiki/Category_theory][category theory]], a relation is represented by a directed
+arrow.  It seems as though the directed arrow as a concept cannot be broken
+down further; is prior to, or a component of, the concept of symmetry; is
+fundamental to relation /qua/ idea.  However, in casual use one may consider it
+bidirectional in the sense of there being implied a [[https://en.wikipedia.org/wiki/Opposite_category][dual category]] (e.g. the
+$\ge$ relation has $\lt$ as its dual).
+
+I consider this because it seems as though, when an object comes into
+consciousness, semantically adjacent objects invariably come to mind as well.
+For example, "gambling" brings to mind (or perhaps "[[https://en.wikipedia.org/wiki/Priming_(psychology)][primes]]") "sport", but so
+too does "sport" bring to mind "gambling".[fn::I hate how [[https://en.wikipedia.org/wiki/Gambling_in_Australia][Australian]] this
+example is.]  One can think of connections between neurons as being binary
+relations; from this view, "semantic adjecency" would be a symmetric relation.
+This lead me to ask:
+#+begin_quote
+It has been said that "neurons that fire together wire together".  Does this
+mean that most neuronal connections in the brain are bidirectional?
+#+end_quote
+
+ChatGPT:
+#+begin_quote
+The phrase "neurons that fire together wire together" refers to Hebbian
+theory, which suggests that when two neurons are active at the same time, the
+connection between them strengthens. This concept doesn't necessarily imply
+that most neuronal connections in the brain are bidirectional.
+
+Neuronal connections can indeed be bidirectional in some cases, especially in
+networks where information flows back and forth between neurons. However, not
+all connections are bidirectional. In many cases, neuronal connections are
+unidirectional, meaning they transmit information in one direction only.
+
+For instance, in a typical neural pathway, information flows from one neuron
+(the presynaptic neuron) to another (the postsynaptic neuron) across a
+synapse. This flow of information is unidirectional, with signals transmitted
+from the presynaptic neuron to the postsynaptic neuron.
+
+While bidirectional connections do exist, they are not the majority in the
+brain. The brain's structural and functional complexity arises from a
+combination of unidirectional and bidirectional connections among neurons and
+neural networks. Both types of connections contribute to information
+processing, learning, and memory formation in the brain.
+#+end_quote
+
 * Wednesday, 21 June, 2023
 :PROPERTIES:
 :ID:       d93ec70e-fc24-446e-a747-d9fde1bd70b2
