@@ -118,6 +118,14 @@
   - [[https://www.erichgrunewald.com/posts/networks-of-meaning/][Networks of meaning]]
   - [[https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories/][The Categories Were Made For Man, Not Man For The Categories]]
   - [[https://theconversation.com/is-it-time-to-reconsider-the-idea-of-the-banality-of-evil-216737][Is it time to reconsider the idea of "the banality of evil"?]]
+  - [[https://foldedpapers.substack.com/p/agnostic-virtue-ethics][Agnostic virtue ethics]]
+- psychology/
+  - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
+  - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
+  - [[https://slatestarcodex.com/2015/07/16/cbt-in-the-water-supply/][CBT In The Water Supply]]
+  - [[https://philosophybear.substack.com/p/the-origins-of-religion-and-ocd][The Origins of Religion and OCD]]
+  - [[https://www.psychologytoday.com/us/blog/out-the-ooze/201707/what-is-the-right-size-group-conversation][What is the Right Size for a Group Conversation?]]
+  - [[https://psyche.co/ideas/essentialism-is-insidious-but-it-can-also-be-helpful][Essentialism is insidious --- but it can also be helpful]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -187,12 +195,6 @@
   - [[https://ciechanow.ski/internal-combustion-engine/][Internal Combustion Engines [how they work]​]]
   - [[https://thebaffler.com/salvos/enter-the-supersensorium-hoel][Enter The Supersensorium [on the purpose of dreams]​]]
   - [[https://ourworldindata.org/limits-personal-experience][The Limits of our Personal Experience and the Value of Statistics]]
-  - psychology/
-    - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
-    - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
-    - [[https://slatestarcodex.com/2015/07/16/cbt-in-the-water-supply/][CBT In The Water Supply]]
-    - [[https://philosophybear.substack.com/p/the-origins-of-religion-and-ocd][The Origins of Religion and OCD]]
-    - [[https://www.psychologytoday.com/us/blog/out-the-ooze/201707/what-is-the-right-size-group-conversation][What is the Right Size for a Group Conversation?]]
   - math/
     - [[https://www.youtube.com/playlist?list=PLqHnHG5X2PXBVZsf_rvAwGnUgZ-mGdqCy][Math Mornings at Yale [yt]​]]
     - [[https://www.youtube.com/watch?v=1QAqxiO8VHM][Is this one connected curve, or two? [yt]​]]
@@ -206,6 +208,7 @@
     - [[https://mathenchant.wordpress.com/2017/12/17/the-roots-of-unity/][The Roots of Unity]]
     - [[https://mathenchant.wordpress.com/2019/12/23/the-null-salad/][The Null Salad]]
     - [[https://mathenchant.wordpress.com/2023/02/17/things-names-and-numbers/][Things, Names, and Numbers]]
+    - [[https://bartoszmilewski.com/2013/07/29/quantum-homotopy-computer/][Quantum homotopy computer]]
   - tech/
     - [[https://www.youtube.com/watch?v=y7KWGv_t-MU][Programming Language Ideas That Work And Don't Work [yt]​]]
     - [[https://roughlywritten.substack.com/p/random-thoughts-15-years-into-software][Random Thoughts 15 years into Software Engineering]]
@@ -271,6 +274,7 @@
   - [[https://www.guernicamag.com/the-protagonist-is-never-in-control/][The Protagonist is Never in Control]]
   - [[https://mattlakeman.org/2020/01/22/the-new-epidemic-my-experience-of-losing-a-friend-to-heroin/][The New Epidemic --- My Experience of Losing a Friend to Heroin]]
   - [[https://lithub.com/growing-up-as-an-untouchable/][Growing Up as an Untouchable]]
+  - [[https://www.lrb.co.uk/the-paper/v45/n21/gale-walden/diary][David's Presence (Gale Walden; 2023)]]
 - fiction/
   - [[https://qntm.org/mmacevedo][Lena]]
   - [[https://scp-wiki.wikidot.com/scp-3008][SCP-3008]]
