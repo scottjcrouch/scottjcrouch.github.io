@@ -209,6 +209,8 @@
     - [[https://mathenchant.wordpress.com/2019/12/23/the-null-salad/][The Null Salad]]
     - [[https://mathenchant.wordpress.com/2023/02/17/things-names-and-numbers/][Things, Names, and Numbers]]
     - [[https://bartoszmilewski.com/2013/07/29/quantum-homotopy-computer/][Quantum homotopy computer]]
+    - [[https://www.youtube.com/watch?v=mH0oCDa74tE][Group theory, abstraction, and the 196,883-dimensional monster]]
+    - [[https://www.youtube.com/watch?v=0CHZMY02Dhk][What does it mean to take a complex derivative? (visually explained)]]
   - tech/
     - [[https://www.youtube.com/watch?v=y7KWGv_t-MU][Programming Language Ideas That Work And Don't Work [yt]​]]
     - [[https://roughlywritten.substack.com/p/random-thoughts-15-years-into-software][Random Thoughts 15 years into Software Engineering]]
