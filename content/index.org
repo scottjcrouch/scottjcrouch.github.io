@@ -6,7 +6,7 @@
 # #+OPTIONS: H:4
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil
-#+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
+#+HTML_HEAD: <style type="text/css"> body { margin: auto; font-family: monospace; } h1.title { text-align: left; } pre.src.src-text { margin: 0px; padding: 0.5em; } ul { list-style-type: disc; } </style>
 
 * projects/
 :PROPERTIES:
@@ -16,7 +16,7 @@
 - Eudyptula-Challenge/
   - README.txt
     #+begin_src text
-      A series of challenges relating to Linux kernel development
+      > A series of challenges relating to Linux kernel development
     #+end_src
   - [[https://github.com/scottjcrouch/eudyptula-challenge][src]]/
   - [[file:eudyptula.org::#7b320482-5d72-4c5c-9ec0-beff19101cc0][introduction]]/
@@ -42,18 +42,24 @@
   - [[file:eudyptula.org::#7271318d-2789-4669-9d55-e1da2d06f5ac][patching-fatfs]]/
   - [[file:eudyptula.org::#efb0188f-a193-403d-8b47-1bd0f761600f][appendices]]/
     - [[file:eudyptula.org::#db5b3b96-8ee6-4f86-8208-6958c1b28a34][paring-down-a-kernel-config]]/
-    - ...
+    - [[file:eudyptula.org::#062d9a4b-848d-4faf-8456-65d7546d08e9][troubleshooting-cifs]]/
+    - [[file:eudyptula.org::#51a7d5ac-e259-4d53-aa3d-27f4893f3a77][resizing-a-vm-image]]/
+    - [[file:eudyptula.org::#b32dc6ad-81bf-41fd-8c1d-24a72d6468f1][the-pc-speaker-device]]/
+    - [[file:eudyptula.org::#b4a93119-0bd3-4bac-8275-68a40f8a6f69][module-auto-loading]]/
+    - [[file:eudyptula.org::#11713263-20ae-4326-a076-dd7fcb4d0b76][source-kernel-uninstall-script]]/
+    - [[file:eudyptula.org::#ad4353ca-42df-48b3-98ac-e9ebbf309dab][procfs]]/
+    - [[file:eudyptula.org::#61c6e16b-a1bf-49ef-8bd9-4385461387b8][setting-up-a-credential-helper-for-git]]/
     - [[file:eudyptula.org::#5bf573bb-0efb-4e59-b714-df47a537a1ea][mailing-list-archives]]/
 - Tinyrenderer/
   - README.txt
     #+begin_src text
-      A small software rasteriser written in C++
+      > A small software rasteriser written in C++
     #+end_src
   - [[https://github.com/scottjcrouch/tinyrenderer][src]]/
 - ScootNES/
   - README.txt
     #+begin_src text
-      An NTSC NES emulator in C++
+      > An NTSC NES emulator in C++
     #+end_src
   - [[https://github.com/scottjcrouch/ScootNES][src]]/
 * logs/
