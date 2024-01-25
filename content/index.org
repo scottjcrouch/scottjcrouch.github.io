@@ -6,7 +6,7 @@
 # #+OPTIONS: H:4
 #+OPTIONS: num:nil
 #+OPTIONS: toc:nil
-#+HTML_HEAD: <style type="text/css"> body { margin: auto; font-family: monospace; } h1.title { text-align: left; } pre.src.src-text { margin: 0px; padding: 0.5em; } ul { list-style-type: disc; } </style>
+#+HTML_HEAD: <style type="text/css"> body { margin: auto; font-family: monospace; } h1.title { text-align: left; } pre.src.src-text { margin: 0px; padding: 0.5em; } </style>
 
 * projects/
 :PROPERTIES:
