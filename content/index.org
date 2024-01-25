@@ -108,6 +108,7 @@
   - [[https://unstableontology.com/2022/06/03/a-short-conceptual-explainer-of-immanuel-kants-critique-of-pure-reason/][/Critique of Pure Reason/ (Immanuel Kant)]]
   - [[https://josephnoelwalker.com/146-richard-rhodes/][/The Making of the Atomic Bomb/ (Richard Rhodes) [I know, technically not a book review but a great listen nonetheless]​]]
   - [[https://www.thepsmiths.com/p/review-the-education-of-cyrus-by][/The Education of Cyrus/ (Xenophon)]]
+  - [[https://bookmarks.reviews/george-orwells-1940-review-of-mein-kampf/][/Mein Kampf/ (Guy that killed Hitler)]]
 - philosophy/
   - [[https://asteriskmag.com/issues/01/making-sense-of-moral-change][Making Sense of Moral Change]]
   - [[https://www.youtube.com/watch?v=rbaD66oTvuo][Hinge Epistemology [yt]​]]
@@ -126,6 +127,9 @@
   - [[https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories/][The Categories Were Made For Man, Not Man For The Categories]]
   - [[https://theconversation.com/is-it-time-to-reconsider-the-idea-of-the-banality-of-evil-216737][Is it time to reconsider the idea of "the banality of evil"?]]
   - [[https://foldedpapers.substack.com/p/agnostic-virtue-ethics][Agnostic virtue ethics]]
+  - [[https://iai.tv/articles/back-to-the-future-hegelian-pragmatism-auid-2719][Back to the Future: Hegelian Pragmatism]]
+  - [[https://aeon.co/essays/is-it-possible-to-hold-truly-contradictory-beliefs-together][What is incoherence?]]
+  - [[https://psyche.co/ideas/ancient-greek-antilogic-is-the-craft-of-suspending-judgment][Ancient Greek antilogic is the craft of suspending judgment]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -133,6 +137,8 @@
   - [[https://philosophybear.substack.com/p/the-origins-of-religion-and-ocd][The Origins of Religion and OCD]]
   - [[https://www.psychologytoday.com/us/blog/out-the-ooze/201707/what-is-the-right-size-group-conversation][What is the Right Size for a Group Conversation?]]
   - [[https://psyche.co/ideas/essentialism-is-insidious-but-it-can-also-be-helpful][Essentialism is insidious --- but it can also be helpful]]
+  - [[https://www.astralcodexten.com/p/the-psychopolitics-of-trauma][The Psychopolitics of Trauma]]
+  - [[https://dynomight.net/taste-games/][Taste games]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -171,13 +177,16 @@
     - [[https://www.glass-bead.org/article/a-theory-of-vibe/][A Theory of Vibe]]
     - [[https://necsus-ejms.org/the-elephant-mans-sound-tracked/][The Elephant Man's Sound, Tracked]]
     - [[https://obscuritory.com/essay/incredible-boxes-of-hock-wah-yeo/][The incredible boxes of Hock Wah Yeo]]
+    - [[https://www.youtube.com/watch?v=ffllV6-aqWU][David Lynch: The Treachery of Language [yt]​]]
   - essays-on-architecture/
     - [[https://www.currentaffairs.org/2017/10/why-you-hate-contemporary-architecture][Why You Hate Contemporary Architecture]]
     - [[https://www.currentaffairs.org/2021/04/when-is-the-revolution-in-architecture-coming][When Is the Revolution in Architecture Coming?]]
     - [[https://worksinprogress.co/issue/in-praise-of-pastiche][In Praise of Pastiche]]
-    - [[https://worksinprogress.co/issue/making-architecture-easy][Making architecture easy]]
+    - [[https://worksinprogress.co/issue/making-architecture-easy][Making Architecture Easy]]
     - [[https://misfitsarchitecture.com/2015/07/12/building-bridges/][Building Bridges]]
     - [[https://www.bldgblog.com/2010/01/nakatomi-space/][Nakatomi Space]]
+    - [[https://aeon.co/essays/the-architectural-style-wars-have-started-all-over-again][The New Architecture Wars]]
+    - [[https://mcmansionhell.com/post/741171396971053056/weve-found-it-folks-mcmansion-heaven][McMansion Heaven]]
 - game-theory/
   - [[https://www.youtube.com/watch?v=tJjCbdOWXgM][Common Knowledge and Hats]]
   - [[https://www.youtube.com/watch?v=rStL7niR7gs][The Rules for Rulers]]
@@ -268,6 +277,8 @@
   - [[https://www.noemamag.com/the-modern-wisdom-of-daoist-history/][The Modern Wisdom Of Daoist History]]
   - [[https://jacobin.com/2023/08/eugene-debs-bicycles-socialism][Eugene Debs Really Loved Bicycles]]
   - [[https://glineq.blogspot.com/2023/10/there-is-no-exit-for-dictators.html][There is No Exit for Dictators]]
+  - [[https://asteriskmag.com/issues/05/democracy-by-mistake][Democracy by Mistake]]
+  - [[https://etiennefd.substack.com/p/the-most-nuanced-take-you-will-ever][The Most Nuanced Take You Will Ever Read About Sparta (and North Korea)]]
 - politics-and-the-english-language/
   - [[https://everythingstudies.com/2019/10/30/cat-couplings/][Cat Couplings]]
   - [[https://everythingstudies.com/2018/02/12/wordy-weapons-of-is-ought-alloy/][Wordy Weapons of Is--Ought Alloy]]
@@ -278,6 +289,7 @@
   - [[https://slatestarcodex.com/2018/01/24/conflict-vs-mistake/][Conflict vs. Mistake]]
   - [[https://slatestarcodex.com/2014/09/30/i-can-tolerate-anything-except-the-outgroup/][I Can Tolerate Anything Except The Outgroup]]
   - [[https://slatestarcodex.com/2016/04/04/the-ideology-is-not-the-movement/][The Ideology Is Not The Movement]]
+  - [[https://foldedpapers.substack.com/p/my-years-as-a-feminist-on-red-pill][My years as a feminist on red-pill-adjacent rationalist reddit]]
 - human-interest/
   - [[https://kentnerburn.com/the-cab-ride-ill-never-forget/][The Cab Ride I'll Never Forget]]
   - [[https://www.theatlantic.com/magazine/archive/2004/05/a-sea-story/302940/][A Sea Story (2004)]]
@@ -323,3 +335,4 @@
   - [[https://thezvi.wordpress.com/2017/09/30/slack/][Slack]]
   - [[https://thezvi.wordpress.com/2020/05/03/on-negative-feedback-and-simulacra/][On Negative Feedback and Simulacra]]
   - [[https://www.lesswrong.com/s/cv2aZaRR22MPC5QwE/p/qDmnyEMtJkE9Wrpau][Simulacra Levels and their Interactions]]
+  - [[https://jenn.site/2022/08/rich-friend-poor-friend/][Rich Friend, Poor Friend]]
