@@ -115,6 +115,7 @@
   - [[https://josephnoelwalker.com/146-richard-rhodes/][/The Making of the Atomic Bomb/ (Richard Rhodes) [I know, technically not a book review but a great listen nonetheless]​]]
   - [[https://www.thepsmiths.com/p/review-the-education-of-cyrus-by][/The Education of Cyrus/ (Xenophon)]]
   - [[https://bookmarks.reviews/george-orwells-1940-review-of-mein-kampf/][/Mein Kampf/ (Guy that killed Hitler)]]
+  - [[https://www.youtube.com/watch?v=bqloPw5wp48][/Twilight/ (Stephenie Meyer) [yt]​]]
 - philosophy/
   - [[https://asteriskmag.com/issues/01/making-sense-of-moral-change][Making Sense of Moral Change]]
   - [[https://www.youtube.com/watch?v=rbaD66oTvuo][Hinge Epistemology [yt]​]]
@@ -145,6 +146,8 @@
   - [[https://psyche.co/ideas/essentialism-is-insidious-but-it-can-also-be-helpful][Essentialism is insidious --- but it can also be helpful]]
   - [[https://www.astralcodexten.com/p/the-psychopolitics-of-trauma][The Psychopolitics of Trauma]]
   - [[https://dynomight.net/taste-games/][Taste games]]
+  - [[https://sarahconstantin.substack.com/p/what-does-the-cerebellum-do-anyway][What does the Cerebellum Do Anyway?]]
+  - [[https://superbowl.substack.com/p/two-paths-out-of-hell][Two Paths out of Hell]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -162,6 +165,7 @@
   - [[https://www.youtube.com/watch?v=wRWmep4pSzg][Premonitions Following an Evil Deed by David Lynch [One of his lesser known short (!) films]​]]
   - [[https://www.youtube.com/watch?v=Cj6ho1-G6tw][Way Back Home w/ Danny MacAskill [yt]​]]
   - [[https://www.youtube.com/watch?v=9sUsiYnHwqI][Ascota 170 mechanical computer calculates square root [yt]​]]
+  - [[https://www.youtube.com/watch?v=lTwg4mFF32E][15 Note Poly Tempo Pendulum [yt]​]]
   - painting/
     - [[https://www.youtube.com/watch?v=MgrO5za0lSY][Francis Bacon: A Brush with Violence (2017) [yt]​]]
     - [[https://www.youtube.com/watch?v=yUq9qMm9NtI][The Raft of the Medusa by Théodore Géricault [yt]​]]
@@ -193,6 +197,7 @@
     - [[https://www.bldgblog.com/2010/01/nakatomi-space/][Nakatomi Space]]
     - [[https://aeon.co/essays/the-architectural-style-wars-have-started-all-over-again][The New Architecture Wars]]
     - [[https://mcmansionhell.com/post/741171396971053056/weve-found-it-folks-mcmansion-heaven][McMansion Heaven]]
+    - [[https://etiennefd.substack.com/p/how-expensive-is-architectural-ornamentation][How Expensive Is Architectural Ornamentation?]]
 - game-theory/
   - [[https://www.youtube.com/watch?v=tJjCbdOWXgM][Common Knowledge and Hats]]
   - [[https://www.youtube.com/watch?v=rStL7niR7gs][The Rules for Rulers]]
@@ -256,6 +261,7 @@
       - [[https://lwn.net/Articles/939842/][Making life (even) harder for proprietary modules]]
       - [[https://lwn.net/Articles/944686/][Revisiting the kernel's preemption models]] ([[https://lwn.net/Articles/945422/][part 2]])
       - [[https://utcc.utoronto.ca/~cks/space/blog/linux/KernelModesettingBackground][How we wound up with Linux's kernel mode setting (KMS)]]
+      - [[https://lwn.net/Articles/962788/][A look at Nix and Guix]]
     - git-gud/
       - [[https://johnmathews.is/blog/rys-git-tutorial][Ry's Git Tutorial]]
       - [[https://jvns.ca/blog/2023/11/01/confusing-git-terminology/][Confusing git terminology]]
@@ -296,6 +302,7 @@
   - [[https://slatestarcodex.com/2014/09/30/i-can-tolerate-anything-except-the-outgroup/][I Can Tolerate Anything Except The Outgroup]]
   - [[https://slatestarcodex.com/2016/04/04/the-ideology-is-not-the-movement/][The Ideology Is Not The Movement]]
   - [[https://foldedpapers.substack.com/p/my-years-as-a-feminist-on-red-pill][My years as a feminist on red-pill-adjacent rationalist reddit]]
+  - [[https://dynomight.net/espionage/][Everything is espionage: Things I learned researching Assange]]
 - human-interest/
   - [[https://kentnerburn.com/the-cab-ride-ill-never-forget/][The Cab Ride I'll Never Forget]]
   - [[https://www.theatlantic.com/magazine/archive/2004/05/a-sea-story/302940/][A Sea Story (2004)]]
@@ -314,6 +321,7 @@
   - [[https://slatestarcodex.com/2017/11/09/ars-longa-vita-brevis/][Ars Longa, Vita Brevis]]
   - [[https://slatestarcodex.com/2015/08/17/the-goddess-of-everything-else-2/][The Goddess of Everything Else]]
   - [[https://brandnewbox.com/inthestacks/][In The Stacks (Maisie's Tune)]]
+  - [[https://www.newyorker.com/magazine/1991/10/21/carried-away][Carried Away (Alice Munro)]]
 - fun/
   - [[https://ncase.me/door/][Door [It's cute]​]]
   - [[https://www.youtube.com/watch?v=IJwYUMAEwRU][Election [I like to roll this one out whenever election-season arrives]​]]
@@ -342,3 +350,5 @@
   - [[https://thezvi.wordpress.com/2020/05/03/on-negative-feedback-and-simulacra/][On Negative Feedback and Simulacra]]
   - [[https://www.lesswrong.com/s/cv2aZaRR22MPC5QwE/p/qDmnyEMtJkE9Wrpau][Simulacra Levels and their Interactions]]
   - [[https://jenn.site/2022/08/rich-friend-poor-friend/][Rich Friend, Poor Friend]]
+  - [[https://collabfund.com/blog/a-few-laws-of-getting-rich/][A Few Laws of Getting Rich]]
+  - [[https://robhorning.substack.com/p/spacing-the-cans][Spacing the cans]]
