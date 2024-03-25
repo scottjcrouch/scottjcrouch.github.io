@@ -9,6 +9,180 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
 
+* Monday, 25 March, 2024
+:PROPERTIES:
+:ID:       0402cbcd-975f-4bea-a7f7-b3ad5dda44fc
+:CUSTOM_ID: 0402cbcd-975f-4bea-a7f7-b3ad5dda44fc
+:END:
+Some old notes I jotted when I was first trying to get into poetry:
+- get a feel for the style and length of verse (usually iambic pentameter/hexameter)
+- try vocalising the words, emphasising their rhythm and percussion
+- read slowly, as if you have all day to get through one stanza
+- pay small emphasis on the last syllable of each verse
+- commas are often used to help delineate rhythmic feet/units; apostrophes are often used to excise syllables; ellipses are often used to excise words
+- read the poem twice (at least)
+
+#+begin_center
+○
+#+end_center
+
+A couple of old poems:
+\\
+\\
+#+begin_verse
+/Hollow tin is struck ---/
+
+/reverberates all around,/
+
+/into emptiness./
+#+end_verse
+\\
+\\
+#+begin_verse
+/Where float you now, friend?/
+
+/Kept your head above water?/
+
+/Time is against us./
+#+end_verse
+\\
+* Monday, 18 March, 2024
+:PROPERTIES:
+:ID:       a2346381-a557-4d4e-b003-41b5ab7f3b66
+:CUSTOM_ID: a2346381-a557-4d4e-b003-41b5ab7f3b66
+:END:
+It upsets me that my self-talk is a kind of conversation with an imaginary
+person, but that person never talks back and chimes in with its own opinions.
+I need someone to tell me I'm wrong every once and a while, not just a Yes
+Man.
+* Tuesday, 27 February, 2024
+:PROPERTIES:
+:ID:       dda22b2d-98e6-493b-999e-b5a8dfe2980b
+:CUSTOM_ID: dda22b2d-98e6-493b-999e-b5a8dfe2980b
+:END:
+I've come up with a principle: For any proposition that would be made about
+LLMs, the analogue of that proposition that applies to minds and societies
+ought to be considered first.  This is not necessarily to serve as a defense
+of LLMs, but I see many critiques online (most which I've forgotten) that can
+be swiftly dismissed or at least improved upon by first considering this
+principle.  Some examples:
+
+"No-one knows how they work." --- Nor does anyone know how the brain works,
+and yet they can be interacted with and are exceptionally useful all the same.
+
+"ChatGPT is a blurry jpeg of the web." --- Talk to any homebody who spends
+most of their time in front of a screen.
+
+"LLMs are just stochastic parrots." --- This probably needs no elaboration.
+
+"Something something incapable of creativity." --- A little more controversial
+here, but one could consider this to be making the /reductio ad absurdum/
+argument that humans are also incapable of creativity.  I don't know if I'm
+prepared to make this claim though; I think LLMs are capable of a crude kind
+of creativity, but creativity is value-laden.
+
+"Something something sociopathic." --- The corporate drone, whose behaviour is
+constrained by the law rather than a set of moral principles, is a kind of
+sociopath.  We haven't yet figured out a way to hardwire human values into a
+model's biology.
+* Monday, 1 February, 2024
+:PROPERTIES:
+:ID:       7b4b6f53-22c6-46eb-a3b6-2b8d50ec98ae
+:CUSTOM_ID: 7b4b6f53-22c6-46eb-a3b6-2b8d50ec98ae
+:END:
+A bunch of old quotes and random musings that were perhaps too short for separate posts:
+- "Don't talk to me or my self ever again." 👨‍👦
+- I am, therefore I think.
+- There's no such thing as always good advice, viz. universally applicable for all persons in all circumstances. (Obviously, that includes /this/ advice.)
+- One can never see the ground directly under their feet.
+- I want what is my own to be universal.  I want what is universal to be my own.
+- Some other quotes (not mine) that I loved:
+  - "Anxiety expands to occupy the space it's allowed to."
+  - "Concepts are bundled at the level of maximum abstraction that's useful."
+  - "One speaks in defence of things they fear are the least defensible."
+- I feel like noise music is the most zen of all music.[fn::Unless you think silence counts as music, but I won't believe you unless you literally have John Cage's 4'33" in your playlist.]  Why?  Because, at its extreme, it converges towards silence.  When you listen to noise music, the act of actually /listening/ requires a kind of mindfulness of the present moment, where memory-of-the-past and anticipation-of-the-future hold the least bearing on how the immediate is experienced.  Amidst noise, it is /silence/ that is deafening.
+- Something else that occurred to me was noise music's similarity to inclement weather.  My pet theory is that the cosiness we tend to feel when taking shelter from a storm, as though wrapped in a blanket, is perhaps in part because it is a time when predators (i.e., other humans) are less likely to be roaming about. (I've done literally zero research on this though. Someone I know said they think it's because a storm portends the availability of water.)  Perhaps the analogue for noise is the threat of our own thoughts.
+- Why aren't ethicists more ethical?  To this I would respond by asking why we would expect it to be so; whether we are as in control of our thoughts and actions as we have led ourselves to believe.
+- It feels unfair that the business world should have a better understanding of a person's psychology than the person does of themselves (with regard to marketing, public relations, lobbying, etc.).  It seems like wage-slavery, but applied to the psychological domain; if one does not possess the freedom to choose otherwise, they cannot be said to consent to begin with.
+- The saying "No one is an island" extends to our dependency on society for recognition.  My desire for independence reaffirms my dependency on what I wish to stand apart from.  It is through the sacrifice of our particularity that we reconnect with the universal.  The desire for independence taken to its logical conclusion would be a desire for complete alienation, to become a pure contingency.  But who would desire this?
+* Sunday, 26 November, 2023
+:PROPERTIES:
+:ID:       5b94478a-4878-470e-bdff-6ec996f206d3
+:CUSTOM_ID: 5b94478a-4878-470e-bdff-6ec996f206d3
+:END:
+[[https://orbistertius.substack.com/p/glimmers-now-the-afterglow][This piece]] was a light-bulb moment for understanding entropy.
+
+Minimum entropy = interestingness, or in my words, /intelligibility/.
+
+Maximum entropy = diffuseness, /unintelligibility/.
+
+I wanted to say that negentropy is /simplicity/, but that would be begging the
+question.  Entropy is not mind-independent, and there is no mind-independent
+way to define simplicity.  /Intelligibility/ is an explicitly mind-dependent
+concept.
+
+This raises a further question for me though.  Namely, if we accept the "arrow
+of time" as being a result of entropy, and entropy is mind-dependent, then
+this means the arrow of time is mind-dependent --- that there's nothing
+objectively necessary about its direction.
+* Thursday, 22 November, 2023
+:PROPERTIES:
+:ID:       db0e8424-c200-432e-b437-e5f181f00098
+:CUSTOM_ID: db0e8424-c200-432e-b437-e5f181f00098
+:END:
+Someone asked the question: Why is integration harder than differentiation?
+
+I haven't had to solve a calculus problem since university days, and I don't
+recall one set of problems being "harder" than the other.  Mostly I just
+recall their conceptual meanings, that they are inverse operations, and that
+integration requires a constant term.
+
+Perhaps the answers will illuminate the meaning of the question?
+
+[[https://math.stackexchange.com/questions/20578/why-is-integration-so-much-harder-than-differentiation/20636#20636][Answer]]:
+#+begin_quote
+Here is an extremely generic answer.  Differentiation is a "local" operation:
+to compute the derivative of a function at a point you only have to know how
+it behaves in a neighborhood of that point.  But integration is a "global"
+operation: to compute the definite integral of a function in an interval you
+have to know how it behaves on the /entire/ interval (and to compute the
+indefinite integral you have to know how it behaves on /all/ intervals).  That is
+a lot of information to summarise.  Generally, local things are much easier
+than global things.
+
+On the other hand, if you can do the global things, they tend to be /useful/
+because of how much information goes into them.  That's why theorems like the
+fundamental theorem of calculus, the full form of Stokes' theorem, and the
+main theorems of complex analysis are so powerful: they let us calculate
+global things in terms of slightly less global things.
+#+end_quote
+
+[[https://math.stackexchange.com/questions/20578/why-is-integration-so-much-harder-than-differentiation/34045#34045][Answer]]:
+#+begin_quote
+From Roger Penrose (/Road To Reality/):
+#+begin_verse
+... there is a striking contrast between the operations of differentiation and integration, in this calculus, with regard to which is the "easy" one and which is the "difficult" one.  When it is a matter of applying the operations to explicit formulae involving known functions, it is differentiation which is "easy" and integration "difficult", and in many cases the latter may not be possible to carry out at all in an explicit way.  On the other hand, when functions are not given in terms of formulae, but are provided in the form of tabulated lists of numerical data, then it is integration which is "easy" and differentiation "difficult", and the latter may not, strictly speaking, be possible at all in the ordinary way.  Numerical techniques are generally concerned with approximations, but there is also a close analogue of this aspect of things in the exact theory, and again it is integration which can be performed in circumstances where differentiation cannot.
+#+end_verse
+#+end_quote
+
+[[https://math.stackexchange.com/questions/20578/why-is-integration-so-much-harder-than-differentiation/472476#472476][Answer]]:
+#+begin_quote
+In the MIT lecture 6.001 "Structure and Interpretation of Computer Programs"
+by Sussman and Abelson this contrast is briefly discussed in terms of pattern
+matching:
+
+#+begin_verse
+And you know from calculus that it's easy to produce derivatives of arbitrary expressions.  You also know from your elementary calculus that it's hard to produce integrals.  Yet integrals and derivatives are opposites of each other.  They're inverse operations.  And they have the same rules.  What is special about these rules that makes it possible for one to produce derivatives easily and integrals why it's so hard?  Let's think about that very simply.
+
+Look at these rules.  Every one of these rules, when used in the direction for taking derivatives, which is in the direction of this arrow, the left side is matched against your expression, and the right side is the thing which is the derivative of that expression.  The arrow is going that way.  In each of these rules, the expressions on the right-hand side of the rule that are contained within derivatives are subexpressions, are proper subexpressions, of the expression on the left-hand side.
+
+So here we see [that the derivative of a sum is a sum of the derivatives of its summands].  So the rule of moving to the right are reduction rules.  The problem becomes easier.  I turn a big complicated problem into lots of smaller problems and then combine the results, a perfect place for recursion to work.
+
+If I'm going in the other direction like this, if I'm trying to produce integrals, well there are several problems you see here.  First of all, if I try to integrate an expression like a sum, more than one rule matches.  Here's one that matches.  Here's one that matches.  I don't know which one to take.  And they may be different.  I may get to explore different things.  Also, the expressions become larger in that direction.  And when the expressions become larger, then there's no guarantee that any particular path I choose will terminate, because we will only terminate by accidental cancellation.  So that's why integrals are complicated searches and hard to do.
+#+end_verse
+#+end_quote
+
+See also: [[https://en.wikipedia.org/wiki/Inverse_problem][Inverse problem (Wikipedia)]]
 * Wednesday, 15 November, 2023
 :PROPERTIES:
 :ID:       4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c
