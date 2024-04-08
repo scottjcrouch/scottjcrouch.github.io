@@ -281,6 +281,8 @@
       - [[https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post][The Waluigi Effect]]
       - [[https://studio.ribbonfarm.com/p/text-is-all-you-need][Text is all you need]]
       - [[https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html][Too much efficiency makes everything worse: overfitting and the strong version of Goodhart's law]]
+      - [[https://robhorning.substack.com/p/so-called-well-meaning][So-called well-meaning]]
+      - [[https://www.youtube.com/watch?v=wjZofJX0v4M][But what is a GPT? Visual intro to Transformers [yt]​]] ([[https://www.youtube.com/watch?v=eMlx5fFNoYc][part 2]])
 - history/
   - [[https://www.exurbe.com/black-death-covid-and-why-we-keep-telling-the-myth-of-a-renaissance-golden-age-and-bad-middle-ages/][Black Death, COVID, and Why We Keep Telling the Myth of a Renaissance Golden Age and Bad Middle Ages]]
   - [[https://www.exurbe.com/on-progress-and-historical-change/][On Progress and Historical Change]]
