@@ -75,16 +75,25 @@ most of their time in front of a screen.
 
 "LLMs are just stochastic parrots." --- This probably needs no elaboration.
 
-"Something something incapable of creativity." --- A little more controversial
-here, but one could consider this to be making the /reductio ad absurdum/
-argument that humans are also incapable of creativity.  I don't know if I'm
-prepared to make this claim though; I think LLMs are capable of a crude kind
-of creativity, but creativity is value-laden.
+"They're incapable of true creativity." --- A little more controversial here,
+but this is making the /reductio ad absurdum/ argument which assumes humans /are/
+capable of true creativity as something irreducible, arising from pure
+inspiration.  I don't necessarily agree with that, but I would still concede
+that LLMs are capable of only a crude kind of creativity.  On the other hand,
+I think the notion of creativity is value-laden.  Perhaps we should ask
+Prometheus what he thinks.
 
 "Something something sociopathic." --- The corporate drone, whose behaviour is
 constrained by the law rather than a set of moral principles, is a kind of
 sociopath.  We haven't yet figured out a way to hardwire human values into a
 model's biology.
+
+"Something something hallucinations." --- Leaving any critical decisions up to
+one person will run into the same risk.
+
+"Something something finite context window."
+
+Etc.
 * Monday, 1 February, 2024
 :PROPERTIES:
 :ID:       7b4b6f53-22c6-46eb-a3b6-2b8d50ec98ae
