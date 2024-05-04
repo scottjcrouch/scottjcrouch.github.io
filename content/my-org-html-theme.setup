@@ -45,6 +45,8 @@
 
 #+HTML_HEAD: table { margin-bottom:24px; }
 
+#+HTML_HEAD: @media (width <= 900px) { #table-of-contents { display: none;} body { margin: auto; } pre.src.src-text { margin: 0px; padding: 0.5em; } }
+
 #+HTML_HEAD: a { cursor: pointer; color: #217ab7; line-height: inherit; transition: .14s; }
 #+HTML_HEAD: a:hover { color: white; background-color: #3297d3; }
 #+HTML_HEAD: a:visited { color: #43458b; border-color: #43458b; }
