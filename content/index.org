@@ -137,6 +137,7 @@
   - [[https://iai.tv/articles/back-to-the-future-hegelian-pragmatism-auid-2719][Back to the Future: Hegelian Pragmatism]]
   - [[https://aeon.co/essays/is-it-possible-to-hold-truly-contradictory-beliefs-together][What is incoherence?]]
   - [[https://psyche.co/ideas/ancient-greek-antilogic-is-the-craft-of-suspending-judgment][Ancient Greek antilogic is the craft of suspending judgment]]
+  - [[https://commonreader.wustl.edu/c/variations-on-the-theme-of-silence/][Variations on the Theme of Silence]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -148,6 +149,8 @@
   - [[https://dynomight.net/taste-games/][Taste games]]
   - [[https://sarahconstantin.substack.com/p/what-does-the-cerebellum-do-anyway][What does the Cerebellum Do Anyway?]]
   - [[https://superbowl.substack.com/p/two-paths-out-of-hell][Two Paths out of Hell]]
+  - [[https://psyche.co/ideas/how-feelings-about-thinking-help-us-navigate-our-world][How ‘feelings about thinking’ help us navigate our world]]
+  - [[https://psyche.co/ideas/you-can-want-things-you-dont-like-and-like-things-you-dont-want][You can want things you don’t like and like things you don’t want]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
