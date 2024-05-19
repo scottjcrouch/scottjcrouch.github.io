@@ -179,6 +179,11 @@
     - [[https://www.youtube.com/watch?v=HdOLiRCXjmA][Photographer Spotlight: Michael Wolf [yt]​]]
     - [[https://www.youtube.com/watch?v=aWCT3blDzu0][Monhegan Island to the Schoodic Peninsula in Maine [yt]​]]
     - [[https://www.youtube.com/watch?v=97GwbI27w10][Christopher Doyle: Filming in the Neon World [yt]​]]
+  - poetry/
+    - [[https://www.youtube.com/watch?v=Y5kcGYcDE0o]["Birches" by Robert Frost [yt]​]]
+    - [[https://reactormag.com/sonnet-against-entropy/]["Sonnet: Against Entropy" by John M. Ford]]
+    - [[https://www.poetryfoundation.org/poems/49849/between-walls]["Between Walls" by William Carlos Williams]]
+    - [[https://gladdestthing.com/poems/the-orange]["The Orange" by Wendy Cope]]
   - essays-on-art/
     - [[https://meltingasphalt.com/a-natural-history-of-beauty/][A Natural History of Beauty]]
     - [[https://www.erichgrunewald.com/posts/how-can-one-tell-what-is-beautiful/][How Can One Tell What Is Beautiful?]]
@@ -285,6 +290,7 @@
       - [[https://studio.ribbonfarm.com/p/text-is-all-you-need][Text is all you need]]
       - [[https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html][Too much efficiency makes everything worse: overfitting and the strong version of Goodhart's law]]
       - [[https://robhorning.substack.com/p/so-called-well-meaning][So-called well-meaning]]
+      - [[https://robhorning.substack.com/p/implosion-sites][Implosion sites]]
       - [[https://www.youtube.com/watch?v=wjZofJX0v4M][But what is a GPT? Visual intro to Transformers [yt]​]] ([[https://www.youtube.com/watch?v=eMlx5fFNoYc][part 2]])
 - history/
   - [[https://www.exurbe.com/black-death-covid-and-why-we-keep-telling-the-myth-of-a-renaissance-golden-age-and-bad-middle-ages/][Black Death, COVID, and Why We Keep Telling the Myth of a Renaissance Golden Age and Bad Middle Ages]]
