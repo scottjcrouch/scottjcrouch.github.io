@@ -131,7 +131,6 @@
   - [[https://parrhesia.substack.com/p/contra-alexander-on-moral-offsetting][Contra Alexander on Moral Offsetting]]
   - [[https://www.erichgrunewald.com/posts/moral-standing-is-not-moral-agency/][Moral Standing is not Moral Agency]]
   - [[https://www.erichgrunewald.com/posts/networks-of-meaning/][Networks of meaning]]
-  - [[https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories/][The Categories Were Made For Man, Not Man For The Categories]]
   - [[https://theconversation.com/is-it-time-to-reconsider-the-idea-of-the-banality-of-evil-216737][Is it time to reconsider the idea of "the banality of evil"?]]
   - [[https://foldedpapers.substack.com/p/agnostic-virtue-ethics][Agnostic virtue ethics]]
   - [[https://iai.tv/articles/back-to-the-future-hegelian-pragmatism-auid-2719][Back to the Future: Hegelian Pragmatism]]
@@ -305,8 +304,7 @@
 - politics-and-the-english-language/
   - [[https://everythingstudies.com/2019/10/30/cat-couplings/][Cat Couplings]]
   - [[https://everythingstudies.com/2018/02/12/wordy-weapons-of-is-ought-alloy/][Wordy Weapons of Is--Ought Alloy]]
-  - [[https://www.lesswrong.com/s/pC6DYFLPMTCbEwH8W/p/i42Dfoh4HtsCAfXxL][Babble]]
-  - [[https://www.reddit.com/r/slatestarcodex/comments/m57i1c/prose_is_bad/][Prose is Bad]]
+  - [[https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories/][The Categories Were Made For Man, Not Man For The Categories]]
   - [[https://unstableontology.com/2022/05/02/on-the-paradox-of-tolerance-in-relation-to-fascism-and-online-content-moderation/][On the paradox of tolerance in relation to fascism and online content moderation [An intractable problem?]​]]
   - [[https://www.lesswrong.com/posts/7cAsBPGh98pGyrhz9/decoupling-vs-contextualising-norms][Decoupling vs Contextualising Norms]] (and a good [[https://unconfusion.substack.com/p/decoupling-decoupling-from-rationality][follow-up]])
   - [[https://slatestarcodex.com/2018/01/24/conflict-vs-mistake/][Conflict vs. Mistake]]
@@ -314,6 +312,12 @@
   - [[https://slatestarcodex.com/2016/04/04/the-ideology-is-not-the-movement/][The Ideology Is Not The Movement]]
   - [[https://foldedpapers.substack.com/p/my-years-as-a-feminist-on-red-pill][My years as a feminist on red-pill-adjacent rationalist reddit]]
   - [[https://dynomight.net/espionage/][Everything is espionage: Things I learned researching Assange]]
+  - [[https://www.awanderingmind.blog/posts/2022-07-30-state-of-south-africa.html][The state of South Africa, 28ish years post-apartheid]]
+- syntax-and-structure/
+  - [[https://www.lesswrong.com/s/pC6DYFLPMTCbEwH8W/p/i42Dfoh4HtsCAfXxL][Babble]]
+  - [[https://www.reddit.com/r/slatestarcodex/comments/m57i1c/prose_is_bad/][Prose is Bad]]
+  - [[https://aethermug.com/posts/the-beautiful-dissociation-of-the-japanese-language][The Beautiful Dissociation of the Japanese Language]]
+  - [[https://zompist.com/yingzi/yingzi.htm][Yingzi]]
 - human-interest/
   - [[https://kentnerburn.com/the-cab-ride-ill-never-forget/][The Cab Ride I'll Never Forget]]
   - [[https://www.theatlantic.com/magazine/archive/2004/05/a-sea-story/302940/][A Sea Story (2004)]]
@@ -351,7 +355,6 @@
   - [[https://www.reddit.com/r/explainlikeimfive/comments/16cm85y/eli5_how_does_the_irs_know_if_i_dont_report_half/jzk8gyb/][u/Miliean on how tax audits work]]
   - [[https://arcove.substack.com/p/iron-lotus][Iron Lotus]]
   - [[https://www.saturdayeveningpost.com/2013/03/how-doctors-die/][How Doctors Die]]
-  - [[https://www.awanderingmind.blog/posts/2022-07-30-state-of-south-africa.html][The state of South Africa, 28ish years post-apartheid]]
   - [[https://alok.github.io/2022/11/09/dissection/][What It's Like to Dissect a Cadaver]]
   - [[https://www.lesswrong.com/posts/eRohP4gbxuBuhqTbe/attempted-telekinesis][Attempted Telekinesis]]
   - [[https://www.lesswrong.com/s/FoaLfnrZGGGMdcAoF/p/9fB4gvoooNYa4t56S][Power Buys You Distance From The Crime]]
