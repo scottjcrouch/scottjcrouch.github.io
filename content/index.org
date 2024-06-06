@@ -108,7 +108,7 @@
   - [[https://rootsofprogress.org/ashton-industrial-revolution-highlights][/The Industrial Revolution, 1760--1830/ (Thomas S. Ashton)]]
   - [[https://thingofthings.substack.com/p/facts-i-learned-from-blood-sweat][/Blood, Sweat, & Chrome: The Wild and True Story of Mad Max: Fury Road/ (Kyle Buchanan)]]
   - [[https://thingofthings.substack.com/p/weird-people-of-history-beatrice][/Unmask Alice: LSD, Satanic Panic, and the Imposter Behind the World's Most Notorious Diaries/ (Rich Emerson)]]
-  - [[https://thingofthings.substack.com/p/interesting-facts-from-lying-for][/Lying for Money: How Legendary Frauds Reveal the Workings of Our World/ (Dan Davies)]] ([[https://thingofthings.substack.com/p/what-fraud-teaches-us-about-economics][part 2]])
+  - [[https://thingofthings.substack.com/p/interesting-facts-from-lying-for][/Lying for Money: How Legendary Frauds Reveal the Workings of Our World/ (Dan Davies)]] (and [[https://thingofthings.substack.com/p/what-fraud-teaches-us-about-economics][part 2]])
   - [[https://www.lesswrong.com/posts/x4n4jcoDP7xh5LWLq/book-summary-consciousness-and-the-brain][/Consciousness and the Brain/ (Stanislas Dehaene)]]
   - [[https://www.lesswrong.com/s/g72vrjJSJSZnqBrKx/p/i9xyZBS3qzA8nFXNQ][/Unlocking the Emotional Brain/ (Bruce Ecker, Robin Ticic, Laurel Hulley)]]
   - [[https://unstableontology.com/2022/06/03/a-short-conceptual-explainer-of-immanuel-kants-critique-of-pure-reason/][/Critique of Pure Reason/ (Immanuel Kant)]]
@@ -116,6 +116,8 @@
   - [[https://www.thepsmiths.com/p/review-the-education-of-cyrus-by][/The Education of Cyrus/ (Xenophon)]]
   - [[https://bookmarks.reviews/george-orwells-1940-review-of-mein-kampf/][/Mein Kampf/ (Guy that killed Hitler)]]
   - [[https://www.youtube.com/watch?v=bqloPw5wp48][/Twilight/ (Stephenie Meyer) [yt]​]]
+  - [[https://insidestory.org.au/the-power-of-shame/][/Shame: The Politics and Power of an Emotion/ (David Keen)]]
+  - [[https://www.astralcodexten.com/p/your-book-review-autobiography-of][/The Autobiography of Yukichi Fukuzawa/ (Yukichi Fukuzawa)]]
 - philosophy/
   - [[https://asteriskmag.com/issues/01/making-sense-of-moral-change][Making Sense of Moral Change]]
   - [[https://www.youtube.com/watch?v=rbaD66oTvuo][Hinge Epistemology [yt]​]]
@@ -137,6 +139,12 @@
   - [[https://aeon.co/essays/is-it-possible-to-hold-truly-contradictory-beliefs-together][What is incoherence?]]
   - [[https://psyche.co/ideas/ancient-greek-antilogic-is-the-craft-of-suspending-judgment][Ancient Greek antilogic is the craft of suspending judgment]]
   - [[https://commonreader.wustl.edu/c/variations-on-the-theme-of-silence/][Variations on the Theme of Silence]]
+  - [[https://empyreantrail.wordpress.com/2016/12/19/logic-of-being/][Logic of Being and Naught: A False Start]]
+  - [[https://www.youtube.com/watch?v=uPXTTbmjh50][The Death Drive [yt]​]]
+  - [[https://www.youtube.com/watch?v=aI9PVkR-ioI][Explained: I Would Prefer Not To [yt]​]]
+  - [[https://robhorning.substack.com/p/ordinary-unhappiness][Ordinary unhappiness]]
+  - [[https://robhorning.substack.com/p/ex-noumena][Ex noumena]]
+  - [[https://robhorning.substack.com/p/two-uneven-flagstones][Two uneven flagstones]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -150,6 +158,8 @@
   - [[https://superbowl.substack.com/p/two-paths-out-of-hell][Two Paths out of Hell]]
   - [[https://psyche.co/ideas/how-feelings-about-thinking-help-us-navigate-our-world][How ‘feelings about thinking’ help us navigate our world]]
   - [[https://psyche.co/ideas/you-can-want-things-you-dont-like-and-like-things-you-dont-want][You can want things you don’t like and like things you don’t want]]
+  - [[https://kajsotala.fi/2024/07/indecision-and-internalized-authority-figures/][Indecision and internalized authority figures]]
+  - [[https://robhorning.substack.com/p/no-flipping][No flipping]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -168,6 +178,8 @@
   - [[https://www.youtube.com/watch?v=Cj6ho1-G6tw][Way Back Home w/ Danny MacAskill [yt]​]]
   - [[https://www.youtube.com/watch?v=9sUsiYnHwqI][Ascota 170 mechanical computer calculates square root [yt]​]]
   - [[https://www.youtube.com/watch?v=lTwg4mFF32E][15 Note Poly Tempo Pendulum [yt]​]]
+  - [[https://www.youtube.com/playlist?list=PLfPjbwTbN4GPcg3ePanfk2qkeOn1qUHs1][Ichiko Aoba with 12 Ensemble at Milton Court [yt]​]]
+  - [[https://www.youtube.com/watch?v=4HZiS4VtscU][HYUKOH(혁오), Sunset Rollercoaster - Antenna [yt]​]]
   - painting/
     - [[https://www.youtube.com/watch?v=MgrO5za0lSY][Francis Bacon: A Brush with Violence (2017) [yt]​]]
     - [[https://www.youtube.com/watch?v=yUq9qMm9NtI][The Raft of the Medusa by Théodore Géricault [yt]​]]
@@ -247,6 +259,7 @@
     - [[https://www.youtube.com/watch?v=0CHZMY02Dhk][What does it mean to take a complex derivative? (visually explained) [yt]​]]
     - [[https://www.youtube.com/watch?v=rK3xcRYLWeg][P vs. NP | Complexity Theory Explained Visually [yt]​]]
     - [[https://www.youtube.com/watch?v=PjKlMXhxtTM][Making a Pitch Shifter [yt]​]]
+    - [[https://photonlines.substack.com/p/an-intuitive-guide-to-maxwells-equations][An Intuitive Guide to Maxwell's Equations]]
   - tech/
     - [[https://www.youtube.com/watch?v=y7KWGv_t-MU][Programming Language Ideas That Work And Don't Work [yt]​]]
     - [[https://roughlywritten.substack.com/p/random-thoughts-15-years-into-software][Random Thoughts 15 years into Software Engineering]]
@@ -254,6 +267,7 @@
     - [[https://anthonyhobday.com/sideprojects/saferules/][Visual Design Rules you can Safely Follow Every Time]]
     - [[https://www.youtube.com/watch?v=XrlrbfGZo2k][37C3 - Breaking "DRM" in Polish trains [yt]​]]
     - linux/
+      - [[https://www.linusakesson.net/programming/tty/][The TTY demystified]]
       - [[https://makelinux.github.io/kernel/map/][A Map of the Linux kernel]]
       - [[https://www.youtube.com/watch?v=Sk9TatW9ino][Building the Simplest Possible Linux System [yt]​]]
       - [[https://www.youtube.com/watch?v=o_AIw9bGogo][The Tragedy of systemd [yt]​]]
@@ -337,6 +351,7 @@
   - [[https://slatestarcodex.com/2015/08/17/the-goddess-of-everything-else-2/][The Goddess of Everything Else]]
   - [[https://brandnewbox.com/inthestacks/][In The Stacks (Maisie's Tune)]]
   - [[https://www.newyorker.com/magazine/1991/10/21/carried-away][Carried Away (Alice Munro)]]
+  - [[https://www.newyorker.com/magazine/2003/08/11/runaway-4][Runaway (Alice Munro)]]
 - fun/
   - [[https://ncase.me/door/][Door [It's cute]​]]
   - [[https://www.youtube.com/watch?v=IJwYUMAEwRU][Election [I like to roll this one out whenever election-season arrives]​]]
@@ -366,3 +381,5 @@
   - [[https://jenn.site/2022/08/rich-friend-poor-friend/][Rich Friend, Poor Friend]]
   - [[https://collabfund.com/blog/a-few-laws-of-getting-rich/][A Few Laws of Getting Rich]]
   - [[https://robhorning.substack.com/p/spacing-the-cans][Spacing the cans]]
+  - [[https://lithub.com/what-the-all-american-delusion-of-the-polygraph-says-about-our-relationship-to-fact-and-fiction/][What the All-American Delusion of the Polygraph Says About Our Relationship to Fact and Fiction]]
+  - [[https://www.ribbonfarm.com/2020/01/16/the-internet-of-beefs/][The Internet of Beefs]]
