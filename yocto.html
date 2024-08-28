@@ -193,6 +193,186 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<style type="text/css">
+h1.title { text-align: center; }
+h2 { border-bottom: 1px solid #f0c; padding-bottom: 0.5em; padding-top: 0.5em; font-size: 1.75em; }
+h3 { margin-bottom: 0; padding-bottom: 0; font-size: 1.4em; }
+h4 { margin-bottom: 0; padding-bottom: 0; font-size: 1.15em; }
+h5 { margin-bottom: 0; padding-bottom: 0; font-size: 1em; font-style: italic; }
+h6 { margin-bottom: 0; padding-bottom: 0; font-size: 0.8em; font-style: italic; }
+.outline-text-4 > :first-child { margin-top: .5em; }
+#table-of-contents { position: fixed; left: 0; top: 0; width: 300px; height: 100%; overflow: auto; padding-left: 5px; padding-right: 5px; text-align:center; font-size: 0.85em; }
+#table-of-contents ul { padding: 0; margin: 5px; padding-left: 15px; text-align:left; }
+pre { margin-left: 3em; border-left: 2px solid #767676; background: #F1F1F1; padding: 1em 0em 1em 1em; font-size: 0.95em; }
+pre.src { overflow-x: auto; overflow-y: visible; }
+pre.src:hover:before { display: inline; margin-top: 14px; }
+#postamble { text-align: center; font-size: 0.7em; border-top: 1px solid #ABA6A6; margin-top: 4em; color: #808080; }
+#postamble p { width: 100%; }
+body { font-family: 'Palatino Linotype', serif; font-size: 1.00em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+html { scrollbar-color: #ABA6A6 #fff7f4; scroll-behavior: smooth; }
+code { background: #EDEDED; font-size: 1.2em; font-weight: normal; font-style: normal; }
+p, li { max-width: 59em; }
+li p { margin: 0px; }
+ul { list-style-type: disc; }
+dt { margin-top: 1.5em; margin-bottom: 0.5em; font-weight: normal; font-style: italic; }
+span.todo, span.done { font-size: 50%; text-decoration: none; border-radius: 5px; padding: 3px; color: white; }
+span.todo { background: #dd0000; }
+span.done { background: #00dd00; }
+blockquote { background: #dddddd; padding: .5em 1em .5em 1em; }
+.figure { padding: 5px; }
+table { margin-bottom:24px; }
+@media (width <= 900px) { #table-of-contents { display: none;} body { margin: auto; } pre.src.src-text { margin: 0px; padding: 0.5em; } }
+a { cursor: pointer; color: #217ab7; line-height: inherit; transition: .14s; }
+a:hover { color: white; background-color: #3297d3; }
+a:visited { color: #43458b; border-color: #43458b; }
+a:visited:hover { color: white; background-color: #9251ac; }
+::selection { color: white; background: #ff4081; }
+.org-bold { /* bold */ font-weight: bold; }
+.org-bold-italic { /* bold-italic */ font-weight: bold; font-style: italic; }
+.org-buffer-menu-buffer { /* buffer-menu-buffer */ font-weight: bold; }
+.org-builtin { /* font-lock-builtin-face */ color: #7a378b; }
+.org-button { /* button */ text-decoration: underline; }
+.org-calendar-today { /* calendar-today */ text-decoration: underline; }
+.org-change-log-acknowledgement { /* change-log-acknowledgement */ color: #b22222; }
+.org-change-log-conditionals { /* change-log-conditionals */ color: #a0522d; }
+.org-change-log-date { /* change-log-date */ color: #8b2252; }
+.org-change-log-email { /* change-log-email */ color: #a0522d; }
+.org-change-log-file { /* change-log-file */ color: #0000ff; }
+.org-change-log-function { /* change-log-function */ color: #a0522d; }
+.org-change-log-list { /* change-log-list */ color: #a020f0; }
+.org-change-log-name { /* change-log-name */ color: #008b8b; }
+.org-comint-highlight-input { /* comint-highlight-input */ font-weight: bold; }
+.org-comint-highlight-prompt { /* comint-highlight-prompt */ color: #00008b; }
+.org-comment { /* font-lock-comment-face */ color: #999988; font-style: italic; }
+.org-comment-delimiter { /* font-lock-comment-delimiter-face */ color: #999988; font-style: italic; }
+.org-completions-annotations { /* completions-annotations */ font-style: italic; }
+.org-completions-common-part { /* completions-common-part */ color: #000000; background-color: #ffffff; }
+.org-completions-first-difference { /* completions-first-difference */ font-weight: bold; }
+.org-constant { /* font-lock-constant-face */ color: #008b8b; }
+.org-diary { /* diary */ color: #ff0000; }
+.org-diff-context { /* diff-context */ color: #7f7f7f; }
+.org-diff-file-header { /* diff-file-header */ background-color: #b3b3b3; font-weight: bold; }
+.org-diff-function { /* diff-function */ background-color: #cccccc; }
+.org-diff-header { /* diff-header */ background-color: #cccccc; }
+.org-diff-hunk-header { /* diff-hunk-header */ background-color: #cccccc; }
+.org-diff-index { /* diff-index */ background-color: #b3b3b3; font-weight: bold; }
+.org-diff-nonexistent { /* diff-nonexistent */ background-color: #b3b3b3; font-weight: bold; }
+.org-diff-refine-change { /* diff-refine-change */ background-color: #d9d9d9; }
+.org-dired-directory { /* dired-directory */ color: #0000ff; }
+.org-dired-flagged { /* dired-flagged */ color: #ff0000; font-weight: bold; }
+.org-dired-header { /* dired-header */ color: #228b22; }
+.org-dired-ignored { /* dired-ignored */ color: #7f7f7f; }
+.org-dired-mark { /* dired-mark */ color: #008b8b; }
+.org-dired-marked { /* dired-marked */ color: #ff0000; font-weight: bold; }
+.org-dired-perm-write { /* dired-perm-write */ color: #b22222; }
+.org-dired-symlink { /* dired-symlink */ color: #a020f0; }
+.org-dired-warning { /* dired-warning */ color: #ff0000; font-weight: bold; }
+.org-doc { /* font-lock-doc-face */ color: #8b2252; }
+.org-escape-glyph { /* escape-glyph */ color: #a52a2a; }
+.org-file-name-shadow { /* file-name-shadow */ color: #7f7f7f; }
+.org-flyspell-duplicate { /* flyspell-duplicate */ color: #cdad00; font-weight: bold; text-decoration: underline; }
+.org-flyspell-incorrect { /* flyspell-incorrect */ color: #ff4500; font-weight: bold; text-decoration: underline; }
+.org-fringe { /* fringe */ background-color: #f2f2f2; }
+.org-function-name { /* font-lock-function-name-face */ color: teal; }
+.org-header-line { /* header-line */ color: #333333; background-color: #e5e5e5; }
+.org-help-argument-name { /* help-argument-name */ font-style: italic; }
+.org-highlight { /* highlight */ background-color: #b4eeb4; }
+.org-holiday { /* holiday */ background-color: #ffc0cb; }
+.org-isearch { /* isearch */ color: #b0e2ff; background-color: #cd00cd; }
+.org-isearch-fail { /* isearch-fail */ background-color: #ffc1c1; }
+.org-italic { /* italic */ font-style: italic; }
+.org-keyword { /* font-lock-keyword-face */ color: #0086b3; }
+.org-lazy-highlight { /* lazy-highlight */ background-color: #afeeee; }
+.org-link { /* link */ color: #0000ff; text-decoration: underline; }
+.org-link-visited { /* link-visited */ color: #8b008b; text-decoration: underline; }
+.org-log-edit-header { /* log-edit-header */ color: #a020f0; }
+.org-log-edit-summary { /* log-edit-summary */ color: #0000ff; }
+.org-log-edit-unknown-header { /* log-edit-unknown-header */ color: #b22222; }
+.org-match { /* match */ background-color: #ffff00; }
+.org-next-error { /* next-error */ background-color: #eedc82; }
+.org-nobreak-space { /* nobreak-space */ color: #a52a2a; text-decoration: underline; }
+.org-org-archived { /* org-archived */ color: #7f7f7f; }
+.org-org-block { /* org-block */ color: #7f7f7f; }
+.org-org-block-begin-line { /* org-block-begin-line */ color: #b22222; }
+.org-org-block-end-line { /* org-block-end-line */ color: #b22222; }
+.org-org-checkbox { /* org-checkbox */ font-weight: bold; }
+.org-org-checkbox-statistics-done { /* org-checkbox-statistics-done */ color: #228b22; font-weight: bold; }
+.org-org-checkbox-statistics-todo { /* org-checkbox-statistics-todo */ color: #ff0000; font-weight: bold; }
+.org-org-clock-overlay { /* org-clock-overlay */ background-color: #ffff00; }
+.org-org-code { /* org-code */ color: #7f7f7f; }
+.org-org-column { /* org-column */ background-color: #e5e5e5; }
+.org-org-column-title { /* org-column-title */ background-color: #e5e5e5; font-weight: bold; text-decoration: underline; }
+.org-org-date { /* org-date */ color: #a020f0; text-decoration: underline; }
+.org-org-document-info { /* org-document-info */ color: #191970; }
+.org-org-document-info-keyword { /* org-document-info-keyword */ color: #7f7f7f; }
+.org-org-document-title { /* org-document-title */ color: #191970; font-size: 144%; font-weight: bold; }
+.org-org-done { /* org-done */ color: #228b22; font-weight: bold; }
+.org-org-drawer { /* org-drawer */ color: #0000ff; }
+.org-org-ellipsis { /* org-ellipsis */ color: #b8860b; text-decoration: underline; }
+.org-org-footnote { /* org-footnote */ color: #a020f0; text-decoration: underline; }
+.org-org-formula { /* org-formula */ color: #b22222; }
+.org-org-headline-done { /* org-headline-done */ color: #bc8f8f; }
+.org-org-hide { /* org-hide */ color: #ffffff; }
+.org-org-latex-and-export-specials { /* org-latex-and-export-specials */ color: #8b4513; }
+.org-org-level-1 { /* org-level-1 */ color: #0000ff; }
+.org-org-level-2 { /* org-level-2 */ color: #a0522d; }
+.org-org-level-3 { /* org-level-3 */ color: #a020f0; }
+.org-org-level-4 { /* org-level-4 */ color: #b22222; }
+.org-org-level-5 { /* org-level-5 */ color: #228b22; }
+.org-org-level-6 { /* org-level-6 */ color: #008b8b; }
+.org-org-level-7 { /* org-level-7 */ color: #7a378b; }
+.org-org-level-8 { /* org-level-8 */ color: #8b2252; }
+.org-org-link { /* org-link */ color: #0000ff; text-decoration: underline; }
+.org-org-meta-line { /* org-meta-line */ color: #b22222; }
+.org-org-mode-line-clock { /* org-mode-line-clock */ color: #000000; background-color: #bfbfbf; }
+.org-org-mode-line-clock-overrun { /* org-mode-line-clock-overrun */ color: #000000; background-color: #ff0000; }
+.org-org-quote { /* org-quote */ color: #7f7f7f; }
+.org-org-scheduled { /* org-scheduled */ color: #006400; }
+.org-org-scheduled-previously { /* org-scheduled-previously */ color: #b22222; }
+.org-org-scheduled-today { /* org-scheduled-today */ color: #006400; }
+.org-org-sexp-date { /* org-sexp-date */ color: #a020f0; }
+.org-org-special-keyword { /* org-special-keyword */ color: #a020f0; }
+.org-org-table { /* org-table */ color: #0000ff; }
+.org-org-tag { /* org-tag */ font-weight: bold; }
+.org-org-target { /* org-target */ text-decoration: underline; }
+.org-org-time-grid { /* org-time-grid */ color: #b8860b; }
+.org-org-todo { /* org-todo */ color: #ff0000; font-weight: bold; }
+.org-org-upcoming-deadline { /* org-upcoming-deadline */ color: #b22222; }
+.org-org-verbatim { /* org-verbatim */ color: #7f7f7f; }
+.org-org-verse { /* org-verse */ color: #7f7f7f; }
+.org-org-warning { /* org-warning */ color: #ff0000; font-weight: bold; }
+.org-outline-1 { /* outline-1 */ color: #0000ff; }
+.org-outline-2 { /* outline-2 */ color: #a0522d; }
+.org-outline-3 { /* outline-3 */ color: #a020f0; }
+.org-outline-4 { /* outline-4 */ color: #b22222; }
+.org-outline-5 { /* outline-5 */ color: #228b22; }
+.org-outline-6 { /* outline-6 */ color: #008b8b; }
+.org-outline-7 { /* outline-7 */ color: #7a378b; }
+.org-outline-8 { /* outline-8 */ color: #8b2252; }
+.org-preprocessor { /* font-lock-preprocessor-face */ color: #7a378b; }
+.org-query-replace { /* query-replace */ color: #b0e2ff; background-color: #cd00cd; }
+.org-regexp-grouping-backslash { /* font-lock-regexp-grouping-backslash */ font-weight: bold; }
+.org-regexp-grouping-construct { /* font-lock-regexp-grouping-construct */ font-weight: bold; }
+.org-region { /* region */ background-color: #eedc82; }
+.org-secondary-selection { /* secondary-selection */ background-color: #ffff00; }
+.org-shadow { /* shadow */ color: #7f7f7f; }
+.org-show-paren-match { /* show-paren-match */ background-color: #40e0d0; }
+.org-show-paren-mismatch { /* show-paren-mismatch */ color: #ffffff; background-color: #a020f0; }
+.org-string { /* font-lock-string-face */ color: #dd1144; }
+.org-tool-bar { /* tool-bar */ color: #000000; background-color: #bfbfbf; }
+.org-tooltip { /* tooltip */ color: #000000; background-color: #ffffe0; }
+.org-trailing-whitespace { /* trailing-whitespace */ background-color: #ff0000; }
+.org-type { /* font-lock-type-face */ color: #228b22; }
+.org-underline { /* underline */ text-decoration: underline; }
+.org-variable-name { /* font-lock-variable-name-face */ color: teal; }
+.org-warning { /* font-lock-warning-face */ color: #ff0000; font-weight: bold; }
+.org-widget-button { /* widget-button */ font-weight: bold; }
+.org-widget-button-pressed { /* widget-button-pressed */ color: #ff0000; }
+.org-widget-documentation { /* widget-documentation */ color: #006400; }
+.org-widget-field { /* widget-field */ background-color: #d9d9d9; }
+.org-widget-inactive { /* widget-inactive */ color: #7f7f7f; }
+.org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }
+</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -349,7 +529,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgee81b1d" class="outline-2">
+<div id="outline-container-orgdfecf30" class="outline-2">
 <h2 id="links">Links</h2>
 <div class="outline-text-2" id="text-links">
 <ul class="org-ul">
@@ -407,11 +587,11 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-org274b8e2" class="outline-2">
+<div id="outline-container-orge328877" class="outline-2">
 <h2 id="terminology">Terminology</h2>
 <div class="outline-text-2" id="text-terminology">
 </div>
-<div id="outline-container-org80425bf" class="outline-3">
+<div id="outline-container-org12094d3" class="outline-3">
 <h3 id="d2fee7d5-7007-4e33-85cb-6c9a370990fd">Append</h3>
 <div class="outline-text-3" id="text-d2fee7d5-7007-4e33-85cb-6c9a370990fd">
 <ul class="org-ul">
@@ -431,7 +611,7 @@ corresponding <code>.bb</code> file</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0f00bc1" class="outline-3">
+<div id="outline-container-org5a5920f" class="outline-3">
 <h3 id="623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</h3>
 <div class="outline-text-3" id="text-623a901f-d7c6-44b6-97a0-e2bea2f861bc">
 <ul class="org-ul">
@@ -471,7 +651,7 @@ into</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org80821b1" class="outline-3">
+<div id="outline-container-orgddd01fa" class="outline-3">
 <h3 id="c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</h3>
 <div class="outline-text-3" id="text-c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">
 <ul class="org-ul">
@@ -483,7 +663,7 @@ BSPs for various machines that Yocto Project supports
 </ul>
 </div>
 </div>
-<div id="outline-container-org25b0af1" class="outline-3">
+<div id="outline-container-orgf7f0bfa" class="outline-3">
 <h3 id="51cba0dc-6701-431d-9b93-9b2e39761fbc">Build Directory</h3>
 <div class="outline-text-3" id="text-51cba0dc-6701-431d-9b93-9b2e39761fbc">
 <ul class="org-ul">
@@ -504,7 +684,7 @@ complete documentation can be found <a href="https://docs.yoctoproject.org/ref-m
 </ul>
 </div>
 </div>
-<div id="outline-container-org73af38e" class="outline-3">
+<div id="outline-container-org2c89d4c" class="outline-3">
 <h3 id="1f78978c-9d22-4d70-9aab-de96ee8ab69a">Class</h3>
 <div class="outline-text-3" id="text-1f78978c-9d22-4d70-9aab-de96ee8ab69a">
 <ul class="org-ul">
@@ -519,7 +699,7 @@ class files can be inherited by any <a href="#49922abe-989a-4049-a4e1-d9cd49db6f
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc820302" class="outline-3">
+<div id="outline-container-orge7ce244" class="outline-3">
 <h3 id="73837aae-7e38-4040-99e9-e5b43fd673ca">Configuration</h3>
 <div class="outline-text-3" id="text-73837aae-7e38-4040-99e9-e5b43fd673ca">
 <ul class="org-ul">
@@ -544,7 +724,7 @@ name, priority, dependencies on other layers, etc.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8a6a978" class="outline-3">
+<div id="outline-container-orge825ec5" class="outline-3">
 <h3 id="ff999862-e2a2-482c-93a4-55151cb59154">Dependency</h3>
 <div class="outline-text-3" id="text-ff999862-e2a2-482c-93a4-55151cb59154">
 <ul class="org-ul">
@@ -601,7 +781,7 @@ often done in <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSPs</a> for bootl
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeafb785" class="outline-3">
+<div id="outline-container-org54683ce" class="outline-3">
 <h3 id="28a59763-8b1e-4c36-8c07-aafde51a8081">Devtool</h3>
 <div class="outline-text-3" id="text-28a59763-8b1e-4c36-8c07-aafde51a8081">
 <ul class="org-ul">
@@ -641,7 +821,7 @@ based on the following:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9588a51" class="outline-3">
+<div id="outline-container-org737da01" class="outline-3">
 <h3 id="887aaab6-76ef-43b5-8592-127935253e7a">Distro</h3>
 <div class="outline-text-3" id="text-887aaab6-76ef-43b5-8592-127935253e7a">
 <ul class="org-ul">
@@ -674,7 +854,7 @@ support)
 </ul>
 </div>
 </div>
-<div id="outline-container-orga984e4b" class="outline-3">
+<div id="outline-container-org4a653d0" class="outline-3">
 <h3 id="ec39dfb8-2723-41a2-ad1e-26ae052595d9">eSDK</h3>
 <div class="outline-text-3" id="text-ec39dfb8-2723-41a2-ad1e-26ae052595d9">
 <ul class="org-ul">
@@ -751,7 +931,7 @@ debugging processes</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga9d4155" class="outline-3">
+<div id="outline-container-org62e193f" class="outline-3">
 <h3 id="e2c85bd3-accf-49ea-97ad-fa47a1bb272b">Fetcher</h3>
 <div class="outline-text-3" id="text-e2c85bd3-accf-49ea-97ad-fa47a1bb272b">
 <ul class="org-ul">
@@ -796,7 +976,7 @@ cleanroom implementations), we can set <code>BB_NO_NETWORK</code> to <code>"1"</
 </ul>
 </div>
 </div>
-<div id="outline-container-org856bd8e" class="outline-3">
+<div id="outline-container-org47d62d0" class="outline-3">
 <h3 id="d04f848b-f29b-4fc5-b2c6-1c2331456bf1">Image</h3>
 <div class="outline-text-3" id="text-d04f848b-f29b-4fc5-b2c6-1c2331456bf1">
 <ul class="org-ul">
@@ -875,7 +1055,7 @@ will be run</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org53363c2" class="outline-3">
+<div id="outline-container-org068164b" class="outline-3">
 <h3 id="97e812dc-9fef-4f72-a931-4ae140862170">Include</h3>
 <div class="outline-text-3" id="text-97e812dc-9fef-4f72-a931-4ae140862170">
 <ul class="org-ul">
@@ -889,7 +1069,7 @@ produces an error if the file doesn&rsquo;t exist; <code>include</code> does not
 </ul>
 </div>
 </div>
-<div id="outline-container-org23465d2" class="outline-3">
+<div id="outline-container-orga60054e" class="outline-3">
 <h3 id="d4009f0f-f371-454b-b30f-7fda430c0028">Layer</h3>
 <div class="outline-text-3" id="text-d4009f0f-f371-454b-b30f-7fda430c0028">
 <ul class="org-ul">
@@ -971,7 +1151,7 @@ recipe version in that layer is lower</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org32ecd83" class="outline-3">
+<div id="outline-container-org85cf622" class="outline-3">
 <h3 id="b1a75489-4822-43b0-8fd4-639d535cad33">Metadata</h3>
 <div class="outline-text-3" id="text-b1a75489-4822-43b0-8fd4-639d535cad33">
 <ul class="org-ul">
@@ -991,7 +1171,7 @@ tree)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd268d7e" class="outline-3">
+<div id="outline-container-org3568f1a" class="outline-3">
 <h3 id="76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</h3>
 <div class="outline-text-3" id="text-76978d0b-92f6-40cf-b827-01bd45fd4391">
 <ul class="org-ul">
@@ -1002,7 +1182,7 @@ base layer of <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>, <a hr
 </ul>
 </div>
 </div>
-<div id="outline-container-org770edd2" class="outline-3">
+<div id="outline-container-org7ab3ada" class="outline-3">
 <h3 id="6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded Build System</h3>
 <div class="outline-text-3" id="text-6ba19863-6771-4f13-9d20-1d4dec02ae6c">
 <ul class="org-ul">
@@ -1020,7 +1200,7 @@ script)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f0b3c7" class="outline-3">
+<div id="outline-container-org02596d6" class="outline-3">
 <h3 id="ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">Package</h3>
 <div class="outline-text-3" id="text-ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">
 <ul class="org-ul">
@@ -1109,7 +1289,7 @@ packages)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9a8ce12" class="outline-3">
+<div id="outline-container-org923929e" class="outline-3">
 <h3 id="729ed304-8a4e-40f7-a72e-eec793809f77">Package feed</h3>
 <div class="outline-text-3" id="text-729ed304-8a4e-40f7-a72e-eec793809f77">
 <ul class="org-ul">
@@ -1157,7 +1337,7 @@ way safer)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org222b0fc" class="outline-3">
+<div id="outline-container-org52923b7" class="outline-3">
 <h3 id="4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">Package group</h3>
 <div class="outline-text-3" id="text-4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">
 <ul class="org-ul">
@@ -1173,7 +1353,7 @@ recipes should inherit this class</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org263376a" class="outline-3">
+<div id="outline-container-org5a75089" class="outline-3">
 <h3 id="cd11671a-4982-43d0-92eb-f510bf1b5d22"><code>PR</code> Service</h3>
 <div class="outline-text-3" id="text-cd11671a-4982-43d0-92eb-f510bf1b5d22">
 <ul class="org-ul">
@@ -1203,7 +1383,7 @@ share a single PR service
 </ul>
 </div>
 </div>
-<div id="outline-container-orgec5ad96" class="outline-3">
+<div id="outline-container-orga2e6b52" class="outline-3">
 <h3 id="b00db72c-5c93-441d-887d-9878b84ec993">Poky</h3>
 <div class="outline-text-3" id="text-b00db72c-5c93-441d-887d-9878b84ec993">
 <ul class="org-ul">
@@ -1216,7 +1396,7 @@ recent release version</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb8782d7" class="outline-3">
+<div id="outline-container-orgb0eced2" class="outline-3">
 <h3 id="a4dfc074-83f5-47c6-a5c4-c1b6153b906a">Pseudo</h3>
 <div class="outline-text-3" id="text-a4dfc074-83f5-47c6-a5c4-c1b6153b906a">
 <ul class="org-ul">
@@ -1231,7 +1411,7 @@ found</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgafb750d" class="outline-3">
+<div id="outline-container-org6cccfef" class="outline-3">
 <h3 id="49922abe-989a-4049-a4e1-d9cd49db6f60">Recipe</h3>
 <div class="outline-text-3" id="text-49922abe-989a-4049-a4e1-d9cd49db6f60">
 <ul class="org-ul">
@@ -1312,7 +1492,7 @@ be cumbersome to increment manually</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5a714ad" class="outline-3">
+<div id="outline-container-orgeb768a9" class="outline-3">
 <h3 id="ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">SBOM</h3>
 <div class="outline-text-3" id="text-ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">
 <ul class="org-ul">
@@ -1331,7 +1511,7 @@ based on all the <a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a> it
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b141d3" class="outline-3">
+<div id="outline-container-org0251d27" class="outline-3">
 <h3 id="8254517c-069f-4c02-bcc0-989e195a3cdc">sstate-cache</h3>
 <div class="outline-text-3" id="text-8254517c-069f-4c02-bcc0-989e195a3cdc">
 <ul class="org-ul">
@@ -1357,7 +1537,7 @@ the task depends on (more on this <a href="https://docs.yoctoproject.org/bitbake
 </ul>
 </div>
 </div>
-<div id="outline-container-org6c92298" class="outline-3">
+<div id="outline-container-orge977c12" class="outline-3">
 <h3 id="f9b4ec65-a1e4-457a-a977-a5fb8c519c59">Source Directory</h3>
 <div class="outline-text-3" id="text-f9b4ec65-a1e4-457a-a977-a5fb8c519c59">
 <ul class="org-ul">
@@ -1369,7 +1549,7 @@ not lie within it)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9309f94" class="outline-3">
+<div id="outline-container-org728bd1e" class="outline-3">
 <h3 id="d955a4e4-3e7c-478b-8e57-286a7c194852">Sysroot</h3>
 <div class="outline-text-3" id="text-d955a4e4-3e7c-478b-8e57-286a7c194852">
 <ul class="org-ul">
@@ -1390,7 +1570,7 @@ CPU core</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdf30024" class="outline-3">
+<div id="outline-container-org30470fd" class="outline-3">
 <h3 id="b64a1dac-73c7-403b-9f43-2530b4fd9669"><code>wic</code></h3>
 <div class="outline-text-3" id="text-b64a1dac-73c7-403b-9f43-2530b4fd9669">
 <ul class="org-ul">
@@ -1422,11 +1602,11 @@ target&rsquo;s disk or sd card (e.g. with <code>dd</code>)</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb10953a" class="outline-2">
+<div id="outline-container-orgbd3a92b" class="outline-2">
 <h2 id="77644b46-c404-4635-8cd4-f6d741c9f579">Build directory contents</h2>
 <div class="outline-text-2" id="text-77644b46-c404-4635-8cd4-f6d741c9f579">
 </div>
-<div id="outline-container-orgaf1e11f" class="outline-3">
+<div id="outline-container-org30d17b1" class="outline-3">
 <h3 id="436f2635-0396-4400-a62f-30ca113b090c"><code>conf/</code></h3>
 <div class="outline-text-3" id="text-436f2635-0396-4400-a62f-30ca113b090c">
 <ul class="org-ul">
@@ -1464,7 +1644,7 @@ which is set in the <code>.templateconf</code> file, and which <a href="#b00db72
 </ul>
 </div>
 </div>
-<div id="outline-container-org24bf5de" class="outline-3">
+<div id="outline-container-org3df91b9" class="outline-3">
 <h3 id="8924a89f-2052-4370-a549-a61d2475454b"><code>downloads/</code></h3>
 <div class="outline-text-3" id="text-8924a89f-2052-4370-a549-a61d2475454b">
 <ul class="org-ul">
@@ -1475,7 +1655,7 @@ which is set in the <code>.templateconf</code> file, and which <a href="#b00db72
 </ul>
 </div>
 </div>
-<div id="outline-container-org919db2d" class="outline-3">
+<div id="outline-container-orgb10386e" class="outline-3">
 <h3 id="3a21f6aa-2b60-4879-bf5b-9b19213bd3a8"><code>sstate-cache/</code></h3>
 <div class="outline-text-3" id="text-3a21f6aa-2b60-4879-bf5b-9b19213bd3a8">
 <ul class="org-ul">
@@ -1502,7 +1682,7 @@ it accesses them, when it has write access to the cache</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3db9ade" class="outline-3">
+<div id="outline-container-org88edfd6" class="outline-3">
 <h3 id="12ea9557-5155-49bc-830c-ce2cd727489d"><code>tmp/</code></h3>
 <div class="outline-text-3" id="text-12ea9557-5155-49bc-830c-ce2cd727489d">
 <ul class="org-ul">
@@ -1512,7 +1692,7 @@ it accesses them, when it has write access to the cache</li>
 <li>looking in here can sometimes help diagnose failed builds</li>
 </ul>
 </div>
-<div id="outline-container-org8db18df" class="outline-4">
+<div id="outline-container-org674de6a" class="outline-4">
 <h4 id="6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f"><code>tmp/work/</code></h4>
 <div class="outline-text-4" id="text-6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f">
 <ul class="org-ul">
@@ -1601,7 +1781,7 @@ where the source is separate from the build artifacts</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org336b400" class="outline-4">
+<div id="outline-container-org154bf6c" class="outline-4">
 <h4 id="42ecbafa-3bd4-4d87-b351-017b5f0edb00"><code>tmp/work-shared/</code></h4>
 <div class="outline-text-4" id="text-42ecbafa-3bd4-4d87-b351-017b5f0edb00">
 <ul class="org-ul">
@@ -1611,7 +1791,7 @@ recipes</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5efaa88" class="outline-4">
+<div id="outline-container-orgb038826" class="outline-4">
 <h4 id="a2382d7c-15f0-4838-83d5-3c982eaedc05"><code>tmp/deploy/</code></h4>
 <div class="outline-text-4" id="text-a2382d7c-15f0-4838-83d5-3c982eaedc05">
 <ul class="org-ul">
@@ -1619,7 +1799,7 @@ recipes</li>
 <li>the <code>DEPLOY_DIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
 </ul>
 </div>
-<div id="outline-container-org966cbbc" class="outline-5">
+<div id="outline-container-orga8f8a58" class="outline-5">
 <h5 id="96cb9dc9-6536-41bf-aa3f-d1d5dd58b173"><code>tmp/deploy/images/</code></h5>
 <div class="outline-text-5" id="text-96cb9dc9-6536-41bf-aa3f-d1d5dd58b173">
 <ul class="org-ul">
@@ -1627,7 +1807,7 @@ recipes</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7047a6c" class="outline-5">
+<div id="outline-container-orga52339c" class="outline-5">
 <h5 id="f163942c-16fc-48bb-98d8-a083d6f78260"><code>tmp/deploy/&lt;package_type&gt;/</code></h5>
 <div class="outline-text-5" id="text-f163942c-16fc-48bb-98d8-a083d6f78260">
 <ul class="org-ul">
@@ -1636,7 +1816,7 @@ built (and perhaps put into one of the <a href="#96cb9dc9-6536-41bf-aa3f-d1d5dd5
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc56c105" class="outline-5">
+<div id="outline-container-org5f0ff95" class="outline-5">
 <h5 id="175e15db-e46d-4bee-92ec-a624b83c74d9"><code>tmp/deploy/licenses/</code></h5>
 <div class="outline-text-5" id="text-175e15db-e46d-4bee-92ec-a624b83c74d9">
 <ul class="org-ul">
@@ -1651,7 +1831,7 @@ auditing)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9ca9616" class="outline-5">
+<div id="outline-container-org62ab32a" class="outline-5">
 <h5 id="8740c2c8-f495-4768-90df-e6b5a8db0022"><code>tmp/deploy/sdk/</code></h5>
 <div class="outline-text-5" id="text-8740c2c8-f495-4768-90df-e6b5a8db0022">
 <ul class="org-ul">
@@ -1660,7 +1840,7 @@ auditing)</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgef56f6b" class="outline-4">
+<div id="outline-container-orgb4a3393" class="outline-4">
 <h4 id="dbeacf3e-590d-40b2-ae9b-b783984f2959"><code>tmp/sysroots-components/</code></h4>
 <div class="outline-text-4" id="text-dbeacf3e-590d-40b2-ae9b-b783984f2959">
 <ul class="org-ul">
@@ -1669,7 +1849,7 @@ auditing)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgff9fe13" class="outline-4">
+<div id="outline-container-org16a04f1" class="outline-4">
 <h4 id="d199bf7e-3375-4127-9c14-0bd47e3b9f1c"><code>tmp/log/</code></h4>
 <div class="outline-text-4" id="text-d199bf7e-3375-4127-9c14-0bd47e3b9f1c">
 <ul class="org-ul">
@@ -1682,7 +1862,7 @@ tasks</li>
 </div>
 </div>
 </div>
-<div id="outline-container-orgae5ba96" class="outline-2">
+<div id="outline-container-org3adda59" class="outline-2">
 <h2 id="afbb604b-6575-481f-8619-e8e36f81855c">Setting up a build</h2>
 <div class="outline-text-2" id="text-afbb604b-6575-481f-8619-e8e36f81855c">
 <ul class="org-ul">
@@ -1704,7 +1884,7 @@ source the setup script to create/enter the <a href="#51cba0dc-6701-431d-9b93-9b
 </ul>
 </div>
 </div>
-<div id="outline-container-org42acb18" class="outline-2">
+<div id="outline-container-orgad127a2" class="outline-2">
 <h2 id="6118f330-5f11-4f7e-8073-017544523f59">Useful commands</h2>
 <div class="outline-text-2" id="text-6118f330-5f11-4f7e-8073-017544523f59">
 <ul class="org-ul">
@@ -1835,7 +2015,7 @@ to copy/deploy the finished <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">reci
 </ul>
 </div>
 </div>
-<div id="outline-container-orgecb7275" class="outline-2">
+<div id="outline-container-org1e003be" class="outline-2">
 <h2 id="cae0bb7a-04bf-459c-a100-934338ec5ded">Building a target image</h2>
 <div class="outline-text-2" id="text-cae0bb7a-04bf-459c-a100-934338ec5ded">
 <ul class="org-ul">
@@ -1861,7 +2041,7 @@ then be copied to the target&rsquo;s sd card:
 </ul>
 </div>
 </div>
-<div id="outline-container-org8b4e97a" class="outline-2">
+<div id="outline-container-org47c659c" class="outline-2">
 <h2 id="01866026-d3a7-47e1-8148-12966cdc99df">Creating a custom image recipe</h2>
 <div class="outline-text-2" id="text-01866026-d3a7-47e1-8148-12966cdc99df">
 <ul class="org-ul">
@@ -1899,7 +2079,7 @@ offer helpful building blocks of commonly used functionality, e.g.:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf1d9c7f" class="outline-2">
+<div id="outline-container-org7cd7be5" class="outline-2">
 <h2 id="dfb22ff0-7a48-4df5-b479-d591750e0354">Creating a custom distro configuration</h2>
 <div class="outline-text-2" id="text-dfb22ff0-7a48-4df5-b479-d591750e0354">
 <ul class="org-ul">
@@ -1935,7 +2115,7 @@ to use this distro, we then need to add the following to our <code>local.conf</c
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb5d3434" class="outline-2">
+<div id="outline-container-org6244273" class="outline-2">
 <h2 id="ad945122-d7c0-44c4-8529-bc5ebd41039f">Customising an existing recipe</h2>
 <div class="outline-text-2" id="text-ad945122-d7c0-44c4-8529-bc5ebd41039f">
 <ul class="org-ul">
@@ -1943,7 +2123,7 @@ to use this distro, we then need to add the following to our <code>local.conf</c
 after it, and make our changes and additions to the configuration therein</li>
 </ul>
 </div>
-<div id="outline-container-orgf8d0bf7" class="outline-3">
+<div id="outline-container-orgb25c3bb" class="outline-3">
 <h3 id="a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6">Modifying build flags</h3>
 <div class="outline-text-3" id="text-a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6">
 <ul class="org-ul">
@@ -2014,7 +2194,7 @@ our <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> file would contai
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfc46aba" class="outline-3">
+<div id="outline-container-orgf3cfd6a" class="outline-3">
 <h3 id="454f3ba7-e149-40c3-acb6-d9e0aed33575">Applying a patch</h3>
 <div class="outline-text-3" id="text-454f3ba7-e149-40c3-acb6-d9e0aed33575">
 <ul class="org-ul">
@@ -2066,7 +2246,7 @@ future</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f36939" class="outline-3">
+<div id="outline-container-orgb034c50" class="outline-3">
 <h3 id="80f5fd18-70ac-4dee-a784-ab78c0a1069d">Adding extra files</h3>
 <div class="outline-text-3" id="text-80f5fd18-70ac-4dee-a784-ab78c0a1069d">
 <ul class="org-ul">
@@ -2089,7 +2269,7 @@ do_install:append() {
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd39e16c" class="outline-3">
+<div id="outline-container-org85613cc" class="outline-3">
 <h3 id="f5e94c00-76bb-468c-896a-be015f947270">Changing recipe feature configuration</h3>
 <div class="outline-text-3" id="text-f5e94c00-76bb-468c-896a-be015f947270">
 <ul class="org-ul">
@@ -2124,7 +2304,7 @@ instead add:
 </ul>
 </div>
 </div>
-<div id="outline-container-org5fa5272" class="outline-3">
+<div id="outline-container-orgbd59173" class="outline-3">
 <h3 id="5a6c603b-af2d-45ae-81a6-7748692924f2">Changing recipe Kconfig configuration</h3>
 <div class="outline-text-3" id="text-5a6c603b-af2d-45ae-81a6-7748692924f2">
 <ul class="org-ul">
@@ -2152,7 +2332,7 @@ just the diff fragment, we would run <code>savedefconfig</code> instead of <code
 </div>
 </div>
 </div>
-<div id="outline-container-org7677897" class="outline-2">
+<div id="outline-container-orgfd99180" class="outline-2">
 <h2 id="d3aa691d-a9df-4d7e-94cb-af28e2177486">Standard target filesystem paths</h2>
 <div class="outline-text-2" id="text-d3aa691d-a9df-4d7e-94cb-af28e2177486">
 <ul class="org-ul">
@@ -2244,7 +2424,7 @@ installation won&rsquo;t work as expected</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgda5e06d" class="outline-2">
+<div id="outline-container-org92abbc5" class="outline-2">
 <h2 id="8cf925bb-3283-47f5-8033-85151b2aa166">Running the image in QEMU</h2>
 <div class="outline-text-2" id="text-8cf925bb-3283-47f5-8033-85151b2aa166">
 <ul class="org-ul">
@@ -2261,7 +2441,7 @@ usually work; QEMU will infer from the <a href="#51cba0dc-6701-431d-9b93-9b2e397
 <li>more options are described <a href="https://docs.yoctoproject.org/dev-manual/qemu.html">here</a>; see also the output of <code>runqemu --help</code></li>
 </ul>
 </div>
-<div id="outline-container-org4544a11" class="outline-3">
+<div id="outline-container-org0a6d418" class="outline-3">
 <h3 id="2345edb0-38da-465f-94ca-366b3578a234">Automated testing with QEMU</h3>
 <div class="outline-text-3" id="text-2345edb0-38da-465f-94ca-366b3578a234">
 <ul class="org-ul">
@@ -2282,11 +2462,11 @@ then:
 </div>
 </div>
 </div>
-<div id="outline-container-org371b6d8" class="outline-2">
+<div id="outline-container-org65adfc0" class="outline-2">
 <h2 id="89dd2d47-b589-4fcb-92f2-c13c3aa91480">Debugging</h2>
 <div class="outline-text-2" id="text-89dd2d47-b589-4fcb-92f2-c13c3aa91480">
 </div>
-<div id="outline-container-org6c29651" class="outline-3">
+<div id="outline-container-org56f11af" class="outline-3">
 <h3 id="8628f96d-b068-4d4a-82b7-65e70f80af30">Metadata</h3>
 <div class="outline-text-3" id="text-8628f96d-b068-4d4a-82b7-65e70f80af30">
 <ul class="org-ul">
@@ -2414,7 +2594,7 @@ or some other external toolchain</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org57c7fd8" class="outline-3">
+<div id="outline-container-org5f19d18" class="outline-3">
 <h3 id="f82572d9-a37f-423d-9c46-5de277952cd5">Run-time software</h3>
 <div class="outline-text-3" id="text-f82572d9-a37f-423d-9c46-5de277952cd5">
 <ul class="org-ul">
@@ -2436,7 +2616,7 @@ compiler optimisations</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org8482a68" class="outline-2">
+<div id="outline-container-orgd05af3d" class="outline-2">
 <h2 id="50ecb4f8-0fef-4298-9f92-3d89b1c4a47d">Choosing a board</h2>
 <div class="outline-text-2" id="text-50ecb4f8-0fef-4298-9f92-3d89b1c4a47d">
 <ul class="org-ul">
@@ -2460,7 +2640,7 @@ the box)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb7147be" class="outline-2">
+<div id="outline-container-org229f4df" class="outline-2">
 <h2 id="9dd87647-f7dd-4435-b527-2a990d5239c3">Licenses</h2>
 <div class="outline-text-2" id="text-9dd87647-f7dd-4435-b527-2a990d5239c3">
 <ul class="org-ul">
@@ -2511,7 +2691,7 @@ licenses</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgfa59bb4" class="outline-3">
+<div id="outline-container-orgfdfabe3" class="outline-3">
 <h3 id="bcd83893-9335-4693-8f50-ac4b0a807761">License compliance</h3>
 <div class="outline-text-3" id="text-bcd83893-9335-4693-8f50-ac4b0a807761">
 <ul class="org-ul">
@@ -2571,7 +2751,7 @@ add the following to our <code>build/conf/local.conf</code>:
 </div>
 </div>
 </div>
-<div id="outline-container-org1385dc0" class="outline-2">
+<div id="outline-container-org76a9a1f" class="outline-2">
 <h2 id="635714a5-4def-4468-88f3-a30e4128c720">Toaster</h2>
 <div class="outline-text-2" id="text-635714a5-4def-4468-88f3-a30e4128c720">
 <ul class="org-ul">
@@ -2597,7 +2777,7 @@ source toaster start
 </ul>
 </div>
 </div>
-<div id="outline-container-orgabc1219" class="outline-2">
+<div id="outline-container-org9114b5e" class="outline-2">
 <h2 id="d106ee59-cbac-4ba2-b886-68266957e19e">Good practices</h2>
 <div class="outline-text-2" id="text-d106ee59-cbac-4ba2-b886-68266957e19e">
 <ul class="org-ul">
@@ -2780,7 +2960,7 @@ of our custom BSP</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org68d9c4d" class="outline-2">
+<div id="outline-container-orged96b26" class="outline-2">
 <h2 id="cabd0da0-d7ec-4bdc-80db-34a2563ab39e">Config syntax</h2>
 <div class="outline-text-2" id="text-cabd0da0-d7ec-4bdc-80db-34a2563ab39e">
 <div class="org-src-container">
@@ -2843,11 +3023,11 @@ def get_depends(d): <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 </div>
-<div id="outline-container-org9307d8f" class="outline-2">
+<div id="outline-container-orgb3f36bd" class="outline-2">
 <h2 id="70e610ae-be41-48f0-ab91-b7fa3e82851c">Templates</h2>
 <div class="outline-text-2" id="text-70e610ae-be41-48f0-ab91-b7fa3e82851c">
 </div>
-<div id="outline-container-orgfd5b342" class="outline-3">
+<div id="outline-container-org370ea57" class="outline-3">
 <h3 id="3b6f0f7c-d816-4b65-8096-dc2e720a8f68"><code>local.conf</code></h3>
 <div class="outline-text-3" id="text-3b6f0f7c-d816-4b65-8096-dc2e720a8f68">
 <div class="org-src-container">
@@ -2938,7 +3118,7 @@ def get_depends(d): <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf922de" class="outline-3">
+<div id="outline-container-orgfae9aab" class="outline-3">
 <h3 id="7d86ced6-7905-4d3d-9739-42965f71fb1c">Recipe</h3>
 <div class="outline-text-3" id="text-7d86ced6-7905-4d3d-9739-42965f71fb1c">
 <div class="org-src-container">
