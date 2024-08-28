@@ -1,0 +1,1925 @@
+# -*- coding: utf-8; -*-
+#+TITLE: Yocto notes
+#+DESCRIPTION: Reference notes for Yocto
+#+AUTHOR: Scott J. Crouch
+#+EMAIL: scottjcrouch at jee-male
+#+SETUPFILE: my-org-html-theme.setup
+#+STARTUP: fninline overview
+#+OPTIONS: H:4
+#+OPTIONS: num:nil
+
+* Links
+:PROPERTIES:
+:ID:       3e4f8b8c-b522-4900-953d-20ea0d528c08
+:CUSTOM_ID: links
+:END:
+- [[https://docs.yoctoproject.org/][Yocto Docs]] ([[https://docs.yoctoproject.org/singleindex.html][single page]]; [[https://docs.yoctoproject.org/genindex.html][index]])
+  - [[https://docs.yoctoproject.org/ref-manual/index.html][Reference manual]]
+    - [[https://docs.yoctoproject.org/ref-manual/structure.html][Directory structure]]
+    - [[https://docs.yoctoproject.org/ref-manual/classes.html][Classes]]
+    - [[https://docs.yoctoproject.org/ref-manual/tasks.html][Tasks]]
+    - [[https://docs.yoctoproject.org/ref-manual/devtool-reference.html][Devtool]]
+    - [[https://docs.yoctoproject.org/ref-manual/features.html][Selectable features]]
+      - [[https://docs.yoctoproject.org/ref-manual/features.html#machine-features][Machine-relevant]]
+      - [[https://docs.yoctoproject.org/ref-manual/features.html#distro-features][Distro-relevant]]
+      - [[https://docs.yoctoproject.org/ref-manual/features.html#image-features][Image-relevant]]
+    - [[https://docs.yoctoproject.org/ref-manual/variables.html][Variables]]
+    - [[https://docs.yoctoproject.org/ref-manual/varlocality.html][Variable contexts]]
+  - [[https://docs.yoctoproject.org/bitbake/2.6/index.html][Bitbake]]
+    - [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html][Syntax]]
+      - [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html#variable-flags][Task-specific variable flags]]
+    - [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-fetching.html][Fetching]]
+    - [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-ref-variables.html][Variables (BitBake-specific)]]
+  - [[https://docs.yoctoproject.org/sdk-manual/index.html][eSDK and app development]]
+  - [[https://docs.yoctoproject.org/dev-manual/index.html][Development guide]]
+    - [[https://docs.yoctoproject.org/dev-manual/packages.html][Working with packages]]
+    - [[https://docs.yoctoproject.org/dev-manual/debugging.html][Debugging tools and techniques]]
+    - [[https://docs.yoctoproject.org/dev-manual/qemu.html][Using QEMU with Yocto]]
+    - [[https://docs.yoctoproject.org/dev-manual/sbom.html][Creating a Software Bill of Materials (SBOM)]]
+  - [[https://docs.yoctoproject.org/test-manual/index.html][Testing]]
+- Layers
+  - [[https://www.yoctoproject.org/development/yocto-project-compatible-layers/][Yocto Project Curated Layer Index]]
+  - [[https://layers.openembedded.org/layerindex/branch/master/layers/][OpenEmbedded Layer Index]]
+- Code examples
+  - [[https://github.com/shni9045/Qt5-Yocto][Qt5 + Yocto on RPi-4B]]
+- Misc.
+  - [[https://developer.ridgerun.com/wiki/index.php/Preparing_Yocto_Development_Environment_for_Debugging][Preparing Yocto Development Environment for Debugging]]
+  - [[https://www.youtube.com/playlist?list=PLD4M5FoHz-TxMfBFrDKfIS_GLY25Qsfyj][Live Coding with Yocto Project]]
+  - [[https://www.khronos.org/opengles/][OpenGL ES overview]]
+* Terminology
+:PROPERTIES:
+:ID:       c09de665-9a71-43d6-b1f5-a1fd38b75b44
+:CUSTOM_ID: terminology
+:END:
+*** Append
+:PROPERTIES:
+:ID:       d2fee7d5-7007-4e33-85cb-6c9a370990fd
+:CUSTOM_ID: d2fee7d5-7007-4e33-85cb-6c9a370990fd
+:END:
+- append files have a =.bbappend= suffix
+- these override/extend their eponymous [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] files (a =%= character acts as a
+  wildcard), e.g.
+  - =my-app_1.2.3.bbappend= applies only for the 1.2.3 version
+  - =my-app_1.2.%.bbappend= applies only for the 1.2.y version
+  - =my-app_1.%.bbappend= applies only for the 1.x and 1.x.y versions
+  - =my-app_%.bbappend= applies for any version
+- [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] basically just appends their contents to the end of the
+  corresponding =.bb= file
+- where there are multiple append files for the same [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] in different
+  [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]], the layer's priority decides the order they'll be applied in
+*** BitBake
+:PROPERTIES:
+:ID:       623a901f-d7c6-44b6-97a0-e2bea2f861bc
+:CUSTOM_ID: 623a901f-d7c6-44b6-97a0-e2bea2f861bc
+:END:
+- the task scheduler and execution engine, used by the
+  [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][OpenEmbedded Build System]]
+- a web-based interface for BitBake and its metadata exists called [[#635714a5-4def-4468-88f3-a30e4128c720][Toaster]]
+- while you can use most variables in any context, some variables are
+  associated with a particular context or scope (more on this [[https://docs.yoctoproject.org/ref-manual/varlocality.html][here]])
+  - variables defined in [[#73837aae-7e38-4040-99e9-e5b43fd673ca][config]] files are global, available to every [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+  - variables defined within [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] files are local to specific recipe only,
+    i.e. during the execution of its tasks
+- the parsing order of global config variables is as follows:
+  - =build/conf/local.conf=
+  - =<layer>/conf/machines/<machine>.conf=
+  - =<layer>/conf/distro/<distro>.conf=
+- notable variables include (complete list [[https://docs.yoctoproject.org/ref-manual/variables.html][here]]):
+  - =MACHINE=, the target machine (e.g. =beaglebone-yocto= for BeagleBone Black)
+  - =DISTRO=, is set to a [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]] configuration
+  - =PACKAGE_CLASSES=, to set one or more [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packaging]] format(s) to package data up
+    into
+  - =SDKMACHINE=, indicates the architecture that a generated [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK]] is to run on
+  - =EXTRA_IMAGE_FEATURES=, for extra [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] packages
+  - the =SYSROOT_*= variables, which control how [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroots]] are created and stored
+- how to use it (more commands [[#6118f330-5f11-4f7e-8073-017544523f59][here]]):
+  - =bitbake <recipe>= runs a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+  - ~bitbake -c listtasks <recipe>~ lists all tasks involved a particular [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+    (the =-c= flag is simply running a special task within that recipe called
+    =do_listtasks=)
+*** BSP
+:PROPERTIES:
+:ID:       c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2
+:CUSTOM_ID: c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2
+:END:
+- board support package; a collection ([[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]]) of drivers, definitions, et al.,
+  for a particular board or hardware configuration
+- the =meta-yocto-bsp= [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] (which [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] includes) is a core layer containing
+  BSPs for various machines that Yocto Project supports
+  (e.g. =beaglebone-yocto=)
+*** Build Directory
+:PROPERTIES:
+:ID:       51cba0dc-6701-431d-9b93-9b2e39761fbc
+:CUSTOM_ID: 51cba0dc-6701-431d-9b93-9b2e39761fbc
+:END:
+- AKA an individual project; a build environment
+- this term helps distinguish it from the [[#f9b4ec65-a1e4-457a-a977-a5fb8c519c59][source directory]] that it may or may
+  not lie within
+- a build environment is created (and/or entered into) when we =source= a setup
+  environment script, e.g. =oe-init-build-env= (an optional arg lets us specify
+  the name of the directory; defaults to just =build/=)
+- the =TOPDIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points here
+- the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] repo doesn't track these files
+- a build usually just involves adding [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]]; we customise/tweak it by
+  creating our own custom layers
+- when troubleshooting a build, it may be helpful to [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-intro.html#generating-dependency-graphs][generate a dependency
+  graph]] (see the =-g= and =-u= flags)
+- the build directory's structure and contents are described [[#77644b46-c404-4635-8cd4-f6d741c9f579][here]]; more
+  complete documentation can be found [[https://docs.yoctoproject.org/ref-manual/structure.html][here]]
+*** Class
+:PROPERTIES:
+:ID:       1f78978c-9d22-4d70-9aab-de96ee8ab69a
+:CUSTOM_ID: 1f78978c-9d22-4d70-9aab-de96ee8ab69a
+:END:
+- contain info that's useful to share between [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]; typically this is
+  common build information (e.g. how to build a Linux kernel; how to build an
+  autotools project)
+- have the =.bbclass= suffix
+- the class =classes/base.bbclass= is implicitly inherited in every [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+- are pulled in by [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] with the =inherit= keyword
+- class files are global entities, unlike [[#97e812dc-9fef-4f72-a931-4ae140862170][include]] files, which are more local;
+  class files can be inherited by any [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], any [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]]
+*** Configuration
+:PROPERTIES:
+:ID:       73837aae-7e38-4040-99e9-e5b43fd673ca
+:CUSTOM_ID: 73837aae-7e38-4040-99e9-e5b43fd673ca
+:END:
+- these files instruct what to build and what to put into the image to support
+  a particular platform
+- have the =.conf= suffix
+- configure several areas:
+  - machine-specific config (i.e. machine definitions; see
+    e.g. =meta-yocto-bsp/conf/machine/=)
+  - [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]] config (e.g. for [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] itself)
+  - compiler tuning
+  - general common config options
+  - user config options
+- =conf/local.conf= from the [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build directory]] contains user-defined [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]]
+  that affect every build
+- =conf/local.conf= from a particular [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] defines stuff for a layer like its
+  name, priority, dependencies on other layers, etc.
+- for config syntax, see [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html][here]]
+- a list of variables is given [[https://docs.yoctoproject.org/ref-manual/variables.html][here]]; applicable contexts are given [[https://docs.yoctoproject.org/ref-manual/varlocality.html][here]]
+*** Dependency
+:PROPERTIES:
+:ID:       ff999862-e2a2-482c-93a4-55151cb59154
+:CUSTOM_ID: ff999862-e2a2-482c-93a4-55151cb59154
+:END:
+- things that are specified by [[#b1a75489-4822-43b0-8fd4-639d535cad33][metadata]]
+- the term could be referring to a few different things:
+  - build-time
+    - compilers and other build tools, static libraries, etc.
+    - a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] can express such a dependency with the =DEPENDS= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]]
+  - run-time
+    - fonts, icons, dynamic libraries, plugins, language interpreters, etc.
+    - a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] can express such a dependency with the =RDEPENDS= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]]
+    - the results of most [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] are [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] managed by the package manager,
+      which will by extension manage package dependencies
+    - there are also the self-explanatory =RCONFLICTS=, and =RREPLACES=
+  - tasks
+    - [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] expresses dependencies by having tasks depend the completion of
+      other tasks
+    - [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OE-Core]] provides a vast set of [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]] to handle the default task
+      dependencies commonly used
+- also, when a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] depends on X, this can mean:
+  - we need to build the particular recipe called X
+    - a recipe can satisfy this dependency by just being named =X_<version>.bb=
+  - we need the functionality called X, and the particular implementation
+    doesn't matter
+    - a recipe can satisfy this dependency by adding X to the =PROVIDES= string
+      in its [[#73837aae-7e38-4040-99e9-e5b43fd673ca][config]]
+- multiple recipes can satisfy a dependency
+  - the =PREFERRED_PROVIDER_*= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] indicate to [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] which ones we prefer
+    (e.g. =PREFERRED_PROVIDER_virtual/kernel= might be set to =linux-yocto=)
+  - all else being equal, the highest version of a provider takes precedence
+    - if we want to dodge bleeding-edge development versions, we can soften this
+      behaviour by setting =DEFAULT_PREFERENCE= to =-1= (picks the stable version by
+      default)
+    - or we can override this completely with =PREFERRED_VERSION_*=, which is
+      often done in [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSPs]] for bootloaders and whatnot
+*** Devtool
+:PROPERTIES:
+:ID:       28a59763-8b1e-4c36-8c07-aafde51a8081
+:CUSTOM_ID: 28a59763-8b1e-4c36-8c07-aafde51a8081
+:END:
+- a command-line tool that comes with an [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][eSDK]]
+- it assists with the creation/modification/updating of [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]
+- an eSDK extends a regular SDK by including devtool, allowing one to
+  externally:
+  - generate [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]
+  - build [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]
+  - build [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]]
+  - install [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] in the internal toolchain
+  - deploy [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] to a particular target (i.e. directly, for testing
+    purposes, not to a package feed)
+  - launch the image in QEMU
+- devtool can be used within the eSDK environment (i.e. once we've run the
+  eSDK environment setup script), but essentially, an eSDK is a snapshot of
+  the environment used to create it, thus all devtool commands are available
+  inside the original Yocto [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build environment]]
+- devtool creates for itself a special "workspace" [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]], within which one can
+  add new [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] or modifications to existing [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]
+- run =devtool --help= to see all the commands
+- devtool can automatically generate a recipe from an external git repository;
+  currently it can generate a (tentative/to be modified) recipe for projects
+  based on the following:
+  - autotools (autoconf and automake)
+  - cmake
+  - scons
+  - qmake
+  - a plain Makefile
+  - the Node.js module
+  - python modules that use setuptools or distutils
+- more on this [[https://docs.yoctoproject.org/sdk-manual/extensible.html][here]]; quick reference [[https://docs.yoctoproject.org/ref-manual/devtool-reference.html][here]]
+*** Distro
+:PROPERTIES:
+:ID:       887aaab6-76ef-43b5-8592-127935253e7a
+:CUSTOM_ID: 887aaab6-76ef-43b5-8592-127935253e7a
+:END:
+- an abstraction of the finished system
+- basically a selection of software components not yet tailored for the
+  specifics of the hardware
+  - when a machine supports a feature, this does not imply that the target
+    system supports it; the distro must provide its underlying base
+  - e.g. if machine supports Wi-Fi but the distro does not, apps will be built
+    with Wi-Fi support disabled (system won't have Wi-Fi support); if the
+    distro has Wi-Fi support but the machine does not, the modules and apps
+    needed for the Wi-Fi will not be installed in images built for that
+    machine (but the distro and its modules will have support for Wi-Fi
+    enabled)
+- the reference distro, [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]], for example, may be tweaked by
+  machine-specific or image-specific definitions
+- we can set the =DISTRO= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] to point to a particular distro [[#73837aae-7e38-4040-99e9-e5b43fd673ca][configuration]]
+  (e.g. if set to "poky", it will refer to =meta-poky/conf/distro/poky.conf=)
+  - if =DISTRO= is left blank, a set of default configurations will be used;
+    these are specified in =meta/conf/distro/defaultsetup.conf=
+- see [[https://docs.yoctoproject.org/ref-manual/features.html#distro-features][here]] for how to enable distro-relevant features (e.g. include vfat
+  support)
+  - machine-relevants features, on the other hand, are shown [[https://docs.yoctoproject.org/ref-manual/features.html#machine-features][here]]
+*** eSDK
+:PROPERTIES:
+:ID:       ec39dfb8-2723-41a2-ad1e-26ae052595d9
+:CUSTOM_ID: ec39dfb8-2723-41a2-ad1e-26ae052595d9
+:END:
+- an SDK is a standalone cross-development toolchain and libraries for
+  building stuff against the target environment on the device; they are
+  generated against a particular [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+  - note that even where host and target are the same architecture, this is in
+    some sense still a cross-build (i.e. not a native build), because the
+    target binary uses a [[#d955a4e4-3e7c-478b-8e57-286a7c194852][staged root filesystem]] to find its dependencies
+  - only where the SDK was to run on the target itself would we call it a
+    native SDK (but targets usually aren't powerful enough for this job
+    anyway)
+- the SDK may be intended to run on some machine other than the host it was
+  generated in (that of an application developer); this avoids other
+  developers needing a full installation of the Yocto Project just to build
+  [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] for the device
+- a standard SDK consists of:
+  - cross-development toolchain (compiler, debugger, and other tools)
+  - development libraries, headers, and symbols for everything that will be
+    present on the target
+  - environment setup script (defines variables for SDK usage)
+  - potentially it may also rely on QEMU to emulate the target
+- an /eSDK/ (the "e" stands for "extensible") is all this, plus [[#28a59763-8b1e-4c36-8c07-aafde51a8081][devtool]]
+  - thus, for example, we could generate an eSDK against one of the standard
+    [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] (like =core-image-full-cmdline=), then build and install any extra
+    dependencies into the SDK using the Extensible SDK (normally, we would
+    generate an SDK against a customised [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] that already fits out
+    application needs)
+- the SDK would be distributed in addition to the target image/distribution
+  (otherwise how would they test the software they're building for it?)
+- we generate an SDK installer for a dev environment for some target [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] by
+  running the =populate_sdk= or =populate_sdk_ext= tasks for that image's [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+  - the installer script will be named something like
+    =poky-<c_library>-<host_machine>-<target_image>-<target_machine>-toolchain-<version>.sh=,
+    and once generated can be found in =tmp/deploy/sdk/=
+  - by default this script will install to a place in =/opt/poky/=
+  - once installed, within it will be found a dev environment setup script
+    - this is much like the =oe-init-build-env= script that sets up the
+      [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build directory]]
+      - but don't have them both sourced at the same time!
+    - note that this environment may not yet be plug-and-play; we may still need
+      to add flags, namely, to =CC=, =CXX=, =CPP=, =AS=, and =LD=
+      - e.g. ARM compilers may work for a wide range of ARM processors; we may
+        need to supply more info (e.g. specifying the kind of FPU present)
+      - also, we may need to set the [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroot]] sysroot; but such a sysroot will be
+        provided within the SDK
+  - the installer is built for a particular machine given by =SDKMACHINE=, which
+    is set by default to the same machine as the build host (=BUILD_ARCH=)
+    - we just need to change this value to something else
+  - pre-built SDK installers also exist (see [[https://downloads.yoctoproject.org/releases/yocto/yocto-4.0/toolchain/x86_64/][here]], for example)
+- note that if we only need the generic toolchain and debugging tools, we can
+  just build the =meta-toolchain= [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] (likewise will be found in
+  =tmp/deploy/sdk/= once generated)
+  - this is used mainly for Linux kernel and bootloader development and their
+    debugging processes
+*** Fetcher
+:PROPERTIES:
+:ID:       e2c85bd3-accf-49ea-97ad-fa47a1bb272b
+:CUSTOM_ID: e2c85bd3-accf-49ea-97ad-fa47a1bb272b
+:END:
+- when executing =do_fetch=, [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] employs /fetcher modules/ to fetch resources
+  from the filesystem or network
+- the URL prefix of a path (e.g. =file://=, =https://=, =git://=, =az://=) determines
+  how the resource will be fetched
+- in the case of git, the trailing =branch=<branch_name>= parameter specifies
+  the desired branch; alternatively, the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] can set =SRCREV= to a particular
+  commit
+- some [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]] of concern:
+  - =DL_DIR= (which defaults to =downloads= in our [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build directory]])
+    - this controls where downloaded files are cached
+    - it's consulted by the fetcher first in case we already have the resource
+    - we can set this to a shared location to share this cache with other
+      developers
+    - if we want a shareable download cache, we shouls also enable the tarball
+      generation for the SCM backends in the download folder; add
+      =BB_GENERATE_MIRROR_TARBALLS = "1"= to your project's =conf/local.conf=
+  - =MIRRORS=
+    - points to a set of known caching mirrors
+    - this will be searched before the fetcher bothers obtaining the resource
+      directly
+  - =PREMIRRORS=
+    - points to a set of mirrors that will be searched immediately before
+      =MIRRORS=
+    - companies usually point these at caching servers hosted on the local
+      network, for when wider internet access is restricted
+      - if we want to disable fetching from the internet entirely (e.g. for
+        cleanroom implementations), we can set =BB_NO_NETWORK= to ="1"= in our
+        =local.conf=
+*** Image
+:PROPERTIES:
+:ID:       d04f848b-f29b-4fc5-b2c6-1c2331456bf1
+:CUSTOM_ID: d04f848b-f29b-4fc5-b2c6-1c2331456bf1
+:END:
+- something that can be flashed/extracted, which may include a rootfs, a
+  bootloader, device tree binary, and kernel
+- common formats are =.sdcard=, =.tar.gz=, =.dd=, et al.
+- image [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] are usually gathered in something like
+  =<layer>/<recipe>/images/=
+  - e.g. the =core-image-minimal= recipe is found in
+    =meta/recipes-core/images/coreimage-minimal.bb=
+- some image [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] that the [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][OpenEmbedded build system]] provides out of the
+  box (found in =meta*/recipes*/images/*.bb=):
+  - =core-image-minimal=
+    - a small console-based system
+    - useful for tests and as a basis point for further customised images
+  - =core-image-base=
+    - console-only, provides additional basic hardware support
+  - =core-image-minimal-initramfs=
+    - as above, but built as a ramdisk
+  - =core-image-weston=
+    - provides Wayland protocol libraries and the reference Weston compositor
+  - =core-image-x11=
+    - a basic image with support for graphics through an X11 server and a
+      terminal app (=xterminal=)
+  - =core-image-sato=
+    - a full graphical system based on Sato, a mobile graphical environment
+      built on X11 and GNOME
+    - the image also includes several apps including a terminal, editor, and
+      file manager
+  - =core-image-full-cmdline=
+    - console-only image with more full-featured Linux system functionality
+      installed
+- the list of [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] that will be installed into an image is defined by the
+  =IMAGE_INSTALL= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]]
+  - usually we would add packages to this variable in the image's [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], not
+    our =conf/local.conf=
+- we can also enable image-relevant features by appending to the
+  =IMAGE_FEATURES= and =EXTRA_IMAGE_FEATURES= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]] (the former would
+  typically be used in a [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]]/[[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], the latter in a =conf/local.conf=)
+  - for example: =debug-tweaks= for some quality-of-life stuff; =dev-pkgs= to
+    include development libraries and headers for all the installed packages
+    (more on these [[https://docs.yoctoproject.org/ref-manual/features.html#image-features][here]])
+- there's also =PACKAGE_EXCLUDE= to exclude particular [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]]
+  - this will only exclude packages that are explicitly installed; if an
+    excluded package is a dependency for something, [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] will throw an
+    error
+- the =IMAGE_FSTYPES= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] lets you specify one or more filesystem types for
+  the root filesystem to be generated as (the =IMAGE_TYPES= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] just lists
+  all supported types)
+- during image generation, any non-target =postinst= scripts for each [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]]
+  will be run
+*** Include
+:PROPERTIES:
+:ID:       97e812dc-9fef-4f72-a931-4ae140862170
+:CUSTOM_ID: 97e812dc-9fef-4f72-a931-4ae140862170
+:END:
+- have a =.inc= suffix
+- contain info common to several [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]], allowing information to be shared
+  among them
+- include files are local entities, unlike [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] files, which are global;
+  include files reside alongside [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]], and exist to avoid duplication
+- are pulled in by [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] with the =include= or =require= keywords (=require=
+  produces an error if the file doesn't exist; =include= does not)
+*** Layer
+:PROPERTIES:
+:ID:       d4009f0f-f371-454b-b30f-7fda430c0028
+:CUSTOM_ID: d4009f0f-f371-454b-b30f-7fda430c0028
+:END:
+- a repo that contains a collection of related [[#b1a75489-4822-43b0-8fd4-639d535cad33][metadata]] (with usually at least
+  one [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]])
+- repos have the naming convention =meta-*= (because layers hold metadata)
+- repos may have separate branches of support for specific Yocto versions by
+  codename (Fido, Dizzy, Morty, Pyro, etc.)
+- layers are used to extend the stable base that comes with Yocto
+- every layer contains a =conf/layer.conf= file
+  - this is the layer's analogue of the [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build-specific]] =local.conf=
+  - we should always consider moving most of the stuff in our top-level 
+- there are different types of layers, reflecting the fact that we can extend
+  different parts of Yocto, which includes:
+  - [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] layers
+  - [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]] layers (we may write of these for a particular project)
+  - container layers (a layer that just contains/groups together other layers)
+  - software layers
+  - mixin layers (small layers created (usually by the community) specifically
+    for adding some feature to an existing LTS release, e.g. =meta-lts-mixins=)
+- layers have dependencies on other layers
+- the [[https://www.yoctoproject.org/development/yocto-project-compatible-layers/][Yocto Project Curated Layer Index]] and [[https://layers.openembedded.org/layerindex/branch/master/layers/][OpenEmbedded Layer Index]] both
+  contain layers from which you can use or leverage
+- the core [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]] are:
+  - =meta=
+    - the OpenEmbedded core
+    - supports seven different processor architectures (ARM, ARM64, x86,
+      x86-64, PowerPC, PowerPC 64, MIPS, MIPS64, RISC-V32, and RISC-V 64),
+      only supporting platforms to be emulated by QEMU
+  - =meta-poky=
+    - [[#b1a75489-4822-43b0-8fd4-639d535cad33][metadata]] specific to the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]]
+    - serves as a kind of curated template for developing a custom [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]]
+  - =meta-yocto-bsp=
+    - contains reference [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSPs]] for various machines that Yocto Project supports
+      out of the box
+- we can create the skeleton of a new custom layer with the
+  =scripts/yocto-layer= script
+- we can create and/or include layers in a [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build]] with the =bitbake-layers=
+  script, which adds it to =conf/bblayers.conf= on our behalf
+  - by doing so, the layer's path is appended to the =BBPATH= variable
+  - thus we may first need to copy the layer directory (=meta-whatever/=) to a
+    suitable location (the default meta layers are in [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky's]] top-level
+    directory)
+- layers usually contain a =README=; read it
+- layers have priorities
+  - this value, along with the recipe version number, helps [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] choose
+    which [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] to use when the recipe is included by more than one layer,
+    and vice versa for [[#d2fee7d5-7007-4e33-85cb-6c9a370990fd][append]] files (higher priority = appended first)
+  - [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] belonging to the higher priority layer will be used even if the
+    recipe version in that layer is lower
+  - the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] layer and the [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OpenEmbedded-Core]] layer have a lower priority than
+    [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] and [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][eSDK]] layers, since the latter sit on top of the former
+- some widely used [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] layers:
+  - =meta-allwinner= (AllWinner)
+  - =meta-amd=
+  - =meta-intel=
+  - =meta-freescale= and =meta-freescale-3rdparty= (NXP)
+  - =meta-raspberrypi=
+  - =meta-riscv= (e.g. for a VisionFive board)
+  - =meta-ti= (Texas Instruments)
+*** Metadata
+:PROPERTIES:
+:ID:       b1a75489-4822-43b0-8fd4-639d535cad33
+:CUSTOM_ID: b1a75489-4822-43b0-8fd4-639d535cad33
+:END:
+- stuff that's parsed during a [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][build]]; what a [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] contains
+- in other words: [[#73837aae-7e38-4040-99e9-e5b43fd673ca][configs]], [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]], and [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] (associated with =.conf=,
+  =.bbclass=, and =.bb=​/​=.bbappend= files respectively)
+  - [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] parses a layer's configs first, then uses the definitions therein
+    to locate the rest of it
+- metadata express [[#ff999862-e2a2-482c-93a4-55151cb59154][dependencies]] on other metadata
+- [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OpenEmbedded-Core]] (the =meta= [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]]) is an important set of validated metadata
+- in the context of the kernel, metadata might also refer to kernel config
+  fragments and features contained in the =yocto-kernel-cache= (a separate git
+  repo that provides patches and configuration for the =linux-yocto= kernel
+  tree)
+*** OpenEmbedded-Core
+:PROPERTIES:
+:ID:       76978d0b-92f6-40cf-b827-01bd45fd4391
+:CUSTOM_ID: 76978d0b-92f6-40cf-b827-01bd45fd4391
+:END:
+- AKA /OE-Core/
+- this is the core [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] of [[#b1a75489-4822-43b0-8fd4-639d535cad33][metadata]], sourced from OpenEmbedded; namely, a
+  base layer of [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]], [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]], and associated files
+- it is found in =meta/=
+*** OpenEmbedded Build System
+:PROPERTIES:
+:ID:       6ba19863-6771-4f13-9d20-1d4dec02ae6c
+:CUSTOM_ID: 6ba19863-6771-4f13-9d20-1d4dec02ae6c
+:END:
+- the build system
+- utilises [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] as a task scheduler and execution engine
+- usually, a full build takes ~1 hour, downloads ~4GB of source, and outputs
+  ~24GB of files
+- in addition to the [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] destined for the target, builds may also need to
+  build:
+  - the cross-toolchain
+  - an internal version of QEMU (which can be run via the =runqemu= wrapper
+    script)
+*** Package
+:PROPERTIES:
+:ID:       ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e
+:CUSTOM_ID: ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e
+:END:
+- an output of a [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][baked]] [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+- may be wrapped in an archival format: =.deb=, =.ipk=, =.rpm=, or plain =.tar=
+  - the =PACKAGE_CLASSES= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] lets us set one or more [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packaging]] formats for
+    our recipes to be packaged up into; we list any of the package [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]]
+    like =package_rpm=, =package_deb=, etc.
+  - the first package format in the list will be the one used for [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]]
+    generation
+- packages can include scripts to be run as part of their installation/removal
+  to the live target (OR to a root filesystem before being burnt into an
+  [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]])
+  - such scripts fall into the following categories:
+    - =preinst=
+      - executes before the package is unpacked
+      - if the package has services, it must take this opportunity to stop
+        them prior to installation or upgrade
+      - also used for data migration
+    - =postinst=
+      - executes after unpacking
+      - typically this will be to complete any required configuration of the
+        package
+      - if the package has services, it has the opportunity to start or
+        restart them here
+      - if this script succeeds, the package is marked as installed
+        - NOTE: =.rpm= packages whose script runs on the target should always
+          return 0; presumably installation failure is signalled some other
+          way
+      - note that unlike the other hooks, this one is invoked during the
+        creation of a root filesystem [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]], i.e. when the package is
+        installed onto that filesystem prior to it being burnt to an image
+        - sometimes the script will need to be delayed until the first boot
+          (the script might need to be executed on the device itself); to
+          delay script execution until boot time, we can instead use
+          =postinst_ontarget=
+        - it's very important that we make sure all =postinst= scripts for
+          packages that are installed into the image can be run at the time
+          when the root filesystem is created during the build on the host
+          system (if we enable =read-only-rootfs=, then the =do_rootfs= task will
+          automatically fail if it finds any =postinst_ontarget= scripts)
+        - most of the out-of-the-box post-install scripts are engineered so
+          that they can run during root filesystem creation; for custom
+          scripts, it's up to us to check
+        - some common problems that prevent post-install scripts from running
+          during root filesystem creation:
+          - not using =${D}= in front of absolute paths (=${D}= is the root
+            filesystem root on the host during image creation, and blank on
+            the target at runtime)
+          - attempting to run processes that are specific to or dependent on
+            the target architecture (you can work around this by using native
+            tools, which run on the host system, to accomplish the same tasks,
+            or by alternatively running the processes under QEMU, which has
+            the =qemu_run_binary= function; for more info, see the =qemu= [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]])
+    - =prerm=
+      - usually this is to stop any daemon associated with a package before
+        removing files associated with the package
+    - =postrm=
+      - commonly this is to modify links or other files created by the
+        package
+  - the systemd and update-rc.d [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]] provide some default scripts, which
+    may be customised to our purposes
+- note that the =PN=, =PV=, =PR=, variables refer to [[#49922abe-989a-4049-a4e1-d9cd49db6f60][/recipes/]], not packages (the
+  use of the letter =P= is a historical misnomers; recipes used to be called
+  packages)
+*** Package feed
+:PROPERTIES:
+:ID:       729ed304-8a4e-40f7-a72e-eec793809f77
+:CUSTOM_ID: 729ed304-8a4e-40f7-a72e-eec793809f77
+:END:
+- a package feed is a directory containing binary [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]]
+- these "feed" the construction of [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] (e.g. during =do_rootfs=) or [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDKs]]
+- the local [[#a2382d7c-15f0-4838-83d5-3c982eaedc05][=tmp/deploy/=]] directory of our [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build]] is one such feed, but a feed
+  can also be a shared web server
+- package feeds can also be used to facilitate extending or updating existing
+  images on devices at runtime, should runtime package management be enabled
+- as such, a package feed may need to be accessible remotely (either
+  internally in our local development environment, or publicly) so as to:
+  - easily test an updated package during the development stage, i.e. on the
+    deployed system, without having to completely re-install that system
+  - make it possible to install additional packages onto a deployed system
+  - update products in the field
+- to produce a solid package feed, we must ensure that we have consistent
+  increments in the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][=PR=]] variable whenever a [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]] is changed
+  - doing this manually can be cumbersome; we can let a [[#cd11671a-4982-43d0-92eb-f510bf1b5d22][=PR= service]] manage it
+    for us
+- whenever we modify or add packages to a package feed, we'll need to rebuild
+  the package index with =bitbake package-index= so that (presumably, building
+  an [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] would require the =do_package_index= task, and so we wouldn't need to
+  do this in that case)
+- the simplest way to expose as package feed: run =python3 -m http.server 5678=
+  within e.g. =tmp/deploy/rmp/=
+- to add support for package management to an [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]], we must:
+  - point =PACKAGE_FEED_URIS= to our http address and given port
+  - add =package_management= to =EXTRA_IMAGE_FEATURES=
+    - this will add stuff to the [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] needed that it can access the server
+      and has the utilities needed to install, remove, and upgrade its
+      packages
+- of course, the device itself must run the package manager (=opkg=, =apt=,
+  =dnf= etc.) to update/install packages
+- obviously, we'll need to test stuff before deploying (the testing effort is
+  enormous to verify all different upgrade scenarios; a full image upgrade is
+  way safer)
+*** Package group
+:PROPERTIES:
+:ID:       4f2876d0-3b4a-4be0-9f24-12b4922f7bb6
+:CUSTOM_ID: 4f2876d0-3b4a-4be0-9f24-12b4922f7bb6
+:END:
+- a package group is a kind of [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] that has the sole purpose of creating
+  dependencies to simplify [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] creation
+- a package group recipe bundles multiple packages together and then, instead
+  of having to explicitly specify each package in the =IMAGE_INSTALL= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]],
+  one can simply specify the package group name
+- the =packagegroup= [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] sets default values appropriate for package group
+  recipes (=PACKAGES=, =PACKAGE_ARCH=, =ALLOW_EMPTY=, etc.); all package group
+  recipes should inherit this class
+- more on this [[https://docs.yoctoproject.org/dev-manual/customizing-images.html#customizing-images-using-custom-package-groups][here]]
+*** =PR= Service
+:PROPERTIES:
+:ID:       cd11671a-4982-43d0-92eb-f510bf1b5d22
+:CUSTOM_ID: cd11671a-4982-43d0-92eb-f510bf1b5d22
+:END:
+- the PR service, part of [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]], increments the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][=PR=]] variable on our behalf
+  every time it detects a [[#8254517c-069f-4c02-bcc0-989e195a3cdc][checksum]] change in a task
+- normally we would have to increment it manually every time we change
+  something; this just makes it easier
+- it works by appending the =PR= value with an additional incrementing value;
+  e.g. if we have set =PR= to =r34=, then after subsequent =PR= service
+  interactions, it will become =r34.1=, =r34.2=, =r34.3=, and so on
+- this ensures [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] in our [[#729ed304-8a4e-40f7-a72e-eec793809f77][package feed]] increment linearly, and stay
+  compatible with existing package manager apps (rpm, apt, opkg)
+- we can still override =PR= in exceptional cases though
+- the PR service is disabled by default; we can enable it to run locally by
+  adding =PRSERV_HOST = "localhost:0"= to our =local.conf=
+  - this approach is adequate when the build happens on a single computer,
+    which builds every package of the package feed; [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] will start and
+    stop the server at each build
+- for setups with multiple computers pushing to a shared [[#729ed304-8a4e-40f7-a72e-eec793809f77][package feed]], we must
+  share a single PR service
+  - in this case, we would start the PR service on a server using the
+    =bitbake-prserv= command, and then point our =PRSERV_HOST= to that server
+*** Poky
+:PROPERTIES:
+:ID:       b00db72c-5c93-441d-887d-9878b84ec993
+:CUSTOM_ID: b00db72c-5c93-441d-887d-9878b84ec993
+:END:
+- a reference distro provided by Yocto to serve as a base for adapting to your
+  purposes
+- specifically, it's [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OE-Core]] with an extra [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] on top
+- thus it's also a vehicle by which to download the Yocto Project proper: just
+  git clone =git://git.yoctoproject.org/poky.git= and then check out the most
+  recent release version
+*** Pseudo
+:PROPERTIES:
+:ID:       a4dfc074-83f5-47c6-a5c4-c1b6153b906a
+:CUSTOM_ID: a4dfc074-83f5-47c6-a5c4-c1b6153b906a
+:END:
+- [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] has to turn a tree into an image, but this may require doing things
+  normally reserved for root (e.g. set the UID and GID of files)
+- Pseudo overrides syscalls in order to set up a fake root environment;
+  instead of doing the actual root operations, it records what needs to be
+  done when the image is generated
+- the per-recipe =.db= (database) files where such info is stored can be found
+  in the subdirectory of =tmp/work/= in our [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build directory]] where the recipe is
+  found
+*** Recipe
+:PROPERTIES:
+:ID:       49922abe-989a-4049-a4e1-d9cd49db6f60
+:CUSTOM_ID: 49922abe-989a-4049-a4e1-d9cd49db6f60
+:END:
+- script(s) containing a set of tasks for building one or more components
+  (synonymous with what Buildroot calls packages)
+- have the =.bb= suffix, named like =<package-name>_<version>.bb=
+  - recipes that are build tools often have a =-native= suffix, indicating that
+    they're to be run during the build process
+- these are fed into [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]]
+- recipes have to describe their [[#ff999862-e2a2-482c-93a4-55151cb59154][dependencies]]
+- a recipe may produce [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]]
+  - more sophisticated recipes may split to-be-installed contents into several
+    sub-packages; these sub-packages might be optional features, modules, or
+    any other set of files that is optional to install
+- recipes follow a standard set of steps for each [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]] they build:
+  - fetch source from somewhere
+  - extract source
+  - patch the source if necessary
+  - configure
+  - compile
+  - copy (or "install") the generated files to a directory tree
+  - package it up
+  - run QA checks, tests
+- each of these steps have task names like =do_fetch=, =do_unpack=, =do_patch=,
+  =do_configure=, =do_compile=, =do_install=, and =do_package=; the full list of tasks
+  is given [[https://docs.yoctoproject.org/ref-manual/tasks.html][here]]
+  - =do_build= is a default meta-task, which depends on (triggers) all of them
+- recipes can pull in [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] files and [[#97e812dc-9fef-4f72-a931-4ae140862170][include]] files
+  - some tasks are predefined and available in some of the [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][classes]] that [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]]
+    comes with, e.g. the =autotools= class provides implementations of the
+    =do_configure=, =do_compile=, and =do_install= tasks; a recipe author ought to
+    use these where possible
+- and they can be overridden or extended with [[#d2fee7d5-7007-4e33-85cb-6c9a370990fd][append]] files
+- =PN= is a [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] that gives the recipe name (or alternatively, the name of
+  the resulting [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]])
+- recipes have recipe /versions/
+  - the newest version is always the one built, except where the older
+    version's [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] has a higher priority (recipe version numbers only matter
+    when the layer priorities are the same), or if we give explicit preference
+    for a particular version
+  - the complete version string looks like =${PE}:${PV}-${PR}=, where the three
+    [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]] refer to the recipe's epoch, version, and revision numbers
+    - =PE=
+      - has the most priority, but is rarely changed from the default =0=
+      - we would only change it if we were changing our versioning schema in a
+        way that would otherwise break the usual ordering
+    - =PV=
+      - this is normally extracted from the recipe filename
+      - however, the recipe might modify it if it's being built from a
+        development/unstable branch, say
+    - =PR=
+      - this defaults to =r0=, and usually incremented to =r1=, =r2=, etc.
+      - when =PV= increases, =PR= is conventionally reset back to =r0=
+      - different packages can have the same =PV=; this might indicate that
+        there were fixes applied on top of the upstream version of the package
+      - a [[#cd11671a-4982-43d0-92eb-f510bf1b5d22][=PR= service]] can be used to automate the management of =PR=, which can
+        be cumbersome to increment manually
+*** SBOM
+:PROPERTIES:
+:ID:       ee4d8327-cb6b-4b13-8ca2-3d77cce33a81
+:CUSTOM_ID: ee4d8327-cb6b-4b13-8ca2-3d77cce33a81
+:END:
+- software bill of materials
+- we might provide one when we distribute our software, offering a description
+  of all the components we used, their corresponding licenses, their
+  dependencies, the changes that were applied and the known vulnerabilities
+  that were fixed
+- this can be used by the recipients of the software to assess their exposure
+  to license compliance and security vulnerability issues
+- the [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][build system]] can generate such documentation for us, in SPDX format,
+  based on all the [[#b1a75489-4822-43b0-8fd4-639d535cad33][metadata]] it used to build the software [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]]
+  - more on this [[https://docs.yoctoproject.org/dev-manual/sbom.html][here]]
+*** sstate-cache
+:PROPERTIES:
+:ID:       8254517c-069f-4c02-bcc0-989e195a3cdc
+:CUSTOM_ID: 8254517c-069f-4c02-bcc0-989e195a3cdc
+:END:
+- the shared state cache
+- contains snapshots of build artefacts, used to speed up builds
+- the =SSTATE_DIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points to the local cache directory for [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build]]
+  - we can change this to some other, shared directory if we like
+  - we can also point this to URL that uses a different [[#e2c85bd3-accf-49ea-97ad-fa47a1bb272b][fetcher]], like =https=
+- and we can add mirrors to =SSTATE_MIRRORS= (which is consulted first)
+- cached build artifacts are each assigned a checksum
+  - this checksum indicates the state of play when they were built, so as to
+    determine whether it can be used or must be rebuilt
+  - the information used in the checksum depends on the task and what it does
+    - [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] can automatically detect much of this, including what variables
+      the task depends on (more on this [[https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-execution.html#checksums-signatures][here]])
+    - to find out what variables a task depends on, see [[https://docs.yoctoproject.org/dev-manual/debugging.html#viewing-task-variable-dependencies][here]]
+*** Source Directory
+:PROPERTIES:
+:ID:       f9b4ec65-a1e4-457a-a977-a5fb8c519c59
+:CUSTOM_ID: f9b4ec65-a1e4-457a-a977-a5fb8c519c59
+:END:
+- AKA the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] directory; refers to the top level of the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] git repo we
+  cloned locally; more generally, the top-level directory of /any/ [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]]
+- this term helps distinguish it from the [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build directory]] (which may or may
+  not lie within it)
+- the source directory structure is described [[https://docs.yoctoproject.org/ref-manual/structure.html][here]]
+*** Sysroot
+:PROPERTIES:
+:ID:       d955a4e4-3e7c-478b-8e57-286a7c194852
+:CUSTOM_ID: d955a4e4-3e7c-478b-8e57-286a7c194852
+:END:
+- the location of a staged version of a root filesystem
+- in the context of the [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][OpenEmbedded build system]], and of the Yocto Project,
+  each [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] can have two sysroots:
+  - a /target/ sysroot contains all the /target libraries and headers/ needed for
+    building/running the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]; typically this might include libc, kernel
+    headers, other shared libs or binaries compiled against libc, etc.
+  - a /native/ sysroot contains all the /host files and executables/ needed for
+    building the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+- a multilib toolchain can contain multiple variants of libc binaries, each
+  compiled for a target instruction set, and possibly optimised for a specific
+  CPU core
+- the =SYSROOT_*= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]] control how sysroots are created and stored
+*** =wic=
+:PROPERTIES:
+:ID:       b64a1dac-73c7-403b-9f43-2530b4fd9669
+:CUSTOM_ID: b64a1dac-73c7-403b-9f43-2530b4fd9669
+:END:
+- wic is a utility for generating partitioned [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] out of a set of existing
+  build artifacts
+  - the name "wic" is derived from OpenEmbedded Image Creator (oeic); the "oe"
+    diphthong was promoted to the letter "w" because that's how you say it
+- the scheme for partitioning can be specified in a separate "kickstart" file
+  (=.wks=)
+  - the language definition for kickstart files can be seen [[https://docs.yoctoproject.org/dev/ref-manual/kickstart.html][here]]
+  - a [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]] might include multiple such files (in the =wic/= directory) to
+    specify different image layouts
+- configuration also includes specifying the type of compression used
+- to use it, "wic" must be included in the =IMAGE_FSTYPES= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] with the
+  name of the kickstart file (or alternatively, we can set the =WKS_FILE=
+  variable)
+  - this might be part of a [[#73837aae-7e38-4040-99e9-e5b43fd673ca][machine config]], for example; layouts are often
+    tied to the specifics of the machine and how it boots
+- a =.wic= file is a partitioned image that can be written straight to the
+  target's disk or sd card (e.g. with =dd=)
+- read more about this tool [[https://docs.yoctoproject.org/dev/dev-manual/wic.html][here]]
+* Build directory contents
+:PROPERTIES:
+:ID:       77644b46-c404-4635-8cd4-f6d741c9f579
+:CUSTOM_ID: 77644b46-c404-4635-8cd4-f6d741c9f579
+:END:
+*** =conf/=
+:PROPERTIES:
+:ID:       436f2635-0396-4400-a62f-30ca113b090c
+:CUSTOM_ID: 436f2635-0396-4400-a62f-30ca113b090c
+:END:
+- this directory is all we need for a build; deleting all but this one
+  will recreate the build from scratch
+  - you may want to just delete =tmp/= though (leaving =downloads/= and
+    =sstate-cache/= as is), just so we're not starting from absolutely nothing
+- =local.conf=
+  - config for this particular build
+  - usually we wouldn't share this file per se---it's not under source control
+    management, and may differ between developers---but rather a [[#dfb22ff0-7a48-4df5-b479-d591750e0354][custom distro
+    layer]] or some such
+- =bblayers.conf=
+  - tells [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] what [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]] (collections of metadata) to pull in to the
+    build environment, and their locations as absolute paths; we can
+    optionally use the =bitbake-layers= tool to include them here;
+    e.g. =bitbake-layers add-layer ./meta-blahblah/=
+  - initially this will include the =meta=, =meta-poky=, and =meta-yocto-bsp= layers
+  - the order in which the layers are listed will determine the order that
+    BitBake will parse them
+- =templateconf.cfg=
+  - this will point to the directory from which =oe-init-build-env= obtained
+    the default configuration to populate this directory with initially
+  - this will be whatever the =TEMPLATECONF= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] is set to, a variable
+    which is set in the =.templateconf= file, and which [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] sets to
+    =meta-poky/conf/templates/default/=
+*** =downloads/=
+:PROPERTIES:
+:ID:       8924a89f-2052-4370-a549-a61d2475454b
+:CUSTOM_ID: 8924a89f-2052-4370-a549-a61d2475454b
+:END:
+- a download cache, stores downloaded source and other artifacts
+  (unpacking and patching happens in =work/=, not here)
+- the =DL_DIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points here
+- only appears once we run a build the first time
+*** =sstate-cache/=
+:PROPERTIES:
+:ID:       3a21f6aa-2b60-4879-bf5b-9b19213bd3a8
+:CUSTOM_ID: 3a21f6aa-2b60-4879-bf5b-9b19213bd3a8
+:END:
+- contains the [[#8254517c-069f-4c02-bcc0-989e195a3cdc][shared state cache]]
+- the =SSTATE_DIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points here
+- this directory may need cleaning from time to time, since it keeps growing
+  after every build
+  - after multiple build iterations, the cache can contain multiple cache
+    files for a given package, consuming a substantial amount of disk space;
+    however, only the most recent ones are likely to be reused
+  - do something like =find build/sstate-cache -type f -mtime +$DAYS -delete= to
+    delete stuff at least =$DAYS= days old
+    - this relies on the fact that [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] touches the sstate cache files as
+      it accesses them, when it has write access to the cache
+  - or, if available from [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OpenEmbedded-Core]], do =sstate-cache-management.sh
+    --remove-duplicated --cache-dir=build/sstate-cache= to remove duplicates
+    - this one is more cautious and selective
+*** =tmp/=
+:PROPERTIES:
+:ID:       12ea9557-5155-49bc-830c-ce2cd727489d
+:CUSTOM_ID: 12ea9557-5155-49bc-830c-ce2cd727489d
+:END:
+- contains the build artifacts ([[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]], [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]], [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK installers]])
+- the =TMPDIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points here
+- only appears once we run a build the first time
+- looking in here can sometimes help diagnose failed builds
+***** =tmp/work/=
+:PROPERTIES:
+:ID:       6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f
+:CUSTOM_ID: 6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f
+:END:
+- the main build directory
+- this includes the staging areas for the root filesystem and other
+  [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]-specific [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroots]], execution logs, et al.
+- the trees within this directory are sorted by
+  =<arch>/<recipe_name>/<recipe_version>/=
+  - the need for multiple architectures arises from the fact that some
+    packages may be for the host and some for the target, and even for
+    those with the same target, source artifacts may be
+    architecture-general or architecture-specific
+  - the =WORKDIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] will point to a recipe subdirectory in here
+- an example of what the top-level might look like:
+  - =all-poky-linux/=
+    - for arch-agnostic packages; mostly scripts and stuff
+  - =core2-64-poky-linux/=
+    - for packages common to x86-64-based targets using the optimisation
+      tuned for =core2-64=
+  - =qemux86_64-poky-linux/=
+    - for packages specific to the =qemux86-64= machine
+  - =x86_64-linux/=
+    - for packages that are targeted to run on the build host machine
+- within each [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] subdirectory will be found something like the
+  following:
+  - =sources/=
+    - extracted source code of the software to be built
+  - =image/=
+    - the files that will be installed by the recipe
+  - =package/=
+    - contains the output of the =do_package= task /before/ the output is
+      (optionally) split into sub-packages
+  - =packages-split/=
+    - contains the output of the =do_package= task /after/ the output is been
+      (optionally) split into sub-packages
+    - contains subdirectories for each individual package created by the
+      recipe
+  - =temp/=
+    - stores [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]]'s task code and execution logs
+  - =pseudo/=
+    - contains the [[#a4dfc074-83f5-47c6-a5c4-c1b6153b906a][Pseudo]] database and log for any tasks executed under
+      pseudo for the recipe
+  - =recipe-sysroot/=
+    - a directory populated with the target dependencies of the recipe
+    - looks like the target filesystem and contains libraries that the
+      recipe might need to link against (e.g. libc/busybox)
+  - =recipe-sysroot-native/=
+    - a directory populated with the native dependencies of the recipe
+    - usually means tools needed to build the recipe (e.g. compiler,
+      autoconf, libtool)
+  - =build/=
+    - this subdirectory applies only to recipes that support builds
+      where the source is separate from the build artifacts
+***** =tmp/work-shared/=
+:PROPERTIES:
+:ID:       42ecbafa-3bd4-4d87-b351-017b5f0edb00
+:CUSTOM_ID: 42ecbafa-3bd4-4d87-b351-017b5f0edb00
+:END:
+- a work directory used for sharing the source code with multiple
+  recipes
+- this is only used by a subset of recipes, such as =linux-yocto= and =gcc=
+***** =tmp/deploy/=
+:PROPERTIES:
+:ID:       a2382d7c-15f0-4838-83d5-3c982eaedc05
+:CUSTOM_ID: a2382d7c-15f0-4838-83d5-3c982eaedc05
+:END:
+- the final binaries to be deployed on the target
+- the =DEPLOY_DIR= [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] points here
+******* =tmp/deploy/images/=
+:PROPERTIES:
+:ID:       96cb9dc9-6536-41bf-aa3f-d1d5dd58b173
+:CUSTOM_ID: 96cb9dc9-6536-41bf-aa3f-d1d5dd58b173
+:END:
+- the bootloader, kernel, and rootfs [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] destined for the target
+******* =tmp/deploy/<package_type>/=
+:PROPERTIES:
+:ID:       f163942c-16fc-48bb-98d8-a083d6f78260
+:CUSTOM_ID: f163942c-16fc-48bb-98d8-a083d6f78260
+:END:
+- [[#729ed304-8a4e-40f7-a72e-eec793809f77][package feeds]] for the different kinds of [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] (deb, rpm, etc.) that were
+  built (and perhaps put into one of the [[#96cb9dc9-6536-41bf-aa3f-d1d5dd58b173][images just mentioned]])
+******* =tmp/deploy/licenses/=
+:PROPERTIES:
+:ID:       175e15db-e46d-4bee-92ec-a624b83c74d9
+:CUSTOM_ID: 175e15db-e46d-4bee-92ec-a624b83c74d9
+:END:
+- contains the license files extracted from each [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]]
+- =package.manifest= lists all packages in the image
+- =image_license.manifest= lists the recipe names, versions, licenses, and the
+  packages files available in the image, but not installed inside the rootfs
+  (most notably, those of the bootloader, the kernel, and DTB files)
+- =license.manifest= lists what is not included above, i.e. for the /installed/
+  packages (we would typically use this manifest for copyleft compliance
+  auditing)
+******* =tmp/deploy/sdk/=
+:PROPERTIES:
+:ID:       8740c2c8-f495-4768-90df-e6b5a8db0022
+:CUSTOM_ID: 8740c2c8-f495-4768-90df-e6b5a8db0022
+:END:
+- contains generated installer scripts for setting up the [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK]] environment
+***** =tmp/sysroots-components/=
+:PROPERTIES:
+:ID:       dbeacf3e-590d-40b2-ae9b-b783984f2959
+:CUSTOM_ID: dbeacf3e-590d-40b2-ae9b-b783984f2959
+:END:
+- contains components that are shared among [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]-specific [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroots]];
+  =recipe-sysroot= and =recipe-sysroot-native=
+***** =tmp/log/=
+:PROPERTIES:
+:ID:       d199bf7e-3375-4127-9c14-0bd47e3b9f1c
+:CUSTOM_ID: d199bf7e-3375-4127-9c14-0bd47e3b9f1c
+:END:
+- contains general [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] logs that are non-specific to a particular [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]
+- examples include logs output from the =do_check_pkg=, =do_distro_check=
+  tasks
+- running a build does not necessarily mean this directory will show up
+* Setting up a build
+:PROPERTIES:
+:ID:       afbb604b-6575-481f-8619-e8e36f81855c
+:CUSTOM_ID: afbb604b-6575-481f-8619-e8e36f81855c
+:END:
+- install [[https://docs.yoctoproject.org/4.0.4/ref-manual/system-requirements.html#required-packages-for-the-build-host][required packages]]
+- download [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] and check out one of the release versions
+  #+begin_src bash
+    git clone git://git.yoctoproject.org/poky.git -b kirkstone # latest LTS release as of 01/2024
+  #+end_src
+- source the setup script to create/enter the [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build]] environment
+  #+begin_src bash
+    source oe-init-build-env # an optional arg names the new directory; defaults to 'build'
+  #+end_src
+* Useful commands
+:PROPERTIES:
+:ID:       6118f330-5f11-4f7e-8073-017544523f59
+:CUSTOM_ID: 6118f330-5f11-4f7e-8073-017544523f59
+:END:
+- run a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] (usually one for an [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]]):
+  #+begin_src bash
+    bitbake $recipe_name
+  #+end_src
+- run a particular task of a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]:
+  #+begin_src bash
+    bitbake -c $task_name $recipe_name
+  #+end_src
+- list all tasks involved in a particular [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]:
+  #+begin_src bash
+    bitbake -c listtasks $recipe_name
+  #+end_src
+- show [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variable]] values currently configured:
+  #+begin_src bash
+    bitbake-env
+  #+end_src
+- list [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][variables]] in a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]:
+  #+begin_src bash
+    bitbake -e $recipe_name # the 'e' stands for 'environment'
+  #+end_src
+- list all currently configured [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]]:
+  #+begin_src bash
+    bitbake-layers show-layers
+  #+end_src
+- list all [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] available:
+  #+begin_src bash
+    bitbake-layers show-recipes
+    # or
+    bitbake -s
+  #+end_src
+- configure the kernel via menuconfig:
+  #+begin_src bash
+    bitbake $kernel -c menuconfig # e.g. linux-yocto
+  #+end_src
+- shows all changes made since the last generation of [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]:
+  #+begin_src bash
+    bitbake-whatchanged $recipe_name
+  #+end_src
+-  list available overrides for a specific machine:
+  #+begin_src bash
+    bitbake-getvar OVERRIDES
+  #+end_src
+- optional frontends:
+  #+begin_src bash
+    bitbake -u ncurses # TUI
+    bitbake -u hob # GUI
+    bitbake -u goggle # simpler GUI
+  #+end_src
+- generate a dependency graph for a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] in graphviz format (=.dot= file):
+  #+begin_src bash
+    bitbake $recipe_name -g
+    # then, to convert them to images
+    dot -v -Tpng -o package-depends.png package-depends.dot
+    dot -v -Tpng -o pn-depends.png pn-depends.dot
+    dot -v -Tsvg -o task-depends.svg task-depends.dot
+  #+end_src
+- show said dependency graph in a GUI:
+  #+begin_src bash
+    bitbake $recipe_name -g -u depexp
+    bitbake $recipe_name -g -u taskexp
+  #+end_src
+- generate an SDK/eSDK for a particular [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]:
+  #+begin_src bash
+    bitbake $image_recipe -c populate_sdk
+    # or
+    bitbake $image_recipe -c populate_sdk_ext
+  #+end_src
+- generate a new [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] in the [[#28a59763-8b1e-4c36-8c07-aafde51a8081][workspace]] based on an existing project:
+  #+begin_src sh
+    devtool add https://github.com/OSSystems/bbexample # or some other project repo
+  #+end_src
+- to copy/deploy the finished [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] in the [[#28a59763-8b1e-4c36-8c07-aafde51a8081][workspace]] to a [[#d4009f0f-f371-454b-b30f-7fda430c0028][layer]]:
+  #+begin_src sh
+    devtool finish bbexample ../meta-newlayer/
+    # copied to ../meta-newlayer/recipes-bbexample/bbexample/
+  #+end_src
+* Building a target image
+:PROPERTIES:
+:ID:       cae0bb7a-04bf-459c-a100-934338ec5ded
+:CUSTOM_ID: cae0bb7a-04bf-459c-a100-934338ec5ded
+:END:
+- [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] provides several [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] to build off of
+- see =meta*/recipes*/*images/*.bb= for the full list; the most commonly used
+  ones are listed [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][above]]
+- once we've entered into the [[#afbb604b-6575-481f-8619-e8e36f81855c][build environment]], and have our [[#3b6f0f7c-d816-4b65-8096-dc2e720a8f68][=local.conf=]] all
+  set up, we then just run the desired image recipe with [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]]:
+  #+begin_src bash
+    bitbake core-image-full-cmdline
+  #+end_src
+- the resulting =.wic= file (which in some cases may need to be unzipped) can
+  then be copied to the target's sd card:
+  #+begin_src bash
+    sudo dd if=core-image-full-cmdline-${MACHINE}.wic of=/dev/${DEVICE_FILE}
+  #+end_src
+* Creating a custom image recipe
+:PROPERTIES:
+:ID:       01866026-d3a7-47e1-8148-12966cdc99df
+:CUSTOM_ID: 01866026-d3a7-47e1-8148-12966cdc99df
+:END:
+- typically, instead of creating an [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]] [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] from scratch, we would pull
+  in an existing one (like =core-image-full-cmdline=), and override parts of it
+  where necessary
+  - this makes code maintenance more manageable, and highlights the functional
+    differences
+- for example, to use =core-image-full-cmdline= as a base, but include an extra
+  app and remove an image feature, we would add a new file,
+  =my-image-full-cmdline.bb= (usually in an =images/= subdirectory dedicated to
+  image recipes), with something like the following:
+  #+begin_src conf
+    require recipes-extended/images/core-image-full-cmdline.bb
+
+    IMAGE_FEATURES:remove = "splash"
+    CORE_IMAGE_EXTRA_INSTALL += "myapp"
+  #+end_src
+- if building from scratch, the =core-image= [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] provides image features that
+  offer helpful building blocks of commonly used functionality, e.g.:
+  #+begin_src conf
+    inherit core-image
+
+    IMAGE_FEATURES += "ssh-server-openssh splash"  # we would instead use EXTRA_IMAGE_FEATURES if this were our conf/local.conf
+    CORE_IMAGE_EXTRA_INSTALL += "strace"
+  #+end_src
+* Creating a custom distro configuration
+:PROPERTIES:
+:ID:       dfb22ff0-7a48-4df5-b479-d591750e0354
+:CUSTOM_ID: dfb22ff0-7a48-4df5-b479-d591750e0354
+:END:
+- the easy option is to pull in the [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] [[#73837aae-7e38-4040-99e9-e5b43fd673ca][config]], and override a few things
+  with our changes
+- a sample distro file (at say =<layer>/conf/distro/my-distro.conf=) which
+  removes X11 support to use the raw framebuffer instead would look something
+  like this:
+  #+begin_src conf
+    require conf/distro/poky.conf
+
+    DISTRO = "my-distro"
+    DISTRO_NAME = "my-distro (My New Distro)"
+    DISTRO_VERSION = "1.0"
+    DISTRO_CODENAME = "codename"
+    SDK_VENDOR = "-mydistrosdk"
+    SDK_VERSION := "${@'${DISTRO_VERSION}'.replace('snapshot-${DATE}','snapshot')}"
+
+    MAINTAINER = "my-distro <foo@bar.com>"
+
+    DISTRO_FEATURES:remove = "wayland vulkan opengl"
+  #+end_src
+- to use this distro, we then need to add the following to our =local.conf=:
+  #+begin_src conf
+    DISTRO = "my-distro"
+  #+end_src
+* Customising an existing recipe
+:PROPERTIES:
+:ID:       ad945122-d7c0-44c4-8529-bc5ebd41039f
+:CUSTOM_ID: ad945122-d7c0-44c4-8529-bc5ebd41039f
+:END:
+- to simply modify an existing [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], we just create an [[#d2fee7d5-7007-4e33-85cb-6c9a370990fd][append]] file named
+  after it, and make our changes and additions to the configuration therein
+*** Modifying build flags
+:PROPERTIES:
+:ID:       a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6
+:CUSTOM_ID: a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6
+:END:
+- to modify build flags for recipes based on a known build system, the
+  following variables are available:
+  #+ATTR_HTML: :border 1 :rules all :frame border :width 50%
+  | Autotools    | =EXTRA_OECONF=  |
+  | Cargo        | =EXTRA_OECARGO= |
+  | CMake        | =EXTRA_OECMAKE= |
+  | Make         | =EXTRA_OEMAKE=  |
+  | Meson        | =EXTRA_OEMESON= |
+  | NPM          | =EXTRA_OENPM=   |
+  | SCons        | =EXTRA_OESCONS= |
+  | WAF          | =EXTRA_OEWAF=   |
+- for example, to modify some autoconf flags for an autotools-based recipe,
+  our [[#d2fee7d5-7007-4e33-85cb-6c9a370990fd][append]] file would contain something like this:
+  #+begin_src conf
+    EXTRA_OECONF += "--enable-foo-feature --disable-bar-feature"
+    # or, for example, if our change is conditional on the hardware we're building for
+    EXTRA_OECONF:append:arm = " --enable-arm-feature"
+  #+end_src
+*** Applying a patch
+:PROPERTIES:
+:ID:       454f3ba7-e149-40c3-acb6-d9e0aed33575
+:CUSTOM_ID: 454f3ba7-e149-40c3-acb6-d9e0aed33575
+:END:
+- [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] assumes that every file with a =.patch= or =.diff= extension is a patch
+  and applies them accordingly
+- so to include a patch, we can simply use =FILESEXTRAPATHS=, which includes new
+  directories in the searching algorithm, making the additional file visible
+  to [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]], as shown here:
+  #+begin_src conf
+    FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-${PV}:" # this will be a subdirectory containing just our patch file
+    SRC_URI += "file://mypatch.patch" # append the patch file to the list of source files in this recipe
+  #+end_src
+- =SRC_URI= lists the source files that are needed for the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] to build
+- said files can be local or remote; remote files need to be fetched
+- for remote files, each =SRC_URI= entry needs to specify a protocol to tell
+  [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] how to pull said file
+- for local files, we just need to append to the =FILESEXTRAPATHS= variable
+  (not =FILESPATH=) to specify where it can be found
+  - to that end, the default locations searched are:
+    - =<recipe>-<version>/=
+    - =<recipe>/=
+    - =files/=
+  - in addition, it also checks for =OVERRIDES= for a specific file to be
+    overridden in each folder, e.g. for a recipe =foo_1.0.bb= that sets
+    =OVERRIDES = "<board>:<arch>"=, the file will be searched in the following
+    directories, respecting the exact order shown:
+    - =foo-1.0/<board>/=
+    - =foo-1.0/<arch>/=
+    - =foo-1.0/=
+    - =foo/<board>/=
+    - =foo/<arch>/=
+    - =foo/=
+    - =files/<board>/=
+    - =files/<arch>/=
+    - =files/=
+- the prepend operator used above (for =FILESEXTRAPATHS=) is crucial as it
+  guarantees that the file is picked from the given directory even if a file
+  with the same name is added in the lower priority layers sometime in the
+  future
+*** Adding extra files
+:PROPERTIES:
+:ID:       80f5fd18-70ac-4dee-a784-ab78c0a1069d
+:CUSTOM_ID: 80f5fd18-70ac-4dee-a784-ab78c0a1069d
+:END:
+- here we do much the same as [[#454f3ba7-e149-40c3-acb6-d9e0aed33575][above]], however, unlike patches, these extra
+  files may need to be installed to the package's filesystem along with the
+  rest of the [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] files (see: [[#d3aa691d-a9df-4d7e-94cb-af28e2177486][Standard target filesystem paths]])
+- here's an example that adds a new configuration file:
+  #+begin_src conf
+    FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-${PV}:" # a subdirectory containing our new file
+    SRC_URI += "file://newconfig.conf" # append the file to the list of source files in this recipe
+
+    do_install:append() {
+        install -D -m 644 ${WORKDIR}/newconfig.conf \
+                          ${D}${sysconfdir}/newconfig.conf
+    }
+  #+end_src
+*** Changing recipe feature configuration
+:PROPERTIES:
+:ID:       f5e94c00-76bb-468c-896a-be015f947270
+:CUSTOM_ID: f5e94c00-76bb-468c-896a-be015f947270
+:END:
+- the [[https://docs.yoctoproject.org/ref-manual/variables.html#term-PACKAGECONFIG][=PACKAGECONFIG=]] variable provides a way for [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]] to define feature
+  sets, allowing users to specify configurations more easily
+- each "feature set" in a recipe specifies six things:
+  - extra build flags needed if the user enables the feature
+  - extra build flags needed if the user disables the feature
+  - extra build dependencies (=DEPENDS=) if the user enables the feature
+  - extra runtime dependencies (=RDEPENDS=) if the user enables the feature
+  - extra runtime dependencies (=RRECOMMENDS=) if the user enables the feature
+  - any =PACKAGECONFIG= settings that conflict with this feature
+- so in our =.bbappend= file, we could just add something like this:
+  #+begin_src conf
+    PACKAGECONFIG += "feature2"
+  #+end_src
+- or, to enable the same feature in our [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build's]] =conf/local.conf=, we would
+  instead add:
+  #+begin_src conf
+    PACKAGECONFIG:pn-<recipename>:append = ' feature2'
+  #+end_src
+- one must look inside a recipe file to see the list of available
+  =PACKAGECONFIG= features for a [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]]; there is no tool to list them all
+*** Changing recipe Kconfig configuration
+:PROPERTIES:
+:ID:       5a6c603b-af2d-45ae-81a6-7748692924f2
+:CUSTOM_ID: 5a6c603b-af2d-45ae-81a6-7748692924f2
+:END:
+- if the project is Kconfig-based (the kernel, U-Boot, and BusyBox most
+  notably), Yocto has a specialised [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] for modifying whatever default
+  Kconfig is present in that project
+- to apply our Kconfig, we create a /configuration fragment/ (a file that
+  contains said variable settings we wish to apply), give it the suffix =.cfg=,
+  and then include it as though it were a patch [[#454f3ba7-e149-40c3-acb6-d9e0aed33575][as demonstrated earlier]]; the
+  class will apply it for us automatically
+- to generate a configuration fragment that modifies the kernel's config, for
+  example, we should do something like this:
+  #+begin_src bash
+    bitbake virtual/kernel -c menuconfig # make changes here
+    bitbake virtual/kernel -c diffconfig # generates the configuration fragment file for us
+  #+end_src
+  - note that if we wanted to generate the /complete/ configuration file, not
+    just the diff fragment, we would run =savedefconfig= instead of =diffconfig=
+* Standard target filesystem paths
+:PROPERTIES:
+:ID:       d3aa691d-a9df-4d7e-94cb-af28e2177486
+:CUSTOM_ID: d3aa691d-a9df-4d7e-94cb-af28e2177486
+:END:
+- variables exist to indicate various paths on the target filesystem; this is
+  so that the installation paths of binaries and configuration files can be
+  customised depending on the use case
+  - e.g. the native SDK binaries require a specific installation path so that
+    the binaries don't conflict with the target ones
+- these variables are listed in =meta/conf/bitbake.conf=
+- here are the most commonly used ones, and their default expanded values:
+  #+ATTR_HTML: :border 1 :rules all :frame border :width 75%
+  | =base_bindir=   | =/bin/=                    |
+  | =base_sbindir=  | =/sbin/=                   |
+  | =base_libdir=   | =/lib/= /or/ =/lib64/=         |
+  | =sysconfdir=    | =/etc/=                    |
+  | =localstatedir= | =/var/=                    |
+  | =datadir=       | =/usr/share/=              |
+  | =bindir=        | =/usr/bin/=                |
+  | =sbindir=       | =/usr/sbin/=               |
+  | =libdir=        | =/usr/lib/= /or/ =/usr/lib64/= |
+  | =libexecdir=    | =/usr/libexec/=            |
+  | =includedir=    | =/usr/include/=            |
+- avoid hard-coding paths into [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]; use these
+- as an example of where not doing this can go wrong:
+  - when using the =usrmerge= [[#887aaab6-76ef-43b5-8592-127935253e7a][distro]] feature, then all recipes will have
+    =base_bindir= set to =bindir= (rather than simply having =/bin/= symlink to
+    =/usr/bin/=)
+  - if a recipe used =/bin/= as a hard coded installation path, then the
+    installation won't work as expected
+* Running the image in QEMU
+:PROPERTIES:
+:ID:       8cf925bb-3283-47f5-8033-85151b2aa166
+:CUSTOM_ID: 8cf925bb-3283-47f5-8033-85151b2aa166
+:END:
+- [[#76978d0b-92f6-40cf-b827-01bd45fd4391][OpenEmbedded-Core]] provides a =runqemu= wrapper script:
+  #+begin_src bash
+    runqemu $arch $kernel_image $filesystem_image
+  #+end_src
+- the params are somewhat optional though, running =runqemu= by itself will
+  usually work; QEMU will infer from the [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build environment]] what to do
+  (e.g. it'll run the most recently built image according to timestamp)
+- more options are described [[https://docs.yoctoproject.org/dev-manual/qemu.html][here]]; see also the output of =runqemu --help=
+*** Automated testing with QEMU
+:PROPERTIES:
+:ID:       2345edb0-38da-465f-94ca-366b3578a234
+:CUSTOM_ID: 2345edb0-38da-465f-94ca-366b3578a234
+:END:
+- Yocto provides a framework for automated testing in QEMU
+- one can execute tests on the images inside the target with the =do_testimage=
+  task
+- first, we must add the =testimage= [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] to our =IMAGE_CLASSES= list in our
+  =local.conf=
+- then:
+  #+begin_src bash
+    bitbake -c testimage $filesystem_image
+  #+end_src
+- more on this [[https://docs.yoctoproject.org/dev-manual/runtime-testing.html][here]]
+* Debugging
+:PROPERTIES:
+:ID:       89dd2d47-b589-4fcb-92f2-c13c3aa91480
+:CUSTOM_ID: 89dd2d47-b589-4fcb-92f2-c13c3aa91480
+:END:
+*** Metadata
+:PROPERTIES:
+:ID:       8628f96d-b068-4d4a-82b7-65e70f80af30
+:CUSTOM_ID: 8628f96d-b068-4d4a-82b7-65e70f80af30
+:END:
+- to ensure our build has produced the right [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]], [[#729ed304-8a4e-40f7-a72e-eec793809f77][packages]], and [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK]], along
+  with the expected contents, we can use =buildhistory=
+  - when a recipe is updated for a new version or has its code changed, it may
+    influence the contents of the generated packages (and consequently the
+    image or SDK)
+  - it can be difficult to track package contents; this is where =buildhistory=
+    comes in; it keeps a history of the contents of artifacts
+  - to enable it:
+    #+begin_src conf
+      INHERIT += "buildhistory"    # adds the necessary class hooks
+      BUILDHISTORY_COMMIT = "1"    # auto-commit to the buildhistory repo on every build
+    #+end_src
+  - the data is stored under =build/buildhistory/= as text files
+  - to compare two buildhistory states, use =buildhistory-diff=
+  - for every [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]] build, =buildhistory= will create a list of generated
+    sub-packages, installation scripts, a list of file ownership and sizes,
+    the dependency relation, et al.
+  - additionally, the dependency relationship between the [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]], filesystem
+    files, and dependency graph is created for [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][images]] and [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDKs]]
+  - more on buildhistory [[https://docs.yoctoproject.org/dev-manual/build-quality.html][here]]
+- to inspect how a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe's]] content has been split, check its =packages-split/=
+  sub-directory in its respective [[#6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f][=tmp/work/=]] sub-directory
+  - this contains a sub-directory for every sub-package, and has its contents
+    in the sub-tree
+  - this can help diagnose
+    - contents not being installed (e.g. error in install script)
+    - an app or library config error (e.g. a disabled feature)
+    - metadata errors (e.g. wrong package order)
+- to inspect what the [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroot]] for the package looks like
+  - see =sysroot-destdir/= in its respective [[#6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f][=tmp/work/=]] sub-directory
+  - this is helpful for build failures where the package is lacking the
+    required headers/dynamic libraries in sysroot
+- to inspect already built [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][packages]] in the [[#729ed304-8a4e-40f7-a72e-eec793809f77][package feed]]
+  - use the =oe-pkgdata-util= utility
+  - with this, we can, for example
+    - list all the packages present
+    - list the current version of a package
+    - list a package's contents
+    - find the package associated with a particular file path in [[#d955a4e4-3e7c-478b-8e57-286a7c194852][sysroot]]
+- to inspect log files generated by [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]], which trace the execution path of
+  tasks
+  - the log levels (available within bitbake scripts) are:
+    - =bbfatal= (forces the build to stop)
+    - =bberror=
+    - =bbwarn=
+    - =bbnote=
+    - =bbplain=
+    - =bbdebug=
+  - the logging functions used in Python scripts are directly handled by
+    BitBake, seen on the console, and stored in the execution log inside
+    =tmp/log/cooker/<machine>/=
+  - on the other hand, for logging functions used in shell scripts, the
+    information is outputted to an individual task log file, which is
+    available in =tmp/work/<arch>/<recipe name>/<version>/temp/=
+    - inside this =temp= directory, we can inspect the scripts for every task
+      with the =run.<task>.<pid>= pattern and use the =log.<task>.<pid>= pattern
+      for its output
+    - symbolic links point to the last log files using the =log.<task>=
+      pattern
+    - for example, we can check for =log.do_compile= to verify whether the
+      right files were used during the build process
+- to debug bitbake variables
+  - we can use the =bitbake-getvar= script
+  - this script uses the BitBake internal data to get the value of a specific
+    variable value (with respect to a particular [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]]), as well as the
+    history of modifications made to it that got it there
+  - we can use this script to check whether a feature is enabled, or to be
+    sure a variable has been expanded as we expect
+- to open a development shell
+  - use =devshell=
+  - when we use this utility, the following takes place:
+    - source files are extracted into the working directory
+    - patches are applied
+    - a new terminal is opened in the working directory
+  - all the environment variables needed for the build are available in the
+    new terminal, so we can use commands such as =configure= and =make=; the
+    commands execute just as if the build system were running them
+  - for example, the following the devshell command on the =linux-yocto= recipe
+    which builds a kernel:
+    #+begin_src bash
+      bitbake linux-yocto -c devshell
+    #+end_src
+    - once inside, we can then, from within =$WORKDIR=, start modifying the
+      Linux kernel source code, build it, generate patches, etc.
+  - note that changes made inside devshell do not persist between builds;
+    ensure you record any critical changes before leaving it (e.g. saving the
+    patch to be later added to the recipe)
+  - this tool is good for small tasks; for more involved changes, use [[#28a59763-8b1e-4c36-8c07-aafde51a8081][devtool]]
+    or some other external toolchain
+*** Run-time software
+:PROPERTIES:
+:ID:       f82572d9-a37f-423d-9c46-5de277952cd5
+:CUSTOM_ID: f82572d9-a37f-423d-9c46-5de277952cd5
+:END:
+- the [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK]] comes with GDB by default
+- to use it, we'll need to install =tools-debug=, and probably the debugging
+  versions of all packages (they include their debug symbols):
+  #+begin_src conf
+    IMAGE_FEATURES += "dbg-pkgs tools-debug"
+  #+end_src
+- =tools-debug= also includes gdbserver, which allows us to debug remotely, and
+  also means we won't need debug packages; we can load the debug symbols from
+  the host where we run our gdb client, rather than from the debugged process
+- note however that we'll still need to compile the target binaries without
+  compiler optimisations
+* Choosing a board
+:PROPERTIES:
+:ID:       50ecb4f8-0fef-4298-9f92-3d89b1c4a47d
+:CUSTOM_ID: 50ecb4f8-0fef-4298-9f92-3d89b1c4a47d
+:END:
+- what we need to consider:
+  - quality of software support (i.e. at the low level), namely:
+    - bootloader (such as U-Boot, GRUB, systemd-boot)
+    - linux kernel (for arch, and other required drivers like GPU, WiFi)
+    - user-space packages required by hardware acceleration
+  - integration inside the Yocto Project as a [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] layer, which would normally
+    provide:
+    - a reusable disk partition layout (e.g., a [[#b64a1dac-73c7-403b-9f43-2530b4fd9669][=WIC=]] =.wks= template)
+    - ready-to-use machine definitions
+    - user-space packages integrated for hardware acceleration (usable out of
+      the box)
+* Licenses
+:PROPERTIES:
+:ID:       9dd87647-f7dd-4435-b527-2a990d5239c3
+:CUSTOM_ID: 9dd87647-f7dd-4435-b527-2a990d5239c3
+:END:
+- every [[#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e][package]] must include a license
+- [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] keeps track of licenses in every [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], and any changes made to them
+- NOTE: A [[#49922abe-989a-4049-a4e1-d9cd49db6f60][/recipe/]] itself may be released under a specific license that is
+  distinct from the license of the project it represents.  If so, both
+  licenses would be considered part of the product.
+- once a [[#51cba0dc-6701-431d-9b93-9b2e39761fbc][build]] completes, the list of all licenses used during that build can
+  be found in [[#175e15db-e46d-4bee-92ec-a624b83c74d9][=tmp/deploy/licenses/=]]
+- projects have different ways of providing their license
+  - some just include a =COPYING= or =LICENSE= file containing the license text
+  - others use a header note in each file or the main file (e.g. SPDX)
+- how does a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] specify the license of its project?
+  - =LICENSE= gives the name of the license under which the package was
+    released
+  - =LIC_FILES_CHKSUM= gives the location of the license file in the source
+    code, and a checksum of its text
+    - the checksum means changes to the license can be tracked
+    - when a different license checksum is detected, [[#623a901f-d7c6-44b6-97a0-e2bea2f861bc][BitBake]] launches a build
+      error and points to the project that had its license changed
+      - you must be careful when this happens, as the license change may
+        impact the use of this software
+      - to be able to build anything again, you must change the
+        =LIC_FILE_CHKSUM= value accordingly and update the =LICENSE= field to
+        match the license change
+    - it's good practice to record the reason for the change in a commit
+      message for future reference
+  - =LICENSE_FLAGS= identifies which license restriction that recipe has
+    - if this string is set to ="commercial"= for example, then our build must
+      set =LICENSE_FLAGS_ACCEPTED= to include ="commercial"= for a build that
+      includes this recipe to actually build
+    - =LICENSE_FLAGS_ACCEPTED= can also be set to permit particular license
+      terms for particular projects,
+      e.g. ="commercial_gstreamer1.0-plugins-ugly"= would mean we're allowed to
+      use the =gstreamer1.0-plugins-ugly= recipe in a commercial setting
+    - but by default, [[#b00db72c-5c93-441d-887d-9878b84ec993][Poky]] doesn't use any projects that have commercial
+      licenses
+*** License compliance
+:PROPERTIES:
+:ID:       bcd83893-9335-4693-8f50-ac4b0a807761
+:CUSTOM_ID: bcd83893-9335-4693-8f50-ac4b0a807761
+:END:
+- most copyleft projects have the following obligations:
+  - source code
+  - the license text
+  - any modifications made to the project
+  - any scripts that are required to configure and build it
+- sharing source isn't simply a matter of copying =DL_DIR= (the [[#8924a89f-2052-4370-a549-a61d2475454b][=downloads/=]]
+  directory) and so on, because that would be copying /all/ sources (including
+  proprietary ones), and furthermore, we don't need to share /all/ the sources,
+  but only the copyleft-licensed ones
+- to achieve licensing compliance, we can generate an [[#ee4d8327-cb6b-4b13-8ca2-3d77cce33a81][SBOM]] in SPDX format
+  using the appropriate [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]]:
+  #+begin_src conf
+    INHERIT += "create-spdx"
+  #+end_src
+  - more on this [[https://docs.yoctoproject.org/dev-manual/sbom.html][here]]
+- an older, inferior method:
+  #+begin_src conf
+    INHERIT += "archiver"
+  #+end_src
+  - the default configuration has =COPYLEFT_LICENSE_INCLUDE= set to ="GPL* LGPL*
+    AGPL*"=
+  - the =COPYLEFT_LICENSE_EXCLUDE= variable can be used to exclude specific
+    licenses; by default, this will be set to ="CLOSED Proprietary"=
+  - included sources are deployed to the =build/tmp/deploy/sources/<arch>/=
+    directories
+  - more on this [[https://docs.yoctoproject.org/ref-manual/variables.html#term-ARCHIVER_MODE][here]]; see also the =meta/classes/archiver.bbclass= file
+- when providing the source code, the license text is shared inside it
+- if we also need to include the license text inside our final [[#d04f848b-f29b-4fc5-b2c6-1c2331456bf1][image]], we can
+  add the following to our =build/conf/local.conf=:
+  #+begin_src conf
+    COPY_LIC_MANIFEST = "1"
+    COPY_LIC_DIRS = "1"
+    LICENSE_CREATE_PACKAGE = "1"
+  #+end_src
+  - more on this [[https://docs.yoctoproject.org/dev-manual/licenses.html#providing-license-text][here]]
+* Toaster
+:PROPERTIES:
+:ID:       635714a5-4def-4468-88f3-a30e4128c720
+:CUSTOM_ID: 635714a5-4def-4468-88f3-a30e4128c720
+:END:
+- this is a GUI frontend for [[#73837aae-7e38-4040-99e9-e5b43fd673ca][configuring]] and [[#6ba19863-6771-4f13-9d20-1d4dec02ae6c][building]]
+- it runs as a server and accessed via localhost with the browser
+- this requires the Python Django framework, and a few others; with =pip= we can
+  install them easily:
+  #+begin_src bash
+    pip3 install --user -r bitbake/toaster-requirements.txt
+  #+end_src
+- to start the server (which must be done in our dev environment):
+  #+begin_src bash
+    source oe-init-build-env
+    source toaster start
+  #+end_src
+- then we just open up =127.0.0.1:8000= in the browser
+* Good practices
+:PROPERTIES:
+:ID:       d106ee59-cbac-4ba2-b886-68266957e19e
+:CUSTOM_ID: d106ee59-cbac-4ba2-b886-68266957e19e
+:END:
+- use the =image-buildinfo= [[#1f78978c-9d22-4d70-9aab-de96ee8ab69a][class]] to save build information to the target
+  filesystem
+  - this helps to manually determine the origin of a given image
+  - by default it is saved to =${sysconfdir}/buildinfo=, as specified by
+    =IMAGE_BUILDINFO_FILE= (i.e. usually =/etc/buildinfo=)
+- avoid creating too many [[#d4009f0f-f371-454b-b30f-7fda430c0028][layers]]
+  - e.g. the development of a [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]]-only layer makes sense in the following
+    situations:
+    - the board is the product, as in the System on Module (SoM) vendors' case
+    - when external access to the layer is critical, however, we want to limit
+      the access for the non-BSP source
+  - using a single layer for a product has advantages, such as:
+    - facilitating the development of reusable components, such as a [[#4f2876d0-3b4a-4be0-9f24-12b4922f7bb6][package
+      group]] for development tools, or a network utility shared by multiple
+      products
+    - reducing the risk of unexpected side effects due to changes for a
+      specific product or board
+    - increasing the reuse of bug fixes across multiple products and reuse of
+      BSP low-level components such as the Linux kernel or bootloader
+    - boosting standardisation across multiple products, reducing the learning
+      curve for new team members
+  - start simple; split layers up only when required
+- a couple of special [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]] directories we may need to create:
+  - =recipes-backport/=
+    - sometimes a newer Yocto project release comes along, which we don't move
+      to, but which may include a new recipe version with bug fixes or needed
+      features
+    - in such a case, we can put a backport version of the recipe in here
+  - =recipes-staging/=
+    - this is for new recipes or [[#d2fee7d5-7007-4e33-85cb-6c9a370990fd][append]] files that include missing package
+      configurations or bug fixes that, unlike above, have not yet made their
+      way into the Yocto project recipe
+    - we would continuously send the recipes/bug fixes in here to the
+      respective upstream project (e.g. OpenEmbedded Core)
+    - then, once said patch is accepted, we can move this change from
+      =recipes-staging= to the =recipes-backport= directory above (the backport
+      would then be "official")
+    - this approach allows us to keep track of pending upstreaming tasks, and
+      makes the task of upgrading our meta layer to a newer Yocto Project
+      release easier
+- create a [[#dfb22ff0-7a48-4df5-b479-d591750e0354][custom distro]]
+  - you should distribute a custom distro, not a =build/conf/local.conf= file
+- don't just use an existing image recipe; [[#01866026-d3a7-47e1-8148-12966cdc99df][create a custom one yourself]],
+  namely to:
+  - reduce the rootfs size
+  - reduce the build time
+  - reduce the number of licenses to deal with
+  - reduce the surface of attack for security breaches
+- when doing application development, use the [[#ec39dfb8-2723-41a2-ad1e-26ae052595d9][SDK]]; using Yocto proper is too
+  cumbersome for that
+- avoid too many patches for the Linux kernel and bootloader
+  - if Single-Board Computer (SBC), the number of patches should be minimal
+  - if System-On-Module (SOM) with a custom baseboard, the number of patches
+    will vary depending on the number of modifications from the vendor
+    baseboard hardware design
+  - if custom hardware design, then expect to need a custom [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] and,
+    consequently, a considerable number of modifications
+- if we find we're progressively adding more and more patches to a recipe,
+  consider forking the project and applying the patches there
+  - this has the advantage of needing a much simpler recipe file
+- when creating a [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipe]], don't set =SRCREV= to =AUTOREV=
+  - =SRCREV= indicates which source revision to build, and setting it to =AUTOREV=
+    means it will automatically fetch the newest
+  - we might be tempted to do this while we're working on and making ongoing
+    changes to the backing project
+  - but unfortunately =AUTOREV= is kind of fragile; it will only re-proc when
+    BitBake invalidates the cache of the recipe, but this only happens when we
+    modify the recipe itself or when we change something that triggers the
+    BitBake cache rebuild, such as changing any =.conf= file
+  - for this scenario, use [[#28a59763-8b1e-4c36-8c07-aafde51a8081][devtool]], which allows us to change the code
+    directly in the workspace and forces the recipe to use this as the source
+- create an [[#ee4d8327-cb6b-4b13-8ca2-3d77cce33a81][SBOM]]
+  - it's not created by default
+- continuously monitor the project license constraints
+  - e.g. to prevent copyleft contamination of our intellectual property
+  - project license constraints and the project component's licenses may
+    change over time, so we'll need to monitor our license compliance
+    continuously
+- scan for known Common Vulnerabilities and Exposures (CVEs) for our
+  [[#49922abe-989a-4049-a4e1-d9cd49db6f60][recipes]]
+  - though we should not be limited to this as our [[#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2][BSP]] components might also
+    require security fixes, which the BSP vendors commonly neglect
+  - but the paranoia level will depend on the project niche
+  - more on this [[https://docs.yoctoproject.org/dev-manual/vulnerabilities.html][here]]
+- consider upstreaming work
+  - at first, this may not seem worth it for management:
+    - uses resources to adapt modifications
+    - upstream review feedback may require additional interactions and rework
+    - development work not directly connected to the product needs to be done
+  - usually, development and management teams underestimate the total cost of
+    maintenance, but this is frequently the most expensive part of the
+    project, as it lasts for years
+  - upstreaming allows us to do the following:
+    - avoid work duplication over the years
+    - reduce the friction during upgrades for new Yocto Project releases
+    - receive critical and constructive feedback about the changes we are
+      upstreaming
+    - reduce the amount of work with security updates and bug fixes
+    - reduce the amount of code we have to maintain
+  - upstreaming work is continuous---every time we add a new feature, we
+    potentially increase the gap between our code and the upstream---thus we
+    may postpone the upstreaming work, but the upstreaming costs will be
+    multiplied when you work on updating to the next Yocto Project release
+- tackle project risk points and constraints as soon as possible
+  - as the software and hardware must work together, a few aspects directly
+    depend on our hardware design, e.g.:
+    - is amount of memory we intend to use enough or too much?
+    - is amount of power hardware uses sufficient for our constraints?
+    - is the target GPU capable of rendering the animations we need?
+    - do all the planned peripheral devices have available Linux kernel
+      drivers ready for use or do we need to plan the development for those?
+  - the preceding questions can be answered using a reference or well-known
+    board, which we have ready to use BSP
+  - this allows us to produce a Minimal Viable Product (MVP) without the need
+    to design our custom hardware
+  - after we validate the project's risks and constraints, those boards are
+    still valuable assets for the following:
+    - continuing the development of our software until the custom board and
+      BSP are ready for use
+    - as a base of comparison with our custom design
+    - as a reference to verify whether a bug is specific to our custom board
+      and BSP
+  - considering we can develop our software using a reference or a well-known
+    board, we should postpone the design of a custom board for as long as
+    possible
+  - delaying the design gives us the freedom to change many aspects of our
+    project, such as changing a peripheral because of a specific driver or
+    even changing the planned CPU and memory capabilities after maturing the
+    application and features
+  - when we finally decide to go with a custom design, we should keep it as
+    close as possible to the board we choose as a reference
+  - of course, sometimes we need to deviate from the reference design, but it
+    comes with the risk of introducing design issues and increasing the cost
+    of our custom BSP
+* Config syntax
+:PROPERTIES:
+:ID:       cabd0da0-d7ec-4bdc-80db-34a2563ab39e
+:CUSTOM_ID: cabd0da0-d7ec-4bdc-80db-34a2563ab39e
+:END:
+#+begin_src conf
+  FOO   = ...  # assignment; variables are lazily resolved
+  FOO  := ...  # assignment; variables are immediately resolved
+  FOO  ?= ...  # like = but won't overwrite already assigned variable
+  FOO ??= ...  # as above, but even weaker; is to ?= what ?= is to =
+
+  FOO += ...   # list-append; automatically inserts an extra space to separate elements
+  FOO =+ ...   # list-prepend; automatically inserts an extra space to separate elements
+  FOO .= ...   # string-append; no extra space inserted
+  FOO =. ...   # string-prepend; no extra space inserted
+
+  FOO[a] = "abc"  # set/modify value of a variable flag (extra info tagged onto a variable)
+
+  FOO:append  = ...  # like .= but will queue the append (overwriting FOO won't squash its effect)
+  FOO:prepend = ...  # like =. but will queue the prepend (overwriting FOO won't squash its effect)
+  FOO:remove  = ...  # removes a list element (procs after all appends and prepends)
+
+  OVERRIDES = "linux:arm:mymachine"  # for specifying a colon-separated list of flags, such that...
+  FOO:linux = ...                    # will proc
+  FOO:other = ...                    # won't proc
+  FOO:append:arm    = ...            # will proc
+  FOO:remove:hello  = ...            # won't proc
+
+  require  # pull in an .inc file; raise a ParseError if it can't be found
+  include  # attempt to pull in an .inc file, i.e. as an option
+
+  inherit  # pull in a .bbclass file
+
+  DATE = "${@time.strftime('%Y%m%d',time.gmtime())}"  # inline python code expansion; what comes after the @
+
+  do_install() { # defines a task in shell script (POSIX-compliant stuff only; no bash-isms)
+      oe_runmake install DESTDIR=${D}
+  }
+
+  do_install:append() { # extend an existing task
+      rmdir ${FOO_DIR}
+  }
+
+  python do_printdate() { # defines a task in python
+      d.setVar("TEXT", "Hello World") # 'd' is a special object for accessing the BitBake environment
+      print d.getVar("TEXT")
+      import time
+      print(time.strftime('%Y%m%d',time.gmtime()))
+  }
+
+  python () { # anonymous python task; will be run at the end of parsing
+      if d.getVar('SOMEVAR') == 'value':
+          d.setVar('ANOTHERVAR', 'value2')
+      bb.build.exec_func("do_printdate", d) # manually call some other locally-defined python function
+  }
+
+  def get_depends(d): # defines a python utility function (non-task)
+      if d.getVar('SOMECONDITION'):
+          return "dependencywithcond"
+      else:
+          return "dependency"
+#+end_src
+* Templates
+:PROPERTIES:
+:ID:       70e610ae-be41-48f0-ab91-b7fa3e82851c
+:CUSTOM_ID: 70e610ae-be41-48f0-ab91-b7fa3e82851c
+:END:
+*** =local.conf=
+:PROPERTIES:
+:ID:       3b6f0f7c-d816-4b65-8096-dc2e720a8f68
+:CUSTOM_ID: 3b6f0f7c-d816-4b65-8096-dc2e720a8f68
+:END:
+#+begin_src conf
+  MACHINE ?= "qemux86-64"                # see meta/conf/machine/ and meta-yocto-bsp/conf/machine/ for more options
+  DISTRO ?= "poky"                       # set the policy (distro)
+  PACKAGE_CLASSES ?= "package_ipk"       # specify the package format to use
+  #SDKMACHINE ?= "x86_64"                # SDK target architecture; only i686, x86_64, aarch64 are supported
+  EXTRA_IMAGE_FEATURES ?= "debug-tweaks" # misc. stuff for development, e.g. give ssh root a blank password
+  USER_CLASSES ?= "buildstats"           # collect build statistics
+
+  #IMAGE_CLASSES += "testimage"          # enable support for testing the image in QEMU (see testimage.bbclass)
+  #IMAGE_CLASSES += "testsdk"            # enable support for testing the SDK (see testsdk.bbclass)
+  #TESTIMAGE_AUTO:qemuall = "1"          # run imagetest automatically for qemu* targets
+
+  #OE_TERMINAL = "auto"                  # enable shell when user input is needed, e.g. patch resolution
+  PATCHRESOLVE = "noop"                  # disable interactive patch resolution (tasks will just fail instead)
+
+  # fail the build if we're running low on disk space
+  BB_DISKMON_DIRS ??= "\
+      STOPTASKS,${TMPDIR},1G,100K \
+      STOPTASKS,${DL_DIR},1G,100K \
+      STOPTASKS,${SSTATE_DIR},1G,100K \
+      STOPTASKS,/tmp,100M,100K \
+      HALT,${TMPDIR},100M,1K \
+      HALT,${DL_DIR},100M,1K \
+      HALT,${SSTATE_DIR},100M,1K \
+      HALT,/tmp,10M,1K"
+
+  # sstate mirrors (fetch prebuilt build artefacts to speed up the build)
+  #BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
+  #SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"
+  # OR
+  #SSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+
+  PACKAGECONFIG:append:pn-qemu-system-native = " sdl"   # if we're targeting QEMU, enable the SDL UI frontend
+  ASSUME_PROVIDED += "libsdl2-native"                   # we need not bother building the SDL library ourselves
+  #PACKAGECONFIG:append:pn-qemu-system-native = " gtk+" # enable Gtk UI frontend, which has an actual menu
+
+  #CONF_VERSION = "2"  # version counter, mostly for convenience but completely optional
+
+  #BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"  # max threads for BitBake to dedicate to tasks
+  #PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"   # max threads for make
+
+  # if we want an image based on directfb without x11
+  #DISTRO_FEATURES:append = " directfb"
+  #DISTRO_FEATURES:remove = "x11"
+
+  #DEBUG_BUILD = "1"                 # optimisation to make debugging easer, at the possible cost of performance
+  #INHIBIT_PACKAGE_STRIP = "1"       # disable the stripping of the installed binaries
+  #INHIBIT_PACKAGE_DEBUG_SPLIT = "1" # disable the split of the debug information into -dbg files
+
+  # The following options will build a companion 'debug filesystem' in addition
+  # to the normal deployable filesystem.  This companion system allows a
+  # debugger to know the symbols and related sources.  It can be used to
+  # debug a remote 'production' system without having to add the debug symbols
+  # and sources to remote system.
+  #IMAGE_GEN_DEBUGFS = "1"
+  #IMAGE_FSTYPES_DEBUGFS = "tar.gz"
+
+  #require conf/distro/include/security_flags.inc # enable more secure code generation with extra gcc, ld flags
+
+  #INITRAMFS_IMAGE = "core-image-minimal-initramfs"  # for early userspace (e.g. if mounting rootfs requires a module)
+  #INITRAMFS_IMAGE_BUNDLE = "1"                      # if we want to embed the initramfs inside the kernel image
+
+  #INIT_MANAGER = "none"  # other options include sysvinit, systemd, mdev-busybox
+
+  # if we want a full set of packages instead of busybox for base utils
+  #PREFERRED_PROVIDER_base-utils = "packagegroup-core-base-utils"
+  #VIRTUAL-RUNTIME_base-utils = "packagegroup-core-base-utils"
+  #VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"
+  #VIRTUAL-RUNTIME_base-utils-syslog = "syslog"
+
+  # enable LTO system-wide
+  #require conf/distro/include/lto.inc
+  #DISTRO_FEATURES:append = " lto"
+
+  SDK_PS1 ?= "${SDK_NAME}${SDK_VENDOR}:\$ " # use this custom prompt when inside the SDK
+
+  # enable local PR service to auto-increment PR whenever a package changes (with some extra sanity checks)
+  #PRSERV_HOST = "localhost:0"
+  #INHERIT += "buildhistory"
+  #BUILDHISTORY_COMMIT = "1"
+
+  # generate a Software Bill of Materials
+  # INHERIT += "create-spdx"
+  # SPDX_PRETTY = "1" # make the json human-readable/non-minified
+#+end_src
+*** Recipe
+:PROPERTIES:
+:ID:       7d86ced6-7905-4d3d-9739-42965f71fb1c
+:CUSTOM_ID: 7d86ced6-7905-4d3d-9739-42965f71fb1c
+:END:
+#+begin_src conf
+  DESCRIPTION = "Simple helloworld application"
+  SECTION = "examples"
+  LICENSE = "MIT"
+  LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
+
+  SRC_URI = "file://myhello.c" # list of all source files in the recipe (just one in this case)
+
+  S = "${WORKDIR}"
+
+  do_compile() {
+          ${CC} myhello.c ${LDFLAGS} -o myhello
+  }
+
+  do_install() {
+          install -D -m 0755 myhello ${D}${bindir}/helloworld  # ${D} is the requisite location inside build/tmp/work/
+  }
+
+  # If a project is already based on autotools (or cmake/meson/etc.), then
+  # instead of defining the above tasks manually, we can make use of the
+  # autotools class. (See existing recipes for tips.)
+#+end_src
