@@ -21,7 +21,7 @@
 #+HTML_HEAD: #postamble { text-align: center; font-size: 0.7em; border-top: 1px solid #ABA6A6; margin-top: 4em; color: #808080; }
 #+HTML_HEAD: #postamble p { width: 100%; }
 
-#+HTML_HEAD: body { font-family: Palatino; font-size: 1.00em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+#+HTML_HEAD: body { font-family: 'Palatino Linotype', serif; font-size: 1.00em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 
 #+HTML_HEAD: html { scrollbar-color: #ABA6A6 #fff7f4; scroll-behavior: smooth; }
 
