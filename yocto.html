@@ -1,0 +1,2975 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yocto notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="description" content="Reference notes for Yocto"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Yocto notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#links">Links</a></li>
+<li><a href="#terminology">Terminology</a>
+<ul>
+<li><a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">Append</a></li>
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a></li>
+<li><a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a></li>
+<li><a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">Build Directory</a></li>
+<li><a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">Class</a></li>
+<li><a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">Configuration</a></li>
+<li><a href="#ff999862-e2a2-482c-93a4-55151cb59154">Dependency</a></li>
+<li><a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">Devtool</a></li>
+<li><a href="#887aaab6-76ef-43b5-8592-127935253e7a">Distro</a></li>
+<li><a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">eSDK</a></li>
+<li><a href="#e2c85bd3-accf-49ea-97ad-fa47a1bb272b">Fetcher</a></li>
+<li><a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">Image</a></li>
+<li><a href="#97e812dc-9fef-4f72-a931-4ae140862170">Include</a></li>
+<li><a href="#d4009f0f-f371-454b-b30f-7fda430c0028">Layer</a></li>
+<li><a href="#b1a75489-4822-43b0-8fd4-639d535cad33">Metadata</a></li>
+<li><a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</a></li>
+<li><a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded Build System</a></li>
+<li><a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">Package</a></li>
+<li><a href="#729ed304-8a4e-40f7-a72e-eec793809f77">Package feed</a></li>
+<li><a href="#4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">Package group</a></li>
+<li><a href="#cd11671a-4982-43d0-92eb-f510bf1b5d22"><code>PR</code> Service</a></li>
+<li><a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a></li>
+<li><a href="#a4dfc074-83f5-47c6-a5c4-c1b6153b906a">Pseudo</a></li>
+<li><a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">Recipe</a></li>
+<li><a href="#ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">SBOM</a></li>
+<li><a href="#8254517c-069f-4c02-bcc0-989e195a3cdc">sstate-cache</a></li>
+<li><a href="#f9b4ec65-a1e4-457a-a977-a5fb8c519c59">Source Directory</a></li>
+<li><a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">Sysroot</a></li>
+<li><a href="#b64a1dac-73c7-403b-9f43-2530b4fd9669"><code>wic</code></a></li>
+</ul>
+</li>
+<li><a href="#77644b46-c404-4635-8cd4-f6d741c9f579">Build directory contents</a>
+<ul>
+<li><a href="#436f2635-0396-4400-a62f-30ca113b090c"><code>conf/</code></a></li>
+<li><a href="#8924a89f-2052-4370-a549-a61d2475454b"><code>downloads/</code></a></li>
+<li><a href="#3a21f6aa-2b60-4879-bf5b-9b19213bd3a8"><code>sstate-cache/</code></a></li>
+<li><a href="#12ea9557-5155-49bc-830c-ce2cd727489d"><code>tmp/</code></a>
+<ul>
+<li><a href="#6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f"><code>tmp/work/</code></a></li>
+<li><a href="#42ecbafa-3bd4-4d87-b351-017b5f0edb00"><code>tmp/work-shared/</code></a></li>
+<li><a href="#a2382d7c-15f0-4838-83d5-3c982eaedc05"><code>tmp/deploy/</code></a>
+<ul>
+<li><a href="#96cb9dc9-6536-41bf-aa3f-d1d5dd58b173"><code>tmp/deploy/images/</code></a></li>
+<li><a href="#f163942c-16fc-48bb-98d8-a083d6f78260"><code>tmp/deploy/&lt;package_type&gt;/</code></a></li>
+<li><a href="#175e15db-e46d-4bee-92ec-a624b83c74d9"><code>tmp/deploy/licenses/</code></a></li>
+<li><a href="#8740c2c8-f495-4768-90df-e6b5a8db0022"><code>tmp/deploy/sdk/</code></a></li>
+</ul>
+</li>
+<li><a href="#dbeacf3e-590d-40b2-ae9b-b783984f2959"><code>tmp/sysroots-components/</code></a></li>
+<li><a href="#d199bf7e-3375-4127-9c14-0bd47e3b9f1c"><code>tmp/log/</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#afbb604b-6575-481f-8619-e8e36f81855c">Setting up a build</a></li>
+<li><a href="#6118f330-5f11-4f7e-8073-017544523f59">Useful commands</a></li>
+<li><a href="#cae0bb7a-04bf-459c-a100-934338ec5ded">Building a target image</a></li>
+<li><a href="#01866026-d3a7-47e1-8148-12966cdc99df">Creating a custom image recipe</a></li>
+<li><a href="#dfb22ff0-7a48-4df5-b479-d591750e0354">Creating a custom distro configuration</a></li>
+<li><a href="#ad945122-d7c0-44c4-8529-bc5ebd41039f">Customising an existing recipe</a>
+<ul>
+<li><a href="#a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6">Modifying build flags</a></li>
+<li><a href="#454f3ba7-e149-40c3-acb6-d9e0aed33575">Applying a patch</a></li>
+<li><a href="#80f5fd18-70ac-4dee-a784-ab78c0a1069d">Adding extra files</a></li>
+<li><a href="#f5e94c00-76bb-468c-896a-be015f947270">Changing recipe feature configuration</a></li>
+<li><a href="#5a6c603b-af2d-45ae-81a6-7748692924f2">Changing recipe Kconfig configuration</a></li>
+</ul>
+</li>
+<li><a href="#d3aa691d-a9df-4d7e-94cb-af28e2177486">Standard target filesystem paths</a></li>
+<li><a href="#8cf925bb-3283-47f5-8033-85151b2aa166">Running the image in QEMU</a>
+<ul>
+<li><a href="#2345edb0-38da-465f-94ca-366b3578a234">Automated testing with QEMU</a></li>
+</ul>
+</li>
+<li><a href="#89dd2d47-b589-4fcb-92f2-c13c3aa91480">Debugging</a>
+<ul>
+<li><a href="#8628f96d-b068-4d4a-82b7-65e70f80af30">Metadata</a></li>
+<li><a href="#f82572d9-a37f-423d-9c46-5de277952cd5">Run-time software</a></li>
+</ul>
+</li>
+<li><a href="#50ecb4f8-0fef-4298-9f92-3d89b1c4a47d">Choosing a board</a></li>
+<li><a href="#9dd87647-f7dd-4435-b527-2a990d5239c3">Licenses</a>
+<ul>
+<li><a href="#bcd83893-9335-4693-8f50-ac4b0a807761">License compliance</a></li>
+</ul>
+</li>
+<li><a href="#635714a5-4def-4468-88f3-a30e4128c720">Toaster</a></li>
+<li><a href="#d106ee59-cbac-4ba2-b886-68266957e19e">Good practices</a></li>
+<li><a href="#cabd0da0-d7ec-4bdc-80db-34a2563ab39e">Config syntax</a></li>
+<li><a href="#70e610ae-be41-48f0-ab91-b7fa3e82851c">Templates</a>
+<ul>
+<li><a href="#3b6f0f7c-d816-4b65-8096-dc2e720a8f68"><code>local.conf</code></a></li>
+<li><a href="#7d86ced6-7905-4d3d-9739-42965f71fb1c">Recipe</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org464ac26" class="outline-2">
+<h2 id="links">Links</h2>
+<div class="outline-text-2" id="text-links">
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/">Yocto Docs</a> (<a href="https://docs.yoctoproject.org/singleindex.html">single page</a>; <a href="https://docs.yoctoproject.org/genindex.html">index</a>)
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/ref-manual/index.html">Reference manual</a>
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/ref-manual/structure.html">Directory structure</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/classes.html">Classes</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/tasks.html">Tasks</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/devtool-reference.html">Devtool</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/features.html">Selectable features</a>
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/ref-manual/features.html#machine-features">Machine-relevant</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/features.html#distro-features">Distro-relevant</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/features.html#image-features">Image-relevant</a></li>
+</ul></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/variables.html">Variables</a></li>
+<li><a href="https://docs.yoctoproject.org/ref-manual/varlocality.html">Variable contexts</a></li>
+</ul></li>
+<li><a href="https://docs.yoctoproject.org/bitbake/2.6/index.html">Bitbake</a>
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html">Syntax</a>
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html#variable-flags">Task-specific variable flags</a></li>
+</ul></li>
+<li><a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-fetching.html">Fetching</a></li>
+<li><a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-ref-variables.html">Variables (BitBake-specific)</a></li>
+</ul></li>
+<li><a href="https://docs.yoctoproject.org/sdk-manual/index.html">eSDK and app development</a></li>
+<li><a href="https://docs.yoctoproject.org/dev-manual/index.html">Development guide</a>
+<ul class="org-ul">
+<li><a href="https://docs.yoctoproject.org/dev-manual/packages.html">Working with packages</a></li>
+<li><a href="https://docs.yoctoproject.org/dev-manual/debugging.html">Debugging tools and techniques</a></li>
+<li><a href="https://docs.yoctoproject.org/dev-manual/qemu.html">Using QEMU with Yocto</a></li>
+<li><a href="https://docs.yoctoproject.org/dev-manual/sbom.html">Creating a Software Bill of Materials (SBOM)</a></li>
+</ul></li>
+<li><a href="https://docs.yoctoproject.org/test-manual/index.html">Testing</a></li>
+</ul></li>
+<li>Layers
+<ul class="org-ul">
+<li><a href="https://www.yoctoproject.org/development/yocto-project-compatible-layers/">Yocto Project Curated Layer Index</a></li>
+<li><a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer Index</a></li>
+</ul></li>
+<li>Code examples
+<ul class="org-ul">
+<li><a href="https://github.com/shni9045/Qt5-Yocto">Qt5 + Yocto on RPi-4B</a></li>
+</ul></li>
+<li>Misc.
+<ul class="org-ul">
+<li><a href="https://developer.ridgerun.com/wiki/index.php/Preparing_Yocto_Development_Environment_for_Debugging">Preparing Yocto Development Environment for Debugging</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLD4M5FoHz-TxMfBFrDKfIS_GLY25Qsfyj">Live Coding with Yocto Project</a></li>
+<li><a href="https://www.khronos.org/opengles/">OpenGL ES overview</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6b59579" class="outline-2">
+<h2 id="terminology">Terminology</h2>
+<div class="outline-text-2" id="text-terminology">
+</div>
+<div id="outline-container-org5e18c4b" class="outline-3">
+<h3 id="d2fee7d5-7007-4e33-85cb-6c9a370990fd">Append</h3>
+<div class="outline-text-3" id="text-d2fee7d5-7007-4e33-85cb-6c9a370990fd">
+<ul class="org-ul">
+<li>append files have a <code>.bbappend</code> suffix</li>
+<li>these override/extend their eponymous <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> files (a <code>%</code> character acts as a
+wildcard), e.g.
+<ul class="org-ul">
+<li><code>my-app_1.2.3.bbappend</code> applies only for the 1.2.3 version</li>
+<li><code>my-app_1.2.%.bbappend</code> applies only for the 1.2.y version</li>
+<li><code>my-app_1.%.bbappend</code> applies only for the 1.x and 1.x.y versions</li>
+<li><code>my-app_%.bbappend</code> applies for any version</li>
+</ul></li>
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> basically just appends their contents to the end of the
+corresponding <code>.bb</code> file</li>
+<li>where there are multiple append files for the same <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> in different
+<a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a>, the layer&rsquo;s priority decides the order they&rsquo;ll be applied in</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd0eb4ff" class="outline-3">
+<h3 id="623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</h3>
+<div class="outline-text-3" id="text-623a901f-d7c6-44b6-97a0-e2bea2f861bc">
+<ul class="org-ul">
+<li>the task scheduler and execution engine, used by the
+<a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded Build System</a></li>
+<li>a web-based interface for BitBake and its metadata exists called <a href="#635714a5-4def-4468-88f3-a30e4128c720">Toaster</a></li>
+<li>while you can use most variables in any context, some variables are
+associated with a particular context or scope (more on this <a href="https://docs.yoctoproject.org/ref-manual/varlocality.html">here</a>)
+<ul class="org-ul">
+<li>variables defined in <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">config</a> files are global, available to every <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+<li>variables defined within <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> files are local to specific recipe only,
+i.e. during the execution of its tasks</li>
+</ul></li>
+<li>the parsing order of global config variables is as follows:
+<ul class="org-ul">
+<li><code>build/conf/local.conf</code></li>
+<li><code>&lt;layer&gt;/conf/machines/&lt;machine&gt;.conf</code></li>
+<li><code>&lt;layer&gt;/conf/distro/&lt;distro&gt;.conf</code></li>
+</ul></li>
+<li>notable variables include (complete list <a href="https://docs.yoctoproject.org/ref-manual/variables.html">here</a>):
+<ul class="org-ul">
+<li><code>MACHINE</code>, the target machine (e.g. <code>beaglebone-yocto</code> for BeagleBone Black)</li>
+<li><code>DISTRO</code>, is set to a <a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a> configuration</li>
+<li><code>PACKAGE_CLASSES</code>, to set one or more <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packaging</a> format(s) to package data up
+into</li>
+<li><code>SDKMACHINE</code>, indicates the architecture that a generated <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK</a> is to run on</li>
+<li><code>EXTRA_IMAGE_FEATURES</code>, for extra <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> packages</li>
+<li>the <code>SYSROOT_*</code> variables, which control how <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroots</a> are created and stored</li>
+</ul></li>
+<li>how to use it (more commands <a href="#6118f330-5f11-4f7e-8073-017544523f59">here</a>):
+<ul class="org-ul">
+<li><code>bitbake &lt;recipe&gt;</code> runs a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+<li><code>bitbake -c listtasks &lt;recipe&gt;</code> lists all tasks involved a particular <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>
+(the <code>-c</code> flag is simply running a special task within that recipe called
+<code>do_listtasks</code>)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2e789b4" class="outline-3">
+<h3 id="c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</h3>
+<div class="outline-text-3" id="text-c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">
+<ul class="org-ul">
+<li>board support package; a collection (<a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a>) of drivers, definitions, et al.,
+for a particular board or hardware configuration</li>
+<li>the <code>meta-yocto-bsp</code> <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> (which <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> includes) is a core layer containing
+BSPs for various machines that Yocto Project supports
+(e.g. <code>beaglebone-yocto</code>)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf6ff38f" class="outline-3">
+<h3 id="51cba0dc-6701-431d-9b93-9b2e39761fbc">Build Directory</h3>
+<div class="outline-text-3" id="text-51cba0dc-6701-431d-9b93-9b2e39761fbc">
+<ul class="org-ul">
+<li>AKA an individual project; a build environment</li>
+<li>this term helps distinguish it from the <a href="#f9b4ec65-a1e4-457a-a977-a5fb8c519c59">source directory</a> that it may or may
+not lie within</li>
+<li>a build environment is created (and/or entered into) when we <code>source</code> a setup
+environment script, e.g. <code>oe-init-build-env</code> (an optional arg lets us specify
+the name of the directory; defaults to just <code>build/</code>)</li>
+<li>the <code>TOPDIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
+<li>the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> repo doesn&rsquo;t track these files</li>
+<li>a build usually just involves adding <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a>; we customise/tweak it by
+creating our own custom layers</li>
+<li>when troubleshooting a build, it may be helpful to <a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-intro.html#generating-dependency-graphs">generate a dependency
+graph</a> (see the <code>-g</code> and <code>-u</code> flags)</li>
+<li>the build directory&rsquo;s structure and contents are described <a href="#77644b46-c404-4635-8cd4-f6d741c9f579">here</a>; more
+complete documentation can be found <a href="https://docs.yoctoproject.org/ref-manual/structure.html">here</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org88fd85a" class="outline-3">
+<h3 id="1f78978c-9d22-4d70-9aab-de96ee8ab69a">Class</h3>
+<div class="outline-text-3" id="text-1f78978c-9d22-4d70-9aab-de96ee8ab69a">
+<ul class="org-ul">
+<li>contain info that&rsquo;s useful to share between <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>; typically this is
+common build information (e.g. how to build a Linux kernel; how to build an
+autotools project)</li>
+<li>have the <code>.bbclass</code> suffix</li>
+<li>the class <code>classes/base.bbclass</code> is implicitly inherited in every <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+<li>are pulled in by <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> with the <code>inherit</code> keyword</li>
+<li>class files are global entities, unlike <a href="#97e812dc-9fef-4f72-a931-4ae140862170">include</a> files, which are more local;
+class files can be inherited by any <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, any <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c38f1f" class="outline-3">
+<h3 id="73837aae-7e38-4040-99e9-e5b43fd673ca">Configuration</h3>
+<div class="outline-text-3" id="text-73837aae-7e38-4040-99e9-e5b43fd673ca">
+<ul class="org-ul">
+<li>these files instruct what to build and what to put into the image to support
+a particular platform</li>
+<li>have the <code>.conf</code> suffix</li>
+<li>configure several areas:
+<ul class="org-ul">
+<li>machine-specific config (i.e. machine definitions; see
+e.g. <code>meta-yocto-bsp/conf/machine/</code>)</li>
+<li><a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a> config (e.g. for <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> itself)</li>
+<li>compiler tuning</li>
+<li>general common config options</li>
+<li>user config options</li>
+</ul></li>
+<li><code>conf/local.conf</code> from the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build directory</a> contains user-defined <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a>
+that affect every build</li>
+<li><code>conf/local.conf</code> from a particular <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> defines stuff for a layer like its
+name, priority, dependencies on other layers, etc.</li>
+<li>for config syntax, see <a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-metadata.html">here</a></li>
+<li>a list of variables is given <a href="https://docs.yoctoproject.org/ref-manual/variables.html">here</a>; applicable contexts are given <a href="https://docs.yoctoproject.org/ref-manual/varlocality.html">here</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org63a2642" class="outline-3">
+<h3 id="ff999862-e2a2-482c-93a4-55151cb59154">Dependency</h3>
+<div class="outline-text-3" id="text-ff999862-e2a2-482c-93a4-55151cb59154">
+<ul class="org-ul">
+<li>things that are specified by <a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a></li>
+<li>the term could be referring to a few different things:
+<ul class="org-ul">
+<li>build-time
+<ul class="org-ul">
+<li>compilers and other build tools, static libraries, etc.</li>
+<li>a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> can express such a dependency with the <code>DEPENDS</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a></li>
+</ul></li>
+<li>run-time
+<ul class="org-ul">
+<li>fonts, icons, dynamic libraries, plugins, language interpreters, etc.</li>
+<li>a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> can express such a dependency with the <code>RDEPENDS</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a></li>
+<li>the results of most <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> are <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> managed by the package manager,
+which will by extension manage package dependencies</li>
+<li>there are also the self-explanatory <code>RCONFLICTS</code>, and <code>RREPLACES</code></li>
+</ul></li>
+<li>tasks
+<ul class="org-ul">
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> expresses dependencies by having tasks depend the completion of
+other tasks</li>
+<li><a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OE-Core</a> provides a vast set of <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a> to handle the default task
+dependencies commonly used</li>
+</ul></li>
+</ul></li>
+<li>also, when a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> depends on X, this can mean:
+<ul class="org-ul">
+<li>we need to build the particular recipe called X
+<ul class="org-ul">
+<li>a recipe can satisfy this dependency by just being named <code>X_&lt;version&gt;.bb</code></li>
+</ul></li>
+<li>we need the functionality called X, and the particular implementation
+doesn&rsquo;t matter
+<ul class="org-ul">
+<li>a recipe can satisfy this dependency by adding X to the <code>PROVIDES</code> string
+in its <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">config</a></li>
+</ul></li>
+</ul></li>
+<li>multiple recipes can satisfy a dependency
+<ul class="org-ul">
+<li>the <code>PREFERRED_PROVIDER_*</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> indicate to <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> which ones we prefer
+(e.g. <code>PREFERRED_PROVIDER_virtual/kernel</code> might be set to <code>linux-yocto</code>)</li>
+<li>all else being equal, the highest version of a provider takes precedence
+<ul class="org-ul">
+<li>if we want to dodge bleeding-edge development versions, we can soften this
+behaviour by setting <code>DEFAULT_PREFERENCE</code> to <code>-1</code> (picks the stable version by
+default)</li>
+<li>or we can override this completely with <code>PREFERRED_VERSION_*</code>, which is
+often done in <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSPs</a> for bootloaders and whatnot</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd46e492" class="outline-3">
+<h3 id="28a59763-8b1e-4c36-8c07-aafde51a8081">Devtool</h3>
+<div class="outline-text-3" id="text-28a59763-8b1e-4c36-8c07-aafde51a8081">
+<ul class="org-ul">
+<li>a command-line tool that comes with an <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">eSDK</a></li>
+<li>it assists with the creation/modification/updating of <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a></li>
+<li>an eSDK extends a regular SDK by including devtool, allowing one to
+externally:
+<ul class="org-ul">
+<li>generate <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a></li>
+<li>build <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a></li>
+<li>build <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a></li>
+<li>install <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> in the internal toolchain</li>
+<li>deploy <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> to a particular target (i.e. directly, for testing
+purposes, not to a package feed)</li>
+<li>launch the image in QEMU</li>
+</ul></li>
+<li>devtool can be used within the eSDK environment (i.e. once we&rsquo;ve run the
+eSDK environment setup script), but essentially, an eSDK is a snapshot of
+the environment used to create it, thus all devtool commands are available
+inside the original Yocto <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build environment</a></li>
+<li>devtool creates for itself a special &ldquo;workspace&rdquo; <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a>, within which one can
+add new <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> or modifications to existing <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a></li>
+<li>run <code>devtool --help</code> to see all the commands</li>
+<li>devtool can automatically generate a recipe from an external git repository;
+currently it can generate a (tentative/to be modified) recipe for projects
+based on the following:
+<ul class="org-ul">
+<li>autotools (autoconf and automake)</li>
+<li>cmake</li>
+<li>scons</li>
+<li>qmake</li>
+<li>a plain Makefile</li>
+<li>the Node.js module</li>
+<li>python modules that use setuptools or distutils</li>
+</ul></li>
+<li>more on this <a href="https://docs.yoctoproject.org/sdk-manual/extensible.html">here</a>; quick reference <a href="https://docs.yoctoproject.org/ref-manual/devtool-reference.html">here</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1865e8b" class="outline-3">
+<h3 id="887aaab6-76ef-43b5-8592-127935253e7a">Distro</h3>
+<div class="outline-text-3" id="text-887aaab6-76ef-43b5-8592-127935253e7a">
+<ul class="org-ul">
+<li>an abstraction of the finished system</li>
+<li>basically a selection of software components not yet tailored for the
+specifics of the hardware
+<ul class="org-ul">
+<li>when a machine supports a feature, this does not imply that the target
+system supports it; the distro must provide its underlying base</li>
+<li>e.g. if machine supports Wi-Fi but the distro does not, apps will be built
+with Wi-Fi support disabled (system won&rsquo;t have Wi-Fi support); if the
+distro has Wi-Fi support but the machine does not, the modules and apps
+needed for the Wi-Fi will not be installed in images built for that
+machine (but the distro and its modules will have support for Wi-Fi
+enabled)</li>
+</ul></li>
+<li>the reference distro, <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a>, for example, may be tweaked by
+machine-specific or image-specific definitions</li>
+<li>we can set the <code>DISTRO</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> to point to a particular distro <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">configuration</a>
+(e.g. if set to &ldquo;poky&rdquo;, it will refer to <code>meta-poky/conf/distro/poky.conf</code>)
+<ul class="org-ul">
+<li>if <code>DISTRO</code> is left blank, a set of default configurations will be used;
+these are specified in <code>meta/conf/distro/defaultsetup.conf</code></li>
+</ul></li>
+<li>see <a href="https://docs.yoctoproject.org/ref-manual/features.html#distro-features">here</a> for how to enable distro-relevant features (e.g. include vfat
+support)
+<ul class="org-ul">
+<li>machine-relevants features, on the other hand, are shown <a href="https://docs.yoctoproject.org/ref-manual/features.html#machine-features">here</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org81defb3" class="outline-3">
+<h3 id="ec39dfb8-2723-41a2-ad1e-26ae052595d9">eSDK</h3>
+<div class="outline-text-3" id="text-ec39dfb8-2723-41a2-ad1e-26ae052595d9">
+<ul class="org-ul">
+<li>an SDK is a standalone cross-development toolchain and libraries for
+building stuff against the target environment on the device; they are
+generated against a particular <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>
+<ul class="org-ul">
+<li>note that even where host and target are the same architecture, this is in
+some sense still a cross-build (i.e. not a native build), because the
+target binary uses a <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">staged root filesystem</a> to find its dependencies</li>
+<li>only where the SDK was to run on the target itself would we call it a
+native SDK (but targets usually aren&rsquo;t powerful enough for this job
+anyway)</li>
+</ul></li>
+<li>the SDK may be intended to run on some machine other than the host it was
+generated in (that of an application developer); this avoids other
+developers needing a full installation of the Yocto Project just to build
+<a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> for the device</li>
+<li>a standard SDK consists of:
+<ul class="org-ul">
+<li>cross-development toolchain (compiler, debugger, and other tools)</li>
+<li>development libraries, headers, and symbols for everything that will be
+present on the target</li>
+<li>environment setup script (defines variables for SDK usage)</li>
+<li>potentially it may also rely on QEMU to emulate the target</li>
+</ul></li>
+<li>an <i>eSDK</i> (the &ldquo;e&rdquo; stands for &ldquo;extensible&rdquo;) is all this, plus <a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">devtool</a>
+<ul class="org-ul">
+<li>thus, for example, we could generate an eSDK against one of the standard
+<a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> (like <code>core-image-full-cmdline</code>), then build and install any extra
+dependencies into the SDK using the Extensible SDK (normally, we would
+generate an SDK against a customised <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> that already fits out
+application needs)</li>
+</ul></li>
+<li>the SDK would be distributed in addition to the target image/distribution
+(otherwise how would they test the software they&rsquo;re building for it?)</li>
+<li>we generate an SDK installer for a dev environment for some target <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> by
+running the <code>populate_sdk</code> or <code>populate_sdk_ext</code> tasks for that image&rsquo;s <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>
+<ul class="org-ul">
+<li>the installer script will be named something like
+<code>poky-&lt;c_library&gt;-&lt;host_machine&gt;-&lt;target_image&gt;-&lt;target_machine&gt;-toolchain-&lt;version&gt;.sh</code>,
+and once generated can be found in <code>tmp/deploy/sdk/</code></li>
+<li>by default this script will install to a place in <code>/opt/poky/</code></li>
+<li>once installed, within it will be found a dev environment setup script
+<ul class="org-ul">
+<li>this is much like the <code>oe-init-build-env</code> script that sets up the
+<a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build directory</a>
+<ul class="org-ul">
+<li>but don&rsquo;t have them both sourced at the same time!</li>
+</ul></li>
+<li>note that this environment may not yet be plug-and-play; we may still need
+to add flags, namely, to <code>CC</code>, <code>CXX</code>, <code>CPP</code>, <code>AS</code>, and <code>LD</code>
+<ul class="org-ul">
+<li>e.g. ARM compilers may work for a wide range of ARM processors; we may
+need to supply more info (e.g. specifying the kind of FPU present)</li>
+<li>also, we may need to set the <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroot</a> sysroot; but such a sysroot will be
+provided within the SDK</li>
+</ul></li>
+</ul></li>
+<li>the installer is built for a particular machine given by <code>SDKMACHINE</code>, which
+is set by default to the same machine as the build host (<code>BUILD_ARCH</code>)
+<ul class="org-ul">
+<li>we just need to change this value to something else</li>
+</ul></li>
+<li>pre-built SDK installers also exist (see <a href="https://downloads.yoctoproject.org/releases/yocto/yocto-4.0/toolchain/x86_64/">here</a>, for example)</li>
+</ul></li>
+<li>note that if we only need the generic toolchain and debugging tools, we can
+just build the <code>meta-toolchain</code> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> (likewise will be found in
+<code>tmp/deploy/sdk/</code> once generated)
+<ul class="org-ul">
+<li>this is used mainly for Linux kernel and bootloader development and their
+debugging processes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org63421ba" class="outline-3">
+<h3 id="e2c85bd3-accf-49ea-97ad-fa47a1bb272b">Fetcher</h3>
+<div class="outline-text-3" id="text-e2c85bd3-accf-49ea-97ad-fa47a1bb272b">
+<ul class="org-ul">
+<li>when executing <code>do_fetch</code>, <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> employs <i>fetcher modules</i> to fetch resources
+from the filesystem or network</li>
+<li>the URL prefix of a path (e.g. <code>file://</code>, <code>https://</code>, <code>git://</code>, <code>az://</code>) determines
+how the resource will be fetched</li>
+<li>in the case of git, the trailing <code>branch=&lt;branch_name&gt;</code> parameter specifies
+the desired branch; alternatively, the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> can set <code>SRCREV</code> to a particular
+commit</li>
+<li>some <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a> of concern:
+<ul class="org-ul">
+<li><code>DL_DIR</code> (which defaults to <code>downloads</code> in our <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build directory</a>)
+<ul class="org-ul">
+<li>this controls where downloaded files are cached</li>
+<li>it&rsquo;s consulted by the fetcher first in case we already have the resource</li>
+<li>we can set this to a shared location to share this cache with other
+developers</li>
+<li>if we want a shareable download cache, we shouls also enable the tarball
+generation for the SCM backends in the download folder; add
+<code>BB_GENERATE_MIRROR_TARBALLS = "1"</code> to your project&rsquo;s <code>conf/local.conf</code></li>
+</ul></li>
+<li><code>MIRRORS</code>
+<ul class="org-ul">
+<li>points to a set of known caching mirrors</li>
+<li>this will be searched before the fetcher bothers obtaining the resource
+directly</li>
+</ul></li>
+<li><code>PREMIRRORS</code>
+<ul class="org-ul">
+<li>points to a set of mirrors that will be searched immediately before
+<code>MIRRORS</code></li>
+<li>companies usually point these at caching servers hosted on the local
+network, for when wider internet access is restricted
+<ul class="org-ul">
+<li>if we want to disable fetching from the internet entirely (e.g. for
+cleanroom implementations), we can set <code>BB_NO_NETWORK</code> to <code>"1"</code> in our
+<code>local.conf</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org91542e0" class="outline-3">
+<h3 id="d04f848b-f29b-4fc5-b2c6-1c2331456bf1">Image</h3>
+<div class="outline-text-3" id="text-d04f848b-f29b-4fc5-b2c6-1c2331456bf1">
+<ul class="org-ul">
+<li>something that can be flashed/extracted, which may include a rootfs, a
+bootloader, device tree binary, and kernel</li>
+<li>common formats are <code>.sdcard</code>, <code>.tar.gz</code>, <code>.dd</code>, et al.</li>
+<li>image <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> are usually gathered in something like
+<code>&lt;layer&gt;/&lt;recipe&gt;/images/</code>
+<ul class="org-ul">
+<li>e.g. the <code>core-image-minimal</code> recipe is found in
+<code>meta/recipes-core/images/coreimage-minimal.bb</code></li>
+</ul></li>
+<li>some image <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> that the <a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded build system</a> provides out of the
+box (found in <code>meta*/recipes*/images/*.bb</code>):
+<ul class="org-ul">
+<li><code>core-image-minimal</code>
+<ul class="org-ul">
+<li>a small console-based system</li>
+<li>useful for tests and as a basis point for further customised images</li>
+</ul></li>
+<li><code>core-image-base</code>
+<ul class="org-ul">
+<li>console-only, provides additional basic hardware support</li>
+</ul></li>
+<li><code>core-image-minimal-initramfs</code>
+<ul class="org-ul">
+<li>as above, but built as a ramdisk</li>
+</ul></li>
+<li><code>core-image-weston</code>
+<ul class="org-ul">
+<li>provides Wayland protocol libraries and the reference Weston compositor</li>
+</ul></li>
+<li><code>core-image-x11</code>
+<ul class="org-ul">
+<li>a basic image with support for graphics through an X11 server and a
+terminal app (<code>xterminal</code>)</li>
+</ul></li>
+<li><code>core-image-sato</code>
+<ul class="org-ul">
+<li>a full graphical system based on Sato, a mobile graphical environment
+built on X11 and GNOME</li>
+<li>the image also includes several apps including a terminal, editor, and
+file manager</li>
+</ul></li>
+<li><code>core-image-full-cmdline</code>
+<ul class="org-ul">
+<li>console-only image with more full-featured Linux system functionality
+installed</li>
+</ul></li>
+</ul></li>
+<li>the list of <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> that will be installed into an image is defined by the
+<code>IMAGE_INSTALL</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a>
+<ul class="org-ul">
+<li>usually we would add packages to this variable in the image&rsquo;s <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, not
+our <code>conf/local.conf</code></li>
+</ul></li>
+<li>we can also enable image-relevant features by appending to the
+<code>IMAGE_FEATURES</code> and <code>EXTRA_IMAGE_FEATURES</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a> (the former would
+typically be used in a <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a>/<a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, the latter in a <code>conf/local.conf</code>)
+<ul class="org-ul">
+<li>for example: <code>debug-tweaks</code> for some quality-of-life stuff; <code>dev-pkgs</code> to
+include development libraries and headers for all the installed packages
+(more on these <a href="https://docs.yoctoproject.org/ref-manual/features.html#image-features">here</a>)</li>
+</ul></li>
+<li>there&rsquo;s also <code>PACKAGE_EXCLUDE</code> to exclude particular <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a>
+<ul class="org-ul">
+<li>this will only exclude packages that are explicitly installed; if an
+excluded package is a dependency for something, <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> will throw an
+error</li>
+</ul></li>
+<li>the <code>IMAGE_FSTYPES</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> lets you specify one or more filesystem types for
+the root filesystem to be generated as (the <code>IMAGE_TYPES</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> just lists
+all supported types)</li>
+<li>during image generation, any non-target <code>postinst</code> scripts for each <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a>
+will be run</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9339f38" class="outline-3">
+<h3 id="97e812dc-9fef-4f72-a931-4ae140862170">Include</h3>
+<div class="outline-text-3" id="text-97e812dc-9fef-4f72-a931-4ae140862170">
+<ul class="org-ul">
+<li>have a <code>.inc</code> suffix</li>
+<li>contain info common to several <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>, allowing information to be shared
+among them</li>
+<li>include files are local entities, unlike <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> files, which are global;
+include files reside alongside <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>, and exist to avoid duplication</li>
+<li>are pulled in by <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> with the <code>include</code> or <code>require</code> keywords (<code>require</code>
+produces an error if the file doesn&rsquo;t exist; <code>include</code> does not)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf8b1712" class="outline-3">
+<h3 id="d4009f0f-f371-454b-b30f-7fda430c0028">Layer</h3>
+<div class="outline-text-3" id="text-d4009f0f-f371-454b-b30f-7fda430c0028">
+<ul class="org-ul">
+<li>a repo that contains a collection of related <a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a> (with usually at least
+one <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>)</li>
+<li>repos have the naming convention <code>meta-*</code> (because layers hold metadata)</li>
+<li>repos may have separate branches of support for specific Yocto versions by
+codename (Fido, Dizzy, Morty, Pyro, etc.)</li>
+<li>layers are used to extend the stable base that comes with Yocto</li>
+<li>every layer contains a <code>conf/layer.conf</code> file
+<ul class="org-ul">
+<li>this is the layer&rsquo;s analogue of the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build-specific</a> <code>local.conf</code></li>
+<li>we should always consider moving most of the stuff in our top-level</li>
+</ul></li>
+<li>there are different types of layers, reflecting the fact that we can extend
+different parts of Yocto, which includes:
+<ul class="org-ul">
+<li><a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> layers</li>
+<li><a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a> layers (we may write of these for a particular project)</li>
+<li>container layers (a layer that just contains/groups together other layers)</li>
+<li>software layers</li>
+<li>mixin layers (small layers created (usually by the community) specifically
+for adding some feature to an existing LTS release, e.g. <code>meta-lts-mixins</code>)</li>
+</ul></li>
+<li>layers have dependencies on other layers</li>
+<li>the <a href="https://www.yoctoproject.org/development/yocto-project-compatible-layers/">Yocto Project Curated Layer Index</a> and <a href="https://layers.openembedded.org/layerindex/branch/master/layers/">OpenEmbedded Layer Index</a> both
+contain layers from which you can use or leverage</li>
+<li>the core <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a> are:
+<ul class="org-ul">
+<li><code>meta</code>
+<ul class="org-ul">
+<li>the OpenEmbedded core</li>
+<li>supports seven different processor architectures (ARM, ARM64, x86,
+x86-64, PowerPC, PowerPC 64, MIPS, MIPS64, RISC-V32, and RISC-V 64),
+only supporting platforms to be emulated by QEMU</li>
+</ul></li>
+<li><code>meta-poky</code>
+<ul class="org-ul">
+<li><a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a> specific to the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> <a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a></li>
+<li>serves as a kind of curated template for developing a custom <a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a></li>
+</ul></li>
+<li><code>meta-yocto-bsp</code>
+<ul class="org-ul">
+<li>contains reference <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSPs</a> for various machines that Yocto Project supports
+out of the box</li>
+</ul></li>
+</ul></li>
+<li>we can create the skeleton of a new custom layer with the
+<code>scripts/yocto-layer</code> script</li>
+<li>we can create and/or include layers in a <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a> with the <code>bitbake-layers</code>
+script, which adds it to <code>conf/bblayers.conf</code> on our behalf
+<ul class="org-ul">
+<li>by doing so, the layer&rsquo;s path is appended to the <code>BBPATH</code> variable</li>
+<li>thus we may first need to copy the layer directory (<code>meta-whatever/</code>) to a
+suitable location (the default meta layers are in <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky&rsquo;s</a> top-level
+directory)</li>
+</ul></li>
+<li>layers usually contain a <code>README</code>; read it</li>
+<li>layers have priorities
+<ul class="org-ul">
+<li>this value, along with the recipe version number, helps <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> choose
+which <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> to use when the recipe is included by more than one layer,
+and vice versa for <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> files (higher priority = appended first)</li>
+<li><a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> belonging to the higher priority layer will be used even if the
+recipe version in that layer is lower</li>
+<li>the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> layer and the <a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</a> layer have a lower priority than
+<a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> and <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">eSDK</a> layers, since the latter sit on top of the former</li>
+</ul></li>
+<li>some widely used <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> layers:
+<ul class="org-ul">
+<li><code>meta-allwinner</code> (AllWinner)</li>
+<li><code>meta-amd</code></li>
+<li><code>meta-intel</code></li>
+<li><code>meta-freescale</code> and <code>meta-freescale-3rdparty</code> (NXP)</li>
+<li><code>meta-raspberrypi</code></li>
+<li><code>meta-riscv</code> (e.g. for a VisionFive board)</li>
+<li><code>meta-ti</code> (Texas Instruments)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba31376" class="outline-3">
+<h3 id="b1a75489-4822-43b0-8fd4-639d535cad33">Metadata</h3>
+<div class="outline-text-3" id="text-b1a75489-4822-43b0-8fd4-639d535cad33">
+<ul class="org-ul">
+<li>stuff that&rsquo;s parsed during a <a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">build</a>; what a <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> contains</li>
+<li>in other words: <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">configs</a>, <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a>, and <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> (associated with <code>.conf</code>,
+<code>.bbclass</code>, and <code>.bb</code>​/​<code>.bbappend</code> files respectively)
+<ul class="org-ul">
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> parses a layer&rsquo;s configs first, then uses the definitions therein
+to locate the rest of it</li>
+</ul></li>
+<li>metadata express <a href="#ff999862-e2a2-482c-93a4-55151cb59154">dependencies</a> on other metadata</li>
+<li><a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</a> (the <code>meta</code> <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a>) is an important set of validated metadata</li>
+<li>in the context of the kernel, metadata might also refer to kernel config
+fragments and features contained in the <code>yocto-kernel-cache</code> (a separate git
+repo that provides patches and configuration for the <code>linux-yocto</code> kernel
+tree)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda07962" class="outline-3">
+<h3 id="76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</h3>
+<div class="outline-text-3" id="text-76978d0b-92f6-40cf-b827-01bd45fd4391">
+<ul class="org-ul">
+<li>AKA <i>OE-Core</i></li>
+<li>this is the core <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> of <a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a>, sourced from OpenEmbedded; namely, a
+base layer of <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>, <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a>, and associated files</li>
+<li>it is found in <code>meta/</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org95eab5d" class="outline-3">
+<h3 id="6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded Build System</h3>
+<div class="outline-text-3" id="text-6ba19863-6771-4f13-9d20-1d4dec02ae6c">
+<ul class="org-ul">
+<li>the build system</li>
+<li>utilises <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> as a task scheduler and execution engine</li>
+<li>usually, a full build takes ~1 hour, downloads ~4GB of source, and outputs
+~24GB of files</li>
+<li>in addition to the <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> destined for the target, builds may also need to
+build:
+<ul class="org-ul">
+<li>the cross-toolchain</li>
+<li>an internal version of QEMU (which can be run via the <code>runqemu</code> wrapper
+script)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4abfb76" class="outline-3">
+<h3 id="ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">Package</h3>
+<div class="outline-text-3" id="text-ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">
+<ul class="org-ul">
+<li>an output of a <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">baked</a> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+<li>may be wrapped in an archival format: <code>.deb</code>, <code>.ipk</code>, <code>.rpm</code>, or plain <code>.tar</code>
+<ul class="org-ul">
+<li>the <code>PACKAGE_CLASSES</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> lets us set one or more <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packaging</a> formats for
+our recipes to be packaged up into; we list any of the package <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a>
+like <code>package_rpm</code>, <code>package_deb</code>, etc.</li>
+<li>the first package format in the list will be the one used for <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>
+generation</li>
+</ul></li>
+<li>packages can include scripts to be run as part of their installation/removal
+to the live target (OR to a root filesystem before being burnt into an
+<a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>)
+<ul class="org-ul">
+<li>such scripts fall into the following categories:
+<ul class="org-ul">
+<li><code>preinst</code>
+<ul class="org-ul">
+<li>executes before the package is unpacked</li>
+<li>if the package has services, it must take this opportunity to stop
+them prior to installation or upgrade</li>
+<li>also used for data migration</li>
+</ul></li>
+<li><code>postinst</code>
+<ul class="org-ul">
+<li>executes after unpacking</li>
+<li>typically this will be to complete any required configuration of the
+package</li>
+<li>if the package has services, it has the opportunity to start or
+restart them here</li>
+<li>if this script succeeds, the package is marked as installed
+<ul class="org-ul">
+<li>NOTE: <code>.rpm</code> packages whose script runs on the target should always
+return 0; presumably installation failure is signalled some other
+way</li>
+</ul></li>
+<li>note that unlike the other hooks, this one is invoked during the
+creation of a root filesystem <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>, i.e. when the package is
+installed onto that filesystem prior to it being burnt to an image
+<ul class="org-ul">
+<li>sometimes the script will need to be delayed until the first boot
+(the script might need to be executed on the device itself); to
+delay script execution until boot time, we can instead use
+<code>postinst_ontarget</code></li>
+<li>it&rsquo;s very important that we make sure all <code>postinst</code> scripts for
+packages that are installed into the image can be run at the time
+when the root filesystem is created during the build on the host
+system (if we enable <code>read-only-rootfs</code>, then the <code>do_rootfs</code> task will
+automatically fail if it finds any <code>postinst_ontarget</code> scripts)</li>
+<li>most of the out-of-the-box post-install scripts are engineered so
+that they can run during root filesystem creation; for custom
+scripts, it&rsquo;s up to us to check</li>
+<li>some common problems that prevent post-install scripts from running
+during root filesystem creation:
+<ul class="org-ul">
+<li>not using <code>${D}</code> in front of absolute paths (<code>${D}</code> is the root
+filesystem root on the host during image creation, and blank on
+the target at runtime)</li>
+<li>attempting to run processes that are specific to or dependent on
+the target architecture (you can work around this by using native
+tools, which run on the host system, to accomplish the same tasks,
+or by alternatively running the processes under QEMU, which has
+the <code>qemu_run_binary</code> function; for more info, see the <code>qemu</code> <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a>)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><code>prerm</code>
+<ul class="org-ul">
+<li>usually this is to stop any daemon associated with a package before
+removing files associated with the package</li>
+</ul></li>
+<li><code>postrm</code>
+<ul class="org-ul">
+<li>commonly this is to modify links or other files created by the
+package</li>
+</ul></li>
+</ul></li>
+<li>the systemd and update-rc.d <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a> provide some default scripts, which
+may be customised to our purposes</li>
+</ul></li>
+<li>note that the <code>PN</code>, <code>PV</code>, <code>PR</code>, variables refer to <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60"><i>recipes</i></a>, not packages (the
+use of the letter <code>P</code> is a historical misnomers; recipes used to be called
+packages)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org84cd19c" class="outline-3">
+<h3 id="729ed304-8a4e-40f7-a72e-eec793809f77">Package feed</h3>
+<div class="outline-text-3" id="text-729ed304-8a4e-40f7-a72e-eec793809f77">
+<ul class="org-ul">
+<li>a package feed is a directory containing binary <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a></li>
+<li>these &ldquo;feed&rdquo; the construction of <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> (e.g. during <code>do_rootfs</code>) or <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDKs</a></li>
+<li>the local <a href="#a2382d7c-15f0-4838-83d5-3c982eaedc05"><code>tmp/deploy/</code></a> directory of our <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a> is one such feed, but a feed
+can also be a shared web server</li>
+<li>package feeds can also be used to facilitate extending or updating existing
+images on devices at runtime, should runtime package management be enabled</li>
+<li>as such, a package feed may need to be accessible remotely (either
+internally in our local development environment, or publicly) so as to:
+<ul class="org-ul">
+<li>easily test an updated package during the development stage, i.e. on the
+deployed system, without having to completely re-install that system</li>
+<li>make it possible to install additional packages onto a deployed system</li>
+<li>update products in the field</li>
+</ul></li>
+<li>to produce a solid package feed, we must ensure that we have consistent
+increments in the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60"><code>PR</code></a> variable whenever a <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a> is changed
+<ul class="org-ul">
+<li>doing this manually can be cumbersome; we can let a <a href="#cd11671a-4982-43d0-92eb-f510bf1b5d22"><code>PR</code> service</a> manage it
+for us</li>
+</ul></li>
+<li>whenever we modify or add packages to a package feed, we&rsquo;ll need to rebuild
+the package index with <code>bitbake package-index</code> so that (presumably, building
+an <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> would require the <code>do_package_index</code> task, and so we wouldn&rsquo;t need to
+do this in that case)</li>
+<li>the simplest way to expose as package feed: run <code>python3 -m http.server 5678</code>
+within e.g. <code>tmp/deploy/rmp/</code></li>
+<li>to add support for package management to an <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>, we must:
+<ul class="org-ul">
+<li>point <code>PACKAGE_FEED_URIS</code> to our http address and given port</li>
+<li>add <code>package_management</code> to <code>EXTRA_IMAGE_FEATURES</code>
+<ul class="org-ul">
+<li>this will add stuff to the <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> needed that it can access the server
+and has the utilities needed to install, remove, and upgrade its
+packages</li>
+</ul></li>
+</ul></li>
+<li>of course, the device itself must run the package manager (<code>opkg</code>, <code>apt</code>,
+<code>dnf</code> etc.) to update/install packages</li>
+<li>obviously, we&rsquo;ll need to test stuff before deploying (the testing effort is
+enormous to verify all different upgrade scenarios; a full image upgrade is
+way safer)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1964cf9" class="outline-3">
+<h3 id="4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">Package group</h3>
+<div class="outline-text-3" id="text-4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">
+<ul class="org-ul">
+<li>a package group is a kind of <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> that has the sole purpose of creating
+dependencies to simplify <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> creation</li>
+<li>a package group recipe bundles multiple packages together and then, instead
+of having to explicitly specify each package in the <code>IMAGE_INSTALL</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a>,
+one can simply specify the package group name</li>
+<li>the <code>packagegroup</code> <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> sets default values appropriate for package group
+recipes (<code>PACKAGES</code>, <code>PACKAGE_ARCH</code>, <code>ALLOW_EMPTY</code>, etc.); all package group
+recipes should inherit this class</li>
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/customizing-images.html#customizing-images-using-custom-package-groups">here</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgead7c3e" class="outline-3">
+<h3 id="cd11671a-4982-43d0-92eb-f510bf1b5d22"><code>PR</code> Service</h3>
+<div class="outline-text-3" id="text-cd11671a-4982-43d0-92eb-f510bf1b5d22">
+<ul class="org-ul">
+<li>the PR service, part of <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>, increments the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60"><code>PR</code></a> variable on our behalf
+every time it detects a <a href="#8254517c-069f-4c02-bcc0-989e195a3cdc">checksum</a> change in a task</li>
+<li>normally we would have to increment it manually every time we change
+something; this just makes it easier</li>
+<li>it works by appending the <code>PR</code> value with an additional incrementing value;
+e.g. if we have set <code>PR</code> to <code>r34</code>, then after subsequent <code>PR</code> service
+interactions, it will become <code>r34.1</code>, <code>r34.2</code>, <code>r34.3</code>, and so on</li>
+<li>this ensures <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> in our <a href="#729ed304-8a4e-40f7-a72e-eec793809f77">package feed</a> increment linearly, and stay
+compatible with existing package manager apps (rpm, apt, opkg)</li>
+<li>we can still override <code>PR</code> in exceptional cases though</li>
+<li>the PR service is disabled by default; we can enable it to run locally by
+adding <code>PRSERV_HOST = "localhost:0"</code> to our <code>local.conf</code>
+<ul class="org-ul">
+<li>this approach is adequate when the build happens on a single computer,
+which builds every package of the package feed; <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> will start and
+stop the server at each build</li>
+</ul></li>
+<li>for setups with multiple computers pushing to a shared <a href="#729ed304-8a4e-40f7-a72e-eec793809f77">package feed</a>, we must
+share a single PR service
+<ul class="org-ul">
+<li>in this case, we would start the PR service on a server using the
+<code>bitbake-prserv</code> command, and then point our <code>PRSERV_HOST</code> to that server</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9a13974" class="outline-3">
+<h3 id="b00db72c-5c93-441d-887d-9878b84ec993">Poky</h3>
+<div class="outline-text-3" id="text-b00db72c-5c93-441d-887d-9878b84ec993">
+<ul class="org-ul">
+<li>a reference distro provided by Yocto to serve as a base for adapting to your
+purposes</li>
+<li>specifically, it&rsquo;s <a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OE-Core</a> with an extra <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> on top</li>
+<li>thus it&rsquo;s also a vehicle by which to download the Yocto Project proper: just
+git clone <code>git://git.yoctoproject.org/poky.git</code> and then check out the most
+recent release version</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7560e92" class="outline-3">
+<h3 id="a4dfc074-83f5-47c6-a5c4-c1b6153b906a">Pseudo</h3>
+<div class="outline-text-3" id="text-a4dfc074-83f5-47c6-a5c4-c1b6153b906a">
+<ul class="org-ul">
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> has to turn a tree into an image, but this may require doing things
+normally reserved for root (e.g. set the UID and GID of files)</li>
+<li>Pseudo overrides syscalls in order to set up a fake root environment;
+instead of doing the actual root operations, it records what needs to be
+done when the image is generated</li>
+<li>the per-recipe <code>.db</code> (database) files where such info is stored can be found
+in the subdirectory of <code>tmp/work/</code> in our <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build directory</a> where the recipe is
+found</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org775d41e" class="outline-3">
+<h3 id="49922abe-989a-4049-a4e1-d9cd49db6f60">Recipe</h3>
+<div class="outline-text-3" id="text-49922abe-989a-4049-a4e1-d9cd49db6f60">
+<ul class="org-ul">
+<li>script(s) containing a set of tasks for building one or more components
+(synonymous with what Buildroot calls packages)</li>
+<li>have the <code>.bb</code> suffix, named like <code>&lt;package-name&gt;_&lt;version&gt;.bb</code>
+<ul class="org-ul">
+<li>recipes that are build tools often have a <code>-native</code> suffix, indicating that
+they&rsquo;re to be run during the build process</li>
+</ul></li>
+<li>these are fed into <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a></li>
+<li>recipes have to describe their <a href="#ff999862-e2a2-482c-93a4-55151cb59154">dependencies</a></li>
+<li>a recipe may produce <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a>
+<ul class="org-ul">
+<li>more sophisticated recipes may split to-be-installed contents into several
+sub-packages; these sub-packages might be optional features, modules, or
+any other set of files that is optional to install</li>
+</ul></li>
+<li>recipes follow a standard set of steps for each <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a> they build:
+<ul class="org-ul">
+<li>fetch source from somewhere</li>
+<li>extract source</li>
+<li>patch the source if necessary</li>
+<li>configure</li>
+<li>compile</li>
+<li>copy (or &ldquo;install&rdquo;) the generated files to a directory tree</li>
+<li>package it up</li>
+<li>run QA checks, tests</li>
+</ul></li>
+<li>each of these steps have task names like <code>do_fetch</code>, <code>do_unpack</code>, <code>do_patch</code>,
+<code>do_configure</code>, <code>do_compile</code>, <code>do_install</code>, and <code>do_package</code>; the full list of tasks
+is given <a href="https://docs.yoctoproject.org/ref-manual/tasks.html">here</a>
+<ul class="org-ul">
+<li><code>do_build</code> is a default meta-task, which depends on (triggers) all of them</li>
+</ul></li>
+<li>recipes can pull in <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> files and <a href="#97e812dc-9fef-4f72-a931-4ae140862170">include</a> files
+<ul class="org-ul">
+<li>some tasks are predefined and available in some of the <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">classes</a> that <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a>
+comes with, e.g. the <code>autotools</code> class provides implementations of the
+<code>do_configure</code>, <code>do_compile</code>, and <code>do_install</code> tasks; a recipe author ought to
+use these where possible</li>
+</ul></li>
+<li>and they can be overridden or extended with <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> files</li>
+<li><code>PN</code> is a <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> that gives the recipe name (or alternatively, the name of
+the resulting <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a>)</li>
+<li>recipes have recipe <i>versions</i>
+<ul class="org-ul">
+<li>the newest version is always the one built, except where the older
+version&rsquo;s <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> has a higher priority (recipe version numbers only matter
+when the layer priorities are the same), or if we give explicit preference
+for a particular version</li>
+<li>the complete version string looks like <code>${PE}:${PV}-${PR}</code>, where the three
+<a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a> refer to the recipe&rsquo;s epoch, version, and revision numbers
+<ul class="org-ul">
+<li><code>PE</code>
+<ul class="org-ul">
+<li>has the most priority, but is rarely changed from the default <code>0</code></li>
+<li>we would only change it if we were changing our versioning schema in a
+way that would otherwise break the usual ordering</li>
+</ul></li>
+<li><code>PV</code>
+<ul class="org-ul">
+<li>this is normally extracted from the recipe filename</li>
+<li>however, the recipe might modify it if it&rsquo;s being built from a
+development/unstable branch, say</li>
+</ul></li>
+<li><code>PR</code>
+<ul class="org-ul">
+<li>this defaults to <code>r0</code>, and usually incremented to <code>r1</code>, <code>r2</code>, etc.</li>
+<li>when <code>PV</code> increases, <code>PR</code> is conventionally reset back to <code>r0</code></li>
+<li>different packages can have the same <code>PV</code>; this might indicate that
+there were fixes applied on top of the upstream version of the package</li>
+<li>a <a href="#cd11671a-4982-43d0-92eb-f510bf1b5d22"><code>PR</code> service</a> can be used to automate the management of <code>PR</code>, which can
+be cumbersome to increment manually</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfceae23" class="outline-3">
+<h3 id="ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">SBOM</h3>
+<div class="outline-text-3" id="text-ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">
+<ul class="org-ul">
+<li>software bill of materials</li>
+<li>we might provide one when we distribute our software, offering a description
+of all the components we used, their corresponding licenses, their
+dependencies, the changes that were applied and the known vulnerabilities
+that were fixed</li>
+<li>this can be used by the recipients of the software to assess their exposure
+to license compliance and security vulnerability issues</li>
+<li>the <a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">build system</a> can generate such documentation for us, in SPDX format,
+based on all the <a href="#b1a75489-4822-43b0-8fd4-639d535cad33">metadata</a> it used to build the software <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a>
+<ul class="org-ul">
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/sbom.html">here</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga17fb98" class="outline-3">
+<h3 id="8254517c-069f-4c02-bcc0-989e195a3cdc">sstate-cache</h3>
+<div class="outline-text-3" id="text-8254517c-069f-4c02-bcc0-989e195a3cdc">
+<ul class="org-ul">
+<li>the shared state cache</li>
+<li>contains snapshots of build artefacts, used to speed up builds</li>
+<li>the <code>SSTATE_DIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points to the local cache directory for <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a>
+<ul class="org-ul">
+<li>we can change this to some other, shared directory if we like</li>
+<li>we can also point this to URL that uses a different <a href="#e2c85bd3-accf-49ea-97ad-fa47a1bb272b">fetcher</a>, like <code>https</code></li>
+</ul></li>
+<li>and we can add mirrors to <code>SSTATE_MIRRORS</code> (which is consulted first)</li>
+<li>cached build artifacts are each assigned a checksum
+<ul class="org-ul">
+<li>this checksum indicates the state of play when they were built, so as to
+determine whether it can be used or must be rebuilt</li>
+<li>the information used in the checksum depends on the task and what it does
+<ul class="org-ul">
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> can automatically detect much of this, including what variables
+the task depends on (more on this <a href="https://docs.yoctoproject.org/bitbake/2.6/bitbake-user-manual/bitbake-user-manual-execution.html#checksums-signatures">here</a>)</li>
+<li>to find out what variables a task depends on, see <a href="https://docs.yoctoproject.org/dev-manual/debugging.html#viewing-task-variable-dependencies">here</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga304f74" class="outline-3">
+<h3 id="f9b4ec65-a1e4-457a-a977-a5fb8c519c59">Source Directory</h3>
+<div class="outline-text-3" id="text-f9b4ec65-a1e4-457a-a977-a5fb8c519c59">
+<ul class="org-ul">
+<li>AKA the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> directory; refers to the top level of the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> git repo we
+cloned locally; more generally, the top-level directory of <i>any</i> <a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a></li>
+<li>this term helps distinguish it from the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build directory</a> (which may or may
+not lie within it)</li>
+<li>the source directory structure is described <a href="https://docs.yoctoproject.org/ref-manual/structure.html">here</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgff2fa27" class="outline-3">
+<h3 id="d955a4e4-3e7c-478b-8e57-286a7c194852">Sysroot</h3>
+<div class="outline-text-3" id="text-d955a4e4-3e7c-478b-8e57-286a7c194852">
+<ul class="org-ul">
+<li>the location of a staged version of a root filesystem</li>
+<li>in the context of the <a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">OpenEmbedded build system</a>, and of the Yocto Project,
+each <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> can have two sysroots:
+<ul class="org-ul">
+<li>a <i>target</i> sysroot contains all the <i>target libraries and headers</i> needed for
+building/running the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>; typically this might include libc, kernel
+headers, other shared libs or binaries compiled against libc, etc.</li>
+<li>a <i>native</i> sysroot contains all the <i>host files and executables</i> needed for
+building the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+</ul></li>
+<li>a multilib toolchain can contain multiple variants of libc binaries, each
+compiled for a target instruction set, and possibly optimised for a specific
+CPU core</li>
+<li>the <code>SYSROOT_*</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a> control how sysroots are created and stored</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org938221a" class="outline-3">
+<h3 id="b64a1dac-73c7-403b-9f43-2530b4fd9669"><code>wic</code></h3>
+<div class="outline-text-3" id="text-b64a1dac-73c7-403b-9f43-2530b4fd9669">
+<ul class="org-ul">
+<li>wic is a utility for generating partitioned <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> out of a set of existing
+build artifacts
+<ul class="org-ul">
+<li>the name &ldquo;wic&rdquo; is derived from OpenEmbedded Image Creator (oeic); the &ldquo;oe&rdquo;
+diphthong was promoted to the letter &ldquo;w&rdquo; because that&rsquo;s how you say it</li>
+</ul></li>
+<li>the scheme for partitioning can be specified in a separate &ldquo;kickstart&rdquo; file
+(<code>.wks</code>)
+<ul class="org-ul">
+<li>the language definition for kickstart files can be seen <a href="https://docs.yoctoproject.org/dev/ref-manual/kickstart.html">here</a></li>
+<li>a <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a> might include multiple such files (in the <code>wic/</code> directory) to
+specify different image layouts</li>
+</ul></li>
+<li>configuration also includes specifying the type of compression used</li>
+<li>to use it, &ldquo;wic&rdquo; must be included in the <code>IMAGE_FSTYPES</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> with the
+name of the kickstart file (or alternatively, we can set the <code>WKS_FILE</code>
+variable)
+<ul class="org-ul">
+<li>this might be part of a <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">machine config</a>, for example; layouts are often
+tied to the specifics of the machine and how it boots</li>
+</ul></li>
+<li>a <code>.wic</code> file is a partitioned image that can be written straight to the
+target&rsquo;s disk or sd card (e.g. with <code>dd</code>)</li>
+<li>read more about this tool <a href="https://docs.yoctoproject.org/dev/dev-manual/wic.html">here</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5477ec" class="outline-2">
+<h2 id="77644b46-c404-4635-8cd4-f6d741c9f579">Build directory contents</h2>
+<div class="outline-text-2" id="text-77644b46-c404-4635-8cd4-f6d741c9f579">
+</div>
+<div id="outline-container-org0647820" class="outline-3">
+<h3 id="436f2635-0396-4400-a62f-30ca113b090c"><code>conf/</code></h3>
+<div class="outline-text-3" id="text-436f2635-0396-4400-a62f-30ca113b090c">
+<ul class="org-ul">
+<li>this directory is all we need for a build; deleting all but this one
+will recreate the build from scratch
+<ul class="org-ul">
+<li>you may want to just delete <code>tmp/</code> though (leaving <code>downloads/</code> and
+<code>sstate-cache/</code> as is), just so we&rsquo;re not starting from absolutely nothing</li>
+</ul></li>
+<li><code>local.conf</code>
+<ul class="org-ul">
+<li>config for this particular build</li>
+<li>usually we wouldn&rsquo;t share this file per se&#x2014;it&rsquo;s not under source control
+management, and may differ between developers&#x2014;but rather a <a href="#dfb22ff0-7a48-4df5-b479-d591750e0354">custom distro
+layer</a> or some such</li>
+</ul></li>
+<li><code>bblayers.conf</code>
+<ul class="org-ul">
+<li>tells <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> what <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a> (collections of metadata) to pull in to the
+build environment, and their locations as absolute paths; we can
+optionally use the <code>bitbake-layers</code> tool to include them here;
+e.g. <code>bitbake-layers add-layer ./meta-blahblah/</code></li>
+<li>initially this will include the <code>meta</code>, <code>meta-poky</code>, and <code>meta-yocto-bsp</code> layers</li>
+<li>the order in which the layers are listed will determine the order that
+BitBake will parse them</li>
+</ul></li>
+<li><code>templateconf.cfg</code>
+<ul class="org-ul">
+<li>this will point to the directory from which <code>oe-init-build-env</code> obtained
+the default configuration to populate this directory with initially</li>
+<li>this will be whatever the <code>TEMPLATECONF</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> is set to, a variable
+which is set in the <code>.templateconf</code> file, and which <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> sets to
+<code>meta-poky/conf/templates/default/</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc36c515" class="outline-3">
+<h3 id="8924a89f-2052-4370-a549-a61d2475454b"><code>downloads/</code></h3>
+<div class="outline-text-3" id="text-8924a89f-2052-4370-a549-a61d2475454b">
+<ul class="org-ul">
+<li>a download cache, stores downloaded source and other artifacts
+(unpacking and patching happens in <code>work/</code>, not here)</li>
+<li>the <code>DL_DIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
+<li>only appears once we run a build the first time</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6c819b2" class="outline-3">
+<h3 id="3a21f6aa-2b60-4879-bf5b-9b19213bd3a8"><code>sstate-cache/</code></h3>
+<div class="outline-text-3" id="text-3a21f6aa-2b60-4879-bf5b-9b19213bd3a8">
+<ul class="org-ul">
+<li>contains the <a href="#8254517c-069f-4c02-bcc0-989e195a3cdc">shared state cache</a></li>
+<li>the <code>SSTATE_DIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
+<li>this directory may need cleaning from time to time, since it keeps growing
+after every build
+<ul class="org-ul">
+<li>after multiple build iterations, the cache can contain multiple cache
+files for a given package, consuming a substantial amount of disk space;
+however, only the most recent ones are likely to be reused</li>
+<li>do something like <code>find build/sstate-cache -type f -mtime +$DAYS -delete</code> to
+delete stuff at least <code>$DAYS</code> days old
+<ul class="org-ul">
+<li>this relies on the fact that <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> touches the sstate cache files as
+it accesses them, when it has write access to the cache</li>
+</ul></li>
+<li>or, if available from <a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</a>, do <code>sstate-cache-management.sh
+    --remove-duplicated --cache-dir=build/sstate-cache</code> to remove duplicates
+<ul class="org-ul">
+<li>this one is more cautious and selective</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org09446c5" class="outline-3">
+<h3 id="12ea9557-5155-49bc-830c-ce2cd727489d"><code>tmp/</code></h3>
+<div class="outline-text-3" id="text-12ea9557-5155-49bc-830c-ce2cd727489d">
+<ul class="org-ul">
+<li>contains the build artifacts (<a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a>, <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a>, <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK installers</a>)</li>
+<li>the <code>TMPDIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
+<li>only appears once we run a build the first time</li>
+<li>looking in here can sometimes help diagnose failed builds</li>
+</ul>
+</div>
+<div id="outline-container-org52e0725" class="outline-4">
+<h4 id="6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f"><code>tmp/work/</code></h4>
+<div class="outline-text-4" id="text-6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f">
+<ul class="org-ul">
+<li>the main build directory</li>
+<li>this includes the staging areas for the root filesystem and other
+<a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>-specific <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroots</a>, execution logs, et al.</li>
+<li>the trees within this directory are sorted by
+<code>&lt;arch&gt;/&lt;recipe_name&gt;/&lt;recipe_version&gt;/</code>
+<ul class="org-ul">
+<li>the need for multiple architectures arises from the fact that some
+packages may be for the host and some for the target, and even for
+those with the same target, source artifacts may be
+architecture-general or architecture-specific</li>
+<li>the <code>WORKDIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> will point to a recipe subdirectory in here</li>
+</ul></li>
+<li>an example of what the top-level might look like:
+<ul class="org-ul">
+<li><code>all-poky-linux/</code>
+<ul class="org-ul">
+<li>for arch-agnostic packages; mostly scripts and stuff</li>
+</ul></li>
+<li><code>core2-64-poky-linux/</code>
+<ul class="org-ul">
+<li>for packages common to x86-64-based targets using the optimisation
+tuned for <code>core2-64</code></li>
+</ul></li>
+<li><code>qemux86_64-poky-linux/</code>
+<ul class="org-ul">
+<li>for packages specific to the <code>qemux86-64</code> machine</li>
+</ul></li>
+<li><code>x86_64-linux/</code>
+<ul class="org-ul">
+<li>for packages that are targeted to run on the build host machine</li>
+</ul></li>
+</ul></li>
+<li>within each <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> subdirectory will be found something like the
+following:
+<ul class="org-ul">
+<li><code>sources/</code>
+<ul class="org-ul">
+<li>extracted source code of the software to be built</li>
+</ul></li>
+<li><code>image/</code>
+<ul class="org-ul">
+<li>the files that will be installed by the recipe</li>
+</ul></li>
+<li><code>package/</code>
+<ul class="org-ul">
+<li>contains the output of the <code>do_package</code> task <i>before</i> the output is
+(optionally) split into sub-packages</li>
+</ul></li>
+<li><code>packages-split/</code>
+<ul class="org-ul">
+<li>contains the output of the <code>do_package</code> task <i>after</i> the output is been
+(optionally) split into sub-packages</li>
+<li>contains subdirectories for each individual package created by the
+recipe</li>
+</ul></li>
+<li><code>temp/</code>
+<ul class="org-ul">
+<li>stores <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>&rsquo;s task code and execution logs</li>
+</ul></li>
+<li><code>pseudo/</code>
+<ul class="org-ul">
+<li>contains the <a href="#a4dfc074-83f5-47c6-a5c4-c1b6153b906a">Pseudo</a> database and log for any tasks executed under
+pseudo for the recipe</li>
+</ul></li>
+<li><code>recipe-sysroot/</code>
+<ul class="org-ul">
+<li>a directory populated with the target dependencies of the recipe</li>
+<li>looks like the target filesystem and contains libraries that the
+recipe might need to link against (e.g. libc/busybox)</li>
+</ul></li>
+<li><code>recipe-sysroot-native/</code>
+<ul class="org-ul">
+<li>a directory populated with the native dependencies of the recipe</li>
+<li>usually means tools needed to build the recipe (e.g. compiler,
+autoconf, libtool)</li>
+</ul></li>
+<li><code>build/</code>
+<ul class="org-ul">
+<li>this subdirectory applies only to recipes that support builds
+where the source is separate from the build artifacts</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgad0ad35" class="outline-4">
+<h4 id="42ecbafa-3bd4-4d87-b351-017b5f0edb00"><code>tmp/work-shared/</code></h4>
+<div class="outline-text-4" id="text-42ecbafa-3bd4-4d87-b351-017b5f0edb00">
+<ul class="org-ul">
+<li>a work directory used for sharing the source code with multiple
+recipes</li>
+<li>this is only used by a subset of recipes, such as <code>linux-yocto</code> and <code>gcc</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5aedb1c" class="outline-4">
+<h4 id="a2382d7c-15f0-4838-83d5-3c982eaedc05"><code>tmp/deploy/</code></h4>
+<div class="outline-text-4" id="text-a2382d7c-15f0-4838-83d5-3c982eaedc05">
+<ul class="org-ul">
+<li>the final binaries to be deployed on the target</li>
+<li>the <code>DEPLOY_DIR</code> <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> points here</li>
+</ul>
+</div>
+<div id="outline-container-org4a237d2" class="outline-5">
+<h5 id="96cb9dc9-6536-41bf-aa3f-d1d5dd58b173"><code>tmp/deploy/images/</code></h5>
+<div class="outline-text-5" id="text-96cb9dc9-6536-41bf-aa3f-d1d5dd58b173">
+<ul class="org-ul">
+<li>the bootloader, kernel, and rootfs <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> destined for the target</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdbd1ed6" class="outline-5">
+<h5 id="f163942c-16fc-48bb-98d8-a083d6f78260"><code>tmp/deploy/&lt;package_type&gt;/</code></h5>
+<div class="outline-text-5" id="text-f163942c-16fc-48bb-98d8-a083d6f78260">
+<ul class="org-ul">
+<li><a href="#729ed304-8a4e-40f7-a72e-eec793809f77">package feeds</a> for the different kinds of <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> (deb, rpm, etc.) that were
+built (and perhaps put into one of the <a href="#96cb9dc9-6536-41bf-aa3f-d1d5dd58b173">images just mentioned</a>)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0f098a0" class="outline-5">
+<h5 id="175e15db-e46d-4bee-92ec-a624b83c74d9"><code>tmp/deploy/licenses/</code></h5>
+<div class="outline-text-5" id="text-175e15db-e46d-4bee-92ec-a624b83c74d9">
+<ul class="org-ul">
+<li>contains the license files extracted from each <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a></li>
+<li><code>package.manifest</code> lists all packages in the image</li>
+<li><code>image_license.manifest</code> lists the recipe names, versions, licenses, and the
+packages files available in the image, but not installed inside the rootfs
+(most notably, those of the bootloader, the kernel, and DTB files)</li>
+<li><code>license.manifest</code> lists what is not included above, i.e. for the <i>installed</i>
+packages (we would typically use this manifest for copyleft compliance
+auditing)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd26444b" class="outline-5">
+<h5 id="8740c2c8-f495-4768-90df-e6b5a8db0022"><code>tmp/deploy/sdk/</code></h5>
+<div class="outline-text-5" id="text-8740c2c8-f495-4768-90df-e6b5a8db0022">
+<ul class="org-ul">
+<li>contains generated installer scripts for setting up the <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK</a> environment</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orga7e390b" class="outline-4">
+<h4 id="dbeacf3e-590d-40b2-ae9b-b783984f2959"><code>tmp/sysroots-components/</code></h4>
+<div class="outline-text-4" id="text-dbeacf3e-590d-40b2-ae9b-b783984f2959">
+<ul class="org-ul">
+<li>contains components that are shared among <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>-specific <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroots</a>;
+<code>recipe-sysroot</code> and <code>recipe-sysroot-native</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org489e012" class="outline-4">
+<h4 id="d199bf7e-3375-4127-9c14-0bd47e3b9f1c"><code>tmp/log/</code></h4>
+<div class="outline-text-4" id="text-d199bf7e-3375-4127-9c14-0bd47e3b9f1c">
+<ul class="org-ul">
+<li>contains general <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> logs that are non-specific to a particular <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a></li>
+<li>examples include logs output from the <code>do_check_pkg</code>, <code>do_distro_check</code>
+tasks</li>
+<li>running a build does not necessarily mean this directory will show up</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3af7be5" class="outline-2">
+<h2 id="afbb604b-6575-481f-8619-e8e36f81855c">Setting up a build</h2>
+<div class="outline-text-2" id="text-afbb604b-6575-481f-8619-e8e36f81855c">
+<ul class="org-ul">
+<li>install <a href="https://docs.yoctoproject.org/4.0.4/ref-manual/system-requirements.html#required-packages-for-the-build-host">required packages</a></li>
+<li><p>
+download <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> and check out one of the release versions
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git clone git://git.yoctoproject.org/poky.git -b kirkstone <span class="org-comment-delimiter"># </span><span class="org-comment">latest LTS release as of 01/2024</span>
+</pre>
+</div></li>
+<li><p>
+source the setup script to create/enter the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a> environment
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">source oe-init-build-env <span class="org-comment-delimiter"># </span><span class="org-comment">an optional arg names the new directory; defaults to 'build'</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org92b1747" class="outline-2">
+<h2 id="6118f330-5f11-4f7e-8073-017544523f59">Useful commands</h2>
+<div class="outline-text-2" id="text-6118f330-5f11-4f7e-8073-017544523f59">
+<ul class="org-ul">
+<li><p>
+run a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> (usually one for an <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake $<span class="org-variable-name">recipe_name</span>
+</pre>
+</div></li>
+<li><p>
+run a particular task of a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake -c $<span class="org-variable-name">task_name</span> $<span class="org-variable-name">recipe_name</span>
+</pre>
+</div></li>
+<li><p>
+list all tasks involved in a particular <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake -c listtasks $<span class="org-variable-name">recipe_name</span>
+</pre>
+</div></li>
+<li><p>
+show <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variable</a> values currently configured:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake-env
+</pre>
+</div></li>
+<li><p>
+list <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">variables</a> in a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake -e $<span class="org-variable-name">recipe_name</span> <span class="org-comment-delimiter"># </span><span class="org-comment">the 'e' stands for 'environment'</span>
+</pre>
+</div></li>
+<li><p>
+list all currently configured <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake-layers show-layers
+</pre>
+</div></li>
+<li><p>
+list all <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> available:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake-layers show-recipes
+<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
+bitbake -s
+</pre>
+</div></li>
+<li><p>
+configure the kernel via menuconfig:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake $<span class="org-variable-name">kernel</span> -c menuconfig <span class="org-comment-delimiter"># </span><span class="org-comment">e.g. linux-yocto</span>
+</pre>
+</div></li>
+<li><p>
+shows all changes made since the last generation of <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake-whatchanged $<span class="org-variable-name">recipe_name</span>
+</pre>
+</div></li>
+<li><p>
+list available overrides for a specific machine:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake-getvar OVERRIDES
+</pre>
+</div></li>
+<li><p>
+optional frontends:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake -u ncurses <span class="org-comment-delimiter"># </span><span class="org-comment">TUI</span>
+bitbake -u hob <span class="org-comment-delimiter"># </span><span class="org-comment">GUI</span>
+bitbake -u goggle <span class="org-comment-delimiter"># </span><span class="org-comment">simpler GUI</span>
+</pre>
+</div></li>
+<li><p>
+generate a dependency graph for a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> in graphviz format (<code>.dot</code> file):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake $<span class="org-variable-name">recipe_name</span> -g
+<span class="org-comment-delimiter"># </span><span class="org-comment">then, to convert them to images</span>
+dot -v -Tpng -o package-depends.png package-depends.dot
+dot -v -Tpng -o pn-depends.png pn-depends.dot
+dot -v -Tsvg -o task-depends.svg task-depends.dot
+</pre>
+</div></li>
+<li><p>
+show said dependency graph in a GUI:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake $<span class="org-variable-name">recipe_name</span> -g -u depexp
+bitbake $<span class="org-variable-name">recipe_name</span> -g -u taskexp
+</pre>
+</div></li>
+<li><p>
+generate an SDK/eSDK for a particular <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake $<span class="org-variable-name">image_recipe</span> -c populate_sdk
+<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
+bitbake $<span class="org-variable-name">image_recipe</span> -c populate_sdk_ext
+</pre>
+</div></li>
+<li><p>
+generate a new <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> in the <a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">workspace</a> based on an existing project:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">devtool add https://github.com/OSSystems/bbexample <span class="org-comment-delimiter"># </span><span class="org-comment">or some other project repo</span>
+</pre>
+</div></li>
+<li><p>
+to copy/deploy the finished <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> in the <a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">workspace</a> to a <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layer</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">devtool finish bbexample ../meta-newlayer/
+<span class="org-comment-delimiter"># </span><span class="org-comment">copied to ../meta-newlayer/recipes-bbexample/bbexample/</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfcb346a" class="outline-2">
+<h2 id="cae0bb7a-04bf-459c-a100-934338ec5ded">Building a target image</h2>
+<div class="outline-text-2" id="text-cae0bb7a-04bf-459c-a100-934338ec5ded">
+<ul class="org-ul">
+<li><a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> provides several <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> to build off of</li>
+<li>see <code>meta*/recipes*/*images/*.bb</code> for the full list; the most commonly used
+ones are listed <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">above</a></li>
+<li><p>
+once we&rsquo;ve entered into the <a href="#afbb604b-6575-481f-8619-e8e36f81855c">build environment</a>, and have our <a href="#3b6f0f7c-d816-4b65-8096-dc2e720a8f68"><code>local.conf</code></a> all
+set up, we then just run the desired image recipe with <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake core-image-full-cmdline
+</pre>
+</div></li>
+<li><p>
+the resulting <code>.wic</code> file (which in some cases may need to be unzipped) can
+then be copied to the target&rsquo;s sd card:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">sudo dd <span class="org-variable-name">if</span>=core-image-full-cmdline-${<span class="org-variable-name">MACHINE</span>}.wic <span class="org-variable-name">of</span>=/dev/${<span class="org-variable-name">DEVICE_FILE</span>}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org804c090" class="outline-2">
+<h2 id="01866026-d3a7-47e1-8148-12966cdc99df">Creating a custom image recipe</h2>
+<div class="outline-text-2" id="text-01866026-d3a7-47e1-8148-12966cdc99df">
+<ul class="org-ul">
+<li>typically, instead of creating an <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a> <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> from scratch, we would pull
+in an existing one (like <code>core-image-full-cmdline</code>), and override parts of it
+where necessary
+<ul class="org-ul">
+<li>this makes code maintenance more manageable, and highlights the functional
+differences</li>
+</ul></li>
+<li><p>
+for example, to use <code>core-image-full-cmdline</code> as a base, but include an extra
+app and remove an image feature, we would add a new file,
+<code>my-image-full-cmdline.bb</code> (usually in an <code>images/</code> subdirectory dedicated to
+image recipes), with something like the following:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf">require recipes-extended/images/core-image-full-cmdline.bb
+
+<span class="org-variable-name">IMAGE_FEATURES:remove</span> = <span class="org-string">"splash"</span>
+<span class="org-variable-name">CORE_IMAGE_EXTRA_INSTALL +</span>= <span class="org-string">"myapp"</span>
+</pre>
+</div></li>
+<li><p>
+if building from scratch, the <code>core-image</code> <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> provides image features that
+offer helpful building blocks of commonly used functionality, e.g.:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf">inherit core-image
+
+<span class="org-variable-name">IMAGE_FEATURES +</span>= <span class="org-string">"ssh-server-openssh splash"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">we would instead use EXTRA_IMAGE_FEATURES if this were our conf/local.conf</span>
+<span class="org-variable-name">CORE_IMAGE_EXTRA_INSTALL +</span>= <span class="org-string">"strace"</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3e24e08" class="outline-2">
+<h2 id="dfb22ff0-7a48-4df5-b479-d591750e0354">Creating a custom distro configuration</h2>
+<div class="outline-text-2" id="text-dfb22ff0-7a48-4df5-b479-d591750e0354">
+<ul class="org-ul">
+<li>the easy option is to pull in the <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">config</a>, and override a few things
+with our changes</li>
+<li><p>
+a sample distro file (at say <code>&lt;layer&gt;/conf/distro/my-distro.conf</code>) which
+removes X11 support to use the raw framebuffer instead would look something
+like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf">require conf/distro/poky.conf
+
+<span class="org-variable-name">DISTRO</span> = <span class="org-string">"my-distro"</span>
+<span class="org-variable-name">DISTRO_NAME</span> = <span class="org-string">"my-distro (My New Distro)"</span>
+<span class="org-variable-name">DISTRO_VERSION</span> = <span class="org-string">"1.0"</span>
+<span class="org-variable-name">DISTRO_CODENAME</span> = <span class="org-string">"codename"</span>
+<span class="org-variable-name">SDK_VENDOR</span> = <span class="org-string">"-mydistrosdk"</span>
+<span class="org-variable-name">SDK_VERSION :</span>= <span class="org-string">"${@'${DISTRO_VERSION}'.replace('snapshot-${DATE}','snapshot')}"</span>
+
+<span class="org-variable-name">MAINTAINER</span> = <span class="org-string">"my-distro <a href="mailto:foo%40bar.com">&lt;foo@bar.com&gt;</a>"</span>
+
+<span class="org-variable-name">DISTRO_FEATURES:remove</span> = <span class="org-string">"wayland vulkan opengl"</span>
+</pre>
+</div></li>
+<li><p>
+to use this distro, we then need to add the following to our <code>local.conf</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">DISTRO</span> = <span class="org-string">"my-distro"</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org819b18f" class="outline-2">
+<h2 id="ad945122-d7c0-44c4-8529-bc5ebd41039f">Customising an existing recipe</h2>
+<div class="outline-text-2" id="text-ad945122-d7c0-44c4-8529-bc5ebd41039f">
+<ul class="org-ul">
+<li>to simply modify an existing <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, we just create an <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> file named
+after it, and make our changes and additions to the configuration therein</li>
+</ul>
+</div>
+<div id="outline-container-org41dcdce" class="outline-3">
+<h3 id="a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6">Modifying build flags</h3>
+<div class="outline-text-3" id="text-a1f0a9aa-39d4-4d31-a4d3-57aedcc4e2b6">
+<ul class="org-ul">
+<li><p>
+to modify build flags for recipes based on a known build system, the
+following variables are available:
+</p>
+<table border="1" cellspacing="0" cellpadding="6" rules="all" frame="border" width="50%">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Autotools</td>
+<td class="org-left"><code>EXTRA_OECONF</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Cargo</td>
+<td class="org-left"><code>EXTRA_OECARGO</code></td>
+</tr>
+
+<tr>
+<td class="org-left">CMake</td>
+<td class="org-left"><code>EXTRA_OECMAKE</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Make</td>
+<td class="org-left"><code>EXTRA_OEMAKE</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Meson</td>
+<td class="org-left"><code>EXTRA_OEMESON</code></td>
+</tr>
+
+<tr>
+<td class="org-left">NPM</td>
+<td class="org-left"><code>EXTRA_OENPM</code></td>
+</tr>
+
+<tr>
+<td class="org-left">SCons</td>
+<td class="org-left"><code>EXTRA_OESCONS</code></td>
+</tr>
+
+<tr>
+<td class="org-left">WAF</td>
+<td class="org-left"><code>EXTRA_OEWAF</code></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>
+for example, to modify some autoconf flags for an autotools-based recipe,
+our <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> file would contain something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">EXTRA_OECONF +</span>= <span class="org-string">"--enable-foo-feature --disable-bar-feature"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">or, for example, if our change is conditional on the hardware we're building for</span>
+<span class="org-variable-name">EXTRA_OECONF:append:arm</span> = <span class="org-string">" --enable-arm-feature"</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org14e9b92" class="outline-3">
+<h3 id="454f3ba7-e149-40c3-acb6-d9e0aed33575">Applying a patch</h3>
+<div class="outline-text-3" id="text-454f3ba7-e149-40c3-acb6-d9e0aed33575">
+<ul class="org-ul">
+<li><a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> assumes that every file with a <code>.patch</code> or <code>.diff</code> extension is a patch
+and applies them accordingly</li>
+<li><p>
+so to include a patch, we can simply use <code>FILESEXTRAPATHS</code>, which includes new
+directories in the searching algorithm, making the additional file visible
+to <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>, as shown here:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">this will be a subdirectory containing just our patch file</span>
+<span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://mypatch.patch"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the patch file to the list of source files in this recipe</span>
+</pre>
+</div></li>
+<li><code>SRC_URI</code> lists the source files that are needed for the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> to build</li>
+<li>said files can be local or remote; remote files need to be fetched</li>
+<li>for remote files, each <code>SRC_URI</code> entry needs to specify a protocol to tell
+<a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> how to pull said file</li>
+<li>for local files, we just need to append to the <code>FILESEXTRAPATHS</code> variable
+(not <code>FILESPATH</code>) to specify where it can be found
+<ul class="org-ul">
+<li>to that end, the default locations searched are:
+<ul class="org-ul">
+<li><code>&lt;recipe&gt;-&lt;version&gt;/</code></li>
+<li><code>&lt;recipe&gt;/</code></li>
+<li><code>files/</code></li>
+</ul></li>
+<li>in addition, it also checks for <code>OVERRIDES</code> for a specific file to be
+overridden in each folder, e.g. for a recipe <code>foo_1.0.bb</code> that sets
+<code>OVERRIDES = "&lt;board&gt;:&lt;arch&gt;"</code>, the file will be searched in the following
+directories, respecting the exact order shown:
+<ul class="org-ul">
+<li><code>foo-1.0/&lt;board&gt;/</code></li>
+<li><code>foo-1.0/&lt;arch&gt;/</code></li>
+<li><code>foo-1.0/</code></li>
+<li><code>foo/&lt;board&gt;/</code></li>
+<li><code>foo/&lt;arch&gt;/</code></li>
+<li><code>foo/</code></li>
+<li><code>files/&lt;board&gt;/</code></li>
+<li><code>files/&lt;arch&gt;/</code></li>
+<li><code>files/</code></li>
+</ul></li>
+</ul></li>
+<li>the prepend operator used above (for <code>FILESEXTRAPATHS</code>) is crucial as it
+guarantees that the file is picked from the given directory even if a file
+with the same name is added in the lower priority layers sometime in the
+future</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org83655c3" class="outline-3">
+<h3 id="80f5fd18-70ac-4dee-a784-ab78c0a1069d">Adding extra files</h3>
+<div class="outline-text-3" id="text-80f5fd18-70ac-4dee-a784-ab78c0a1069d">
+<ul class="org-ul">
+<li>here we do much the same as <a href="#454f3ba7-e149-40c3-acb6-d9e0aed33575">above</a>, however, unlike patches, these extra
+files may need to be installed to the package&rsquo;s filesystem along with the
+rest of the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> files (see: <a href="#d3aa691d-a9df-4d7e-94cb-af28e2177486">Standard target filesystem paths</a>)</li>
+<li><p>
+here&rsquo;s an example that adds a new configuration file:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">a subdirectory containing our new file</span>
+<span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://newconfig.conf"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the file to the list of source files in this recipe</span>
+
+do_install:append() {
+    install -D -m 644 ${WORKDIR}/newconfig.conf \
+                      ${D}${sysconfdir}/newconfig.conf
+}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc9f001e" class="outline-3">
+<h3 id="f5e94c00-76bb-468c-896a-be015f947270">Changing recipe feature configuration</h3>
+<div class="outline-text-3" id="text-f5e94c00-76bb-468c-896a-be015f947270">
+<ul class="org-ul">
+<li>the <a href="https://docs.yoctoproject.org/ref-manual/variables.html#term-PACKAGECONFIG"><code>PACKAGECONFIG</code></a> variable provides a way for <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> to define feature
+sets, allowing users to specify configurations more easily</li>
+<li>each &ldquo;feature set&rdquo; in a recipe specifies six things:
+<ul class="org-ul">
+<li>extra build flags needed if the user enables the feature</li>
+<li>extra build flags needed if the user disables the feature</li>
+<li>extra build dependencies (<code>DEPENDS</code>) if the user enables the feature</li>
+<li>extra runtime dependencies (<code>RDEPENDS</code>) if the user enables the feature</li>
+<li>extra runtime dependencies (<code>RRECOMMENDS</code>) if the user enables the feature</li>
+<li>any <code>PACKAGECONFIG</code> settings that conflict with this feature</li>
+</ul></li>
+<li><p>
+so in our <code>.bbappend</code> file, we could just add something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">PACKAGECONFIG +</span>= <span class="org-string">"feature2"</span>
+</pre>
+</div></li>
+<li><p>
+or, to enable the same feature in our <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build&rsquo;s</a> <code>conf/local.conf</code>, we would
+instead add:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">PACKAGECONFIG:pn-&lt;recipename&gt;:append</span> = <span class="org-string">' feature2'</span>
+</pre>
+</div></li>
+<li>one must look inside a recipe file to see the list of available
+<code>PACKAGECONFIG</code> features for a <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a>; there is no tool to list them all</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org96ec8ac" class="outline-3">
+<h3 id="5a6c603b-af2d-45ae-81a6-7748692924f2">Changing recipe Kconfig configuration</h3>
+<div class="outline-text-3" id="text-5a6c603b-af2d-45ae-81a6-7748692924f2">
+<ul class="org-ul">
+<li>if the project is Kconfig-based (the kernel, U-Boot, and BusyBox most
+notably), Yocto has a specialised <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> for modifying whatever default
+Kconfig is present in that project</li>
+<li>to apply our Kconfig, we create a <i>configuration fragment</i> (a file that
+contains said variable settings we wish to apply), give it the suffix <code>.cfg</code>,
+and then include it as though it were a patch <a href="#454f3ba7-e149-40c3-acb6-d9e0aed33575">as demonstrated earlier</a>; the
+class will apply it for us automatically</li>
+<li><p>
+to generate a configuration fragment that modifies the kernel&rsquo;s config, for
+example, we should do something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake virtual/kernel -c menuconfig <span class="org-comment-delimiter"># </span><span class="org-comment">make changes here</span>
+bitbake virtual/kernel -c diffconfig <span class="org-comment-delimiter"># </span><span class="org-comment">generates the configuration fragment file for us</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>note that if we wanted to generate the <i>complete</i> configuration file, not
+just the diff fragment, we would run <code>savedefconfig</code> instead of <code>diffconfig</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org7803da4" class="outline-2">
+<h2 id="d3aa691d-a9df-4d7e-94cb-af28e2177486">Standard target filesystem paths</h2>
+<div class="outline-text-2" id="text-d3aa691d-a9df-4d7e-94cb-af28e2177486">
+<ul class="org-ul">
+<li>variables exist to indicate various paths on the target filesystem; this is
+so that the installation paths of binaries and configuration files can be
+customised depending on the use case
+<ul class="org-ul">
+<li>e.g. the native SDK binaries require a specific installation path so that
+the binaries don&rsquo;t conflict with the target ones</li>
+</ul></li>
+<li>these variables are listed in <code>meta/conf/bitbake.conf</code></li>
+<li><p>
+here are the most commonly used ones, and their default expanded values:
+</p>
+<table border="1" cellspacing="0" cellpadding="6" rules="all" frame="border" width="75%">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>base_bindir</code></td>
+<td class="org-left"><code>/bin/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>base_sbindir</code></td>
+<td class="org-left"><code>/sbin/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>base_libdir</code></td>
+<td class="org-left"><code>/lib/</code> <i>or</i> <code>/lib64/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sysconfdir</code></td>
+<td class="org-left"><code>/etc/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>localstatedir</code></td>
+<td class="org-left"><code>/var/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>datadir</code></td>
+<td class="org-left"><code>/usr/share/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>bindir</code></td>
+<td class="org-left"><code>/usr/bin/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sbindir</code></td>
+<td class="org-left"><code>/usr/sbin/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>libdir</code></td>
+<td class="org-left"><code>/usr/lib/</code> <i>or</i> <code>/usr/lib64/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>libexecdir</code></td>
+<td class="org-left"><code>/usr/libexec/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>includedir</code></td>
+<td class="org-left"><code>/usr/include/</code></td>
+</tr>
+</tbody>
+</table></li>
+<li>avoid hard-coding paths into <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>; use these</li>
+<li>as an example of where not doing this can go wrong:
+<ul class="org-ul">
+<li>when using the <code>usrmerge</code> <a href="#887aaab6-76ef-43b5-8592-127935253e7a">distro</a> feature, then all recipes will have
+<code>base_bindir</code> set to <code>bindir</code> (rather than simply having <code>/bin/</code> symlink to
+<code>/usr/bin/</code>)</li>
+<li>if a recipe used <code>/bin/</code> as a hard coded installation path, then the
+installation won&rsquo;t work as expected</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge5d7b3e" class="outline-2">
+<h2 id="8cf925bb-3283-47f5-8033-85151b2aa166">Running the image in QEMU</h2>
+<div class="outline-text-2" id="text-8cf925bb-3283-47f5-8033-85151b2aa166">
+<ul class="org-ul">
+<li><p>
+<a href="#76978d0b-92f6-40cf-b827-01bd45fd4391">OpenEmbedded-Core</a> provides a <code>runqemu</code> wrapper script:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">runqemu $<span class="org-variable-name">arch</span> $<span class="org-variable-name">kernel_image</span> $<span class="org-variable-name">filesystem_image</span>
+</pre>
+</div></li>
+<li>the params are somewhat optional though, running <code>runqemu</code> by itself will
+usually work; QEMU will infer from the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build environment</a> what to do
+(e.g. it&rsquo;ll run the most recently built image according to timestamp)</li>
+<li>more options are described <a href="https://docs.yoctoproject.org/dev-manual/qemu.html">here</a>; see also the output of <code>runqemu --help</code></li>
+</ul>
+</div>
+<div id="outline-container-orgfd70a14" class="outline-3">
+<h3 id="2345edb0-38da-465f-94ca-366b3578a234">Automated testing with QEMU</h3>
+<div class="outline-text-3" id="text-2345edb0-38da-465f-94ca-366b3578a234">
+<ul class="org-ul">
+<li>Yocto provides a framework for automated testing in QEMU</li>
+<li>one can execute tests on the images inside the target with the <code>do_testimage</code>
+task</li>
+<li>first, we must add the <code>testimage</code> <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> to our <code>IMAGE_CLASSES</code> list in our
+<code>local.conf</code></li>
+<li><p>
+then:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake -c testimage $<span class="org-variable-name">filesystem_image</span>
+</pre>
+</div></li>
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/runtime-testing.html">here</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org65128a7" class="outline-2">
+<h2 id="89dd2d47-b589-4fcb-92f2-c13c3aa91480">Debugging</h2>
+<div class="outline-text-2" id="text-89dd2d47-b589-4fcb-92f2-c13c3aa91480">
+</div>
+<div id="outline-container-org0ecf3a6" class="outline-3">
+<h3 id="8628f96d-b068-4d4a-82b7-65e70f80af30">Metadata</h3>
+<div class="outline-text-3" id="text-8628f96d-b068-4d4a-82b7-65e70f80af30">
+<ul class="org-ul">
+<li>to ensure our build has produced the right <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>, <a href="#729ed304-8a4e-40f7-a72e-eec793809f77">packages</a>, and <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK</a>, along
+with the expected contents, we can use <code>buildhistory</code>
+<ul class="org-ul">
+<li>when a recipe is updated for a new version or has its code changed, it may
+influence the contents of the generated packages (and consequently the
+image or SDK)</li>
+<li>it can be difficult to track package contents; this is where <code>buildhistory</code>
+comes in; it keeps a history of the contents of artifacts</li>
+<li><p>
+to enable it:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">INHERIT +</span>= <span class="org-string">"buildhistory"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">adds the necessary class hooks</span>
+<span class="org-variable-name">BUILDHISTORY_COMMIT</span> = <span class="org-string">"1"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">auto-commit to the buildhistory repo on every build</span>
+</pre>
+</div></li>
+<li>the data is stored under <code>build/buildhistory/</code> as text files</li>
+<li>to compare two buildhistory states, use <code>buildhistory-diff</code></li>
+<li>for every <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a> build, <code>buildhistory</code> will create a list of generated
+sub-packages, installation scripts, a list of file ownership and sizes,
+the dependency relation, et al.</li>
+<li>additionally, the dependency relationship between the <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a>, filesystem
+files, and dependency graph is created for <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">images</a> and <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDKs</a></li>
+<li>more on buildhistory <a href="https://docs.yoctoproject.org/dev-manual/build-quality.html">here</a></li>
+</ul></li>
+<li>to inspect how a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe&rsquo;s</a> content has been split, check its <code>packages-split/</code>
+sub-directory in its respective <a href="#6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f"><code>tmp/work/</code></a> sub-directory
+<ul class="org-ul">
+<li>this contains a sub-directory for every sub-package, and has its contents
+in the sub-tree</li>
+<li>this can help diagnose
+<ul class="org-ul">
+<li>contents not being installed (e.g. error in install script)</li>
+<li>an app or library config error (e.g. a disabled feature)</li>
+<li>metadata errors (e.g. wrong package order)</li>
+</ul></li>
+</ul></li>
+<li>to inspect what the <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroot</a> for the package looks like
+<ul class="org-ul">
+<li>see <code>sysroot-destdir/</code> in its respective <a href="#6fad8ef9-3379-4fb8-9bb6-a15c84e8ae4f"><code>tmp/work/</code></a> sub-directory</li>
+<li>this is helpful for build failures where the package is lacking the
+required headers/dynamic libraries in sysroot</li>
+</ul></li>
+<li>to inspect already built <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">packages</a> in the <a href="#729ed304-8a4e-40f7-a72e-eec793809f77">package feed</a>
+<ul class="org-ul">
+<li>use the <code>oe-pkgdata-util</code> utility</li>
+<li>with this, we can, for example
+<ul class="org-ul">
+<li>list all the packages present</li>
+<li>list the current version of a package</li>
+<li>list a package&rsquo;s contents</li>
+<li>find the package associated with a particular file path in <a href="#d955a4e4-3e7c-478b-8e57-286a7c194852">sysroot</a></li>
+</ul></li>
+</ul></li>
+<li>to inspect log files generated by <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>, which trace the execution path of
+tasks
+<ul class="org-ul">
+<li>the log levels (available within bitbake scripts) are:
+<ul class="org-ul">
+<li><code>bbfatal</code> (forces the build to stop)</li>
+<li><code>bberror</code></li>
+<li><code>bbwarn</code></li>
+<li><code>bbnote</code></li>
+<li><code>bbplain</code></li>
+<li><code>bbdebug</code></li>
+</ul></li>
+<li>the logging functions used in Python scripts are directly handled by
+BitBake, seen on the console, and stored in the execution log inside
+<code>tmp/log/cooker/&lt;machine&gt;/</code></li>
+<li>on the other hand, for logging functions used in shell scripts, the
+information is outputted to an individual task log file, which is
+available in <code>tmp/work/&lt;arch&gt;/&lt;recipe name&gt;/&lt;version&gt;/temp/</code>
+<ul class="org-ul">
+<li>inside this <code>temp</code> directory, we can inspect the scripts for every task
+with the <code>run.&lt;task&gt;.&lt;pid&gt;</code> pattern and use the <code>log.&lt;task&gt;.&lt;pid&gt;</code> pattern
+for its output</li>
+<li>symbolic links point to the last log files using the <code>log.&lt;task&gt;</code>
+pattern</li>
+<li>for example, we can check for <code>log.do_compile</code> to verify whether the
+right files were used during the build process</li>
+</ul></li>
+</ul></li>
+<li>to debug bitbake variables
+<ul class="org-ul">
+<li>we can use the <code>bitbake-getvar</code> script</li>
+<li>this script uses the BitBake internal data to get the value of a specific
+variable value (with respect to a particular <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>), as well as the
+history of modifications made to it that got it there</li>
+<li>we can use this script to check whether a feature is enabled, or to be
+sure a variable has been expanded as we expect</li>
+</ul></li>
+<li>to open a development shell
+<ul class="org-ul">
+<li>use <code>devshell</code></li>
+<li>when we use this utility, the following takes place:
+<ul class="org-ul">
+<li>source files are extracted into the working directory</li>
+<li>patches are applied</li>
+<li>a new terminal is opened in the working directory</li>
+</ul></li>
+<li>all the environment variables needed for the build are available in the
+new terminal, so we can use commands such as <code>configure</code> and <code>make</code>; the
+commands execute just as if the build system were running them</li>
+<li><p>
+for example, the following the devshell command on the <code>linux-yocto</code> recipe
+which builds a kernel:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bitbake linux-yocto -c devshell
+</pre>
+</div>
+<ul class="org-ul">
+<li>once inside, we can then, from within <code>$WORKDIR</code>, start modifying the
+Linux kernel source code, build it, generate patches, etc.</li>
+</ul></li>
+<li>note that changes made inside devshell do not persist between builds;
+ensure you record any critical changes before leaving it (e.g. saving the
+patch to be later added to the recipe)</li>
+<li>this tool is good for small tasks; for more involved changes, use <a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">devtool</a>
+or some other external toolchain</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org641a590" class="outline-3">
+<h3 id="f82572d9-a37f-423d-9c46-5de277952cd5">Run-time software</h3>
+<div class="outline-text-3" id="text-f82572d9-a37f-423d-9c46-5de277952cd5">
+<ul class="org-ul">
+<li>the <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK</a> comes with GDB by default</li>
+<li><p>
+to use it, we&rsquo;ll need to install <code>tools-debug</code>, and probably the debugging
+versions of all packages (they include their debug symbols):
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">IMAGE_FEATURES +</span>= <span class="org-string">"dbg-pkgs tools-debug"</span>
+</pre>
+</div></li>
+<li><code>tools-debug</code> also includes gdbserver, which allows us to debug remotely, and
+also means we won&rsquo;t need debug packages; we can load the debug symbols from
+the host where we run our gdb client, rather than from the debugged process</li>
+<li>note however that we&rsquo;ll still need to compile the target binaries without
+compiler optimisations</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3d36b3a" class="outline-2">
+<h2 id="50ecb4f8-0fef-4298-9f92-3d89b1c4a47d">Choosing a board</h2>
+<div class="outline-text-2" id="text-50ecb4f8-0fef-4298-9f92-3d89b1c4a47d">
+<ul class="org-ul">
+<li>what we need to consider:
+<ul class="org-ul">
+<li>quality of software support (i.e. at the low level), namely:
+<ul class="org-ul">
+<li>bootloader (such as U-Boot, GRUB, systemd-boot)</li>
+<li>linux kernel (for arch, and other required drivers like GPU, WiFi)</li>
+<li>user-space packages required by hardware acceleration</li>
+</ul></li>
+<li>integration inside the Yocto Project as a <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> layer, which would normally
+provide:
+<ul class="org-ul">
+<li>a reusable disk partition layout (e.g., a <a href="#b64a1dac-73c7-403b-9f43-2530b4fd9669"><code>WIC</code></a> <code>.wks</code> template)</li>
+<li>ready-to-use machine definitions</li>
+<li>user-space packages integrated for hardware acceleration (usable out of
+the box)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd890b8e" class="outline-2">
+<h2 id="9dd87647-f7dd-4435-b527-2a990d5239c3">Licenses</h2>
+<div class="outline-text-2" id="text-9dd87647-f7dd-4435-b527-2a990d5239c3">
+<ul class="org-ul">
+<li>every <a href="#ac2e7f8f-88a5-4383-83b9-22ff1d5e2f6e">package</a> must include a license</li>
+<li><a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> keeps track of licenses in every <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, and any changes made to them</li>
+<li>NOTE: A <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60"><i>recipe</i></a> itself may be released under a specific license that is
+distinct from the license of the project it represents.  If so, both
+licenses would be considered part of the product.</li>
+<li>once a <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a> completes, the list of all licenses used during that build can
+be found in <a href="#175e15db-e46d-4bee-92ec-a624b83c74d9"><code>tmp/deploy/licenses/</code></a></li>
+<li>projects have different ways of providing their license
+<ul class="org-ul">
+<li>some just include a <code>COPYING</code> or <code>LICENSE</code> file containing the license text</li>
+<li>others use a header note in each file or the main file (e.g. SPDX)</li>
+</ul></li>
+<li>how does a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> specify the license of its project?
+<ul class="org-ul">
+<li><code>LICENSE</code> gives the name of the license under which the package was
+released</li>
+<li><code>LIC_FILES_CHKSUM</code> gives the location of the license file in the source
+code, and a checksum of its text
+<ul class="org-ul">
+<li>the checksum means changes to the license can be tracked</li>
+<li>when a different license checksum is detected, <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a> launches a build
+error and points to the project that had its license changed
+<ul class="org-ul">
+<li>you must be careful when this happens, as the license change may
+impact the use of this software</li>
+<li>to be able to build anything again, you must change the
+<code>LIC_FILE_CHKSUM</code> value accordingly and update the <code>LICENSE</code> field to
+match the license change</li>
+</ul></li>
+<li>it&rsquo;s good practice to record the reason for the change in a commit
+message for future reference</li>
+</ul></li>
+<li><code>LICENSE_FLAGS</code> identifies which license restriction that recipe has
+<ul class="org-ul">
+<li>if this string is set to <code>"commercial"</code> for example, then our build must
+set <code>LICENSE_FLAGS_ACCEPTED</code> to include <code>"commercial"</code> for a build that
+includes this recipe to actually build</li>
+<li><code>LICENSE_FLAGS_ACCEPTED</code> can also be set to permit particular license
+terms for particular projects,
+e.g. <code>"commercial_gstreamer1.0-plugins-ugly"</code> would mean we&rsquo;re allowed to
+use the <code>gstreamer1.0-plugins-ugly</code> recipe in a commercial setting</li>
+<li>but by default, <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> doesn&rsquo;t use any projects that have commercial
+licenses</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orgc54850d" class="outline-3">
+<h3 id="bcd83893-9335-4693-8f50-ac4b0a807761">License compliance</h3>
+<div class="outline-text-3" id="text-bcd83893-9335-4693-8f50-ac4b0a807761">
+<ul class="org-ul">
+<li>most copyleft projects have the following obligations:
+<ul class="org-ul">
+<li>source code</li>
+<li>the license text</li>
+<li>any modifications made to the project</li>
+<li>any scripts that are required to configure and build it</li>
+</ul></li>
+<li>sharing source isn&rsquo;t simply a matter of copying <code>DL_DIR</code> (the <a href="#8924a89f-2052-4370-a549-a61d2475454b"><code>downloads/</code></a>
+directory) and so on, because that would be copying <i>all</i> sources (including
+proprietary ones), and furthermore, we don&rsquo;t need to share <i>all</i> the sources,
+but only the copyleft-licensed ones</li>
+<li><p>
+to achieve licensing compliance, we can generate an <a href="#ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">SBOM</a> in SPDX format
+using the appropriate <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">INHERIT +</span>= <span class="org-string">"create-spdx"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/sbom.html">here</a></li>
+</ul></li>
+<li><p>
+an older, inferior method:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">INHERIT +</span>= <span class="org-string">"archiver"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>the default configuration has <code>COPYLEFT_LICENSE_INCLUDE</code> set to <code>"GPL* LGPL*
+    AGPL*"</code></li>
+<li>the <code>COPYLEFT_LICENSE_EXCLUDE</code> variable can be used to exclude specific
+licenses; by default, this will be set to <code>"CLOSED Proprietary"</code></li>
+<li>included sources are deployed to the <code>build/tmp/deploy/sources/&lt;arch&gt;/</code>
+directories</li>
+<li>more on this <a href="https://docs.yoctoproject.org/ref-manual/variables.html#term-ARCHIVER_MODE">here</a>; see also the <code>meta/classes/archiver.bbclass</code> file</li>
+</ul></li>
+<li>when providing the source code, the license text is shared inside it</li>
+<li><p>
+if we also need to include the license text inside our final <a href="#d04f848b-f29b-4fc5-b2c6-1c2331456bf1">image</a>, we can
+add the following to our <code>build/conf/local.conf</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">COPY_LIC_MANIFEST</span> = <span class="org-string">"1"</span>
+<span class="org-variable-name">COPY_LIC_DIRS</span> = <span class="org-string">"1"</span>
+<span class="org-variable-name">LICENSE_CREATE_PACKAGE</span> = <span class="org-string">"1"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/licenses.html#providing-license-text">here</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2513ad4" class="outline-2">
+<h2 id="635714a5-4def-4468-88f3-a30e4128c720">Toaster</h2>
+<div class="outline-text-2" id="text-635714a5-4def-4468-88f3-a30e4128c720">
+<ul class="org-ul">
+<li>this is a GUI frontend for <a href="#73837aae-7e38-4040-99e9-e5b43fd673ca">configuring</a> and <a href="#6ba19863-6771-4f13-9d20-1d4dec02ae6c">building</a></li>
+<li>it runs as a server and accessed via localhost with the browser</li>
+<li><p>
+this requires the Python Django framework, and a few others; with <code>pip</code> we can
+install them easily:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">pip3 install --user -r bitbake/toaster-requirements.txt
+</pre>
+</div></li>
+<li><p>
+to start the server (which must be done in our dev environment):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">source oe-init-build-env
+source toaster start
+</pre>
+</div></li>
+<li>then we just open up <code>127.0.0.1:8000</code> in the browser</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgec9961f" class="outline-2">
+<h2 id="d106ee59-cbac-4ba2-b886-68266957e19e">Good practices</h2>
+<div class="outline-text-2" id="text-d106ee59-cbac-4ba2-b886-68266957e19e">
+<ul class="org-ul">
+<li>use the <code>image-buildinfo</code> <a href="#1f78978c-9d22-4d70-9aab-de96ee8ab69a">class</a> to save build information to the target
+filesystem
+<ul class="org-ul">
+<li>this helps to manually determine the origin of a given image</li>
+<li>by default it is saved to <code>${sysconfdir}/buildinfo</code>, as specified by
+<code>IMAGE_BUILDINFO_FILE</code> (i.e. usually <code>/etc/buildinfo</code>)</li>
+</ul></li>
+<li>avoid creating too many <a href="#d4009f0f-f371-454b-b30f-7fda430c0028">layers</a>
+<ul class="org-ul">
+<li>e.g. the development of a <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a>-only layer makes sense in the following
+situations:
+<ul class="org-ul">
+<li>the board is the product, as in the System on Module (SoM) vendors&rsquo; case</li>
+<li>when external access to the layer is critical, however, we want to limit
+the access for the non-BSP source</li>
+</ul></li>
+<li>using a single layer for a product has advantages, such as:
+<ul class="org-ul">
+<li>facilitating the development of reusable components, such as a <a href="#4f2876d0-3b4a-4be0-9f24-12b4922f7bb6">package
+group</a> for development tools, or a network utility shared by multiple
+products</li>
+<li>reducing the risk of unexpected side effects due to changes for a
+specific product or board</li>
+<li>increasing the reuse of bug fixes across multiple products and reuse of
+BSP low-level components such as the Linux kernel or bootloader</li>
+<li>boosting standardisation across multiple products, reducing the learning
+curve for new team members</li>
+</ul></li>
+<li>start simple; split layers up only when required</li>
+</ul></li>
+<li>a couple of special <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> directories we may need to create:
+<ul class="org-ul">
+<li><code>recipes-backport/</code>
+<ul class="org-ul">
+<li>sometimes a newer Yocto project release comes along, which we don&rsquo;t move
+to, but which may include a new recipe version with bug fixes or needed
+features</li>
+<li>in such a case, we can put a backport version of the recipe in here</li>
+</ul></li>
+<li><code>recipes-staging/</code>
+<ul class="org-ul">
+<li>this is for new recipes or <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> files that include missing package
+configurations or bug fixes that, unlike above, have not yet made their
+way into the Yocto project recipe</li>
+<li>we would continuously send the recipes/bug fixes in here to the
+respective upstream project (e.g. OpenEmbedded Core)</li>
+<li>then, once said patch is accepted, we can move this change from
+<code>recipes-staging</code> to the <code>recipes-backport</code> directory above (the backport
+would then be &ldquo;official&rdquo;)</li>
+<li>this approach allows us to keep track of pending upstreaming tasks, and
+makes the task of upgrading our meta layer to a newer Yocto Project
+release easier</li>
+</ul></li>
+</ul></li>
+<li>create a <a href="#dfb22ff0-7a48-4df5-b479-d591750e0354">custom distro</a>
+<ul class="org-ul">
+<li>you should distribute a custom distro, not a <code>build/conf/local.conf</code> file</li>
+</ul></li>
+<li>don&rsquo;t just use an existing image recipe; <a href="#01866026-d3a7-47e1-8148-12966cdc99df">create a custom one yourself</a>,
+namely to:
+<ul class="org-ul">
+<li>reduce the rootfs size</li>
+<li>reduce the build time</li>
+<li>reduce the number of licenses to deal with</li>
+<li>reduce the surface of attack for security breaches</li>
+</ul></li>
+<li>when doing application development, use the <a href="#ec39dfb8-2723-41a2-ad1e-26ae052595d9">SDK</a>; using Yocto proper is too
+cumbersome for that</li>
+<li>avoid too many patches for the Linux kernel and bootloader
+<ul class="org-ul">
+<li>if Single-Board Computer (SBC), the number of patches should be minimal</li>
+<li>if System-On-Module (SOM) with a custom baseboard, the number of patches
+will vary depending on the number of modifications from the vendor
+baseboard hardware design</li>
+<li>if custom hardware design, then expect to need a custom <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> and,
+consequently, a considerable number of modifications</li>
+</ul></li>
+<li>if we find we&rsquo;re progressively adding more and more patches to a recipe,
+consider forking the project and applying the patches there
+<ul class="org-ul">
+<li>this has the advantage of needing a much simpler recipe file</li>
+</ul></li>
+<li>when creating a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a>, don&rsquo;t set <code>SRCREV</code> to <code>AUTOREV</code>
+<ul class="org-ul">
+<li><code>SRCREV</code> indicates which source revision to build, and setting it to <code>AUTOREV</code>
+means it will automatically fetch the newest</li>
+<li>we might be tempted to do this while we&rsquo;re working on and making ongoing
+changes to the backing project</li>
+<li>but unfortunately <code>AUTOREV</code> is kind of fragile; it will only re-proc when
+BitBake invalidates the cache of the recipe, but this only happens when we
+modify the recipe itself or when we change something that triggers the
+BitBake cache rebuild, such as changing any <code>.conf</code> file</li>
+<li>for this scenario, use <a href="#28a59763-8b1e-4c36-8c07-aafde51a8081">devtool</a>, which allows us to change the code
+directly in the workspace and forces the recipe to use this as the source</li>
+</ul></li>
+<li>create an <a href="#ee4d8327-cb6b-4b13-8ca2-3d77cce33a81">SBOM</a>
+<ul class="org-ul">
+<li>it&rsquo;s not created by default</li>
+</ul></li>
+<li>continuously monitor the project license constraints
+<ul class="org-ul">
+<li>e.g. to prevent copyleft contamination of our intellectual property</li>
+<li>project license constraints and the project component&rsquo;s licenses may
+change over time, so we&rsquo;ll need to monitor our license compliance
+continuously</li>
+</ul></li>
+<li>scan for known Common Vulnerabilities and Exposures (CVEs) for our
+<a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a>
+<ul class="org-ul">
+<li>though we should not be limited to this as our <a href="#c2a9a4a4-2d14-4ecb-9e99-8525720e1ea2">BSP</a> components might also
+require security fixes, which the BSP vendors commonly neglect</li>
+<li>but the paranoia level will depend on the project niche</li>
+<li>more on this <a href="https://docs.yoctoproject.org/dev-manual/vulnerabilities.html">here</a></li>
+</ul></li>
+<li>consider upstreaming work
+<ul class="org-ul">
+<li>at first, this may not seem worth it for management:
+<ul class="org-ul">
+<li>uses resources to adapt modifications</li>
+<li>upstream review feedback may require additional interactions and rework</li>
+<li>development work not directly connected to the product needs to be done</li>
+</ul></li>
+<li>usually, development and management teams underestimate the total cost of
+maintenance, but this is frequently the most expensive part of the
+project, as it lasts for years</li>
+<li>upstreaming allows us to do the following:
+<ul class="org-ul">
+<li>avoid work duplication over the years</li>
+<li>reduce the friction during upgrades for new Yocto Project releases</li>
+<li>receive critical and constructive feedback about the changes we are
+upstreaming</li>
+<li>reduce the amount of work with security updates and bug fixes</li>
+<li>reduce the amount of code we have to maintain</li>
+</ul></li>
+<li>upstreaming work is continuous&#x2014;every time we add a new feature, we
+potentially increase the gap between our code and the upstream&#x2014;thus we
+may postpone the upstreaming work, but the upstreaming costs will be
+multiplied when you work on updating to the next Yocto Project release</li>
+</ul></li>
+<li>tackle project risk points and constraints as soon as possible
+<ul class="org-ul">
+<li>as the software and hardware must work together, a few aspects directly
+depend on our hardware design, e.g.:
+<ul class="org-ul">
+<li>is amount of memory we intend to use enough or too much?</li>
+<li>is amount of power hardware uses sufficient for our constraints?</li>
+<li>is the target GPU capable of rendering the animations we need?</li>
+<li>do all the planned peripheral devices have available Linux kernel
+drivers ready for use or do we need to plan the development for those?</li>
+</ul></li>
+<li>the preceding questions can be answered using a reference or well-known
+board, which we have ready to use BSP</li>
+<li>this allows us to produce a Minimal Viable Product (MVP) without the need
+to design our custom hardware</li>
+<li>after we validate the project&rsquo;s risks and constraints, those boards are
+still valuable assets for the following:
+<ul class="org-ul">
+<li>continuing the development of our software until the custom board and
+BSP are ready for use</li>
+<li>as a base of comparison with our custom design</li>
+<li>as a reference to verify whether a bug is specific to our custom board
+and BSP</li>
+</ul></li>
+<li>considering we can develop our software using a reference or a well-known
+board, we should postpone the design of a custom board for as long as
+possible</li>
+<li>delaying the design gives us the freedom to change many aspects of our
+project, such as changing a peripheral because of a specific driver or
+even changing the planned CPU and memory capabilities after maturing the
+application and features</li>
+<li>when we finally decide to go with a custom design, we should keep it as
+close as possible to the board we choose as a reference</li>
+<li>of course, sometimes we need to deviate from the reference design, but it
+comes with the risk of introducing design issues and increasing the cost
+of our custom BSP</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1758ca3" class="outline-2">
+<h2 id="cabd0da0-d7ec-4bdc-80db-34a2563ab39e">Config syntax</h2>
+<div class="outline-text-2" id="text-cabd0da0-d7ec-4bdc-80db-34a2563ab39e">
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">FOO</span>   = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are lazily resolved</span>
+<span class="org-variable-name">FOO  :</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are immediately resolved</span>
+<span class="org-variable-name">FOO  ?</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like = but won't overwrite already assigned variable</span>
+<span class="org-variable-name">FOO ??</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">as above, but even weaker; is to ?= what ?= is to =</span>
+
+<span class="org-variable-name">FOO +</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-append; automatically inserts an extra space to separate elements</span>
+<span class="org-variable-name">FOO</span> =+ ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-prepend; automatically inserts an extra space to separate elements</span>
+<span class="org-variable-name">FOO .</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-append; no extra space inserted</span>
+<span class="org-variable-name">FOO</span> =. ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-prepend; no extra space inserted</span>
+
+<span class="org-variable-name">FOO</span>[<span class="org-constant">a</span>] = <span class="org-string">"abc"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">set/modify value of a variable flag (extra info tagged onto a variable)</span>
+
+<span class="org-variable-name">FOO:append</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like .= but will queue the append (overwriting FOO won't squash its effect)</span>
+<span class="org-variable-name">FOO:prepend</span> = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like =. but will queue the prepend (overwriting FOO won't squash its effect)</span>
+<span class="org-variable-name">FOO:remove</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">removes a list element (procs after all appends and prepends)</span>
+
+<span class="org-variable-name">OVERRIDES</span> = <span class="org-string">"linux:arm:mymachine"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">for specifying a colon-separated list of flags, such that...</span>
+<span class="org-variable-name">FOO:linux</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">will proc</span>
+<span class="org-variable-name">FOO:other</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc</span>
+<span class="org-variable-name">FOO:append:arm</span>    = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">will proc</span>
+<span class="org-variable-name">FOO:remove:hello</span>  = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc</span>
+
+require  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in an .inc file; raise a ParseError if it can't be found</span>
+include  <span class="org-comment-delimiter"># </span><span class="org-comment">attempt to pull in an .inc file, i.e. as an option</span>
+
+inherit  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in a .bbclass file</span>
+
+<span class="org-variable-name">DATE</span> = <span class="org-string">"${@time.strftime('%Y%m%d',time.gmtime())}"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">inline python code expansion; what comes after the @</span>
+
+<span class="org-type">do_install()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in shell script (POSIX-compliant stuff only; no bash-isms)</span>
+    <span class="org-variable-name">oe_runmake install DESTDIR</span>=${D}
+}
+
+do_install:append() { <span class="org-comment-delimiter"># </span><span class="org-comment">extend an existing task</span>
+    rmdir ${FOO_DIR}
+}
+
+<span class="org-type">python do_printdate()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in python</span>
+    d.setVar(<span class="org-string">"TEXT"</span>, <span class="org-string">"Hello World"</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">'d' is a special object for accessing the BitBake environment</span>
+    print d.getVar(<span class="org-string">"TEXT"</span>)
+    import time
+    print(time.strftime(<span class="org-string">'%Y%m%d'</span>,time.gmtime()))
+}
+
+<span class="org-type">python ()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">anonymous python task; will be run at the end of parsing</span>
+    if d.getVar(<span class="org-string">'SOMEVAR'</span>) == <span class="org-string">'value'</span>:
+        d.setVar(<span class="org-string">'ANOTHERVAR'</span>, <span class="org-string">'value2'</span>)
+    bb.build.exec_func(<span class="org-string">"do_printdate"</span>, d) <span class="org-comment-delimiter"># </span><span class="org-comment">manually call some other locally-defined python function</span>
+}
+
+def get_depends(d): <span class="org-comment-delimiter"># </span><span class="org-comment">defines a python utility function (non-task)</span>
+    if d.getVar(<span class="org-string">'SOMECONDITION'</span>):
+        return <span class="org-string">"dependencywithcond"</span>
+    else:
+        return <span class="org-string">"dependency"</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org76448c1" class="outline-2">
+<h2 id="70e610ae-be41-48f0-ab91-b7fa3e82851c">Templates</h2>
+<div class="outline-text-2" id="text-70e610ae-be41-48f0-ab91-b7fa3e82851c">
+</div>
+<div id="outline-container-org6c11d88" class="outline-3">
+<h3 id="3b6f0f7c-d816-4b65-8096-dc2e720a8f68"><code>local.conf</code></h3>
+<div class="outline-text-3" id="text-3b6f0f7c-d816-4b65-8096-dc2e720a8f68">
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">MACHINE ?</span>= <span class="org-string">"qemux86-64"</span>                <span class="org-comment-delimiter"># </span><span class="org-comment">see meta/conf/machine/ and meta-yocto-bsp/conf/machine/ for more options</span>
+<span class="org-variable-name">DISTRO ?</span>= <span class="org-string">"poky"</span>                       <span class="org-comment-delimiter"># </span><span class="org-comment">set the policy (distro)</span>
+<span class="org-variable-name">PACKAGE_CLASSES ?</span>= <span class="org-string">"package_ipk"</span>       <span class="org-comment-delimiter"># </span><span class="org-comment">specify the package format to use</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">SDKMACHINE ?= "x86_64"                # SDK target architecture; only i686, x86_64, aarch64 are supported</span>
+<span class="org-variable-name">EXTRA_IMAGE_FEATURES ?</span>= <span class="org-string">"debug-tweaks"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">misc. stuff for development, e.g. give ssh root a blank password</span>
+<span class="org-variable-name">USER_CLASSES ?</span>= <span class="org-string">"buildstats"</span>           <span class="org-comment-delimiter"># </span><span class="org-comment">collect build statistics</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testimage"          # enable support for testing the image in QEMU (see testimage.bbclass)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testsdk"            # enable support for testing the SDK (see testsdk.bbclass)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">TESTIMAGE_AUTO:qemuall = "1"          # run imagetest automatically for qemu* targets</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">OE_TERMINAL = "auto"                  # enable shell when user input is needed, e.g. patch resolution</span>
+<span class="org-variable-name">PATCHRESOLVE</span> = <span class="org-string">"noop"</span>                  <span class="org-comment-delimiter"># </span><span class="org-comment">disable interactive patch resolution (tasks will just fail instead)</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">fail the build if we're running low on disk space</span>
+<span class="org-variable-name">BB_DISKMON_DIRS ??</span>= <span class="org-string">"\</span>
+<span class="org-string">    STOPTASKS,${TMPDIR},1G,100K \</span>
+<span class="org-string">    STOPTASKS,${DL_DIR},1G,100K \</span>
+<span class="org-string">    STOPTASKS,${SSTATE_DIR},1G,100K \</span>
+<span class="org-string">    STOPTASKS,/tmp,100M,100K \</span>
+<span class="org-string">    HALT,${TMPDIR},100M,1K \</span>
+<span class="org-string">    HALT,${DL_DIR},100M,1K \</span>
+<span class="org-string">    HALT,${SSTATE_DIR},100M,1K \</span>
+<span class="org-string">    HALT,/tmp,10M,1K"</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">sstate mirrors (fetch prebuilt build artefacts to speed up the build)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">OR</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"</span>
+
+<span class="org-variable-name">PACKAGECONFIG:append:pn-qemu-system-native</span> = <span class="org-string">" sdl"</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">if we're targeting QEMU, enable the SDL UI frontend</span>
+<span class="org-variable-name">ASSUME_PROVIDED +</span>= <span class="org-string">"libsdl2-native"</span>                   <span class="org-comment-delimiter"># </span><span class="org-comment">we need not bother building the SDL library ourselves</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">PACKAGECONFIG:append:pn-qemu-system-native = " gtk+" # enable Gtk UI frontend, which has an actual menu</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">CONF_VERSION = "2"  # version counter, mostly for convenience but completely optional</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"  # max threads for BitBake to dedicate to tasks</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"   # max threads for make</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">if we want an image based on directfb without x11</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " directfb"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:remove = "x11"</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">DEBUG_BUILD = "1"                 # optimisation to make debugging easer, at the possible cost of performance</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_STRIP = "1"       # disable the stripping of the installed binaries</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_DEBUG_SPLIT = "1" # disable the split of the debug information into -dbg files</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">The following options will build a companion 'debug filesystem' in addition</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">to the normal deployable filesystem.  This companion system allows a</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">debugger to know the symbols and related sources.  It can be used to</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">debug a remote 'production' system without having to add the debug symbols</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">and sources to remote system.</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_GEN_DEBUGFS = "1"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_FSTYPES_DEBUGFS = "tar.gz"</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/security_flags.inc # enable more secure code generation with extra gcc, ld flags</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE = "core-image-minimal-initramfs"  # for early userspace (e.g. if mounting rootfs requires a module)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE_BUNDLE = "1"                      # if we want to embed the initramfs inside the kernel image</span>
+
+<span class="org-comment-delimiter">#</span><span class="org-comment">INIT_MANAGER = "none"  # other options include sysvinit, systemd, mdev-busybox</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">if we want a full set of packages instead of busybox for base utils</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">PREFERRED_PROVIDER_base-utils = "packagegroup-core-base-utils"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils = "packagegroup-core-base-utils"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-syslog = "syslog"</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">enable LTO system-wide</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/lto.inc</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " lto"</span>
+
+<span class="org-variable-name">SDK_PS1 ?</span>= <span class="org-string">"${SDK_NAME}${SDK_VENDOR}:\$ "</span> <span class="org-comment-delimiter"># </span><span class="org-comment">use this custom prompt when inside the SDK</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">enable local PR service to auto-increment PR whenever a package changes (with some extra sanity checks)</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">PRSERV_HOST = "localhost:0"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INHERIT += "buildhistory"</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">BUILDHISTORY_COMMIT = "1"</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">generate a Software Bill of Materials</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">INHERIT += "create-spdx"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">SPDX_PRETTY = "1" # make the json human-readable/non-minified</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd67e65c" class="outline-3">
+<h3 id="7d86ced6-7905-4d3d-9739-42965f71fb1c">Recipe</h3>
+<div class="outline-text-3" id="text-7d86ced6-7905-4d3d-9739-42965f71fb1c">
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">DESCRIPTION</span> = <span class="org-string">"Simple helloworld application"</span>
+<span class="org-variable-name">SECTION</span> = <span class="org-string">"examples"</span>
+<span class="org-variable-name">LICENSE</span> = <span class="org-string">"MIT"</span>
+<span class="org-variable-name">LIC_FILES_CHKSUM</span> = <span class="org-string">"file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"</span>
+
+<span class="org-variable-name">SRC_URI</span> = <span class="org-string">"file://myhello.c"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">list of all source files in the recipe (just one in this case)</span>
+
+<span class="org-variable-name">S</span> = <span class="org-string">"${WORKDIR}"</span>
+
+<span class="org-type">do_compile()</span> {
+        ${CC} myhello.c ${LDFLAGS} -o myhello
+}
+
+<span class="org-type">do_install()</span> {
+        install -D -m 0755 myhello ${D}${bindir}/helloworld  <span class="org-comment-delimiter"># </span><span class="org-comment">${D} is the requisite location inside build/tmp/work/</span>
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">If a project is already based on autotools (or cmake/meson/etc.), then</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">instead of defining the above tasks manually, we can make use of the</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">autotools class. (See existing recipes for tips.)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+</div>
+</body>
+</html>
