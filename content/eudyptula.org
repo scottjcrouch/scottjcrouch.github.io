@@ -8,6 +8,8 @@
 #+OPTIONS: H:4
 #+OPTIONS: num:4
 
+#+HTML_HEAD: <style type="text/css"> code { font-size: 1.0em; } </style>
+
 * Introduction
 :PROPERTIES:
 :ID:       7b320482-5d72-4c5c-9ec0-beff19101cc0
