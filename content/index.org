@@ -170,6 +170,8 @@
   - [[https://robhorning.substack.com/p/ordinary-unhappiness][Ordinary unhappiness]]
   - [[https://robhorning.substack.com/p/ex-noumena][Ex noumena]]
   - [[https://robhorning.substack.com/p/two-uneven-flagstones][Two uneven flagstones]]
+  - [[https://philosophybear.substack.com/p/notes-on-punishment][Notes on punishment]]
+  - [[https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944?_auid=2020][Wittgenstein vs Freud: Does the unconscious exist?]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -352,6 +354,7 @@
   - [[https://foldedpapers.substack.com/p/my-years-as-a-feminist-on-red-pill][My years as a feminist on red-pill-adjacent rationalist reddit]]
   - [[https://dynomight.net/espionage/][Everything is espionage: Things I learned researching Assange]]
   - [[https://www.awanderingmind.blog/posts/2022-07-30-state-of-south-africa.html][The state of South Africa, 28ish years post-apartheid]]
+  - [[https://aeon.co/essays/the-myth-of-civic-vs-ethnic-nationhood-in-europe-east-and-west][The myth of civic vs. ethnic nationhood in Europe, east and west]]
 - syntax-and-structure/
   - [[https://www.lesswrong.com/s/pC6DYFLPMTCbEwH8W/p/i42Dfoh4HtsCAfXxL][Babble]]
   - [[https://www.reddit.com/r/slatestarcodex/comments/m57i1c/prose_is_bad/][Prose is Bad]]
