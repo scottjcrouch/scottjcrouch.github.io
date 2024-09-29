@@ -171,7 +171,7 @@
   - [[https://robhorning.substack.com/p/ex-noumena][Ex noumena]]
   - [[https://robhorning.substack.com/p/two-uneven-flagstones][Two uneven flagstones]]
   - [[https://philosophybear.substack.com/p/notes-on-punishment][Notes on punishment]]
-  - [[https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944?_auid=2020][Wittgenstein vs Freud: Does the unconscious exist?]]
+  - [[https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944][Wittgenstein vs Freud: Does the unconscious exist?]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
