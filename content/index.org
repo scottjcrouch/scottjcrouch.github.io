@@ -342,7 +342,7 @@
   - [[https://glineq.blogspot.com/2023/10/there-is-no-exit-for-dictators.html][There is No Exit for Dictators]]
   - [[https://asteriskmag.com/issues/05/democracy-by-mistake][Democracy by Mistake]]
   - [[https://etiennefd.substack.com/p/the-most-nuanced-take-you-will-ever][The Most Nuanced Take You Will Ever Read About Sparta (and North Korea)]]
-- politics-and-the-english-language/
+- politics-and-language/
   - [[https://everythingstudies.com/2019/10/30/cat-couplings/][Cat Couplings]]
   - [[https://everythingstudies.com/2018/02/12/wordy-weapons-of-is-ought-alloy/][Wordy Weapons of Is--Ought Alloy]]
   - [[https://slatestarcodex.com/2014/11/21/the-categories-were-made-for-man-not-man-for-the-categories/][The Categories Were Made For Man, Not Man For The Categories]]
