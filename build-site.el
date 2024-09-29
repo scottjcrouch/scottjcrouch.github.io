@@ -10,15 +10,32 @@
 ;; ~/.emacs.d/elpa path.
 (setq package-user-dir (expand-file-name "./.packages"))
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages")))
+(setq package-archive-priorities '(("elpa" . 10)
+                                   ("melpa-stable" . 9)
+                                   ("melpa" . 8)
+                                   ("org" . 7)))
 
 ;; Initialise the package system
+(setq package-check-signature nil)
 (package-initialize)
+;; (warn "FOOBAR 1")
+;; (warn "FOOBAR 2")
+;; (package-install 'gnu-elpa-keyring-update)
+;; (warn "FOOBAR 3")
+;; (gnu-elpa-keyring-update)
+;; (warn "FOOBAR 3.5")
+;; (setq package-check-signature "allow-unsigned")
+;; (warn "FOOBAR 4")
 (unless package-archive-contents
   (package-refresh-contents))
 
 ;; Install dependencies
+(warn "FOOBAR 5")
 (package-install 'htmlize)
+(warn "FOOBAR 6")
 
 ;; Define the publishing project
 (setq org-publish-project-alist
