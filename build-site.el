@@ -21,21 +21,11 @@
 ;; Initialise the package system
 (setq package-check-signature nil)
 (package-initialize)
-;; (warn "FOOBAR 1")
-;; (warn "FOOBAR 2")
-;; (package-install 'gnu-elpa-keyring-update)
-;; (warn "FOOBAR 3")
-;; (gnu-elpa-keyring-update)
-;; (warn "FOOBAR 3.5")
-;; (setq package-check-signature "allow-unsigned")
-;; (warn "FOOBAR 4")
 (unless package-archive-contents
   (package-refresh-contents))
 
 ;; Install dependencies
-(warn "FOOBAR 5")
 (package-install 'htmlize)
-(warn "FOOBAR 6")
 
 ;; Define the publishing project
 (setq org-publish-project-alist
