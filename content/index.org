@@ -144,6 +144,7 @@
   - [[https://insidestory.org.au/the-power-of-shame/][/Shame: The Politics and Power of an Emotion/ (David Keen)]]
   - [[https://www.astralcodexten.com/p/your-book-review-autobiography-of][/The Autobiography of Yukichi Fukuzawa/ (Yukichi Fukuzawa)]]
   - [[https://evetushnet.substack.com/p/philip-roths-holocaust-novel][/The Ghost Writer/ (Philip Roth)]]
+  - [[https://insidestory.org.au/no-happy-endings/][/Dorothy Parker in Hollywood/ (Gail Crowther)]]
 - philosophy/
   - [[https://asteriskmag.com/issues/01/making-sense-of-moral-change][Making Sense of Moral Change]]
   - [[https://www.youtube.com/watch?v=rbaD66oTvuo][Hinge Epistemology [yt]​]]
@@ -173,6 +174,8 @@
   - [[https://robhorning.substack.com/p/two-uneven-flagstones][Two uneven flagstones]]
   - [[https://philosophybear.substack.com/p/notes-on-punishment][Notes on punishment]]
   - [[https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944][Wittgenstein vs Freud: Does the unconscious exist?]]
+  - [[https://robhorning.substack.com/p/after-the-sunsets][After the sunsets]]
+  - [[https://philosophybear.substack.com/p/has-bayesianism-made-traditional-393][Has Bayesianism made traditional epistemology obsolete?]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -188,6 +191,8 @@
   - [[https://psyche.co/ideas/you-can-want-things-you-dont-like-and-like-things-you-dont-want][You can want things you don’t like and like things you don’t want]]
   - [[https://kajsotala.fi/2024/07/indecision-and-internalized-authority-figures/][Indecision and internalized authority figures]]
   - [[https://robhorning.substack.com/p/no-flipping][No flipping]]
+  - [[https://www.lesswrong.com/posts/5FAnfAStc7birapMx/the-hostile-telepaths-problem][The hostile telepaths problem]]
+  - [[https://mappingignorance.org/2024/11/20/i-hate-that-i-love-you-the-neuroscience-of-heartbreak/][I hate that I love you: The neuroscience of heartbreak]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -361,6 +366,7 @@
   - [[https://www.reddit.com/r/slatestarcodex/comments/m57i1c/prose_is_bad/][Prose is Bad]]
   - [[https://aethermug.com/posts/the-beautiful-dissociation-of-the-japanese-language][The Beautiful Dissociation of the Japanese Language]]
   - [[https://zompist.com/yingzi/yingzi.htm][Yingzi]]
+  - [[https://globalchinapulse.net/character-amnesia-in-china/][Character Amnesia in China]]
 - human-interest/
   - [[https://kentnerburn.com/the-cab-ride-ill-never-forget/][The Cab Ride I'll Never Forget]]
   - [[https://www.theatlantic.com/magazine/archive/2004/05/a-sea-story/302940/][A Sea Story (2004)]]
