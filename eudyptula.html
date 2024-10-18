@@ -6,10 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eudyptula Challenge</title>
-<meta name="description" content="Documenting my way through the eudyptula challenge" />
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<meta name="generator" content="Org mode" />
+<meta name="description" content="Documenting my way through the eudyptula challenge"
+ />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -30,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -40,22 +40,22 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -190,7 +190,8 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
 <style type="text/css">
@@ -374,45 +375,81 @@ a:visited:hover { color: white; background-color: #9251ac; }
 .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }
 </style>
 <style type="text/css"> code { font-size: 1.0em; } </style>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
 
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">Eudyptula Challenge</h1>
-<div id="table-of-contents" role="doc-toc">
+<div id="table-of-contents">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+<div id="text-table-of-contents">
 <ul>
 <li><a href="#7b320482-5d72-4c5c-9ec0-beff19101cc0">Introduction</a>
 <ul>
@@ -701,7 +738,7 @@ a:visited:hover { color: white; background-color: #9251ac; }
 </div>
 </div>
 
-<div id="outline-container-7b320482-5d72-4c5c-9ec0-beff19101cc0" class="outline-2">
+<div id="outline-container-orgf9ae51a" class="outline-2">
 <h2 id="7b320482-5d72-4c5c-9ec0-beff19101cc0">Introduction</h2>
 <div class="outline-text-2" id="text-7b320482-5d72-4c5c-9ec0-beff19101cc0">
 <p>
@@ -714,7 +751,7 @@ Even if I never wrote a driver or port the kernel to a new architecture, I
 have a belief that one can&rsquo;t wield a tool effectively if they haven&rsquo;t fully
 grasped the problems it exists to solve.</li>
 <li>It required engaging in and developing knowledge in adjacent topics (and
-even some non-adjacent ones).<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup></li>
+even some non-adjacent ones).<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></li>
 <li>The process of writing notes down is, I think, a good way of ensuring that
 one has a <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">gears-level understanding</a> of a topic.  If I find myself mentally
 straining to enunciate some complex idea in plain english, this is good news
@@ -756,7 +793,7 @@ I omitted which might have been useful to the odd person.)
 If you have any questions or feedback, <a href="mailto:scottjcrouch%20at%20jee-male">please get in touch</a>!
 </p>
 </div>
-<div id="outline-container-32aca210-6455-4ad6-9f83-78aba01cb38a" class="outline-3">
+<div id="outline-container-orgf8f6c2b" class="outline-3">
 <h3 id="32aca210-6455-4ad6-9f83-78aba01cb38a">Setting up a virtual machine for development</h3>
 <div class="outline-text-3" id="text-32aca210-6455-4ad6-9f83-78aba01cb38a">
 <p>
@@ -791,7 +828,7 @@ freeze the base image and create an image overlay to do the tasks on
 </pre>
 </div></li>
 <li><p>
-configure automounting of the samba share<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup><sup>, </sup><sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>
+configure automounting of the samba share<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup><sup>, </sup><sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">mkdir -p /mnt/qemu
@@ -801,7 +838,7 @@ configure automounting of the samba share<sup><a id="fnr.2" class="footref" href
 </ul>
 </div>
 </div>
-<div id="outline-container-fb318868-a843-4e6c-8483-db73d832b726" class="outline-3">
+<div id="outline-container-orgb9ca6d4" class="outline-3">
 <h3 id="fb318868-a843-4e6c-8483-db73d832b726">Credits</h3>
 <div class="outline-text-3" id="text-fb318868-a843-4e6c-8483-db73d832b726">
 <p>
@@ -833,11 +870,11 @@ documentation</a>, which has improved considerably in recent years.  Ideally,
 this is supposed to replace existing, comparatively static texts that can&rsquo;t
 keep up with the rapid pace of kernel development.  Some tangential resources
 of note here include an enumeration of available <a href="https://docs.kernel.org/dev-tools/">dev-tools</a>, and a description
-of the <a href="https://docs.kernel.org/process/">kernel development process</a>.<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>
+of the <a href="https://docs.kernel.org/process/">kernel development process</a>.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 </p>
 </div>
 </div>
-<div id="outline-container-df2be478-eaa9-47f4-bbc5-9b9dd0ba83f9" class="outline-3">
+<div id="outline-container-org85c807a" class="outline-3">
 <h3 id="df2be478-eaa9-47f4-bbc5-9b9dd0ba83f9">Corrections</h3>
 <div class="outline-text-3" id="text-df2be478-eaa9-47f4-bbc5-9b9dd0ba83f9">
 <p>
@@ -857,8 +894,8 @@ brevity were omitted.)
 </div>
 </div>
 </div>
-<div id="outline-container-c2b28cc5-a489-41c1-a830-8434bc1a63ac" class="outline-2">
-<h2 id="c2b28cc5-a489-41c1-a830-8434bc1a63ac"><span class="section-number-2">1.</span> Task 01</h2>
+<div id="outline-container-orgf8982de" class="outline-2">
+<h2 id="c2b28cc5-a489-41c1-a830-8434bc1a63ac"><span class="section-number-2">1</span> Task 01</h2>
 <div class="outline-text-2" id="text-c2b28cc5-a489-41c1-a830-8434bc1a63ac">
 <blockquote>
 <p>
@@ -870,8 +907,8 @@ variable to specify what kernel tree to build it against.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-796f8af5-c998-4ced-b76c-cc3ef18c4028" class="outline-3">
-<h3 id="796f8af5-c998-4ced-b76c-cc3ef18c4028"><span class="section-number-3">1.1.</span> Linux headers</h3>
+<div id="outline-container-orgc4f9269" class="outline-3">
+<h3 id="796f8af5-c998-4ced-b76c-cc3ef18c4028"><span class="section-number-3">1.1</span> Linux headers</h3>
 <div class="outline-text-3" id="text-796f8af5-c998-4ced-b76c-cc3ef18c4028">
 <p>
 First, we need to obtain the linux headers we are going to build against.  (We
@@ -934,8 +971,8 @@ UAPI headers will be covered again in <a href="#7b9b2b15-ca21-4f76-964b-93edc2d9
 </p>
 </div>
 </div>
-<div id="outline-container-870e35ef-9ef0-47ca-a22b-20af91cd2d3d" class="outline-3">
-<h3 id="870e35ef-9ef0-47ca-a22b-20af91cd2d3d"><span class="section-number-3">1.2.</span> Kbuild summarised</h3>
+<div id="outline-container-orgd121b40" class="outline-3">
+<h3 id="870e35ef-9ef0-47ca-a22b-20af91cd2d3d"><span class="section-number-3">1.2</span> Kbuild summarised</h3>
 <div class="outline-text-3" id="text-870e35ef-9ef0-47ca-a22b-20af91cd2d3d">
 <p>
 The Kbuild system consists of:
@@ -1007,8 +1044,8 @@ them in the build process will be recompiled.
 </p>
 </div>
 </div>
-<div id="outline-container-4fafb3ff-d889-4385-8d19-5f19fe4038bc" class="outline-3">
-<h3 id="4fafb3ff-d889-4385-8d19-5f19fe4038bc"><span class="section-number-3">1.3.</span> Creating the makefile for our out-of-tree module</h3>
+<div id="outline-container-org1d1cd1f" class="outline-3">
+<h3 id="4fafb3ff-d889-4385-8d19-5f19fe4038bc"><span class="section-number-3">1.3</span> Creating the makefile for our out-of-tree module</h3>
 <div class="outline-text-3" id="text-4fafb3ff-d889-4385-8d19-5f19fe4038bc">
 <div class="org-src-container">
 <pre class="src src-makefile">ifeq ($(<span class="org-variable-name">KERNELRELEASE</span>),)
@@ -1056,8 +1093,8 @@ endif
 </div>
 </div>
 </div>
-<div id="outline-container-5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a" class="outline-3">
-<h3 id="5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a"><span class="section-number-3">1.4.</span> Creating the first c file</h3>
+<div id="outline-container-orgcaa915e" class="outline-3">
+<h3 id="5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a"><span class="section-number-3">1.4</span> Creating the first c file</h3>
 <div class="outline-text-3" id="text-5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a">
 <div class="org-src-container">
 <pre class="src src-c"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/init.h&gt;</span>
@@ -1082,11 +1119,11 @@ MODULE_LICENSE(<span class="org-string">"Dual BSD/GPL"</span>);
 </div>
 </div>
 </div>
-<div id="outline-container-087cb4b9-c8e8-4c47-91c9-1f4d269118f9" class="outline-3">
-<h3 id="087cb4b9-c8e8-4c47-91c9-1f4d269118f9"><span class="section-number-3">1.5.</span> Compiling the module</h3>
+<div id="outline-container-org782b906" class="outline-3">
+<h3 id="087cb4b9-c8e8-4c47-91c9-1f4d269118f9"><span class="section-number-3">1.5</span> Compiling the module</h3>
 <div class="outline-text-3" id="text-087cb4b9-c8e8-4c47-91c9-1f4d269118f9">
 <p>
-Punch it!<sup><a id="fnr.6" class="footref" href="#fn.6" role="doc-backlink">6</a></sup>
+Punch it!<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">make modules
@@ -1121,8 +1158,8 @@ this.)</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-73e04251-16ac-4999-84c4-1bd142016d02" class="outline-3">
-<h3 id="73e04251-16ac-4999-84c4-1bd142016d02"><span class="section-number-3">1.6.</span> Loading the module</h3>
+<div id="outline-container-org1f91156" class="outline-3">
+<h3 id="73e04251-16ac-4999-84c4-1bd142016d02"><span class="section-number-3">1.6</span> Loading the module</h3>
 <div class="outline-text-3" id="text-73e04251-16ac-4999-84c4-1bd142016d02">
 <p>
 There are a couple of ways to do this.  Firstly:
@@ -1145,7 +1182,7 @@ Alternatively, we can use modprobe:
 </pre>
 </div>
 <p>
-However, for this to work, we have to <i>install</i> the module first.<sup><a id="fnr.7" class="footref" href="#fn.7" role="doc-backlink">7</a></sup>  By default, modprobe only recognises modules
+However, for this to work, we have to <i>install</i> the module first.<sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup>  By default, modprobe only recognises modules
 installed to <code>/lib/modules/$(uname -r)/</code>, though it may be configured to search
 other paths, or load/blacklist modules explicitly.  Once installed, we can
 refer to it by name (sans <code>.ko</code> suffix).
@@ -1167,8 +1204,8 @@ any modules are newer than the <code>modules.dep</code> file.
 </p>
 </div>
 </div>
-<div id="outline-container-0bee8a53-c137-49c1-acc0-8bbcaa060481" class="outline-3">
-<h3 id="0bee8a53-c137-49c1-acc0-8bbcaa060481"><span class="section-number-3">1.7.</span> Unloading the module</h3>
+<div id="outline-container-orgb8e24bb" class="outline-3">
+<h3 id="0bee8a53-c137-49c1-acc0-8bbcaa060481"><span class="section-number-3">1.7</span> Unloading the module</h3>
 <div class="outline-text-3" id="text-0bee8a53-c137-49c1-acc0-8bbcaa060481">
 <p>
 Again, there are a couple of ways to do so:
@@ -1186,8 +1223,8 @@ terminal.  Likewise, the module should disappear from <code>lsmod</code> output.
 </div>
 </div>
 </div>
-<div id="outline-container-80b1401c-ac7d-41a0-af2a-4d29c6183058" class="outline-2">
-<h2 id="80b1401c-ac7d-41a0-af2a-4d29c6183058"><span class="section-number-2">2.</span> Task 02</h2>
+<div id="outline-container-org0dec13d" class="outline-2">
+<h2 id="80b1401c-ac7d-41a0-af2a-4d29c6183058"><span class="section-number-2">2</span> Task 02</h2>
 <div class="outline-text-2" id="text-80b1401c-ac7d-41a0-af2a-4d29c6183058">
 <blockquote>
 <p>
@@ -1231,8 +1268,8 @@ discard it like was a broken umbrella, it deserves better than that.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-49e5b5b3-ef8e-44e1-b2d6-7ab6ed31d6b8" class="outline-3">
-<h3 id="49e5b5b3-ef8e-44e1-b2d6-7ab6ed31d6b8"><span class="section-number-3">2.1.</span> Fetching the latest tree</h3>
+<div id="outline-container-org2f5190b" class="outline-3">
+<h3 id="49e5b5b3-ef8e-44e1-b2d6-7ab6ed31d6b8"><span class="section-number-3">2.1</span> Fetching the latest tree</h3>
 <div class="outline-text-3" id="text-49e5b5b3-ef8e-44e1-b2d6-7ab6ed31d6b8">
 <p>
 Linus&rsquo;s main development tree, and many others, can be obtained from
@@ -1245,8 +1282,8 @@ let&rsquo;s fetch the main development tree:
 </div>
 </div>
 </div>
-<div id="outline-container-3fda4956-bf84-4e15-92bd-e0fa0f14922c" class="outline-3">
-<h3 id="3fda4956-bf84-4e15-92bd-e0fa0f14922c"><span class="section-number-3">2.2.</span> Creating a configuration file</h3>
+<div id="outline-container-orgc227960" class="outline-3">
+<h3 id="3fda4956-bf84-4e15-92bd-e0fa0f14922c"><span class="section-number-3">2.2</span> Creating a configuration file</h3>
 <div class="outline-text-3" id="text-3fda4956-bf84-4e15-92bd-e0fa0f14922c">
 <p>
 To build the kernel, we need a configuration file appropriate for the target
@@ -1278,7 +1315,7 @@ can tweak later if need be.
 The kernel configuration used by your distro may be found in a few places:
 </p>
 <ul class="org-ul">
-<li>a plain-text file in <code>/boot/</code> next to the kernel image; xor<sup><a id="fnr.8" class="footref" href="#fn.8" role="doc-backlink">8</a></sup></li>
+<li>a plain-text file in <code>/boot/</code> next to the kernel image; xor<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup></li>
 <li>in <code>/proc/config.gz</code> (may require unzipping; try <code>gzip -cdv</code> or <code>zcat</code>); xor</li>
 <li>distributed with the kernel source package, which, if present, will be
 installed in <code>/usr/src/linux/</code>.</li>
@@ -1299,8 +1336,8 @@ For further notes on paring down a configuration file, see the <a href="#db5b3b9
 </p>
 </div>
 </div>
-<div id="outline-container-6b1dd7f0-89ff-48ff-a59a-b58515eba1f9" class="outline-3">
-<h3 id="6b1dd7f0-89ff-48ff-a59a-b58515eba1f9"><span class="section-number-3">2.3.</span> Editing the configuration</h3>
+<div id="outline-container-org39c38a0" class="outline-3">
+<h3 id="6b1dd7f0-89ff-48ff-a59a-b58515eba1f9"><span class="section-number-3">2.3</span> Editing the configuration</h3>
 <div class="outline-text-3" id="text-6b1dd7f0-89ff-48ff-a59a-b58515eba1f9">
 <p>
 The <code>menuconfig</code> make target launches a curses-based config browser/editor for
@@ -1329,8 +1366,8 @@ are imported automatically.)</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-00c06df9-606c-4bd0-a1fc-b05dbc333d3d" class="outline-3">
-<h3 id="00c06df9-606c-4bd0-a1fc-b05dbc333d3d"><span class="section-number-3">2.4.</span> Building the kernel</h3>
+<div id="outline-container-orgb4d15cd" class="outline-3">
+<h3 id="00c06df9-606c-4bd0-a1fc-b05dbc333d3d"><span class="section-number-3">2.4</span> Building the kernel</h3>
 <div class="outline-text-3" id="text-00c06df9-606c-4bd0-a1fc-b05dbc333d3d">
 <p>
 The <code>--jobs</code> flag of make let us specify the maximum number of simultaneous
@@ -1367,8 +1404,8 @@ Before booting this kernel, I want to go over how this build process works,
 and the kinds of files it emits.
 </p>
 </div>
-<div id="outline-container-9b02819b-b51b-4339-8adc-99031847779a" class="outline-4">
-<h4 id="9b02819b-b51b-4339-8adc-99031847779a"><span class="section-number-4">2.4.1.</span> The build process in a nutshell</h4>
+<div id="outline-container-org4b19cb6" class="outline-4">
+<h4 id="9b02819b-b51b-4339-8adc-99031847779a"><span class="section-number-4">2.4.1</span> The build process in a nutshell</h4>
 <div class="outline-text-4" id="text-9b02819b-b51b-4339-8adc-99031847779a">
 <p>
 (Disclaimer: This section is merely my attempt at a general/vague outline of
@@ -1397,8 +1434,8 @@ building and post-processing the kernel image.)
 The stages of compilation are somewhat as follows.
 </p>
 </div>
-<div id="outline-container-03221f99-a68c-42eb-a8ee-6649869f56ac" class="outline-5">
-<h5 id="03221f99-a68c-42eb-a8ee-6649869f56ac"><span class="section-number-5">2.4.1.1.</span> Preparation</h5>
+<div id="outline-container-orgbe6efa7" class="outline-5">
+<h5 id="03221f99-a68c-42eb-a8ee-6649869f56ac"><span class="section-number-5">2.4.1.1</span> Preparation</h5>
 <div class="outline-text-5" id="text-03221f99-a68c-42eb-a8ee-6649869f56ac">
 <p>
 Before any targets are run, the top-level makefile will firstly define some
@@ -1462,8 +1499,8 @@ be changed in the nested makefiles.
 </p>
 </div>
 </div>
-<div id="outline-container-0e65e166-9ffe-4103-ae09-35831a7e4dee" class="outline-5">
-<h5 id="0e65e166-9ffe-4103-ae09-35831a7e4dee"><span class="section-number-5">2.4.1.2.</span> Compilation</h5>
+<div id="outline-container-org48433e8" class="outline-5">
+<h5 id="0e65e166-9ffe-4103-ae09-35831a7e4dee"><span class="section-number-5">2.4.1.2</span> Compilation</h5>
 <div class="outline-text-5" id="text-0e65e166-9ffe-4103-ae09-35831a7e4dee">
 <p>
 Once preparation is complete, it can start executing the <code>vmlinux</code> target.  This
@@ -1494,8 +1531,8 @@ metadata, compress it, make it self-extracting, and make it bootable.
 </p>
 </div>
 </div>
-<div id="outline-container-24586f85-e4b8-432d-b93b-b2de6b4936be" class="outline-5">
-<h5 id="24586f85-e4b8-432d-b93b-b2de6b4936be"><span class="section-number-5">2.4.1.3.</span> Building bzImage</h5>
+<div id="outline-container-org59f2456" class="outline-5">
+<h5 id="24586f85-e4b8-432d-b93b-b2de6b4936be"><span class="section-number-5">2.4.1.3</span> Building bzImage</h5>
 <div class="outline-text-5" id="text-24586f85-e4b8-432d-b93b-b2de6b4936be">
 <p>
 The <code>bzImage</code> file is what <code>vmlinux</code> becomes after being compressed and wrapped to
@@ -1534,8 +1571,8 @@ self-extracting kernel image.
 </div>
 </div>
 </div>
-<div id="outline-container-57a3af29-fedc-41bd-b90a-28c4c1a3169a" class="outline-4">
-<h4 id="57a3af29-fedc-41bd-b90a-28c4c1a3169a"><span class="section-number-4">2.4.2.</span> Miscellaneous Kbuild features</h4>
+<div id="outline-container-org248ce22" class="outline-4">
+<h4 id="57a3af29-fedc-41bd-b90a-28c4c1a3169a"><span class="section-number-4">2.4.2</span> Miscellaneous Kbuild features</h4>
 <div class="outline-text-4" id="text-57a3af29-fedc-41bd-b90a-28c4c1a3169a">
 <p>
 Here are some helpful make variables I found:
@@ -1568,8 +1605,8 @@ in a a text editor or IDE; likewise for the <code>cscope</code> target.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-f7859da4-52ed-4327-a352-7c892bf99cd8" class="outline-3">
-<h3 id="f7859da4-52ed-4327-a352-7c892bf99cd8"><span class="section-number-3">2.5.</span> Installing and booting the kernel</h3>
+<div id="outline-container-orga53b356" class="outline-3">
+<h3 id="f7859da4-52ed-4327-a352-7c892bf99cd8"><span class="section-number-3">2.5</span> Installing and booting the kernel</h3>
 <div class="outline-text-3" id="text-f7859da4-52ed-4327-a352-7c892bf99cd8">
 <p>
 Once built, the resulting <code>bzImage</code> can be copied over to <code>/boot/</code> by running the
@@ -1649,13 +1686,13 @@ to our config:
 <p>
 Awesome!  That&rsquo;s the same hash as the git commit we built our kernel on, and
 was appended to the version string because we enabled
-<code>CONFIG_LOCALVERSION_AUTO</code>.<sup><a id="fnr.9" class="footref" href="#fn.9" role="doc-backlink">9</a></sup>
+<code>CONFIG_LOCALVERSION_AUTO</code>.<sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-89ff7eea-432e-4ee0-a17c-516b11107734" class="outline-2">
-<h2 id="89ff7eea-432e-4ee0-a17c-516b11107734"><span class="section-number-2">3.</span> Task 03</h2>
+<div id="outline-container-orgab7fbfe" class="outline-2">
+<h2 id="89ff7eea-432e-4ee0-a17c-516b11107734"><span class="section-number-2">3</span> Task 03</h2>
 <div class="outline-text-2" id="text-89ff7eea-432e-4ee0-a17c-516b11107734">
 <blockquote>
 <p>
@@ -1679,8 +1716,8 @@ file Documentation/SubmittingPatches and follow the steps there.)</li>
 </ul>
 </blockquote>
 </div>
-<div id="outline-container-ba2b0280-b527-4e64-a3d8-4c74ab650119" class="outline-3">
-<h3 id="ba2b0280-b527-4e64-a3d8-4c74ab650119"><span class="section-number-3">3.1.</span> Modifying the makefile</h3>
+<div id="outline-container-orga5a3c1d" class="outline-3">
+<h3 id="ba2b0280-b527-4e64-a3d8-4c74ab650119"><span class="section-number-3">3.1</span> Modifying the makefile</h3>
 <div class="outline-text-3" id="text-ba2b0280-b527-4e64-a3d8-4c74ab650119">
 <p>
 This is easy enough &#x2014; just open up <code>menuconfig</code> and append &ldquo;-eudyptula&rdquo; to the
@@ -1702,16 +1739,16 @@ yet uncommitted changes.
 </p>
 </div>
 </div>
-<div id="outline-container-f991e442-3bfb-40e5-a0d5-9252bfee2424" class="outline-3">
-<h3 id="f991e442-3bfb-40e5-a0d5-9252bfee2424"><span class="section-number-3">3.2.</span> Patch submission overview</h3>
+<div id="outline-container-orgf92bbba" class="outline-3">
+<h3 id="f991e442-3bfb-40e5-a0d5-9252bfee2424"><span class="section-number-3">3.2</span> Patch submission overview</h3>
 <div class="outline-text-3" id="text-f991e442-3bfb-40e5-a0d5-9252bfee2424">
 <p>
 The formal steps involved in submitting a patch to the mailing lists is
 well-documented <a href="https://www.kernel.org/doc/html/latest/process/submitting-patches.html">here</a> and <a href="https://www.kernel.org/doc/html/latest/process/submit-checklist.html">here</a>.  Let&rsquo;s go over them.
 </p>
 </div>
-<div id="outline-container-8f3424ab-c459-41a8-8a49-a8f1ce4296cf" class="outline-4">
-<h4 id="8f3424ab-c459-41a8-8a49-a8f1ce4296cf"><span class="section-number-4">3.2.1.</span> Generating a patch</h4>
+<div id="outline-container-orgb6841af" class="outline-4">
+<h4 id="8f3424ab-c459-41a8-8a49-a8f1ce4296cf"><span class="section-number-4">3.2.1</span> Generating a patch</h4>
 <div class="outline-text-4" id="text-8f3424ab-c459-41a8-8a49-a8f1ce4296cf">
 <p>
 One way to generate a patch by hand is to invoke <code class="src src-bash">diff -uprN</code> on a pair of source directories.  The meaning of the flags,
@@ -1748,7 +1785,7 @@ includes:
 <li>the fact that it is a patch;</li>
 <li>optional tags, e.g. &ldquo;v2&rdquo; (version 2), &ldquo;RFC&rdquo; (request-for-comment);</li>
 <li>the patch number, if it is part of a patch set (e.g. &ldquo;02/15&rdquo;);
-ior<sup><a id="fnr.10" class="footref" href="#fn.10" role="doc-backlink">10</a></sup></li>
+ior<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup></li>
 <li>the subsystem(s) or module(s) of relevance to the change.</li>
 </ul>
 
@@ -1848,8 +1885,8 @@ would be appropriate (passing <code>-v2</code> is a shorthand for this).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-a944b06f-a915-40a1-907d-9104316ceec6" class="outline-4">
-<h4 id="a944b06f-a915-40a1-907d-9104316ceec6"><span class="section-number-4">3.2.2.</span> Reviewing the changes</h4>
+<div id="outline-container-org13e236c" class="outline-4">
+<h4 id="a944b06f-a915-40a1-907d-9104316ceec6"><span class="section-number-4">3.2.2</span> Reviewing the changes</h4>
 <div class="outline-text-4" id="text-a944b06f-a915-40a1-907d-9104316ceec6">
 <p>
 Patches must compile.  This ensures they can be <a href="https://git-scm.com/docs/git-bisect">bisected</a> to track down
@@ -1885,8 +1922,8 @@ changes, don&rsquo;t panic; book an appointment with <a href="https://ohshitgit.
 </p>
 </div>
 </div>
-<div id="outline-container-f94fde9c-9319-4be1-a04c-c065dc93d257" class="outline-4">
-<h4 id="f94fde9c-9319-4be1-a04c-c065dc93d257"><span class="section-number-4">3.2.3.</span> Describing the changes</h4>
+<div id="outline-container-org37c59da" class="outline-4">
+<h4 id="f94fde9c-9319-4be1-a04c-c065dc93d257"><span class="section-number-4">3.2.3</span> Describing the changes</h4>
 <div class="outline-text-4" id="text-f94fde9c-9319-4be1-a04c-c065dc93d257">
 <p>
 Where applicable, a patch message should include, firstly:
@@ -1940,8 +1977,8 @@ Fixes: 54a4f0239f2e ("KVM: MMU: make kvm_mmu_zap_page() return the number of pag
 </div>
 </div>
 </div>
-<div id="outline-container-503e1947-f374-4f8e-af59-7f30a9927256" class="outline-4">
-<h4 id="503e1947-f374-4f8e-af59-7f30a9927256"><span class="section-number-4">3.2.4.</span> Style-checking</h4>
+<div id="outline-container-org5ae7311" class="outline-4">
+<h4 id="503e1947-f374-4f8e-af59-7f30a9927256"><span class="section-number-4">3.2.4</span> Style-checking</h4>
 <div class="outline-text-4" id="text-503e1947-f374-4f8e-af59-7f30a9927256">
 <dl class="org-dl">
 <dt>The long version</dt><dd><a href="https://www.kernel.org/doc/html/latest/process/coding-style.html">Read the docs</a>.</dd>
@@ -1959,8 +1996,8 @@ boilerplate.</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-e5fdebc8-59be-4165-ae62-8ba33845cc95" class="outline-4">
-<h4 id="e5fdebc8-59be-4165-ae62-8ba33845cc95"><span class="section-number-4">3.2.5.</span> Selecting the recipients</h4>
+<div id="outline-container-org94fa3d1" class="outline-4">
+<h4 id="e5fdebc8-59be-4165-ae62-8ba33845cc95"><span class="section-number-4">3.2.5</span> Selecting the recipients</h4>
 <div class="outline-text-4" id="text-e5fdebc8-59be-4165-ae62-8ba33845cc95">
 <p>
 Patches must be sent to the appropriate subsystem maintainer(s), and CC&rsquo;d to
@@ -1990,8 +2027,8 @@ kernel, read <a href="https://www.kernel.org/doc/html/latest/process/stable-kern
 </p>
 </div>
 </div>
-<div id="outline-container-58bd21c9-148d-49df-ad6d-ae92d1252601" class="outline-4">
-<h4 id="58bd21c9-148d-49df-ad6d-ae92d1252601"><span class="section-number-4">3.2.6.</span> Email issues</h4>
+<div id="outline-container-orgb36a306" class="outline-4">
+<h4 id="58bd21c9-148d-49df-ad6d-ae92d1252601"><span class="section-number-4">3.2.6</span> Email issues</h4>
 <div class="outline-text-4" id="text-58bd21c9-148d-49df-ad6d-ae92d1252601">
 <p>
 A patch email should be plain inline text &#x2014; no MIME content, links,
@@ -2033,8 +2070,8 @@ send a patch.
 </p>
 </div>
 </div>
-<div id="outline-container-39cf59d3-0ee8-4502-97e0-18dae366b26e" class="outline-4">
-<h4 id="39cf59d3-0ee8-4502-97e0-18dae366b26e"><span class="section-number-4">3.2.7.</span> Feedback</h4>
+<div id="outline-container-org9e256a8" class="outline-4">
+<h4 id="39cf59d3-0ee8-4502-97e0-18dae366b26e"><span class="section-number-4">3.2.7</span> Feedback</h4>
 <div class="outline-text-4" id="text-39cf59d3-0ee8-4502-97e0-18dae366b26e">
 <p>
 We must be patient &#x2014; give at least a week before resubmitting or pinging
@@ -2051,8 +2088,8 @@ changed since v1.
 </div>
 </div>
 </div>
-<div id="outline-container-80867276-19a9-4cc9-9c66-fc23589fbe7b" class="outline-3">
-<h3 id="80867276-19a9-4cc9-9c66-fc23589fbe7b"><span class="section-number-3">3.3.</span> Creating our patch</h3>
+<div id="outline-container-org7672b79" class="outline-3">
+<h3 id="80867276-19a9-4cc9-9c66-fc23589fbe7b"><span class="section-number-3">3.3</span> Creating our patch</h3>
 <div class="outline-text-3" id="text-80867276-19a9-4cc9-9c66-fc23589fbe7b">
 <p>
 Let&rsquo;s put some of what we&rsquo;ve learned into practice.
@@ -2150,8 +2187,8 @@ git branch -D eudyptula-task03
 </div>
 </div>
 </div>
-<div id="outline-container-ac689271-0c7e-4816-b5ce-b81777b0b02d" class="outline-2">
-<h2 id="ac689271-0c7e-4816-b5ce-b81777b0b02d"><span class="section-number-2">4.</span> Task 04</h2>
+<div id="outline-container-orgfb01fe9" class="outline-2">
+<h2 id="ac689271-0c7e-4816-b5ce-b81777b0b02d"><span class="section-number-2">4</span> Task 04</h2>
 <div class="outline-text-2" id="text-ac689271-0c7e-4816-b5ce-b81777b0b02d">
 <blockquote>
 <p>
@@ -2210,7 +2247,7 @@ two modules that this task wants us to clean up are (a) our original <code>hello
 module from <a href="#5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a">task 01</a>, and (b) this other one I found:
 </p>
 <div class="org-src-container">
-<pre class="src src-c" id="org8704ded"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
+<pre class="src src-c" id="org33bbe02"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/kernel.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;asm/delay.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/slab.h&gt;</span>
@@ -2261,8 +2298,8 @@ x = do_work(&amp;x, x);
 </pre>
 </div>
 </div>
-<div id="outline-container-3059ef5f-6256-4674-8e98-63f1ab336f8a" class="outline-3">
-<h3 id="3059ef5f-6256-4674-8e98-63f1ab336f8a"><span class="section-number-3">4.1.</span> Linux kernel coding style</h3>
+<div id="outline-container-orgc4ba67e" class="outline-3">
+<h3 id="3059ef5f-6256-4674-8e98-63f1ab336f8a"><span class="section-number-3">4.1</span> Linux kernel coding style</h3>
 <div class="outline-text-3" id="text-3059ef5f-6256-4674-8e98-63f1ab336f8a">
 <p>
 I mentioned the official coding style of the Linux kernel in <a href="#89ff7eea-432e-4ee0-a17c-516b11107734">task 03</a>; <a href="https://www.kernel.org/doc/html/latest/process/coding-style.html">here&rsquo;s
@@ -2329,8 +2366,8 @@ success).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-bc6ba800-d10d-41c9-a9b3-646f4ea93c53" class="outline-3">
-<h3 id="bc6ba800-d10d-41c9-a9b3-646f4ea93c53"><span class="section-number-3">4.2.</span> Running checkpatch.pl</h3>
+<div id="outline-container-orgd17c0d3" class="outline-3">
+<h3 id="bc6ba800-d10d-41c9-a9b3-646f4ea93c53"><span class="section-number-3">4.2</span> Running checkpatch.pl</h3>
 <div class="outline-text-3" id="text-bc6ba800-d10d-41c9-a9b3-646f4ea93c53">
 <p>
 <a href="#503e1947-f374-4f8e-af59-7f30a9927256">As mentioned</a>, the <code>script/checkpatch.pl</code> script performs static analysis.  The
@@ -2350,7 +2387,7 @@ As an example, the following issues were raised with regard to my original
 </p>
 <dl class="org-dl">
 <dt><code>ERROR: DOS line endings</code></dt><dd>Files must use Unix-style LF line-endings, not
-the DOS-style CRLF.<sup><a id="fnr.11" class="footref" href="#fn.11" role="doc-backlink">11</a></sup></dd>
+the DOS-style CRLF.<sup><a id="fnr.11" class="footref" href="#fn.11">11</a></sup></dd>
 <dt><code>WARNING: Missing or malformed SPDX-License-Identifier tag in line 1</code></dt><dd>SPDX
 is a special file format for documenting the software license.  You can even
 see this header in the checkpatch script itself.  <a href="https://lwn.net/Articles/739183/">This article</a> explains that
@@ -2431,8 +2468,8 @@ accident.  Nevertheless, we should pull in both.
 </div>
 </div>
 </div>
-<div id="outline-container-c5e3bcd6-dd71-4efd-8f51-eb62ba994307" class="outline-2">
-<h2 id="c5e3bcd6-dd71-4efd-8f51-eb62ba994307"><span class="section-number-2">5.</span> Task 05</h2>
+<div id="outline-container-orgd2d999f" class="outline-2">
+<h2 id="c5e3bcd6-dd71-4efd-8f51-eb62ba994307"><span class="section-number-2">5</span> Task 05</h2>
 <div class="outline-text-2" id="text-c5e3bcd6-dd71-4efd-8f51-eb62ba994307">
 <blockquote>
 <p>
@@ -2458,7 +2495,7 @@ online, no need to go buy anything.
 </blockquote>
 
 <p>
-Unfortunately, I didn&rsquo;t read this task properly the first time,<sup><a id="fnr.12" class="footref" href="#fn.12" role="doc-backlink">12</a></sup> and erroneously interpreted the task as asking me to write
+Unfortunately, I didn&rsquo;t read this task properly the first time,<sup><a id="fnr.12" class="footref" href="#fn.12">12</a></sup> and erroneously interpreted the task as asking me to write
 a udev rule, one that would load my module whenever a USB uevent occurred.
 </p>
 
@@ -2486,8 +2523,8 @@ If you&rsquo;re not interested in learning about udev rules and whatnot, you can
 ignore those sections and <a href="#88750d69-5d84-478c-9ea6-a4f5388fa3be">skip ahead</a>.
 </p>
 </div>
-<div id="outline-container-7dec8acc-8de6-4b4c-93d1-59850d71e7f7" class="outline-3">
-<h3 id="7dec8acc-8de6-4b4c-93d1-59850d71e7f7"><span class="section-number-3">5.1.</span> The device model: a super-quick primer</h3>
+<div id="outline-container-org70e4843" class="outline-3">
+<h3 id="7dec8acc-8de6-4b4c-93d1-59850d71e7f7"><span class="section-number-3">5.1</span> The device model: a super-quick primer</h3>
 <div class="outline-text-3" id="text-7dec8acc-8de6-4b4c-93d1-59850d71e7f7">
 <p>
 The device model is a tree-like structure which reflects the topology of the
@@ -2521,12 +2558,12 @@ destroys a kobject.
 </p>
 </div>
 </div>
-<div id="outline-container-c94004f2-c0ce-490c-895c-1569717784b2" class="outline-3">
-<h3 id="c94004f2-c0ce-490c-895c-1569717784b2"><span class="section-number-3">5.2.</span> A detour through udev</h3>
+<div id="outline-container-orgeb0b1d6" class="outline-3">
+<h3 id="c94004f2-c0ce-490c-895c-1569717784b2"><span class="section-number-3">5.2</span> A detour through udev</h3>
 <div class="outline-text-3" id="text-c94004f2-c0ce-490c-895c-1569717784b2">
 </div>
-<div id="outline-container-013c2fc3-cc14-4a15-918b-9044cef2102b" class="outline-4">
-<h4 id="013c2fc3-cc14-4a15-918b-9044cef2102b"><span class="section-number-4">5.2.1.</span> Basics of udev and hotplug events</h4>
+<div id="outline-container-orge072d60" class="outline-4">
+<h4 id="013c2fc3-cc14-4a15-918b-9044cef2102b"><span class="section-number-4">5.2.1</span> Basics of udev and hotplug events</h4>
 <div class="outline-text-4" id="text-013c2fc3-cc14-4a15-918b-9044cef2102b">
 <p>
 Historically, the conduit for hotplug events was the invocation of a
@@ -2548,13 +2585,13 @@ The primary goal of <a href="https://en.wikipedia.org/wiki/Udev">udev</a> was to
 of <code>/dev/</code> to user-space.  (Formerly, such device management was handled
 automatically from kernel-space by <i>devfs</i>.)  Such policy decisions concern
 device node naming, permissions, and the user-space API for accessing info
-about current system devices.<sup><a id="fnr.13" class="footref" href="#fn.13" role="doc-backlink">13</a></sup>
+about current system devices.<sup><a id="fnr.13" class="footref" href="#fn.13">13</a></sup>
 </p>
 
 <p>
 As of 2012, udev has been incorporated into systemd (provided by the <i>udevd</i>
 service).  As such, it takes advantage of systemd&rsquo;s socket protocol to listen
-for such events.<sup><a id="fnr.14" class="footref" href="#fn.14" role="doc-backlink">14</a></sup>  There are
+for such events.<sup><a id="fnr.14" class="footref" href="#fn.14">14</a></sup>  There are
 two subgroups (or multicast groups) associated with <code>NETLINK_KOBJECT_UEVENT</code>
 events: <code>GROUP_KERNEL</code>, which are handled immediately by udevd; and <code>GROUP_UDEV</code>,
 which it delegates to an external <i>udev event process</i> or other user-space
@@ -2621,8 +2658,8 @@ does what one would expect).</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-2bfd1af6-336c-40df-b5af-5dc440db7a66" class="outline-4">
-<h4 id="2bfd1af6-336c-40df-b5af-5dc440db7a66"><span class="section-number-4">5.2.2.</span> Udev rules</h4>
+<div id="outline-container-org029665b" class="outline-4">
+<h4 id="2bfd1af6-336c-40df-b5af-5dc440db7a66"><span class="section-number-4">5.2.2</span> Udev rules</h4>
 <div class="outline-text-4" id="text-2bfd1af6-336c-40df-b5af-5dc440db7a66">
 <p>
 To restate (what I initially took to be) our task: configure udev to load our
@@ -2643,8 +2680,8 @@ How do we write a udev rule?  Some examples can be seen <a href="http://www.reac
 some of the details.
 </p>
 </div>
-<div id="outline-container-7ef99fb1-8d4c-4913-99c7-fe95f2eb4fe3" class="outline-5">
-<h5 id="7ef99fb1-8d4c-4913-99c7-fe95f2eb4fe3"><span class="section-number-5">5.2.2.1.</span> Where do rule files go?</h5>
+<div id="outline-container-orga7563f2" class="outline-5">
+<h5 id="7ef99fb1-8d4c-4913-99c7-fe95f2eb4fe3"><span class="section-number-5">5.2.2.1</span> Where do rule files go?</h5>
 <div class="outline-text-5" id="text-7ef99fb1-8d4c-4913-99c7-fe95f2eb4fe3">
 <p>
 System-level rule files may be placed in <code>/etc/udev/rules.d/</code> by the
@@ -2666,8 +2703,8 @@ them.
 </p>
 </div>
 </div>
-<div id="outline-container-7e9c0898-b070-45b0-af44-6273c0662f38" class="outline-5">
-<h5 id="7e9c0898-b070-45b0-af44-6273c0662f38"><span class="section-number-5">5.2.2.2.</span> Syntax</h5>
+<div id="outline-container-org54d762c" class="outline-5">
+<h5 id="7e9c0898-b070-45b0-af44-6273c0662f38"><span class="section-number-5">5.2.2.2</span> Syntax</h5>
 <div class="outline-text-5" id="text-7e9c0898-b070-45b0-af44-6273c0662f38">
 <p>
 Every line (except for commented lines; those prepended with <code>#</code>) denotes
@@ -2699,8 +2736,8 @@ assign/append multiple values at once using a space-delimited string)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-2d0f522c-2958-40b3-a600-724fb9589671" class="outline-5">
-<h5 id="2d0f522c-2958-40b3-a600-724fb9589671"><span class="section-number-5">5.2.2.3.</span> Matching keys</h5>
+<div id="outline-container-orgbf4e75e" class="outline-5">
+<h5 id="2d0f522c-2958-40b3-a600-724fb9589671"><span class="section-number-5">5.2.2.3</span> Matching keys</h5>
 <div class="outline-text-5" id="text-2d0f522c-2958-40b3-a600-724fb9589671">
 <p>
 A complete list of information we can match against is given in udev&rsquo;s
@@ -2740,8 +2777,8 @@ attributes of any of its ancestors</i>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-292c74fa-0c3f-4d53-8008-506659775a48" class="outline-5">
-<h5 id="292c74fa-0c3f-4d53-8008-506659775a48"><span class="section-number-5">5.2.2.4.</span> Assignable keys</h5>
+<div id="outline-container-org34e36c2" class="outline-5">
+<h5 id="292c74fa-0c3f-4d53-8008-506659775a48"><span class="section-number-5">5.2.2.4</span> Assignable keys</h5>
 <div class="outline-text-5" id="text-292c74fa-0c3f-4d53-8008-506659775a48">
 <p>
 Again, refer to the manpage for a full list of these.  The main ones are:
@@ -2749,7 +2786,7 @@ Again, refer to the manpage for a full list of these.  The main ones are:
 <ul class="org-ul">
 <li><code>NAME</code>, the name to assign to the new device node; and</li>
 <li><code>SYMLINK</code>, a list of alternative names for the device node, for which symbolic
-links are created.<sup><a id="fnr.15" class="footref" href="#fn.15" role="doc-backlink">15</a></sup></li>
+links are created.<sup><a id="fnr.15" class="footref" href="#fn.15">15</a></sup></li>
 </ul>
 
 <p>
@@ -2774,8 +2811,8 @@ device;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-8b0d2d2d-46ed-4816-9249-ec5dac8c4493" class="outline-5">
-<h5 id="8b0d2d2d-46ed-4816-9249-ec5dac8c4493"><span class="section-number-5">5.2.2.5.</span> Getting information about our device</h5>
+<div id="outline-container-orgcb3fd6a" class="outline-5">
+<h5 id="8b0d2d2d-46ed-4816-9249-ec5dac8c4493"><span class="section-number-5">5.2.2.5</span> Getting information about our device</h5>
 <div class="outline-text-5" id="text-8b0d2d2d-46ed-4816-9249-ec5dac8c4493">
 <p>
 Fumbling around in the sysfs tree to get the information we need about a
@@ -2791,8 +2828,8 @@ udevadm info -a -p $(udevadm info -q path -n /dev/sda)
 </div>
 </div>
 </div>
-<div id="outline-container-d7dc3f0b-d414-44b1-9f93-db449e02f468" class="outline-5">
-<h5 id="d7dc3f0b-d414-44b1-9f93-db449e02f468"><span class="section-number-5">5.2.2.6.</span> Testing and debugging</h5>
+<div id="outline-container-org5b59971" class="outline-5">
+<h5 id="d7dc3f0b-d414-44b1-9f93-db449e02f468"><span class="section-number-5">5.2.2.6</span> Testing and debugging</h5>
 <div class="outline-text-5" id="text-d7dc3f0b-d414-44b1-9f93-db449e02f468">
 <p>
 In newer kernels that have <a href="https://en.wikipedia.org/wiki/Inotify">inotify</a> support, udev will automatically detect
@@ -2829,8 +2866,8 @@ the symlinks.)
 </p>
 </div>
 </div>
-<div id="outline-container-1c8f0de9-22d8-41c6-9fd3-db29a3b67051" class="outline-5">
-<h5 id="1c8f0de9-22d8-41c6-9fd3-db29a3b67051"><span class="section-number-5">5.2.2.7.</span> Device nodes and persistent naming</h5>
+<div id="outline-container-orgef92e58" class="outline-5">
+<h5 id="1c8f0de9-22d8-41c6-9fd3-db29a3b67051"><span class="section-number-5">5.2.2.7</span> Device nodes and persistent naming</h5>
 <div class="outline-text-5" id="text-1c8f0de9-22d8-41c6-9fd3-db29a3b67051">
 <p>
 Udev is capable of providing persistent naming for certain types of devices.
@@ -2841,7 +2878,7 @@ This often means we can avoid having to write our own rules.
 For example, udev may be configured to populate the <code>/dev/disk/</code> directory with
 symlinks to the canonical device nodes associated with block devices.  The
 symlinks are given various names corresponding to information about the
-device, driver, or vendor, such as the UUID or the device tree path.<sup><a id="fnr.16" class="footref" href="#fn.16" role="doc-backlink">16</a></sup>  Another directory is
+device, driver, or vendor, such as the UUID or the device tree path.<sup><a id="fnr.16" class="footref" href="#fn.16">16</a></sup>  Another directory is
 <code>/dev/block/</code>, which names symlinks by the <code>major:minor</code> number pair of the
 associated block device (more on major and minor numbers later in <a href="#628566a0-dd52-425e-b686-b6e31e2ebdfe">task 06</a>).
 </p>
@@ -2852,8 +2889,8 @@ On my distro (Debian), these in-built rules could be seen in
 </p>
 </div>
 </div>
-<div id="outline-container-bee7ac40-79e5-4d1c-85c3-eb2efb36cb79" class="outline-5">
-<h5 id="bee7ac40-79e5-4d1c-85c3-eb2efb36cb79"><span class="section-number-5">5.2.2.8.</span> A caveat about &ldquo;remove&rdquo; actions</h5>
+<div id="outline-container-orgb260931" class="outline-5">
+<h5 id="bee7ac40-79e5-4d1c-85c3-eb2efb36cb79"><span class="section-number-5">5.2.2.8</span> A caveat about &ldquo;remove&rdquo; actions</h5>
 <div class="outline-text-5" id="text-bee7ac40-79e5-4d1c-85c3-eb2efb36cb79">
 <p>
 When a device is removed, the kernel/driver will remove its corresponding
@@ -2877,8 +2914,8 @@ device, try <code class="src src-bash">udevadm monitor --udev --environment</cod
 </div>
 </div>
 </div>
-<div id="outline-container-3dc9b642-60d9-4cb1-9531-cb07d0cc5d90" class="outline-4">
-<h4 id="3dc9b642-60d9-4cb1-9531-cb07d0cc5d90"><span class="section-number-4">5.2.3.</span> Implementing a rule</h4>
+<div id="outline-container-org410441c" class="outline-4">
+<h4 id="3dc9b642-60d9-4cb1-9531-cb07d0cc5d90"><span class="section-number-4">5.2.3</span> Implementing a rule</h4>
 <div class="outline-text-4" id="text-3dc9b642-60d9-4cb1-9531-cb07d0cc5d90">
 <p>
 (Again, this is not what the task asked, so <a href="#88750d69-5d84-478c-9ea6-a4f5388fa3be">skip ahead</a> if you&rsquo;re not
@@ -3115,7 +3152,7 @@ job in lieu of a call to <code>modprobe</code>:
 I&rsquo;m not sure whether this built-in command handles dependencies or module
 unloading, and I struggled to find any udev documentation about it online.  To
 venture a guess, it might be duplicating the job of module loading normally
-handled by the <code>kmod</code> family of utilities<sup><a id="fnr.17" class="footref" href="#fn.17" role="doc-backlink">17</a></sup> for the sake of speed and/or ditching a dependency.  In
+handled by the <code>kmod</code> family of utilities<sup><a id="fnr.17" class="footref" href="#fn.17">17</a></sup> for the sake of speed and/or ditching a dependency.  In
 any case, the module has to be installed first.  Copying <code>hello.ko</code> over to
 <code>/lib/modules/$(uname -r)/mymodules/</code> is enough for <a href="https://wiki.debian.org/depmod">depmod</a> to find it.
 </p>
@@ -3160,8 +3197,8 @@ ACTION=="remove" SUBSYSTEM=="input" SUBSYSTEMS=="usb" ENV{ID_INPUT_KEYBOARD}="1"
 </div>
 </div>
 </div>
-<div id="outline-container-88750d69-5d84-478c-9ea6-a4f5388fa3be" class="outline-3">
-<h3 id="88750d69-5d84-478c-9ea6-a4f5388fa3be"><span class="section-number-3">5.3.</span> Module device tables</h3>
+<div id="outline-container-org3547e82" class="outline-3">
+<h3 id="88750d69-5d84-478c-9ea6-a4f5388fa3be"><span class="section-number-3">5.3</span> Module device tables</h3>
 <div class="outline-text-3" id="text-88750d69-5d84-478c-9ea6-a4f5388fa3be">
 <p>
 (Here&rsquo;s where the <i>real</i> task starts.)
@@ -3357,8 +3394,8 @@ So, what do these aliases represent, and how are they used?
 </p>
 </div>
 </div>
-<div id="outline-container-1b41b15a-5d3b-4eb9-a2f4-a2246de3533d" class="outline-3">
-<h3 id="1b41b15a-5d3b-4eb9-a2f4-a2246de3533d"><span class="section-number-3">5.4.</span> Module aliases</h3>
+<div id="outline-container-org770bd85" class="outline-3">
+<h3 id="1b41b15a-5d3b-4eb9-a2f4-a2246de3533d"><span class="section-number-3">5.4</span> Module aliases</h3>
 <div class="outline-text-3" id="text-1b41b15a-5d3b-4eb9-a2f4-a2246de3533d">
 <p>
 As mentioned in my earlier <a href="#c94004f2-c0ce-490c-895c-1569717784b2">detour</a>, when a uevent is sent from kernel to
@@ -3413,8 +3450,8 @@ performs this is dead simple:
 </div>
 </div>
 </div>
-<div id="outline-container-fa713ee2-069a-4e8d-aba4-3ba57e926021" class="outline-3">
-<h3 id="fa713ee2-069a-4e8d-aba4-3ba57e926021"><span class="section-number-3">5.5.</span> Getting the modalias for a USB keyboard</h3>
+<div id="outline-container-org039522d" class="outline-3">
+<h3 id="fa713ee2-069a-4e8d-aba4-3ba57e926021"><span class="section-number-3">5.5</span> Getting the modalias for a USB keyboard</h3>
 <div class="outline-text-3" id="text-fa713ee2-069a-4e8d-aba4-3ba57e926021">
 <p>
 How does one find out the modalias for a device?  In this example, I want to
@@ -3512,8 +3549,8 @@ set the interface subclass to 1.  The modalias strings are now a match.
 </p>
 </div>
 </div>
-<div id="outline-container-a3cee954-faab-4205-baf5-a375d73702c2" class="outline-3">
-<h3 id="a3cee954-faab-4205-baf5-a375d73702c2"><span class="section-number-3">5.6.</span> Testing</h3>
+<div id="outline-container-orge7a725e" class="outline-3">
+<h3 id="a3cee954-faab-4205-baf5-a375d73702c2"><span class="section-number-3">5.6</span> Testing</h3>
 <div class="outline-text-3" id="text-a3cee954-faab-4205-baf5-a375d73702c2">
 <p>
 ​*​recompiles​*​
@@ -3566,8 +3603,8 @@ And it worked!  The module was loaded!  Yeeeahh!  \o/
 </p>
 </div>
 </div>
-<div id="outline-container-288997b5-ba67-4ac3-a0f8-d49028149d59" class="outline-3">
-<h3 id="288997b5-ba67-4ac3-a0f8-d49028149d59"><span class="section-number-3">5.7.</span> Some final notes</h3>
+<div id="outline-container-org23594ac" class="outline-3">
+<h3 id="288997b5-ba67-4ac3-a0f8-d49028149d59"><span class="section-number-3">5.7</span> Some final notes</h3>
 <div class="outline-text-3" id="text-288997b5-ba67-4ac3-a0f8-d49028149d59">
 <p>
 My solution appears sufficient for fulfilling the task as it was described.
@@ -3616,8 +3653,8 @@ in the <a href="#b4a93119-0bd3-4bac-8275-68a40f8a6f69">appendices</a> if you are
 </div>
 </div>
 </div>
-<div id="outline-container-1158c320-30bc-48d3-a42c-feea3eeb6e71" class="outline-2">
-<h2 id="1158c320-30bc-48d3-a42c-feea3eeb6e71"><span class="section-number-2">6.</span> Task 06</h2>
+<div id="outline-container-orge4b1ca9" class="outline-2">
+<h2 id="1158c320-30bc-48d3-a42c-feea3eeb6e71"><span class="section-number-2">6</span> Task 06</h2>
 <div class="outline-text-2" id="text-1158c320-30bc-48d3-a42c-feea3eeb6e71">
 <blockquote>
 <p>
@@ -3687,15 +3724,15 @@ But before looking at the misc driver interface, I want to explain what major
 and minor numbers are.
 </p>
 </div>
-<div id="outline-container-628566a0-dd52-425e-b686-b6e31e2ebdfe" class="outline-3">
-<h3 id="628566a0-dd52-425e-b686-b6e31e2ebdfe"><span class="section-number-3">6.1.</span> Device numbers</h3>
+<div id="outline-container-orgce4fa79" class="outline-3">
+<h3 id="628566a0-dd52-425e-b686-b6e31e2ebdfe"><span class="section-number-3">6.1</span> Device numbers</h3>
 <div class="outline-text-3" id="text-628566a0-dd52-425e-b686-b6e31e2ebdfe">
 <p>
 A device number identifies a registered device.  It has two parts: a <i>major</i>
 number and a <i>minor</i> number (often printed <code>&lt;maj&gt;:&lt;min&gt;</code>):
 </p>
 <ul class="org-ul">
-<li>The major number identifies the driver responsible for the device.<sup><a id="fnr.18" class="footref" href="#fn.18" role="doc-backlink">18</a></sup></li>
+<li>The major number identifies the driver responsible for the device.<sup><a id="fnr.18" class="footref" href="#fn.18">18</a></sup></li>
 <li>The minor number indexes the currently registered devices (real or virtual)
 under that driver&rsquo;s control.</li>
 </ul>
@@ -3718,7 +3755,7 @@ With regard to block device drivers, typically the minor numbers will iterate
 over not just physical devices but all the partitions as well.  For example,
 here is the output of <code class="src src-bash">ls -l /dev/mmcblk*</code>:
 </p>
-<pre class="example" id="org41dc9d5">
+<pre class="example">
 brw-rw---- 1 root disk 179, 0   Jan 1 2000 /dev/mmcblk0
 brw-rw---- 1 root disk 179, 1   Jan 1 2000 /dev/mmcblk0p1
 brw-rw---- 1 root disk 179, 2   Jan 1 2000 /dev/mmcblk0p2
@@ -3732,7 +3769,7 @@ brw-rw---- 1 root disk 179, 10  Jan 1 2000 /dev/mmcblk1p2
 The major number is 179 (the MMC block driver) and the minor number is listed
 in the adjacent column.  In this case, the MMC driver allocates 8 minor
 numbers to each MMC device.  The first in each group of 8 maps the full block
-device, while the rest are for partitions.<sup><a id="fnr.19" class="footref" href="#fn.19" role="doc-backlink">19</a></sup><sup>, </sup><sup><a id="fnr.20" class="footref" href="#fn.20" role="doc-backlink">20</a></sup>
+device, while the rest are for partitions.<sup><a id="fnr.19" class="footref" href="#fn.19">19</a></sup><sup>, </sup><sup><a id="fnr.20" class="footref" href="#fn.20">20</a></sup>
 </p>
 
 <p>
@@ -3755,7 +3792,7 @@ is being referenced.
 Network devices are a special exception to this.  They don&rsquo;t have major/minor
 numbers or device nodes.  They are instead referred to by name (one which is
 generated internally by the corresponding driver; e.g. <code>eth0</code>, <code>lo</code>, <code>wlan0</code>), and
-accessed through the socket API.<sup><a id="fnr.21" class="footref" href="#fn.21" role="doc-backlink">21</a></sup>
+accessed through the socket API.<sup><a id="fnr.21" class="footref" href="#fn.21">21</a></sup>
 </p>
 
 <p>
@@ -3778,8 +3815,8 @@ lists major numbers associated with extant devices.)
 </p>
 </div>
 </div>
-<div id="outline-container-0ead0429-3ed9-423d-ad8b-d38ab99e0df7" class="outline-3">
-<h3 id="0ead0429-3ed9-423d-ad8b-d38ab99e0df7"><span class="section-number-3">6.2.</span> The misc driver interface</h3>
+<div id="outline-container-org9541fdb" class="outline-3">
+<h3 id="0ead0429-3ed9-423d-ad8b-d38ab99e0df7"><span class="section-number-3">6.2</span> The misc driver interface</h3>
 <div class="outline-text-3" id="text-0ead0429-3ed9-423d-ad8b-d38ab99e0df7">
 <p>
 (N.B.: This interface has nothing to do with the drivers in <code>drivers/misc/</code>.
@@ -3831,8 +3868,8 @@ the <code>struct miscdevice</code> associated with the file being read/written.
 </p>
 </div>
 </div>
-<div id="outline-container-ddfd869d-eaa0-492d-85fb-e2827a3ec726" class="outline-3">
-<h3 id="ddfd869d-eaa0-492d-85fb-e2827a3ec726"><span class="section-number-3">6.3.</span> The <code>read()</code> and <code>write()</code> methods</h3>
+<div id="outline-container-org94fa384" class="outline-3">
+<h3 id="ddfd869d-eaa0-492d-85fb-e2827a3ec726"><span class="section-number-3">6.3</span> The <code>read()</code> and <code>write()</code> methods</h3>
 <div class="outline-text-3" id="text-ddfd869d-eaa0-492d-85fb-e2827a3ec726">
 <p>
 Here are their prototypes:
@@ -3854,7 +3891,7 @@ offset in the process);</li>
 
 <p>
 Implementations often need to copy data of some arbitrary length to/from
-user-space.  Rather than dereferencing the <code>char __user *</code> parameter<sup><a id="fnr.22" class="footref" href="#fn.22" role="doc-backlink">22</a></sup> directly, we must use the following:
+user-space.  Rather than dereferencing the <code>char __user *</code> parameter<sup><a id="fnr.22" class="footref" href="#fn.22">22</a></sup> directly, we must use the following:
 </p>
 <div class="org-src-container">
 <pre class="src src-c"><span class="org-type">unsigned</span> <span class="org-type">long</span> <span class="org-function-name">copy_to_user</span>(<span class="org-type">void</span> <span class="org-variable-name">__user</span> *to, <span class="org-keyword">const</span> <span class="org-type">void</span> *<span class="org-variable-name">from</span>, <span class="org-type">unsigned</span> <span class="org-type">long</span> <span class="org-variable-name">count</span>);
@@ -3962,8 +3999,8 @@ At the end I did a final <code>clang-format</code> to correct the formatting:
 </div>
 </div>
 </div>
-<div id="outline-container-8401a002-06f1-444a-bed4-9cbe35161e52" class="outline-2">
-<h2 id="8401a002-06f1-444a-bed4-9cbe35161e52"><span class="section-number-2">7.</span> Task 07</h2>
+<div id="outline-container-org42f18fb" class="outline-2">
+<h2 id="8401a002-06f1-444a-bed4-9cbe35161e52"><span class="section-number-2">7</span> Task 07</h2>
 <div class="outline-text-2" id="text-8401a002-06f1-444a-bed4-9cbe35161e52">
 <blockquote>
 <p>
@@ -3987,8 +4024,8 @@ about what Linux kernel developers do and how they do it.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-51d453ee-3820-493c-9a0b-7a1ef245fa14" class="outline-3">
-<h3 id="51d453ee-3820-493c-9a0b-7a1ef245fa14"><span class="section-number-3">7.1.</span> The development process</h3>
+<div id="outline-container-org98bbe5e" class="outline-3">
+<h3 id="51d453ee-3820-493c-9a0b-7a1ef245fa14"><span class="section-number-3">7.1</span> The development process</h3>
 <div class="outline-text-3" id="text-51d453ee-3820-493c-9a0b-7a1ef245fa14">
 <p>
 Here&rsquo;s my best summary of what&rsquo;s in the guide, which may be perused in full
@@ -4052,7 +4089,7 @@ what kinds of patches are being prepared for the next merge-window, for
 integration testing purposes, and to anticipate changes and conflicts
 before they land in mainline</li>
 <li>many next trees exist; see <a href="https://git.kernel.org/">here</a> for a more-or-less comprehensive
-list<sup><a id="fnr.23" class="footref" href="#fn.23" role="doc-backlink">23</a></sup></li>
+list<sup><a id="fnr.23" class="footref" href="#fn.23">23</a></sup></li>
 <li>the mainmost next tree is Stephen Rothwell&rsquo;s <code>linux-next</code>, which
 conglomerates other subsystem next trees, and represents a snapshot of
 what mainline is expected to look like after the next merge-window closes</li>
@@ -4124,8 +4161,8 @@ fixing up of unmaintained code, API conversion, et al.</li>
 </dl>
 </div>
 </div>
-<div id="outline-container-e5245215-1ea9-49ac-afaa-14c42f256953" class="outline-3">
-<h3 id="e5245215-1ea9-49ac-afaa-14c42f256953"><span class="section-number-3">7.2.</span> Tracking <code>linux-next</code></h3>
+<div id="outline-container-orgb71c51b" class="outline-3">
+<h3 id="e5245215-1ea9-49ac-afaa-14c42f256953"><span class="section-number-3">7.2</span> Tracking <code>linux-next</code></h3>
 <div class="outline-text-3" id="text-e5245215-1ea9-49ac-afaa-14c42f256953">
 <p>
 On the advice of <a href="https://www.kernel.org/doc/man-pages/linux-next.html">this old manpage</a>, instead of just cloning <a href="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git">linux-next</a>, we
@@ -4217,14 +4254,14 @@ So, by default, after having cloned a respository:
 <p>
 To fetch a remote means to update our local snapshot of it, downloading any
 new binary blobs in the process.  To push, on the other hand, works in the
-opposite direction.<sup><a id="fnr.24" class="footref" href="#fn.24" role="doc-backlink">24</a></sup>
+opposite direction.<sup><a id="fnr.24" class="footref" href="#fn.24">24</a></sup>
 </p>
 
 <p>
 By creating a remote tracking branch, one obtains a snapshot of the state of
 the remote branch, which one may periodically update by fetching.  A local
 branch which is &ldquo;tracking&rdquo; that remote branch can then perform a merge by
-pulling.<sup><a id="fnr.25" class="footref" href="#fn.25" role="doc-backlink">25</a></sup>
+pulling.<sup><a id="fnr.25" class="footref" href="#fn.25">25</a></sup>
 </p>
 
 <p>
@@ -4236,7 +4273,7 @@ Let&rsquo;s add a remote-tracking branch for <code>linux-next</code> to our loca
 </div>
 
 <p>
-Now we must fetch it (include the <code>linux-next</code> tags too<sup><a id="fnr.26" class="footref" href="#fn.26" role="doc-backlink">26</a></sup>):
+Now we must fetch it (include the <code>linux-next</code> tags too<sup><a id="fnr.26" class="footref" href="#fn.26">26</a></sup>):
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">git fetch --tags linux-next
@@ -4251,8 +4288,8 @@ feature-branch doesn&rsquo;t need to be tracking any remote branch at all.
 </p>
 </div>
 </div>
-<div id="outline-container-9d458971-912d-4195-a90d-3ea26402117e" class="outline-3">
-<h3 id="9d458971-912d-4195-a90d-3ea26402117e"><span class="section-number-3">7.3.</span> Building and booting</h3>
+<div id="outline-container-org6d852f1" class="outline-3">
+<h3 id="9d458971-912d-4195-a90d-3ea26402117e"><span class="section-number-3">7.3</span> Building and booting</h3>
 <div class="outline-text-3" id="text-9d458971-912d-4195-a90d-3ea26402117e">
 <p>
 Let&rsquo;s view the recent tags:
@@ -4298,8 +4335,8 @@ double-check what we&rsquo;re running:
 </div>
 </div>
 </div>
-<div id="outline-container-314f2c84-9822-4972-ba28-2d42d2953299" class="outline-2">
-<h2 id="314f2c84-9822-4972-ba28-2d42d2953299"><span class="section-number-2">8.</span> Task 08</h2>
+<div id="outline-container-org4b62862" class="outline-2">
+<h2 id="314f2c84-9822-4972-ba28-2d42d2953299"><span class="section-number-2">8</span> Task 08</h2>
 <div class="outline-text-2" id="text-314f2c84-9822-4972-ba28-2d42d2953299">
 <blockquote>
 <p>
@@ -4360,13 +4397,13 @@ In summary, our module should create a debugfs subdirectory &#x2014; called
 from which any user may read.</li>
 </ul>
 </div>
-<div id="outline-container-378a8d38-264d-4191-ac39-0d6c6a130a4e" class="outline-3">
-<h3 id="378a8d38-264d-4191-ac39-0d6c6a130a4e"><span class="section-number-3">8.1.</span> The debugfs interface</h3>
+<div id="outline-container-org81918d9" class="outline-3">
+<h3 id="378a8d38-264d-4191-ac39-0d6c6a130a4e"><span class="section-number-3">8.1</span> The debugfs interface</h3>
 <div class="outline-text-3" id="text-378a8d38-264d-4191-ac39-0d6c6a130a4e">
 <p>
 Debugfs, which is normally mounted to <code>/sys/kernel/debug/</code>, is a dumping ground
 for anything-goes files that don&rsquo;t follow the typical one-value-per-file
-heuristic regarding sysfs attributes.<sup><a id="fnr.27" class="footref" href="#fn.27" role="doc-backlink">27</a></sup>
+heuristic regarding sysfs attributes.<sup><a id="fnr.27" class="footref" href="#fn.27">27</a></sup>
 </p>
 
 <p>
@@ -4413,8 +4450,8 @@ char pointer, depending on the mode bits provided:
 </div>
 </div>
 </div>
-<div id="outline-container-318c0505-15a5-484e-97dc-0e77ebe8741a" class="outline-3">
-<h3 id="318c0505-15a5-484e-97dc-0e77ebe8741a"><span class="section-number-3">8.2.</span> Writing the module</h3>
+<div id="outline-container-orgb00bcb0" class="outline-3">
+<h3 id="318c0505-15a5-484e-97dc-0e77ebe8741a"><span class="section-number-3">8.2</span> Writing the module</h3>
 <div class="outline-text-3" id="text-318c0505-15a5-484e-97dc-0e77ebe8741a">
 <p>
 For the &ldquo;id&rdquo; file, we can just copy the code we used in <a href="#1158c320-30bc-48d3-a42c-feea3eeb6e71">task 06</a>.  For the
@@ -4437,7 +4474,7 @@ both.  <i>Yes</i>, we should zero the memory just to be safe.  (Even if we don&r
 on letting user-space read this page arbitrarily, we should still zero it just
 in case.)  And <i>yes</i>, we should use <code>get_zeroed_page()</code> instead.  (N.B.: This
 returns the starting virtual address of the page, whereas <code>__get_free_page()</code>
-returns a <code>struct page</code>.<sup><a id="fnr.30" class="footref" href="#fn.30" role="doc-backlink">30</a></sup>)  We can free this page at module exit
+returns a <code>struct page</code>.<sup><a id="fnr.30" class="footref" href="#fn.30">30</a></sup>)  We can free this page at module exit
 with <code>free_page()</code>, to which we pass the original starting virtual address.
 </p>
 
@@ -4518,8 +4555,8 @@ emacs-based editor.  Conveniently, any null characters show up as <code>^@</code
 </div>
 </div>
 </div>
-<div id="outline-container-29787ffa-a04c-44ac-a030-7b1452bf710c" class="outline-2">
-<h2 id="29787ffa-a04c-44ac-a030-7b1452bf710c"><span class="section-number-2">9.</span> Task 09</h2>
+<div id="outline-container-org2070bdf" class="outline-2">
+<h2 id="29787ffa-a04c-44ac-a030-7b1452bf710c"><span class="section-number-2">9</span> Task 09</h2>
 <div class="outline-text-2" id="text-29787ffa-a04c-44ac-a030-7b1452bf710c">
 <blockquote>
 <p>
@@ -4556,8 +4593,8 @@ want to see you go away just because sysfs is so damn complicated.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-0f44c8ce-e15d-4def-9581-af00df326fdf" class="outline-3">
-<h3 id="0f44c8ce-e15d-4def-9581-af00df326fdf"><span class="section-number-3">9.1.</span> The sysfs interface (user-space)</h3>
+<div id="outline-container-org462ba1f" class="outline-3">
+<h3 id="0f44c8ce-e15d-4def-9581-af00df326fdf"><span class="section-number-3">9.1</span> The sysfs interface (user-space)</h3>
 <div class="outline-text-3" id="text-0f44c8ce-e15d-4def-9581-af00df326fdf">
 <p>
 As I already touched on <a href="#7dec8acc-8de6-4b4c-93d1-59850d71e7f7">earlier</a>, the structure of <code>/sys/</code> reflects the structure
@@ -4780,8 +4817,8 @@ notable contents in the <a href="#ad4353ca-42df-48b3-98ac-e9ebbf309dab">appendix
 </p>
 </div>
 </div>
-<div id="outline-container-54a76569-1db2-400c-8d39-a32b708b2334" class="outline-3">
-<h3 id="54a76569-1db2-400c-8d39-a32b708b2334"><span class="section-number-3">9.2.</span> The sysfs interface (kernel-space)</h3>
+<div id="outline-container-orgae34938" class="outline-3">
+<h3 id="54a76569-1db2-400c-8d39-a32b708b2334"><span class="section-number-3">9.2</span> The sysfs interface (kernel-space)</h3>
 <div class="outline-text-3" id="text-54a76569-1db2-400c-8d39-a32b708b2334">
 <p>
 My understanding of the kobject hierarchy comes primarily from chapter 14 of
@@ -4833,7 +4870,7 @@ embedded within.  This count is manipulated with <code>kobject_get()</code> and
 <code>kobject_put()</code>.  The ref count is initialised to 1 when the kobject is
 initialised (with <code>kobject_init()</code>).  When it falls to 0, the kobject and the
 structure it is embedded within are freed (using yet another method from the
-kobject&rsquo;s ktype).<sup><a id="fnr.31" class="footref" href="#fn.31" role="doc-backlink">31</a></sup>
+kobject&rsquo;s ktype).<sup><a id="fnr.31" class="footref" href="#fn.31">31</a></sup>
 </p>
 
 <p>
@@ -4845,8 +4882,8 @@ pair of <code>show()</code> and <code>store()</code> methods to collectively imp
 </p>
 </div>
 </div>
-<div id="outline-container-a71711c3-9f80-4153-a4a6-de82bcdcd297" class="outline-3">
-<h3 id="a71711c3-9f80-4153-a4a6-de82bcdcd297"><span class="section-number-3">9.3.</span> Writing the module</h3>
+<div id="outline-container-orga229974" class="outline-3">
+<h3 id="a71711c3-9f80-4153-a4a6-de82bcdcd297"><span class="section-number-3">9.3</span> Writing the module</h3>
 <div class="outline-text-3" id="text-a71711c3-9f80-4153-a4a6-de82bcdcd297">
 <p>
 A super-simplified picture of things:
@@ -4921,8 +4958,8 @@ learned 🙃)</li>
 </div>
 </div>
 </div>
-<div id="outline-container-4cf49816-7559-408c-bea0-5f39131bba5d" class="outline-2">
-<h2 id="4cf49816-7559-408c-bea0-5f39131bba5d"><span class="section-number-2">10.</span> Task 10</h2>
+<div id="outline-container-org0c725c7" class="outline-2">
+<h2 id="4cf49816-7559-408c-bea0-5f39131bba5d"><span class="section-number-2">10</span> Task 10</h2>
 <div class="outline-text-2" id="text-4cf49816-7559-408c-bea0-5f39131bba5d">
 <blockquote>
 <p>
@@ -4991,8 +5028,8 @@ As always, all of the information I made use of to complete this task has been
 documented below.  The actual patch I submitted I will leave to <a href="#a316f564-f9e6-450e-ad1f-8a1659a6f35c">the end</a>.
 </p>
 </div>
-<div id="outline-container-a027dab5-0f27-47e8-96bd-6545365c4f11" class="outline-3">
-<h3 id="a027dab5-0f27-47e8-96bd-6545365c4f11"><span class="section-number-3">10.1.</span> Email</h3>
+<div id="outline-container-org238a64a" class="outline-3">
+<h3 id="a027dab5-0f27-47e8-96bd-6545365c4f11"><span class="section-number-3">10.1</span> Email</h3>
 <div class="outline-text-3" id="text-a027dab5-0f27-47e8-96bd-6545365c4f11">
 <p>
 Gmail accounts make up a relatively sizable portion of the addresses in use on
@@ -5019,7 +5056,7 @@ additions to our <code>.gitconfig</code>.
 <p>
 The mailing list aren&rsquo;t just for transmitting patches though; it is the domain
 for much discussion.  We <i>could</i> use gmail&rsquo;s browser interface for this purpose,
-but it&rsquo;s not a pleasant experience.<sup><a id="fnr.32" class="footref" href="#fn.32" role="doc-backlink">32</a></sup>
+but it&rsquo;s not a pleasant experience.<sup><a id="fnr.32" class="footref" href="#fn.32">32</a></sup>
 </p>
 
 <p>
@@ -5030,12 +5067,12 @@ some of its concepts.  (More recently I&rsquo;ve found an outstanding and
 comprehensive resource on this topic <a href="https://explained-from-first-principles.com/email/">here</a>.)
 </p>
 </div>
-<div id="outline-container-ece3540d-ebdd-4382-bfb5-7cb3c7591ca7" class="outline-4">
-<h4 id="ece3540d-ebdd-4382-bfb5-7cb3c7591ca7"><span class="section-number-4">10.1.1.</span> Concepts</h4>
+<div id="outline-container-org9478d57" class="outline-4">
+<h4 id="ece3540d-ebdd-4382-bfb5-7cb3c7591ca7"><span class="section-number-4">10.1.1</span> Concepts</h4>
 <div class="outline-text-4" id="text-ece3540d-ebdd-4382-bfb5-7cb3c7591ca7">
 </div>
-<div id="outline-container-bfbf5793-b0db-4708-bf7e-34ff8fcd1424" class="outline-5">
-<h5 id="bfbf5793-b0db-4708-bf7e-34ff8fcd1424"><span class="section-number-5">10.1.1.1.</span> Agents</h5>
+<div id="outline-container-orga31160d" class="outline-5">
+<h5 id="bfbf5793-b0db-4708-bf7e-34ff8fcd1424"><span class="section-number-5">10.1.1.1</span> Agents</h5>
 <div class="outline-text-5" id="text-bfbf5793-b0db-4708-bf7e-34ff8fcd1424">
 <p>
 Email agents are the clients and servers that make up the chain of email
@@ -5094,8 +5131,8 @@ below).  (Perhaps the fetching part represents the postie?)</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-32d52f3f-88e3-45f9-a363-4c63f7e3b6bc" class="outline-5">
-<h5 id="32d52f3f-88e3-45f9-a363-4c63f7e3b6bc"><span class="section-number-5">10.1.1.2.</span> Protocols</h5>
+<div id="outline-container-orgd878117" class="outline-5">
+<h5 id="32d52f3f-88e3-45f9-a363-4c63f7e3b6bc"><span class="section-number-5">10.1.1.2</span> Protocols</h5>
 <div class="outline-text-5" id="text-32d52f3f-88e3-45f9-a363-4c63f7e3b6bc">
 <p>
 SMTP is the protocol used for the &ldquo;sending&rdquo; leg of the journey, namely all of:
@@ -5130,8 +5167,8 @@ what we want.
 </p>
 </div>
 </div>
-<div id="outline-container-70c18aa3-235f-4cea-88ac-29be3397ecbd" class="outline-5">
-<h5 id="70c18aa3-235f-4cea-88ac-29be3397ecbd"><span class="section-number-5">10.1.1.3.</span> Mail exchanger record</h5>
+<div id="outline-container-org88be45d" class="outline-5">
+<h5 id="70c18aa3-235f-4cea-88ac-29be3397ecbd"><span class="section-number-5">10.1.1.3</span> Mail exchanger record</h5>
 <div class="outline-text-5" id="text-70c18aa3-235f-4cea-88ac-29be3397ecbd">
 <p>
 A mail exchanger record (or MX record) is a record in the DNS system that
@@ -5143,8 +5180,8 @@ not point to any CNAME records (those define domain aliases, not addresses).
 </p>
 </div>
 </div>
-<div id="outline-container-e0a94050-39f2-473b-8f75-21681fa1590d" class="outline-5">
-<h5 id="e0a94050-39f2-473b-8f75-21681fa1590d"><span class="section-number-5">10.1.1.4.</span> Maildir/mbox</h5>
+<div id="outline-container-org32fa246" class="outline-5">
+<h5 id="e0a94050-39f2-473b-8f75-21681fa1590d"><span class="section-number-5">10.1.1.4</span> Maildir/mbox</h5>
 <div class="outline-text-5" id="text-e0a94050-39f2-473b-8f75-21681fa1590d">
 <p>
 These are the two most common storage formats for a mailbox on disk.
@@ -5161,8 +5198,8 @@ Maildir tends to be more popular.
 </p>
 </div>
 </div>
-<div id="outline-container-ca8eb5d9-cf1e-4ba7-b0a2-693d10300928" class="outline-5">
-<h5 id="ca8eb5d9-cf1e-4ba7-b0a2-693d10300928"><span class="section-number-5">10.1.1.5.</span> <code>MAIL FROM</code> and <code>FROM</code> addresses</h5>
+<div id="outline-container-org8f06f02" class="outline-5">
+<h5 id="ca8eb5d9-cf1e-4ba7-b0a2-693d10300928"><span class="section-number-5">10.1.1.5</span> <code>MAIL FROM</code> and <code>FROM</code> addresses</h5>
 <div class="outline-text-5" id="text-ca8eb5d9-cf1e-4ba7-b0a2-693d10300928">
 <p>
 The <code>MAIL FROM</code> address (AKA the bounce address, RFC5321.MailFrom, Envelope
@@ -5180,12 +5217,12 @@ MUA.  (The <code>MAIL FROM</code> address is only relevant to transmission.)
 </div>
 </div>
 </div>
-<div id="outline-container-c2939824-a819-492b-8b04-1ee6bb2b2748" class="outline-4">
-<h4 id="c2939824-a819-492b-8b04-1ee6bb2b2748"><span class="section-number-4">10.1.2.</span> Workflow</h4>
+<div id="outline-container-orgb198999" class="outline-4">
+<h4 id="c2939824-a819-492b-8b04-1ee6bb2b2748"><span class="section-number-4">10.1.2</span> Workflow</h4>
 <div class="outline-text-4" id="text-c2939824-a819-492b-8b04-1ee6bb2b2748">
 <p>
 Greg Kroah-Hartman wrote a great <a href="http://kroah.com/log/blog/2019/08/14/patch-workflow-with-mutt-2019/">blog post</a> where he goes over his email
-workflow.<sup><a id="fnr.33" class="footref" href="#fn.33" role="doc-backlink">33</a></sup>  This provides an interesting picture of his day-to-day work as a kernel
+workflow.<sup><a id="fnr.33" class="footref" href="#fn.33">33</a></sup>  This provides an interesting picture of his day-to-day work as a kernel
 maintainer, so I thought it worthwhile to go over.
 </p>
 
@@ -5271,12 +5308,12 @@ whether or not the patch was accepted.
 </p>
 </div>
 </div>
-<div id="outline-container-751648db-fa8d-4d8d-9bd4-aa7d490f7b6d" class="outline-4">
-<h4 id="751648db-fa8d-4d8d-9bd4-aa7d490f7b6d"><span class="section-number-4">10.1.3.</span> Setting things up</h4>
+<div id="outline-container-orgd2e3972" class="outline-4">
+<h4 id="751648db-fa8d-4d8d-9bd4-aa7d490f7b6d"><span class="section-number-4">10.1.3</span> Setting things up</h4>
 <div class="outline-text-4" id="text-751648db-fa8d-4d8d-9bd4-aa7d490f7b6d">
 <p>
 I decided to use my gmail account as an IMAP server, which I will access via a
-local MUA<sup><a id="fnr.34" class="footref" href="#fn.34" role="doc-backlink">34</a></sup>, as well as git for sending patches.
+local MUA<sup><a id="fnr.34" class="footref" href="#fn.34">34</a></sup>, as well as git for sending patches.
 </p>
 
 <p>
@@ -5318,7 +5355,7 @@ We configure the MUA-side of things with the following information:
 <p>
 If you&rsquo;re using two-factor authentication on your google account (which you
 should), and the app supports it (<a href="https://www.thunderbird.net/">thunderbird</a> does; <a href="https://git-scm.com/docs/git-send-email">git-send-email</a> does
-not<sup><a id="fnr.35" class="footref" href="#fn.35" role="doc-backlink">35</a></sup>), then authentication will happen
+not<sup><a id="fnr.35" class="footref" href="#fn.35">35</a></sup>), then authentication will happen
 separately, and a password won&rsquo;t be necessary here.  Otherwise, we&rsquo;ll need to
 generate an app-specific password in our google account; more about this <a href="https://security.google.com/settings/security/apppasswords">here</a>.
 This password is a random jumble of character, and not something one can
@@ -5327,8 +5364,8 @@ password in your <code>.gitconfig</code> which avoids this, but I&rsquo;m not a 
 I found a way around this, which I describe below.
 </p>
 </div>
-<div id="outline-container-10772f62-bbcb-430a-8dae-e4e3d9902419" class="outline-5">
-<h5 id="10772f62-bbcb-430a-8dae-e4e3d9902419"><span class="section-number-5">10.1.3.1.</span> Configuring git</h5>
+<div id="outline-container-org52a8316" class="outline-5">
+<h5 id="10772f62-bbcb-430a-8dae-e4e3d9902419"><span class="section-number-5">10.1.3.1</span> Configuring git</h5>
 <div class="outline-text-5" id="text-10772f62-bbcb-430a-8dae-e4e3d9902419">
 <p>
 The documentation for the <code>git send-email</code> command can be read <a href="https://git-scm.com/docs/git-send-email">here</a>.  For git
@@ -5336,7 +5373,7 @@ configuration more generally, see <a href="https://git-scm.com/book/en/v2/Custom
 </p>
 
 <p>
-Our <code>.gitconfig</code> needs to include something like this:<sup><a id="fnr.36" class="footref" href="#fn.36" role="doc-backlink">36</a></sup>
+Our <code>.gitconfig</code> needs to include something like this:<sup><a id="fnr.36" class="footref" href="#fn.36">36</a></sup>
 </p>
 <div class="org-src-container">
 <pre class="src src-conf">[<span class="org-type">sendemail</span>]
@@ -5388,8 +5425,8 @@ may vary.  (If you want to see how I set up mine, check out the <a href="#61c6e1
 </p>
 </div>
 </div>
-<div id="outline-container-95f2185c-3c3a-4513-b67f-a0daeecd7509" class="outline-5">
-<h5 id="95f2185c-3c3a-4513-b67f-a0daeecd7509"><span class="section-number-5">10.1.3.2.</span> Miscellaneous settings</h5>
+<div id="outline-container-orgee7d340" class="outline-5">
+<h5 id="95f2185c-3c3a-4513-b67f-a0daeecd7509"><span class="section-number-5">10.1.3.2</span> Miscellaneous settings</h5>
 <div class="outline-text-5" id="text-95f2185c-3c3a-4513-b67f-a0daeecd7509">
 <p>
 In order to get my mail client (Thunderbird) to play nicely with patches, I
@@ -5432,8 +5469,8 @@ folders.
 </div>
 </div>
 </div>
-<div id="outline-container-d235cb47-cd5b-473f-b198-12ab2dc0279d" class="outline-3">
-<h3 id="d235cb47-cd5b-473f-b198-12ab2dc0279d"><span class="section-number-3">10.2.</span> Sending patches with <code>git send-email</code></h3>
+<div id="outline-container-org3fb466a" class="outline-3">
+<h3 id="d235cb47-cd5b-473f-b198-12ab2dc0279d"><span class="section-number-3">10.2</span> Sending patches with <code>git send-email</code></h3>
 <div class="outline-text-3" id="text-d235cb47-cd5b-473f-b198-12ab2dc0279d">
 <p>
 Since, as stated, send-email (documented <a href="https://git-scm.com/docs/git-send-email">here</a>) looks roughly like this:
@@ -5493,7 +5530,7 @@ Some of the more relevant <a href="https://git-scm.com/docs/git-send-email">send
 <dt><code>--dry-run</code></dt><dd>Do everything but send the email.</dd>
 <dt><code>--suppresscc=&lt;option&gt;</code></dt><dd>This lets us prevent certain addresses from being
 automatically added to the CC list, which by default will include the
-authors of the included patches (possibly ourselves).<sup><a id="fnr.37" class="footref" href="#fn.37" role="doc-backlink">37</a></sup></dd>
+authors of the included patches (possibly ourselves).<sup><a id="fnr.37" class="footref" href="#fn.37">37</a></sup></dd>
 <dt><code>--compose</code></dt><dd>The <code>--cover-letter</code> flag of <code>format-patch</code> generates an extra
 patch file (named something like <code>0000-cover-letter.patch</code>) to serve as the
 top-level email, may be used to provide a short summary of the full
@@ -5533,8 +5570,8 @@ email header was otherwise being set to &ldquo;quoted-printable&rdquo;, and this
 messing with line-endings that were causing <code>git am</code> to fail.
 </p>
 </div>
-<div id="outline-container-8648a480-a1d8-4eb3-856f-b1f816f2f18f" class="outline-4">
-<h4 id="8648a480-a1d8-4eb3-856f-b1f816f2f18f"><span class="section-number-4">10.2.1.</span> Bonus: Sending patches as drafts</h4>
+<div id="outline-container-orgf365ca4" class="outline-4">
+<h4 id="8648a480-a1d8-4eb3-856f-b1f816f2f18f"><span class="section-number-4">10.2.1</span> Bonus: Sending patches as drafts</h4>
 <div class="outline-text-4" id="text-8648a480-a1d8-4eb3-856f-b1f816f2f18f">
 <p>
 Instead of annotating the final email with <code>git send-email</code>, we may instead use
@@ -5575,8 +5612,8 @@ what we want.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-f0bcc5fd-ad27-4a24-b877-cc168da7f10d" class="outline-3">
-<h3 id="f0bcc5fd-ad27-4a24-b877-cc168da7f10d"><span class="section-number-3">10.3.</span> Applying patches with <code>git am</code></h3>
+<div id="outline-container-org0510c13" class="outline-3">
+<h3 id="f0bcc5fd-ad27-4a24-b877-cc168da7f10d"><span class="section-number-3">10.3</span> Applying patches with <code>git am</code></h3>
 <div class="outline-text-3" id="text-f0bcc5fd-ad27-4a24-b877-cc168da7f10d">
 <p>
 As stated, <code>git am</code> (documented <a href="https://git-scm.com/docs/git-am">here</a>) is the logical inverse of <code>git send-email</code>;
@@ -5588,7 +5625,7 @@ will also work on patch files.
 <p>
 If we want to apply a patch set consisting of multiple patches, we&rsquo;ll need to
 save all of the patch-containing messages into a single mbox file or a maildir
-(a plain directory).  Some MUAs make this easier than others.<sup><a id="fnr.38" class="footref" href="#fn.38" role="doc-backlink">38</a></sup>
+(a plain directory).  Some MUAs make this easier than others.<sup><a id="fnr.38" class="footref" href="#fn.38">38</a></sup>
 Alternatively, you can fetch them from one of the <a href="https://lore.kernel.org/">mailing list archives</a>.
 </p>
 
@@ -5622,8 +5659,8 @@ is a cover letter, you may need to skip it.)</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-c8e5030c-1c37-481f-ba8a-0c0fe7678477" class="outline-3">
-<h3 id="c8e5030c-1c37-481f-ba8a-0c0fe7678477"><span class="section-number-3">10.4.</span> Interacting with the mailing lists</h3>
+<div id="outline-container-org7a922d1" class="outline-3">
+<h3 id="c8e5030c-1c37-481f-ba8a-0c0fe7678477"><span class="section-number-3">10.4</span> Interacting with the mailing lists</h3>
 <div class="outline-text-3" id="text-c8e5030c-1c37-481f-ba8a-0c0fe7678477">
 <p>
 Which addresses do messages need to be sent/replied to?
@@ -5735,8 +5772,8 @@ happening in proverbial kernel-space via:
 </ul>
 </div>
 </div>
-<div id="outline-container-18f371b7-45c3-422d-8021-99d3c0f47f3b" class="outline-3">
-<h3 id="18f371b7-45c3-422d-8021-99d3c0f47f3b"><span class="section-number-3">10.5.</span> Developing the patch</h3>
+<div id="outline-container-org7888279" class="outline-3">
+<h3 id="18f371b7-45c3-422d-8021-99d3c0f47f3b"><span class="section-number-3">10.5</span> Developing the patch</h3>
 <div class="outline-text-3" id="text-18f371b7-45c3-422d-8021-99d3c0f47f3b">
 <p>
 Spamming an open-source project with low quality patches is generally frowned
@@ -5803,8 +5840,8 @@ need to do this a few times before generating and submitting our final patch
 to ensure our changes aren&rsquo;t obsolete or conflict with recent changes.
 </p>
 </div>
-<div id="outline-container-696e1817-149c-4d21-95a5-0662bbfc0589" class="outline-4">
-<h4 id="696e1817-149c-4d21-95a5-0662bbfc0589"><span class="section-number-4">10.5.1.</span> Bug hunting</h4>
+<div id="outline-container-org0d7ddd1" class="outline-4">
+<h4 id="696e1817-149c-4d21-95a5-0662bbfc0589"><span class="section-number-4">10.5.1</span> Bug hunting</h4>
 <div class="outline-text-4" id="text-696e1817-149c-4d21-95a5-0662bbfc0589">
 <p>
 We tested out the <code>checkpatch.pl</code> and <code>clang-format</code> tools <a href="#bc6ba800-d10d-41c9-a9b3-646f4ea93c53">earlier</a>.
@@ -5838,10 +5875,10 @@ So its warnings and errors are good candidates for fixes.
 </p>
 
 <p>
-To run this on all the files in <code>drivers/staging/</code>, I ran the following:<sup><a id="fnr.39" class="footref" href="#fn.39" role="doc-backlink">39</a></sup>
+To run this on all the files in <code>drivers/staging/</code>, I ran the following:<sup><a id="fnr.39" class="footref" href="#fn.39">39</a></sup>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="orgdbe4cd2">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
+<pre class="src src-bash" id="org748101a">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
 </pre>
 </div>
 
@@ -5863,8 +5900,8 @@ the commit history with fixes for.
 </p>
 </div>
 </div>
-<div id="outline-container-693d8d1f-7542-4be1-a1cc-0878ac475f20" class="outline-4">
-<h4 id="693d8d1f-7542-4be1-a1cc-0878ac475f20"><span class="section-number-4">10.5.2.</span> Bonus: Setting up a git hook</h4>
+<div id="outline-container-org11692f0" class="outline-4">
+<h4 id="693d8d1f-7542-4be1-a1cc-0878ac475f20"><span class="section-number-4">10.5.2</span> Bonus: Setting up a git hook</h4>
 <div class="outline-text-4" id="text-693d8d1f-7542-4be1-a1cc-0878ac475f20">
 <p>
 While I think of it, it would be nice to incorporate some of these tools into
@@ -6030,7 +6067,7 @@ operation if the prospective patch contains any problems as identified by
 checkpatch:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="org50bff94"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
+<pre class="src src-bash" id="org85d3410"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
 git show --format=email HEAD | ./scripts/checkpatch.pl --strict --codespell
 </pre>
 </div>
@@ -6040,8 +6077,8 @@ As for clang-format&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-ab7ca52b-c336-472f-8eb3-46513861c2f8" class="outline-4">
-<h4 id="ab7ca52b-c336-472f-8eb3-46513861c2f8"><span class="section-number-4">10.5.3.</span> Bonus: Integrating clang-format with our tools</h4>
+<div id="outline-container-org312f634" class="outline-4">
+<h4 id="ab7ca52b-c336-472f-8eb3-46513861c2f8"><span class="section-number-4">10.5.3</span> Bonus: Integrating clang-format with our tools</h4>
 <div class="outline-text-4" id="text-ab7ca52b-c336-472f-8eb3-46513861c2f8">
 <p>
 This tool is best used a bit more selectively, since it will often steamroll
@@ -6074,8 +6111,8 @@ For other tools, see <a href="https://clang.llvm.org/docs/ClangFormat.html">here
 </div>
 </div>
 </div>
-<div id="outline-container-e09ad9cf-ae87-46fb-9dce-899b38cebe8e" class="outline-3">
-<h3 id="e09ad9cf-ae87-46fb-9dce-899b38cebe8e"><span class="section-number-3">10.6.</span> Building and testing</h3>
+<div id="outline-container-org51cc1a6" class="outline-3">
+<h3 id="e09ad9cf-ae87-46fb-9dce-899b38cebe8e"><span class="section-number-3">10.6</span> Building and testing</h3>
 <div class="outline-text-3" id="text-e09ad9cf-ae87-46fb-9dce-899b38cebe8e">
 <p>
 At a minimum, a patch will need to actually build (on one of the default
@@ -6119,8 +6156,8 @@ maintainer of the selftest framework, who wrote <a href="https://www.linuxjourna
 of this may be out of date at the time of writing.)
 </p>
 </div>
-<div id="outline-container-e91e9b02-d5b6-4120-b040-587ffafd9573" class="outline-4">
-<h4 id="e91e9b02-d5b6-4120-b040-587ffafd9573"><span class="section-number-4">10.6.1.</span> Static analysis</h4>
+<div id="outline-container-orgd81838e" class="outline-4">
+<h4 id="e91e9b02-d5b6-4120-b040-587ffafd9573"><span class="section-number-4">10.6.1</span> Static analysis</h4>
 <div class="outline-text-4" id="text-e91e9b02-d5b6-4120-b040-587ffafd9573">
 <p>
 Before building, there are a few static analysis tools available we might want
@@ -6135,7 +6172,7 @@ Running make with <code>C=1</code> will run a static analysis tool, whose path i
 by <code>CHECK</code>, on only the files that are (re)compiled (<code>C=2</code> will run it on all
 files regardless).  By default, <code>CHECK</code> is set to <a href="https://www.kernel.org/doc/html/latest/dev-tools/sparse.html">sparse</a> (which unfortunately
 does not come bundled with the kernel tree; one must install it
-separately<sup><a id="fnr.40" class="footref" href="#fn.40" role="doc-backlink">40</a></sup>), a semantic checker for C programs.  However, we can change this to any
+separately<sup><a id="fnr.40" class="footref" href="#fn.40">40</a></sup>), a semantic checker for C programs.  However, we can change this to any
 tool we like.  To run <a href="http://smatch.sourceforge.net/">smatch</a>, for example:
 </p>
 <div class="org-src-container">
@@ -6163,15 +6200,15 @@ Otherwise, there are some make targets of interest here:
 <li><code>coccicheck</code>
 <ul class="org-ul">
 <li>runs the <a href="https://www.kernel.org/doc/html/latest/dev-tools/coccinelle.html">coccinelle</a> tool (again, we must obtain this tool separately; it
-is not bundled in with the kernel tree<sup><a id="fnr.41" class="footref" href="#fn.41" role="doc-backlink">41</a></sup>)</li>
-<li>has four basic operating modes<sup><a id="fnr.42" class="footref" href="#fn.42" role="doc-backlink">42</a></sup></li>
+is not bundled in with the kernel tree<sup><a id="fnr.41" class="footref" href="#fn.41">41</a></sup>)</li>
+<li>has four basic operating modes<sup><a id="fnr.42" class="footref" href="#fn.42">42</a></sup></li>
 <li>checks can be run in parallel with <code>J=&lt;threads&gt;</code></li>
 </ul></li>
 <li><code>checkstack</code>
 <ul class="org-ul">
 <li>generates a list of stack hogs</li>
 <li>for each function listed, the amount of space needed in its stack frame is
-given<sup><a id="fnr.43" class="footref" href="#fn.43" role="doc-backlink">43</a></sup></li>
+given<sup><a id="fnr.43" class="footref" href="#fn.43">43</a></sup></li>
 </ul></li>
 <li><code>versioncheck</code>
 <ul class="org-ul">
@@ -6183,7 +6220,7 @@ where <code>&lt;linux/version.h&gt;</code> wasn&rsquo;t included but ought to ha
 <ul class="org-ul">
 <li>finds instances of headers being included more than once</li>
 <li>this only considers duplicate includes in a given file; it doesn&rsquo;t follow
-nested includes, which are also a potential source of duplication<sup><a id="fnr.44" class="footref" href="#fn.44" role="doc-backlink">44</a></sup></li>
+nested includes, which are also a potential source of duplication<sup><a id="fnr.44" class="footref" href="#fn.44">44</a></sup></li>
 </ul></li>
 <li><code>export_report</code>
 <ul class="org-ul">
@@ -6199,13 +6236,13 @@ and their usage count by other in-tree modules</li>
 <li><code>clang-analyzer</code> and <code>clang-tidy</code>
 <ul class="org-ul">
 <li>these run the eponymous clang tools</li>
-<li>they are only relevant if we have set <code>CC=clang</code><sup><a id="fnr.45" class="footref" href="#fn.45" role="doc-backlink">45</a></sup></li>
+<li>they are only relevant if we have set <code>CC=clang</code><sup><a id="fnr.45" class="footref" href="#fn.45">45</a></sup></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-5d3c4be3-a897-4157-bcbb-193196b0ae48" class="outline-4">
-<h4 id="5d3c4be3-a897-4157-bcbb-193196b0ae48"><span class="section-number-4">10.6.2.</span> Kicking the tyres</h4>
+<div id="outline-container-orgac37ea0" class="outline-4">
+<h4 id="5d3c4be3-a897-4157-bcbb-193196b0ae48"><span class="section-number-4">10.6.2</span> Kicking the tyres</h4>
 <div class="outline-text-4" id="text-5d3c4be3-a897-4157-bcbb-193196b0ae48">
 <p>
 Beyond just checking that the kernel boots properly, there are a few extra
@@ -6243,8 +6280,8 @@ problem.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-23793e7f-3916-431f-969f-decf81f15277" class="outline-4">
-<h4 id="23793e7f-3916-431f-969f-decf81f15277"><span class="section-number-4">10.6.3.</span> In-tree tests</h4>
+<div id="outline-container-orgc899cb7" class="outline-4">
+<h4 id="23793e7f-3916-431f-969f-decf81f15277"><span class="section-number-4">10.6.3</span> In-tree tests</h4>
 <div class="outline-text-4" id="text-23793e7f-3916-431f-969f-decf81f15277">
 <p>
 Adding to the gamut of subsystem-specific test suites out in the wild (from
@@ -6325,8 +6362,8 @@ VMware, KVM, and Hyper-V</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-18250311-d2c7-48bc-a3e4-650f7a9a3724" class="outline-4">
-<h4 id="18250311-d2c7-48bc-a3e4-650f7a9a3724"><span class="section-number-4">10.6.4.</span> Configuration options</h4>
+<div id="outline-container-org46e9711" class="outline-4">
+<h4 id="18250311-d2c7-48bc-a3e4-650f7a9a3724"><span class="section-number-4">10.6.4</span> Configuration options</h4>
 <div class="outline-text-4" id="text-18250311-d2c7-48bc-a3e4-650f7a9a3724">
 <p>
 Some notable ones:
@@ -6447,8 +6484,8 @@ than 10 seconds, or more than 20 seconds, respectively)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-408921a2-e992-41fe-93ef-1167357ac5d0" class="outline-4">
-<h4 id="408921a2-e992-41fe-93ef-1167357ac5d0"><span class="section-number-4">10.6.5.</span> Linux Test Project (LTP)</h4>
+<div id="outline-container-orgdbc9491" class="outline-4">
+<h4 id="408921a2-e992-41fe-93ef-1167357ac5d0"><span class="section-number-4">10.6.5</span> Linux Test Project (LTP)</h4>
 <div class="outline-text-4" id="text-408921a2-e992-41fe-93ef-1167357ac5d0">
 <p>
 As per their <a href="https://linux-test-project.github.io/">github page</a>:
@@ -6471,8 +6508,8 @@ to validate new patches.
 </p>
 </div>
 </div>
-<div id="outline-container-776e802a-d218-4a2a-8bda-4d37fd36d915" class="outline-4">
-<h4 id="776e802a-d218-4a2a-8bda-4d37fd36d915"><span class="section-number-4">10.6.6.</span> Fuzzing tools</h4>
+<div id="outline-container-org2494e9a" class="outline-4">
+<h4 id="776e802a-d218-4a2a-8bda-4d37fd36d915"><span class="section-number-4">10.6.6</span> Fuzzing tools</h4>
 <div class="outline-text-4" id="text-776e802a-d218-4a2a-8bda-4d37fd36d915">
 <p>
 <a href="https://en.wikipedia.org/wiki/Fuzzing">Fuzzing</a> tools generate and pass random inputs to an interface in order to
@@ -6496,8 +6533,8 @@ of trees</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-24cc419b-7028-40eb-bc94-369977fd5976" class="outline-4">
-<h4 id="24cc419b-7028-40eb-bc94-369977fd5976"><span class="section-number-4">10.6.7.</span> CI services</h4>
+<div id="outline-container-orgf87c2ef" class="outline-4">
+<h4 id="24cc419b-7028-40eb-bc94-369977fd5976"><span class="section-number-4">10.6.7</span> CI services</h4>
 <div class="outline-text-4" id="text-24cc419b-7028-40eb-bc94-369977fd5976">
 <ul class="org-ul">
 <li><a href="https://scan.coverity.com/">Coverity scan</a>
@@ -6549,8 +6586,8 @@ number of kernel subsystems and components</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-ddd09c11-fd01-4937-8316-9d2346105c32" class="outline-4">
-<h4 id="ddd09c11-fd01-4937-8316-9d2346105c32"><span class="section-number-4">10.6.8.</span> Other test frameworks</h4>
+<div id="outline-container-org499cb12" class="outline-4">
+<h4 id="ddd09c11-fd01-4937-8316-9d2346105c32"><span class="section-number-4">10.6.8</span> Other test frameworks</h4>
 <div class="outline-text-4" id="text-ddd09c11-fd01-4937-8316-9d2346105c32">
 <ul class="org-ul">
 <li>XFSTests
@@ -6583,8 +6620,8 @@ web interface</li>
 </div>
 </div>
 </div>
-<div id="outline-container-546cf8d1-ff03-45c2-a9ad-ec2c1f871301" class="outline-3">
-<h3 id="546cf8d1-ff03-45c2-a9ad-ec2c1f871301"><span class="section-number-3">10.7.</span> Submitting the patch</h3>
+<div id="outline-container-orgcfb82af" class="outline-3">
+<h3 id="546cf8d1-ff03-45c2-a9ad-ec2c1f871301"><span class="section-number-3">10.7</span> Submitting the patch</h3>
 <div class="outline-text-3" id="text-546cf8d1-ff03-45c2-a9ad-ec2c1f871301">
 <p>
 Who or where should our new patchset be sent to?  We can find this out by
@@ -6687,8 +6724,8 @@ be patient and give it at least a week or two.  (Things may be especially slow
 during a merge-window.)
 </p>
 </div>
-<div id="outline-container-27563f63-557d-4f7b-afa4-39bd7107b4e7" class="outline-4">
-<h4 id="27563f63-557d-4f7b-afa4-39bd7107b4e7"><span class="section-number-4">10.7.1.</span> Bonus: Integrating <code>get_maintainer.pl</code> with <code>git send-email</code></h4>
+<div id="outline-container-orgee8d5f7" class="outline-4">
+<h4 id="27563f63-557d-4f7b-afa4-39bd7107b4e7"><span class="section-number-4">10.7.1</span> Bonus: Integrating <code>get_maintainer.pl</code> with <code>git send-email</code></h4>
 <div class="outline-text-4" id="text-27563f63-557d-4f7b-afa4-39bd7107b4e7">
 <p>
 Rather than manually adding the emails listed by <code>get_maintainer.pl</code> to the list
@@ -6716,8 +6753,8 @@ To use it:
 </div>
 </div>
 </div>
-<div id="outline-container-a316f564-f9e6-450e-ad1f-8a1659a6f35c" class="outline-3">
-<h3 id="a316f564-f9e6-450e-ad1f-8a1659a6f35c"><span class="section-number-3">10.8.</span> Finishing the task: a timeline</h3>
+<div id="outline-container-org7165c13" class="outline-3">
+<h3 id="a316f564-f9e6-450e-ad1f-8a1659a6f35c"><span class="section-number-3">10.8</span> Finishing the task: a timeline</h3>
 <div class="outline-text-3" id="text-a316f564-f9e6-450e-ad1f-8a1659a6f35c">
 <p>
 Since this task involved a bit more preparatory work than earlier ones, I
@@ -6729,7 +6766,7 @@ this patch:
 <li>reset my master branch onto the latest tag</li>
 <li>scoured for checkpatch issues
 <ul class="org-ul">
-<li>see <a href="#orgdbe4cd2">the one-liner I used earlier</a></li>
+<li>see <a href="#org748101a">the one-liner I used earlier</a></li>
 </ul></li>
 <li>went through them to pick out something
 <ul class="org-ul">
@@ -6819,10 +6856,10 @@ decided to fix the &ldquo;do not use assignment in if condition&rdquo; issue
 <span class="org-diff-context">        }</span>
 
 <span class="org-diff-context">        if (is_broadcast_ether_addr(mac) || is_zero_ether_addr(mac)) {</span>
-<span class="org-diff-indicator-removed">-</span><span class="org-diff-removed">               </span><span class="org-diff-removed"><span class="org-diff-refine-removed">if ((</span></span><span class="org-diff-removed">addr = of_get_property(np, "local-mac-address", &amp;len)</span><span class="org-diff-removed"><span class="org-diff-refine-removed">) &amp;&amp;</span></span>
+<span class="org-diff-indicator-removed">-</span><span class="org-diff-removed">               if ((addr = of_get_property(np, "local-mac-address", &amp;len)) &amp;&amp;</span>
 <span class="org-diff-indicator-removed">-</span><span class="org-diff-removed">                   len == ETH_ALEN) {</span>
-<span class="org-diff-indicator-added">+</span><span class="org-diff-added">               addr = of_get_property(np, "local-mac-address", &amp;len)</span><span class="org-diff-added"><span class="org-diff-refine-added">;</span></span>
-<span class="org-diff-indicator-added">+</span><span class="org-diff-added">               </span><span class="org-diff-added"><span class="org-diff-refine-added">if</span></span><span class="org-diff-added"> </span><span class="org-diff-added"><span class="org-diff-refine-added">(addr</span></span><span class="org-diff-added"> </span><span class="org-diff-added"><span class="org-diff-refine-added">&amp;&amp;</span></span><span class="org-diff-added"> </span><span class="org-diff-added"><span class="org-diff-refine-added">(</span></span><span class="org-diff-added">len == ETH_ALEN</span><span class="org-diff-added"><span class="org-diff-refine-added">)</span></span><span class="org-diff-added">) {</span>
+<span class="org-diff-indicator-added">+</span><span class="org-diff-added">               addr = of_get_property(np, "local-mac-address", &amp;len);</span>
+<span class="org-diff-indicator-added">+</span><span class="org-diff-added">               if (addr &amp;&amp; (len == ETH_ALEN)) {</span>
 <span class="org-diff-context">                        ether_addr_copy(mac_addr, addr);</span>
 <span class="org-diff-context">                } else {</span>
                         eth_random_addr(mac_addr);
@@ -6926,8 +6963,8 @@ sent it off
 </div>
 </div>
 </div>
-<div id="outline-container-253a35cd-3887-4b5c-a67b-b0dbdbed3cb0" class="outline-2">
-<h2 id="253a35cd-3887-4b5c-a67b-b0dbdbed3cb0"><span class="section-number-2">11.</span> Task 11</h2>
+<div id="outline-container-org13eba96" class="outline-2">
+<h2 id="253a35cd-3887-4b5c-a67b-b0dbdbed3cb0"><span class="section-number-2">11</span> Task 11</h2>
 <div class="outline-text-2" id="text-253a35cd-3887-4b5c-a67b-b0dbdbed3cb0">
 <blockquote>
 <p>
@@ -6965,8 +7002,8 @@ properly on your machine.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-4b1a98a8-f2a4-4919-89b7-cf695e87c782" class="outline-3">
-<h3 id="4b1a98a8-f2a4-4919-89b7-cf695e87c782"><span class="section-number-3">11.1.</span> Choosing a driver</h3>
+<div id="outline-container-org3e4f5f3" class="outline-3">
+<h3 id="4b1a98a8-f2a4-4919-89b7-cf695e87c782"><span class="section-number-3">11.1</span> Choosing a driver</h3>
 <div class="outline-text-3" id="text-4b1a98a8-f2a4-4919-89b7-cf695e87c782">
 <p>
 Here&rsquo;s a list of modules I found loaded on my desktop as per the output of
@@ -7338,7 +7375,7 @@ host controllers</li>
 
 <p>
 I&rsquo;ve decided to use the <code>pcspkr</code> module, as that is available on both my desktop
-and my VM, and is unlikely to blow up my PC upon misuse.<sup><a id="fnr.46" class="footref" href="#fn.46" role="doc-backlink">46</a></sup>  A few notes on this driver/module:
+and my VM, and is unlikely to blow up my PC upon misuse.<sup><a id="fnr.46" class="footref" href="#fn.46">46</a></sup>  A few notes on this driver/module:
 </p>
 <ul class="org-ul">
 <li>It&rsquo;s enabled via <code>CONFIG_INPUT_PCSPKR</code> (which itself depends on a few other
@@ -7350,20 +7387,20 @@ for a way to write to this file.)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-670db2c8-3179-4003-9323-cd50b2b2a5bf" class="outline-3">
-<h3 id="670db2c8-3179-4003-9323-cd50b2b2a5bf"><span class="section-number-3">11.2.</span> Changing my workflow</h3>
+<div id="outline-container-org35264cc" class="outline-3">
+<h3 id="670db2c8-3179-4003-9323-cd50b2b2a5bf"><span class="section-number-3">11.2</span> Changing my workflow</h3>
 <div class="outline-text-3" id="text-670db2c8-3179-4003-9323-cd50b2b2a5bf">
 <p>
 Rather than continuing to compile and run kitchen-sink kernels with all the
 modules built in, I scrapped this and started building them inside the VM
 within which they were to run.  This meant I could install the compiled
-modules to their usual place in <code>/lib/modules/</code>.<sup><a id="fnr.47" class="footref" href="#fn.47" role="doc-backlink">47</a></sup>
+modules to their usual place in <code>/lib/modules/</code>.<sup><a id="fnr.47" class="footref" href="#fn.47">47</a></sup>
 </p>
 
 <p>
 This also meant I needed a new kernel configuration.  For this I just copied
 the existing distro configuration (Debian), before running <code>make olddefconfig</code>
-to update it, and <code>make kvm_guest.config</code> for good measure.<sup><a id="fnr.48" class="footref" href="#fn.48" role="doc-backlink">48</a></sup>
+to update it, and <code>make kvm_guest.config</code> for good measure.<sup><a id="fnr.48" class="footref" href="#fn.48">48</a></sup>
 </p>
 
 <p>
@@ -7376,8 +7413,8 @@ I encountered an odd message during boot regarding, coincidentally, the pcspkr
 module.  I address this in the <a href="#b32dc6ad-81bf-41fd-8c1d-24a72d6468f1">appendices</a>.
 </p>
 </div>
-<div id="outline-container-97f80e94-2336-494f-a4f3-57a3f6c1d635" class="outline-4">
-<h4 id="97f80e94-2336-494f-a4f3-57a3f6c1d635"><span class="section-number-4">11.2.1.</span> Bonus: Installing a kernel</h4>
+<div id="outline-container-org315c178" class="outline-4">
+<h4 id="97f80e94-2336-494f-a4f3-57a3f6c1d635"><span class="section-number-4">11.2.1</span> Bonus: Installing a kernel</h4>
 <div class="outline-text-4" id="text-97f80e94-2336-494f-a4f3-57a3f6c1d635">
 <p>
 I was interested in what <code>make install</code> actually does.  Indeed, running this
@@ -7430,7 +7467,7 @@ configuration, based on whatever can be found in <code>/boot/</code>.</li>
 
 <p>
 With this information, it is easy to make sense of the output of <code>make install</code>
-shown above.<sup><a id="fnr.49" class="footref" href="#fn.49" role="doc-backlink">49</a></sup><sup>, </sup><sup><a id="fnr.50" class="footref" href="#fn.50" role="doc-backlink">50</a></sup>
+shown above.<sup><a id="fnr.49" class="footref" href="#fn.49">49</a></sup><sup>, </sup><sup><a id="fnr.50" class="footref" href="#fn.50">50</a></sup>
 </p>
 
 <p>
@@ -7447,8 +7484,8 @@ Dynamic Kernel Module Support (DKMS).  The short version of this can be read
 </div>
 </div>
 </div>
-<div id="outline-container-98abce55-66aa-4c88-b54c-4b892f8f4a7f" class="outline-3">
-<h3 id="98abce55-66aa-4c88-b54c-4b892f8f4a7f"><span class="section-number-3">11.3.</span> The pcspkr module</h3>
+<div id="outline-container-org3bdae98" class="outline-3">
+<h3 id="98abce55-66aa-4c88-b54c-4b892f8f4a7f"><span class="section-number-3">11.3</span> The pcspkr module</h3>
 <div class="outline-text-3" id="text-98abce55-66aa-4c88-b54c-4b892f8f4a7f">
 <p>
 Some initial notes about the pcspkr module:
@@ -7463,8 +7500,8 @@ Some initial notes about the pcspkr module:
 the driver lives in <code>drivers/input/</code>).  As to why I discuss <a href="#d1a45dbc-5ca3-4b81-bc7b-bbe22295f591">later on</a>.</li>
 </ul>
 </div>
-<div id="outline-container-16e442bc-e96b-442f-abbd-bb166f268f7a" class="outline-4">
-<h4 id="16e442bc-e96b-442f-abbd-bb166f268f7a"><span class="section-number-4">11.3.1.</span> What is a platform driver?</h4>
+<div id="outline-container-org6861bd3" class="outline-4">
+<h4 id="16e442bc-e96b-442f-abbd-bb166f268f7a"><span class="section-number-4">11.3.1</span> What is a platform driver?</h4>
 <div class="outline-text-4" id="text-16e442bc-e96b-442f-abbd-bb166f268f7a">
 <p>
 As per the <a href="https://docs.kernel.org/driver-api/driver-model/platform.html">docs</a>:
@@ -7489,8 +7526,8 @@ port-mapped registers</a> at fixed addresses.
 </p>
 </div>
 </div>
-<div id="outline-container-6d0562fc-cb54-4d48-85d4-246af8a032ad" class="outline-4">
-<h4 id="6d0562fc-cb54-4d48-85d4-246af8a032ad"><span class="section-number-4">11.3.2.</span> The hardware</h4>
+<div id="outline-container-orgb2f3e4f" class="outline-4">
+<h4 id="6d0562fc-cb54-4d48-85d4-246af8a032ad"><span class="section-number-4">11.3.2</span> The hardware</h4>
 <div class="outline-text-4" id="text-6d0562fc-cb54-4d48-85d4-246af8a032ad">
 <p>
 The <a href="https://en.wikipedia.org/wiki/PC_speaker">PC speaker</a> is a small piezoelectric speaker on the motherboard.  It is
@@ -7507,8 +7544,8 @@ speaker pinout.
 </p>
 </div>
 </div>
-<div id="outline-container-d1a45dbc-5ca3-4b81-bc7b-bbe22295f591" class="outline-4">
-<h4 id="d1a45dbc-5ca3-4b81-bc7b-bbe22295f591"><span class="section-number-4">11.3.3.</span> The software</h4>
+<div id="outline-container-org802e862" class="outline-4">
+<h4 id="d1a45dbc-5ca3-4b81-bc7b-bbe22295f591"><span class="section-number-4">11.3.3</span> The software</h4>
 <div class="outline-text-4" id="text-d1a45dbc-5ca3-4b81-bc7b-bbe22295f591">
 <p>
 Here I go over parts of <code>drivers/input/misc/pcspkr.c</code>.
@@ -7567,7 +7604,7 @@ not <code>MODULE_ALIAS</code>.  The latter can be used to define module aliases 
 device table into <code>MODULE_ALIAS</code> calls, and paste them into the intermediate
 <code>*.mod.c</code> file.)  Since this driver isn&rsquo;t registered with a particular bus
 subsystem, and its platform data is hard-coded, it must use
-<code>MODULE_ALIAS</code>.<sup><a id="fnr.51" class="footref" href="#fn.51" role="doc-backlink">51</a></sup>
+<code>MODULE_ALIAS</code>.<sup><a id="fnr.51" class="footref" href="#fn.51">51</a></sup>
 </p>
 
 <div class="org-src-container">
@@ -7668,7 +7705,7 @@ In general, input events are ostensibly hardware interrupts, generated
 exogenously from an external input device, but input events can also be
 generated endogenously by the kernel.  In this case, the kernel generate an
 <code>EV_SND</code> event (perhaps triggered by the user sending a <a href="https://en.wikipedia.org/wiki/Bell_character">special control code to
-the tty</a><sup><a id="fnr.52" class="footref" href="#fn.52" role="doc-backlink">52</a></sup>) that this driver
+the tty</a><sup><a id="fnr.52" class="footref" href="#fn.52">52</a></sup>) that this driver
 has been registered to respond to.  That response is implemented in the
 <code>pcspkr_event()</code> event handler (shown further down).
 </p>
@@ -7745,8 +7782,8 @@ driver will disable the PIT.
 </div>
 </div>
 </div>
-<div id="outline-container-59287b31-6102-4b79-a2e3-28e29364b41d" class="outline-3">
-<h3 id="59287b31-6102-4b79-a2e3-28e29364b41d"><span class="section-number-3">11.4.</span> Patching the driver</h3>
+<div id="outline-container-orgc1da84e" class="outline-3">
+<h3 id="59287b31-6102-4b79-a2e3-28e29364b41d"><span class="section-number-3">11.4</span> Patching the driver</h3>
 <div class="outline-text-3" id="text-59287b31-6102-4b79-a2e3-28e29364b41d">
 <p>
 As we&rsquo;ve seen, the <code>pcspkr</code> driver registers itself on the platform
@@ -7876,8 +7913,8 @@ changes.
 </div>
 </div>
 </div>
-<div id="outline-container-3155bc29-4d2c-4b83-958b-c29008e1beee" class="outline-2">
-<h2 id="3155bc29-4d2c-4b83-958b-c29008e1beee"><span class="section-number-2">12.</span> Task 12</h2>
+<div id="outline-container-org1c93251" class="outline-2">
+<h2 id="3155bc29-4d2c-4b83-958b-c29008e1beee"><span class="section-number-2">12</span> Task 12</h2>
 <div class="outline-text-2" id="text-3155bc29-4d2c-4b83-958b-c29008e1beee">
 <blockquote>
 <p>
@@ -7990,8 +8027,8 @@ Bonus points for properly checking return values of the above functions.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-459bf909-97d0-4e70-a002-e9c11ebca950" class="outline-3">
-<h3 id="459bf909-97d0-4e70-a002-e9c11ebca950"><span class="section-number-3">12.1.</span> Linked lists</h3>
+<div id="outline-container-org01b07b5" class="outline-3">
+<h3 id="459bf909-97d0-4e70-a002-e9c11ebca950"><span class="section-number-3">12.1</span> Linked lists</h3>
 <div class="outline-text-3" id="text-459bf909-97d0-4e70-a002-e9c11ebca950">
 <p>
 The texts mentioned in the <a href="#fb318868-a843-4e6c-8483-db73d832b726">introduction</a> provide very helpful explanations on
@@ -8011,7 +8048,7 @@ this &#x2014; it contains just a pair of pointers to the next and previous <code
 might offend common wisdom regarding encapsulation, but for such a
 fundamental kernel data structure, we really need it to be fast.  (And fast
 it is!)</li>
-<li>There is one special node in every list, called the &ldquo;head&rdquo;.<sup><a id="fnr.53" class="footref" href="#fn.53" role="doc-backlink">53</a></sup>  This node is not associated with any data.
+<li>There is one special node in every list, called the &ldquo;head&rdquo;.<sup><a id="fnr.53" class="footref" href="#fn.53">53</a></sup>  This node is not associated with any data.
 Rather, it is a handle <i>for</i> the list, and represents its start and end.
 (Remember that it&rsquo;s circular and doubly-linked!)  The list iterator routines
 treat this element as its delimiter.  So one could say that the head element
@@ -8040,8 +8077,8 @@ to avoid a use-after-free.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-57afe223-be49-4bd7-9591-7aa677fa8cdf" class="outline-3">
-<h3 id="57afe223-be49-4bd7-9591-7aa677fa8cdf"><span class="section-number-3">12.2.</span> Dynamic debug</h3>
+<div id="outline-container-org0df3bb0" class="outline-3">
+<h3 id="57afe223-be49-4bd7-9591-7aa677fa8cdf"><span class="section-number-3">12.2</span> Dynamic debug</h3>
 <div class="outline-text-3" id="text-57afe223-be49-4bd7-9591-7aa677fa8cdf">
 <p>
 The example init code given in the task description uses the <code>pr_debug()</code> macro
@@ -8084,8 +8121,8 @@ Read <a href="https://www.kernel.org/doc/html/latest/admin-guide/dynamic-debug-h
 </p>
 </div>
 </div>
-<div id="outline-container-de624811-3fef-4e50-86ce-73058ece10be" class="outline-3">
-<h3 id="de624811-3fef-4e50-86ce-73058ece10be"><span class="section-number-3">12.3.</span> Additional remarks</h3>
+<div id="outline-container-orgd6288a4" class="outline-3">
+<h3 id="de624811-3fef-4e50-86ce-73058ece10be"><span class="section-number-3">12.3</span> Additional remarks</h3>
 <div class="outline-text-3" id="text-de624811-3fef-4e50-86ce-73058ece10be">
 <p>
 In the implementation of <code>identity_destroy()</code>, one could perhaps call
@@ -8105,7 +8142,7 @@ Upon reading <a href="https://lwn.net/Articles/905777/">this LWN.net article</a>
 null-terminate <code>dest</code> if <code>src</code> is longer than <code>n</code>.  This pitfall is avoided by
 <code>strlcpy()</code>.  However, both functions can break if <code>src</code> is not properly
 null-terminated.  I really ought to use <code>strscpy()</code> in future to avoid both
-these problems.<sup><a id="fnr.54" class="footref" href="#fn.54" role="doc-backlink">54</a></sup>
+these problems.<sup><a id="fnr.54" class="footref" href="#fn.54">54</a></sup>
 </p>
 
 <p>
@@ -8114,8 +8151,8 @@ Also, I have no idea what the &ldquo;busy&rdquo; flag in <code>struct identity</
 </div>
 </div>
 </div>
-<div id="outline-container-32fe9de9-7258-47db-9439-b8742c4e842e" class="outline-2">
-<h2 id="32fe9de9-7258-47db-9439-b8742c4e842e"><span class="section-number-2">13.</span> Task 13</h2>
+<div id="outline-container-org424e8b2" class="outline-2">
+<h2 id="32fe9de9-7258-47db-9439-b8742c4e842e"><span class="section-number-2">13</span> Task 13</h2>
 <div class="outline-text-2" id="text-32fe9de9-7258-47db-9439-b8742c4e842e">
 <blockquote>
 <p>
@@ -8155,8 +8192,8 @@ Also show the output of <code>/proc/slabinfo</code> with your module loaded.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-c0314dff-4d49-485b-bd4b-2664baa3d5e9" class="outline-3">
-<h3 id="c0314dff-4d49-485b-bd4b-2664baa3d5e9"><span class="section-number-3">13.1.</span> The slab layer</h3>
+<div id="outline-container-org3806153" class="outline-3">
+<h3 id="c0314dff-4d49-485b-bd4b-2664baa3d5e9"><span class="section-number-3">13.1</span> The slab layer</h3>
 <div class="outline-text-3" id="text-c0314dff-4d49-485b-bd4b-2664baa3d5e9">
 <p>
 As for <a href="#3155bc29-4d2c-4b83-958b-c29008e1beee">task 12</a>, I&rsquo;ll just mention the most salient details here.
@@ -8236,8 +8273,8 @@ underlying slab cache.  (The name of my slab cache, for example, symlinked to
 </div>
 </div>
 </div>
-<div id="outline-container-e6179887-4177-4b70-8dcd-389de0dd6c74" class="outline-2">
-<h2 id="e6179887-4177-4b70-8dcd-389de0dd6c74"><span class="section-number-2">14.</span> Task 14</h2>
+<div id="outline-container-orgcd6fa52" class="outline-2">
+<h2 id="e6179887-4177-4b70-8dcd-389de0dd6c74"><span class="section-number-2">14</span> Task 14</h2>
 <div class="outline-text-2" id="text-e6179887-4177-4b70-8dcd-389de0dd6c74">
 <blockquote>
 <p>
@@ -8287,8 +8324,8 @@ look to where a new process is born.  To do that, I need to take another brief
 digression.
 </p>
 </div>
-<div id="outline-container-a1202bce-7d58-4703-8b86-80a732a04a53" class="outline-3">
-<h3 id="a1202bce-7d58-4703-8b86-80a732a04a53"><span class="section-number-3">14.1.</span> Tasks and task structs</h3>
+<div id="outline-container-orgcc4e41b" class="outline-3">
+<h3 id="a1202bce-7d58-4703-8b86-80a732a04a53"><span class="section-number-3">14.1</span> Tasks and task structs</h3>
 <div class="outline-text-3" id="text-a1202bce-7d58-4703-8b86-80a732a04a53">
 <p>
 The basic unit of the scheduler is <code>struct task_struct</code> (see
@@ -8328,8 +8365,8 @@ of concern to most device drivers.
 </p>
 </div>
 </div>
-<div id="outline-container-ee25c264-b261-4a1e-b314-a06bc3932284" class="outline-3">
-<h3 id="ee25c264-b261-4a1e-b314-a06bc3932284"><span class="section-number-3">14.2.</span> Procfs and tracing through a fork</h3>
+<div id="outline-container-orga97ac6b" class="outline-3">
+<h3 id="ee25c264-b261-4a1e-b314-a06bc3932284"><span class="section-number-3">14.2</span> Procfs and tracing through a fork</h3>
 <div class="outline-text-3" id="text-ee25c264-b261-4a1e-b314-a06bc3932284">
 <p>
 Procfs files are more or less a combination of a name and a set of file
@@ -8429,7 +8466,7 @@ entry:
 <span class="org-comment">         * ...</span>
 <span class="org-comment-delimiter">         */</span>
 
-        seq_printf(m, <span class="org-string">"%lu\n"</span>, points);
+        <span class="org-function-name">seq_printf</span>(m, <span class="org-string">"%lu\n"</span>, points);
 
         <span class="org-keyword">return</span> 0;
 }
@@ -8443,8 +8480,8 @@ check.
 </p>
 </div>
 </div>
-<div id="outline-container-20d257c6-777e-4aa7-b727-800100607fd5" class="outline-3">
-<h3 id="20d257c6-777e-4aa7-b727-800100607fd5"><span class="section-number-3">14.3.</span> Writing the patch</h3>
+<div id="outline-container-org32e51d3" class="outline-3">
+<h3 id="20d257c6-777e-4aa7-b727-800100607fd5"><span class="section-number-3">14.3</span> Writing the patch</h3>
 <div class="outline-text-3" id="text-20d257c6-777e-4aa7-b727-800100607fd5">
 <p>
 With the preliminary work out of the way, the task becomes dead simple:
@@ -8471,8 +8508,8 @@ compiler might throw a warning if we were compiling on a 32-bit arch.
 </div>
 </div>
 </div>
-<div id="outline-container-7b9b2b15-ca21-4f76-964b-93edc2d98ba0" class="outline-2">
-<h2 id="7b9b2b15-ca21-4f76-964b-93edc2d98ba0"><span class="section-number-2">15.</span> Task 15</h2>
+<div id="outline-container-orgb3298ea" class="outline-2">
+<h2 id="7b9b2b15-ca21-4f76-964b-93edc2d98ba0"><span class="section-number-2">15</span> Task 15</h2>
 <div class="outline-text-2" id="text-7b9b2b15-ca21-4f76-964b-93edc2d98ba0">
 <blockquote>
 <p>
@@ -8522,8 +8559,8 @@ Ooh, this looks like fun!  I&rsquo;m going to start with chapter 5 of <a href="#
 the details haven&rsquo;t changed <i>too</i> much since 2.6.32.
 </p>
 </div>
-<div id="outline-container-588ee577-5c47-4944-aa44-5e324a8a2a72" class="outline-3">
-<h3 id="588ee577-5c47-4944-aa44-5e324a8a2a72"><span class="section-number-3">15.1.</span> System calls</h3>
+<div id="outline-container-org743dba3" class="outline-3">
+<h3 id="588ee577-5c47-4944-aa44-5e324a8a2a72"><span class="section-number-3">15.1</span> System calls</h3>
 <div class="outline-text-3" id="text-588ee577-5c47-4944-aa44-5e324a8a2a72">
 <p>
 As with <code>/proc/</code>, we&rsquo;re unlikely to find ourselves adding new system calls to
@@ -8546,14 +8583,14 @@ syscall handling is kept separate from the syscall functions themselves.
 Arguments and return values associated with syscalls are communicated entirely
 via registers.  On x86 for example, <code>eax</code> holds the syscall number upon entry,
 and the return value upon exit.  Usually, user-space will invoke a syscall via
-a low-level library rather than messing with registers directly.<sup><a id="fnr.55" class="footref" href="#fn.55" role="doc-backlink">55</a></sup>  In fact, the Unix family of syscalls are fairly close to
+a low-level library rather than messing with registers directly.<sup><a id="fnr.55" class="footref" href="#fn.55">55</a></sup>  In fact, the Unix family of syscalls are fairly close to
 POSIX; many library functions will have an analogous counterpart in the list
 of syscalls, <code>read()</code> being a prime example (compare <a href="https://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> and <a href="https://man7.org/linux/man-pages/man3/read.3p.html">read(3p)</a>).
 </p>
 </div>
 </div>
-<div id="outline-container-8913729c-5b47-4710-bfb0-30fa1c9bd9f3" class="outline-3">
-<h3 id="8913729c-5b47-4710-bfb0-30fa1c9bd9f3"><span class="section-number-3">15.2.</span> Syscalls in the kernel</h3>
+<div id="outline-container-org2d288a4" class="outline-3">
+<h3 id="8913729c-5b47-4710-bfb0-30fa1c9bd9f3"><span class="section-number-3">15.2</span> Syscalls in the kernel</h3>
 <div class="outline-text-3" id="text-8913729c-5b47-4710-bfb0-30fa1c9bd9f3">
 <p>
 Syscalls are defined with the <code>SYSCALL_DEFINE[0-6]</code> series of macros from
@@ -8614,8 +8651,8 @@ syscall&rdquo;).</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-0c51f5cf-4b22-4fba-a337-e7abee802d82" class="outline-3">
-<h3 id="0c51f5cf-4b22-4fba-a337-e7abee802d82"><span class="section-number-3">15.3.</span> Adding the new syscall</h3>
+<div id="outline-container-org45124d4" class="outline-3">
+<h3 id="0c51f5cf-4b22-4fba-a337-e7abee802d82"><span class="section-number-3">15.3</span> Adding the new syscall</h3>
 <div class="outline-text-3" id="text-0c51f5cf-4b22-4fba-a337-e7abee802d82">
 <p>
 Where is <i>our</i> new syscall is supposed to go?  Since mine is intended for
@@ -8624,7 +8661,7 @@ x86-64, and <i>only</i> x86-64, I need to add an entry to <code>syscall_64.tbl</
 
 <p>
 The ABI specifier we use here must be &ldquo;64&rdquo;.  The &ldquo;x32&rdquo; specifier otherwise
-indicates a syscall for x32<sup><a id="fnr.56" class="footref" href="#fn.56" role="doc-backlink">56</a></sup> binaries, while &ldquo;common&rdquo; indicates an implementation shared
+indicates a syscall for x32<sup><a id="fnr.56" class="footref" href="#fn.56">56</a></sup> binaries, while &ldquo;common&rdquo; indicates an implementation shared
 to both.
 </p>
 
@@ -8643,8 +8680,8 @@ pull that into the kernel-space header at <code>arch/x86/include/asm/eudyptula_6
 </p>
 </div>
 </div>
-<div id="outline-container-843a8751-401b-43a1-9c25-803c899aa48d" class="outline-3">
-<h3 id="843a8751-401b-43a1-9c25-803c899aa48d"><span class="section-number-3">15.4.</span> Testing our new syscall</h3>
+<div id="outline-container-org64a2dcf" class="outline-3">
+<h3 id="843a8751-401b-43a1-9c25-803c899aa48d"><span class="section-number-3">15.4</span> Testing our new syscall</h3>
 <div class="outline-text-3" id="text-843a8751-401b-43a1-9c25-803c899aa48d">
 <p>
 Our new syscall is undocumented, and libc obviously doesn&rsquo;t provide any sort
@@ -8742,8 +8779,8 @@ that adds <code>eudyptula_64.o</code> as a prerequisite to the build ought to de
 </div>
 </div>
 </div>
-<div id="outline-container-fde2b5a7-5542-42b5-a1f0-1bad9b560563" class="outline-2">
-<h2 id="fde2b5a7-5542-42b5-a1f0-1bad9b560563"><span class="section-number-2">16.</span> Task 16</h2>
+<div id="outline-container-org26f1546" class="outline-2">
+<h2 id="fde2b5a7-5542-42b5-a1f0-1bad9b560563"><span class="section-number-2">16</span> Task 16</h2>
 <div class="outline-text-2" id="text-fde2b5a7-5542-42b5-a1f0-1bad9b560563">
 <blockquote>
 <p>
@@ -8836,8 +8873,8 @@ Possibly, issues identitied by sparse are a bit more substantial than the
 kinds of coding style issues we looked at previously, but let&rsquo;s have a look.
 </p>
 </div>
-<div id="outline-container-e174e541-7e7c-4077-956a-217cb3c4154d" class="outline-3">
-<h3 id="e174e541-7e7c-4077-956a-217cb3c4154d"><span class="section-number-3">16.1.</span> Sparse in more detail</h3>
+<div id="outline-container-org9156dc2" class="outline-3">
+<h3 id="e174e541-7e7c-4077-956a-217cb3c4154d"><span class="section-number-3">16.1</span> Sparse in more detail</h3>
 <div class="outline-text-3" id="text-e174e541-7e7c-4077-956a-217cb3c4154d">
 <p>
 I mentioned sparse briefly back in <a href="#e91e9b02-d5b6-4120-b040-587ffafd9573">task 10</a>.  The primary sources of
@@ -8856,7 +8893,7 @@ of the Linux kernel.</li>
 </ul>
 
 <p>
-When we use <code>C=1</code><sup><a id="fnr.57" class="footref" href="#fn.57" role="doc-backlink">57</a></sup> to
+When we use <code>C=1</code><sup><a id="fnr.57" class="footref" href="#fn.57">57</a></sup> to
 invoke sparse, the <code>__CHECKER__</code> preprocessor symbol gets enabled.  The result
 of this is that various annotations scattered throughout the codebase are
 enabled.  These annotations, specific to sparse, add restrictions on how the
@@ -9058,8 +9095,8 @@ complaint:
 </div>
 </div>
 </div>
-<div id="outline-container-1be643ca-f17f-4c4c-b6ef-66f77df933e9" class="outline-3">
-<h3 id="1be643ca-f17f-4c4c-b6ef-66f77df933e9"><span class="section-number-3">16.2.</span> Running sparse</h3>
+<div id="outline-container-org6a685e3" class="outline-3">
+<h3 id="1be643ca-f17f-4c4c-b6ef-66f77df933e9"><span class="section-number-3">16.2</span> Running sparse</h3>
 <div class="outline-text-3" id="text-1be643ca-f17f-4c4c-b6ef-66f77df933e9">
 <p>
 Let&rsquo;s give this a test drive:
@@ -9205,8 +9242,8 @@ from this function for example
 </p>
 <div class="org-src-container">
 <pre class="src src-c"><span class="org-comment-delimiter">/* </span><span class="org-comment">...</span><span class="org-comment-delimiter"> */</span>
-<span class="org-keyword">static</span> <span class="org-type">__always_inline</span> <span class="org-type">void</span>
-generic___set_bit(<span class="org-type">unsigned</span> <span class="org-type">long</span> <span class="org-variable-name">nr</span>, <span class="org-keyword">volatile</span> <span class="org-type">unsigned</span> <span class="org-type">long</span> *<span class="org-variable-name">addr</span>)
+<span class="org-keyword">static</span> __always_inline <span class="org-type">void</span>
+<span class="org-function-name">generic___set_bit</span>(<span class="org-type">unsigned</span> <span class="org-type">long</span> <span class="org-variable-name">nr</span>, <span class="org-keyword">volatile</span> <span class="org-type">unsigned</span> <span class="org-type">long</span> *<span class="org-variable-name">addr</span>)
 {
         <span class="org-type">unsigned</span> <span class="org-type">long</span> <span class="org-variable-name">mask</span> = BIT_MASK(nr);
         <span class="org-type">unsigned</span> <span class="org-type">long</span> *<span class="org-variable-name">p</span> = ((<span class="org-type">unsigned</span> <span class="org-type">long</span> *)addr) + BIT_WORD(nr);
@@ -9254,8 +9291,8 @@ it&rsquo;s defined in; it ought to be declared static</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-168c4d3e-a3b8-4728-88c4-c5477e5c3698" class="outline-3">
-<h3 id="168c4d3e-a3b8-4728-88c4-c5477e5c3698"><span class="section-number-3">16.3.</span> Final remarks on Kbuild, et al.</h3>
+<div id="outline-container-org2961a2e" class="outline-3">
+<h3 id="168c4d3e-a3b8-4728-88c4-c5477e5c3698"><span class="section-number-3">16.3</span> Final remarks on Kbuild, et al.</h3>
 <div class="outline-text-3" id="text-168c4d3e-a3b8-4728-88c4-c5477e5c3698">
 <p>
 If we want to compile only a particular subdirectory, we just give that
@@ -9342,8 +9379,8 @@ archives I found most useful, which you can see in the <a href="#5bf573bb-0efb-4
 </div>
 </div>
 </div>
-<div id="outline-container-51ac94e1-515d-4e7f-a7ee-7a186091f63d" class="outline-2">
-<h2 id="51ac94e1-515d-4e7f-a7ee-7a186091f63d"><span class="section-number-2">17.</span> Task 17</h2>
+<div id="outline-container-org0bb8ff2" class="outline-2">
+<h2 id="51ac94e1-515d-4e7f-a7ee-7a186091f63d"><span class="section-number-2">17</span> Task 17</h2>
 <div class="outline-text-2" id="text-51ac94e1-515d-4e7f-a7ee-7a186091f63d">
 <blockquote>
 <p>
@@ -9393,8 +9430,8 @@ A couple of new concepts are introduced in this task: waitqueues and kthreads.
 I&rsquo;ll start with the latter.
 </p>
 </div>
-<div id="outline-container-569a2838-056c-4534-912d-87169f0e33fd" class="outline-3">
-<h3 id="569a2838-056c-4534-912d-87169f0e33fd"><span class="section-number-3">17.1.</span> Kthreads</h3>
+<div id="outline-container-orgaf71e67" class="outline-3">
+<h3 id="569a2838-056c-4534-912d-87169f0e33fd"><span class="section-number-3">17.1</span> Kthreads</h3>
 <div class="outline-text-3" id="text-569a2838-056c-4534-912d-87169f0e33fd">
 <p>
 Kernel threads (or kthreads) are a special type of thread that run entirely in
@@ -9452,8 +9489,8 @@ function itself returned.
 </p>
 </div>
 </div>
-<div id="outline-container-581b8ea6-452a-4afd-bf81-967d09c67abc" class="outline-3">
-<h3 id="581b8ea6-452a-4afd-bf81-967d09c67abc"><span class="section-number-3">17.2.</span> Wait queues</h3>
+<div id="outline-container-orgf0ede64" class="outline-3">
+<h3 id="581b8ea6-452a-4afd-bf81-967d09c67abc"><span class="section-number-3">17.2</span> Wait queues</h3>
 <div class="outline-text-3" id="text-581b8ea6-452a-4afd-bf81-967d09c67abc">
 <p>
 A wait queue is a kernel data structure that represents an event that one or
@@ -9502,8 +9539,8 @@ rescue them).
 </p>
 </div>
 </div>
-<div id="outline-container-1fa85feb-1770-490d-a705-2af56f13e57a" class="outline-3">
-<h3 id="1fa85feb-1770-490d-a705-2af56f13e57a"><span class="section-number-3">17.3.</span> Final notes</h3>
+<div id="outline-container-org8e41b6a" class="outline-3">
+<h3 id="1fa85feb-1770-490d-a705-2af56f13e57a"><span class="section-number-3">17.3</span> Final notes</h3>
 <div class="outline-text-3" id="text-1fa85feb-1770-490d-a705-2af56f13e57a">
 <p>
 As you might note, the <code>wait_event*()</code> macros must be given a boolean
@@ -9603,8 +9640,8 @@ check.)</li>
 </div>
 </div>
 </div>
-<div id="outline-container-258b4714-e7ff-42bb-97e8-bc5b211bf260" class="outline-2">
-<h2 id="258b4714-e7ff-42bb-97e8-bc5b211bf260"><span class="section-number-2">18.</span> Task 18</h2>
+<div id="outline-container-orgb675fa9" class="outline-2">
+<h2 id="258b4714-e7ff-42bb-97e8-bc5b211bf260"><span class="section-number-2">18</span> Task 18</h2>
 <div class="outline-text-2" id="text-258b4714-e7ff-42bb-97e8-bc5b211bf260">
 <blockquote>
 <p>
@@ -9698,8 +9735,8 @@ Removing the module while there is pending work is always a good stress test.
 </p>
 </blockquote>
 </div>
-<div id="outline-container-04bc961f-02bb-4176-8f20-771d17dce672" class="outline-3">
-<h3 id="04bc961f-02bb-4176-8f20-771d17dce672"><span class="section-number-3">18.1.</span> Final notes</h3>
+<div id="outline-container-org882ccd9" class="outline-3">
+<h3 id="04bc961f-02bb-4176-8f20-771d17dce672"><span class="section-number-3">18.1</span> Final notes</h3>
 <div class="outline-text-3" id="text-04bc961f-02bb-4176-8f20-771d17dce672">
 <p>
 This task doesn&rsquo;t introduce anything too fancy, but there&rsquo;s nevertheless lots
@@ -9914,8 +9951,8 @@ new identity is ready to process, or our kthread is being asked to stop.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-43f17fcc-501c-419c-b172-ef769dee9d39" class="outline-2">
-<h2 id="43f17fcc-501c-419c-b172-ef769dee9d39"><span class="section-number-2">19.</span> Task 19</h2>
+<div id="outline-container-org06a79a6" class="outline-2">
+<h2 id="43f17fcc-501c-419c-b172-ef769dee9d39"><span class="section-number-2">19</span> Task 19</h2>
 <div class="outline-text-2" id="text-43f17fcc-501c-419c-b172-ef769dee9d39">
 <blockquote>
 <p>
@@ -9947,8 +9984,8 @@ networking subsystem, in order to get a clearer idea of the Netfilter
 framework and where it fits in.
 </p>
 </div>
-<div id="outline-container-cd7fd39a-ccb8-4fea-a956-86587da6d880" class="outline-3">
-<h3 id="cd7fd39a-ccb8-4fea-a956-86587da6d880"><span class="section-number-3">19.1.</span> Network devices and Netfilter</h3>
+<div id="outline-container-orgceb3786" class="outline-3">
+<h3 id="cd7fd39a-ccb8-4fea-a956-86587da6d880"><span class="section-number-3">19.1</span> Network devices and Netfilter</h3>
 <div class="outline-text-3" id="text-cd7fd39a-ccb8-4fea-a956-86587da6d880">
 <p>
 The oft-repeated maxim that in Linux &ldquo;everything is a file&rdquo; is only a partial
@@ -10049,7 +10086,7 @@ A packet can be <code>NF_REPEAT</code>&rsquo;ed in this way indefinitely (for be
 </dl>
 
 <p>
-The netfilter subsystem is operable from user-space via <a href="https://en.wikipedia.org/wiki/Nftables">nftables</a><sup><a id="fnr.58" class="footref" href="#fn.58" role="doc-backlink">58</a></sup>; namely, libnftables and the <code>nft</code> cli
+The netfilter subsystem is operable from user-space via <a href="https://en.wikipedia.org/wiki/Nftables">nftables</a><sup><a id="fnr.58" class="footref" href="#fn.58">58</a></sup>; namely, libnftables and the <code>nft</code> cli
 tool.  And indeed, one normally ought to implement basic networking tasks from
 user-space (where an increasing number of tasks, ones that in a <a href="https://en.wikipedia.org/wiki/Monolithic_kernel">monolithic
 kernel</a> are usually kernel-mode responsibilities, are being shunted to).
@@ -10071,8 +10108,8 @@ Namely, it will:
 </ul>
 </div>
 </div>
-<div id="outline-container-46e91529-0618-4365-8938-4a9b7bdef9d1" class="outline-3">
-<h3 id="46e91529-0618-4365-8938-4a9b7bdef9d1"><span class="section-number-3">19.2.</span> Packet-flow and Netfilter hooks</h3>
+<div id="outline-container-orgae2aa87" class="outline-3">
+<h3 id="46e91529-0618-4365-8938-4a9b7bdef9d1"><span class="section-number-3">19.2</span> Packet-flow and Netfilter hooks</h3>
 <div class="outline-text-3" id="text-46e91529-0618-4365-8938-4a9b7bdef9d1">
 <p>
 The basic migratory life-cycle of an inbound IPv4 packet, from hardware to
@@ -10108,11 +10145,11 @@ to a loopback address; these are routed to the virtual loopback interface).
 <p>
 Handlers for each network protocol define their own set of hooks at select
 points in this processing pipeline of their packet-type.  In IPv4, it looks
-something like figure <a href="#orgbd7206b">1</a> below (a much more detailed,
+something like figure <a href="#orgfcaf61b">1</a> below (a much more detailed,
 protocol-agnostic view is given <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg">here</a>):
 </p>
 
-<div id="orgbd7206b" class="figure">
+<div id="orgfcaf61b" class="figure">
 <p><img src="img/netfilter-hooks.png" alt="netfilter-hooks.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span><i>A simplified view of Netfilter hooks for the IPv4 packet handler (circumscribed by the dotted-line).  Boxes with solid-lines represent hook sites; diamonds represent where routing logic occurs.</i></p>
@@ -10134,8 +10171,8 @@ simply be copied &#x2014; more on this later.)
 </p>
 </div>
 </div>
-<div id="outline-container-64aa9355-9e8a-4c65-be8c-14e609fe9f30" class="outline-3">
-<h3 id="64aa9355-9e8a-4c65-be8c-14e609fe9f30"><span class="section-number-3">19.3.</span> Registering hook ops</h3>
+<div id="outline-container-orgaf4677f" class="outline-3">
+<h3 id="64aa9355-9e8a-4c65-be8c-14e609fe9f30"><span class="section-number-3">19.3</span> Registering hook ops</h3>
 <div class="outline-text-3" id="text-64aa9355-9e8a-4c65-be8c-14e609fe9f30">
 <p>
 The main interface for this is available in <code>linux/netfilter.h</code>.  In addition,
@@ -10220,8 +10257,8 @@ register on.  For most purposes, this will be the top-level namespace:
 </p>
 </div>
 </div>
-<div id="outline-container-3f8d9bca-747a-4107-9011-a75747c533ed" class="outline-3">
-<h3 id="3f8d9bca-747a-4107-9011-a75747c533ed"><span class="section-number-3">19.4.</span> Socket buffers</h3>
+<div id="outline-container-org37456b9" class="outline-3">
+<h3 id="3f8d9bca-747a-4107-9011-a75747c533ed"><span class="section-number-3">19.4</span> Socket buffers</h3>
 <div class="outline-text-3" id="text-3f8d9bca-747a-4107-9011-a75747c533ed">
 <p>
 The skb structure which houses a packet&rsquo;s data, <code>struct sk_buff</code> (see <a href="https://docs.kernel.org/networking/skbuff.html">here</a> and
@@ -10277,8 +10314,8 @@ length&rdquo; 😑)
 </p>
 </div>
 </div>
-<div id="outline-container-5574be25-c38b-4242-9017-f3e3fb9483c7" class="outline-3">
-<h3 id="5574be25-c38b-4242-9017-f3e3fb9483c7"><span class="section-number-3">19.5.</span> Inspecting packets</h3>
+<div id="outline-container-org2473d98" class="outline-3">
+<h3 id="5574be25-c38b-4242-9017-f3e3fb9483c7"><span class="section-number-3">19.5</span> Inspecting packets</h3>
 <div class="outline-text-3" id="text-5574be25-c38b-4242-9017-f3e3fb9483c7">
 <p>
 Firstly, what hook should we use?  The task asks us to monitor &ldquo;all IPv4
@@ -10291,7 +10328,7 @@ network traffic that is coming into the machine&rdquo;.  That&rsquo;s a little a
 </ul>
 
 <p>
-Looking back at figure <a href="#orgbd7206b">1</a>, we can see that the
+Looking back at figure <a href="#orgfcaf61b">1</a>, we can see that the
 <code>NF_INET_PRE_ROUTING</code> and <code>NF_INET_LOCAL_IN</code> hooks reflect this distinction.
 </p>
 
@@ -10392,8 +10429,8 @@ filtering framework</i> ↳ <i>Core Netfilter Configuration</i> ↳ <i>String ma
 </p>
 </div>
 </div>
-<div id="outline-container-cd2ed185-d8ed-4358-b794-90e6c44ddd92" class="outline-3">
-<h3 id="cd2ed185-d8ed-4358-b794-90e6c44ddd92"><span class="section-number-3">19.6.</span> Testing</h3>
+<div id="outline-container-org0f25e60" class="outline-3">
+<h3 id="cd2ed185-d8ed-4358-b794-90e6c44ddd92"><span class="section-number-3">19.6</span> Testing</h3>
 <div class="outline-text-3" id="text-cd2ed185-d8ed-4358-b794-90e6c44ddd92">
 <p>
 A self-dialogue:
@@ -10584,8 +10621,8 @@ pr_cont(<span class="org-string">"\n"</span>);
 </div>
 </div>
 </div>
-<div id="outline-container-7271318d-2789-4669-9d55-e1da2d06f5ac" class="outline-2">
-<h2 id="7271318d-2789-4669-9d55-e1da2d06f5ac"><span class="section-number-2">20.</span> Task 20</h2>
+<div id="outline-container-org8d006d0" class="outline-2">
+<h2 id="7271318d-2789-4669-9d55-e1da2d06f5ac"><span class="section-number-2">20</span> Task 20</h2>
 <div class="outline-text-2" id="text-7271318d-2789-4669-9d55-e1da2d06f5ac">
 <blockquote>
 <p>
@@ -10674,8 +10711,8 @@ I&rsquo;ll revisit these questions before moving on to the kernel and the FAT
 driver.
 </p>
 </div>
-<div id="outline-container-d5a575b4-d3cd-417d-8845-c9ac28799743" class="outline-3">
-<h3 id="d5a575b4-d3cd-417d-8845-c9ac28799743"><span class="section-number-3">20.1.</span> Volume labels</h3>
+<div id="outline-container-org629fea9" class="outline-3">
+<h3 id="d5a575b4-d3cd-417d-8845-c9ac28799743"><span class="section-number-3">20.1</span> Volume labels</h3>
 <div class="outline-text-3" id="text-d5a575b4-d3cd-417d-8845-c9ac28799743">
 <p>
 If a <i>partition</i> is a logical division of a hard disk, then a <i>volume</i> is a
@@ -10725,8 +10762,8 @@ the FAT filesystem.
 </p>
 </div>
 </div>
-<div id="outline-container-a04c12ba-7f88-4def-92c8-4ff5f10c20ac" class="outline-3">
-<h3 id="a04c12ba-7f88-4def-92c8-4ff5f10c20ac"><span class="section-number-3">20.2.</span> FAT</h3>
+<div id="outline-container-orge8eddf9" class="outline-3">
+<h3 id="a04c12ba-7f88-4def-92c8-4ff5f10c20ac"><span class="section-number-3">20.2</span> FAT</h3>
 <div class="outline-text-3" id="text-a04c12ba-7f88-4def-92c8-4ff5f10c20ac">
 <p>
 The FAT filesystem is <i>old</i>, but it&rsquo;s still kicking around because it&rsquo;s very
@@ -10756,11 +10793,11 @@ called exFAT which supports larger devices, but this is proprietary, and
 absent from the mainline kernel (though a <a href="https://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> driver does exist).
 </p>
 </div>
-<div id="outline-container-fc0fd2ad-1761-471b-917e-66893301e55a" class="outline-4">
-<h4 id="fc0fd2ad-1761-471b-917e-66893301e55a"><span class="section-number-4">20.2.1.</span> Structure</h4>
+<div id="outline-container-orgcc9f466" class="outline-4">
+<h4 id="fc0fd2ad-1761-471b-917e-66893301e55a"><span class="section-number-4">20.2.1</span> Structure</h4>
 <div class="outline-text-4" id="text-fc0fd2ad-1761-471b-917e-66893301e55a">
 <p>
-The <a href="https://en.wikipedia.org/wiki/File_Allocation_Table">short-</a> and <a href="https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system">long-form</a><sup><a id="fnr.59" class="footref" href="#fn.59" role="doc-backlink">59</a></sup> Wikipedia articles provide
+The <a href="https://en.wikipedia.org/wiki/File_Allocation_Table">short-</a> and <a href="https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system">long-form</a><sup><a id="fnr.59" class="footref" href="#fn.59">59</a></sup> Wikipedia articles provide
 pretty much all the detail we need.  I provide an abridged version here,
 task-specific details included.
 </p>
@@ -10853,8 +10890,8 @@ you by now).</li>
 </dl>
 </div>
 </div>
-<div id="outline-container-2305b3f8-4081-432f-ae10-bf04cf659ea8" class="outline-4">
-<h4 id="2305b3f8-4081-432f-ae10-bf04cf659ea8"><span class="section-number-4">20.2.2.</span> Directory entries, VFAT, and LFNs</h4>
+<div id="outline-container-orga1822c7" class="outline-4">
+<h4 id="2305b3f8-4081-432f-ae10-bf04cf659ea8"><span class="section-number-4">20.2.2</span> Directory entries, VFAT, and LFNs</h4>
 <div class="outline-text-4" id="text-2305b3f8-4081-432f-ae10-bf04cf659ea8">
 <p>
 Each entry in a directory table is 32 bytes long.  Its layout can be seen in
@@ -10921,8 +10958,8 @@ in the preceding slots (e.g. <code>longfilename.txt</code> becomes <code>LONGFI~
 </p>
 </div>
 </div>
-<div id="outline-container-6a1df2b1-d23f-4f09-8d10-1f875d4a10ef" class="outline-4">
-<h4 id="6a1df2b1-d23f-4f09-8d10-1f875d4a10ef"><span class="section-number-4">20.2.3.</span> Metadata</h4>
+<div id="outline-container-org563831a" class="outline-4">
+<h4 id="6a1df2b1-d23f-4f09-8d10-1f875d4a10ef"><span class="section-number-4">20.2.3</span> Metadata</h4>
 <div class="outline-text-4" id="text-6a1df2b1-d23f-4f09-8d10-1f875d4a10ef">
 <p>
 A FAT filesystem supports a volume label in two places (inclusive):
@@ -10951,18 +10988,18 @@ ensures that tools don&rsquo;t mistake the volume label entry for a VFAT LFN slo
 </p>
 
 <p>
-In either case, the volume label is the same size as that of a SFN<sup><a id="fnr.60" class="footref" href="#fn.60" role="doc-backlink">60</a></sup>: 11 bytes (sans NULL-terminator).
+In either case, the volume label is the same size as that of a SFN<sup><a id="fnr.60" class="footref" href="#fn.60">60</a></sup>: 11 bytes (sans NULL-terminator).
 </p>
 
 <p>
 Ideally, these two labels should be kept synchronised on writes, but there
-isn&rsquo;t any hard requirement for this, nor to provide a label at all.<sup><a id="fnr.62" class="footref" href="#fn.62" role="doc-backlink">62</a></sup>
+isn&rsquo;t any hard requirement for this, nor to provide a label at all.<sup><a id="fnr.62" class="footref" href="#fn.62">62</a></sup>
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-69228d1b-cd0a-426c-9f2d-d0c1c14e07e5" class="outline-3">
-<h3 id="69228d1b-cd0a-426c-9f2d-d0c1c14e07e5"><span class="section-number-3">20.3.</span> Revisiting earlier questions</h3>
+<div id="outline-container-org64c752a" class="outline-3">
+<h3 id="69228d1b-cd0a-426c-9f2d-d0c1c14e07e5"><span class="section-number-3">20.3</span> Revisiting earlier questions</h3>
 <div class="outline-text-3" id="text-69228d1b-cd0a-426c-9f2d-d0c1c14e07e5">
 <dl class="org-dl">
 <dt>&ldquo;Modifying the volume label seems like something one should not be able to do while the filesystem is mounted.  Is this what the text means when it says no ioctl option is available to do so?&rdquo;</dt><dd><p>
@@ -11077,8 +11114,8 @@ read/write access to the device file.  After all, this is what tools like
 </dl>
 </div>
 </div>
-<div id="outline-container-37acde81-1719-4fcc-b189-cdc96f389c3d" class="outline-3">
-<h3 id="37acde81-1719-4fcc-b189-cdc96f389c3d"><span class="section-number-3">20.4.</span> Loop devices</h3>
+<div id="outline-container-org2cd469c" class="outline-3">
+<h3 id="37acde81-1719-4fcc-b189-cdc96f389c3d"><span class="section-number-3">20.4</span> Loop devices</h3>
 <div class="outline-text-3" id="text-37acde81-1719-4fcc-b189-cdc96f389c3d">
 <p>
 A loop device (to be distinguished from a loop-back device <i>qua</i> network
@@ -11231,8 +11268,8 @@ could be used like so:
 \end{equation*}
 </div>
 </div>
-<div id="outline-container-64903da4-6a6a-4e88-89a0-bc2425fcfefc" class="outline-3">
-<h3 id="64903da4-6a6a-4e88-89a0-bc2425fcfefc"><span class="section-number-3">20.5.</span> Allocating a ramdisk</h3>
+<div id="outline-container-orgffe7b4f" class="outline-3">
+<h3 id="64903da4-6a6a-4e88-89a0-bc2425fcfefc"><span class="section-number-3">20.5</span> Allocating a ramdisk</h3>
 <div class="outline-text-3" id="text-64903da4-6a6a-4e88-89a0-bc2425fcfefc">
 <p>
 Can we go a step further?  Is there a way for us to create a block device
@@ -11309,12 +11346,12 @@ the <code>zram-tools</code> package).
 Granted, this is mostly academic.  The kernel already caches pages to disk
 where it&rsquo;s appropriate, so we shouldn&rsquo;t expect much of a benefit with this
 change, speed-wise.  I used the <code>zram</code> module in my test script purely for
-𝔞𝔢𝔰𝔱𝔥𝔢𝔱𝔦𝔠𝔰.<sup><a id="fnr.63" class="footref" href="#fn.63" role="doc-backlink">63</a></sup>
+𝔞𝔢𝔰𝔱𝔥𝔢𝔱𝔦𝔠𝔰.<sup><a id="fnr.63" class="footref" href="#fn.63">63</a></sup>
 </p>
 </div>
 </div>
-<div id="outline-container-82e788e6-aeb4-4fa0-883e-7015f6e3eb75" class="outline-3">
-<h3 id="82e788e6-aeb4-4fa0-883e-7015f6e3eb75"><span class="section-number-3">20.6.</span> Taking stock</h3>
+<div id="outline-container-org7fc4d88" class="outline-3">
+<h3 id="82e788e6-aeb4-4fa0-883e-7015f6e3eb75"><span class="section-number-3">20.6</span> Taking stock</h3>
 <div class="outline-text-3" id="text-82e788e6-aeb4-4fa0-883e-7015f6e3eb75">
 <p>
 Broadly, what will our ioctl need to do?  Firstly: set the volume label field
@@ -11336,8 +11373,8 @@ filesystem (VFS) layer, and how it all fits together.
 </p>
 </div>
 </div>
-<div id="outline-container-0e411c07-9b10-4be0-8e04-d424da3b3992" class="outline-3">
-<h3 id="0e411c07-9b10-4be0-8e04-d424da3b3992"><span class="section-number-3">20.7.</span> The VFS layer</h3>
+<div id="outline-container-orgbe92ce4" class="outline-3">
+<h3 id="0e411c07-9b10-4be0-8e04-d424da3b3992"><span class="section-number-3">20.7</span> The VFS layer</h3>
 <div class="outline-text-3" id="text-0e411c07-9b10-4be0-8e04-d424da3b3992">
 <p>
 (Much of this information can be gleaned from chapter 13 of <a href="#fb318868-a843-4e6c-8483-db73d832b726">LKD</a>, or from the
@@ -11404,8 +11441,8 @@ and operations necessary to use one</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-e6d3ab05-8a07-40b6-b3ed-62d1cf8affcd" class="outline-3">
-<h3 id="e6d3ab05-8a07-40b6-b3ed-62d1cf8affcd"><span class="section-number-3">20.8.</span> The ioctl interface</h3>
+<div id="outline-container-orgb30438e" class="outline-3">
+<h3 id="e6d3ab05-8a07-40b6-b3ed-62d1cf8affcd"><span class="section-number-3">20.8</span> The ioctl interface</h3>
 <div class="outline-text-3" id="text-e6d3ab05-8a07-40b6-b3ed-62d1cf8affcd">
 <p>
 The ioctl syscall lets one perform miscellaneous commands on files and
@@ -11441,7 +11478,7 @@ exported by the <code>headers_install</code> target.)  A command number itself i
 merely an arbitrary integer, but rather a magic number constructed out of
 different parts (one of which <i>is</i> an arbitrary integer).  Different device
 drivers could in principle use the same command number for cross purposes, so
-this increases the odds that a ioctl<sup><a id="fnr.64" class="footref" href="#fn.64" role="doc-backlink">64</a></sup> command will fail early if accidentally called on the wrong file.
+this increases the odds that a ioctl<sup><a id="fnr.64" class="footref" href="#fn.64">64</a></sup> command will fail early if accidentally called on the wrong file.
 Macros for assembling/disassembling these magic numbers live in
 <code>include/asm/ioctl.h</code>; usage described <a href="https://docs.kernel.org/userspace-api/ioctl/ioctl-number.html">here</a>.
 </p>
@@ -11452,7 +11489,7 @@ Some further remarks:
 <ul class="org-ul">
 <li>Normally, a driver need not be concerned with checking for file permissions,
 as that&rsquo;s handled in the upper layers.  That&rsquo;s not the case for ioctls
-though.  Chapter 6 of <a href="#fb318868-a843-4e6c-8483-db73d832b726">LDD</a> goes into this in more detail.<sup><a id="fnr.65" class="footref" href="#fn.65" role="doc-backlink">65</a></sup>
+though.  Chapter 6 of <a href="#fb318868-a843-4e6c-8483-db73d832b726">LDD</a> goes into this in more detail.<sup><a id="fnr.65" class="footref" href="#fn.65">65</a></sup>
 <ul class="org-ul">
 <li>This is perhaps part of why sysfs is the more preferred option for
 exposing this kind of functionality.</li>
@@ -11518,8 +11555,8 @@ the user (we don&rsquo;t need to include the null-terminator here).
 </p>
 </div>
 </div>
-<div id="outline-container-741a2b59-aa6d-457f-a8df-f21ccd8ab743" class="outline-3">
-<h3 id="741a2b59-aa6d-457f-a8df-f21ccd8ab743"><span class="section-number-3">20.9.</span> Implementing the new ioctls</h3>
+<div id="outline-container-org9d1d540" class="outline-3">
+<h3 id="741a2b59-aa6d-457f-a8df-f21ccd8ab743"><span class="section-number-3">20.9</span> Implementing the new ioctls</h3>
 <div class="outline-text-3" id="text-741a2b59-aa6d-457f-a8df-f21ccd8ab743">
 <p>
 To start with, since we are adding new ioctls, we&rsquo;ll need to export them to
@@ -11675,7 +11712,7 @@ ioctl can fail with <code>-EIO</code> as well.  I was initially unsure how to re
 to such a failure.  It&rsquo;s rare for such errors to occur, except in
 exceptional circumstances (say, if a USB drive is yoinked
 unceremoniously).  In any case, they are reported in the kernel log.  Code
-elsewhere<sup><a id="fnr.66" class="footref" href="#fn.66" role="doc-backlink">66</a></sup> almost always ignores
+elsewhere<sup><a id="fnr.66" class="footref" href="#fn.66">66</a></sup> almost always ignores
 this return value and just releases the buffer head.  I am inclined to
 follow suit, since in our scenario, a sync failure would be mostly benign
 anyway.  But arguably, sync failures are <i>never</i> benign &#x2014; if it fails
@@ -11687,11 +11724,11 @@ A stern kernel log message here feels insufficiently urgent.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-efb0188f-a193-403d-8b47-1bd0f761600f" class="outline-2">
+<div id="outline-container-orgf3f92c9" class="outline-2">
 <h2 id="efb0188f-a193-403d-8b47-1bd0f761600f">Appendices</h2>
 <div class="outline-text-2" id="text-efb0188f-a193-403d-8b47-1bd0f761600f">
 </div>
-<div id="outline-container-db5b3b96-8ee6-4f86-8208-6958c1b28a34" class="outline-3">
+<div id="outline-container-org26c1b9e" class="outline-3">
 <h3 id="db5b3b96-8ee6-4f86-8208-6958c1b28a34">Paring down a kernel configuration</h3>
 <div class="outline-text-3" id="text-db5b3b96-8ee6-4f86-8208-6958c1b28a34">
 <p>
@@ -11784,7 +11821,7 @@ in there.)
 </p>
 </div>
 </div>
-<div id="outline-container-062d9a4b-848d-4faf-8456-65d7546d08e9" class="outline-3">
+<div id="outline-container-org6872b96" class="outline-3">
 <h3 id="062d9a4b-848d-4faf-8456-65d7546d08e9">Troubleshooting CIFS</h3>
 <div class="outline-text-3" id="text-062d9a4b-848d-4faf-8456-65d7546d08e9">
 <p>
@@ -11898,7 +11935,7 @@ systemctl restart remote-fs.target <span class="org-comment-delimiter"># </span>
 </div>
 </div>
 </div>
-<div id="outline-container-51a7d5ac-e259-4d53-aa3d-27f4893f3a77" class="outline-3">
+<div id="outline-container-org8db6e60" class="outline-3">
 <h3 id="51a7d5ac-e259-4d53-aa3d-27f4893f3a77">Resizing a VM image</h3>
 <div class="outline-text-3" id="text-51a7d5ac-e259-4d53-aa3d-27f4893f3a77">
 <p>
@@ -11906,7 +11943,7 @@ As it turns out, the amount of space I gave to my QEMU disk image was not
 sufficient.  Fixing this was a simple two-step process.
 </p>
 </div>
-<div id="outline-container-82b0cbdf-1d21-4cc4-b77f-50762db1e90c" class="outline-4">
+<div id="outline-container-org7d6489c" class="outline-4">
 <h4 id="82b0cbdf-1d21-4cc4-b77f-50762db1e90c">Resizing the disk image</h4>
 <div class="outline-text-4" id="text-82b0cbdf-1d21-4cc4-b77f-50762db1e90c">
 <p>
@@ -11927,7 +11964,7 @@ be the same size.
 </p>
 </div>
 </div>
-<div id="outline-container-de0f6e93-299c-4b0c-926f-d3df2e67e031" class="outline-4">
+<div id="outline-container-org0f13300" class="outline-4">
 <h4 id="de0f6e93-299c-4b0c-926f-d3df2e67e031">Taking up the space</h4>
 <div class="outline-text-4" id="text-de0f6e93-299c-4b0c-926f-d3df2e67e031">
 <p>
@@ -11957,7 +11994,7 @@ location of the bootloader in an ESP); and</li>
 </div>
 </div>
 </div>
-<div id="outline-container-b32dc6ad-81bf-41fd-8c1d-24a72d6468f1" class="outline-3">
+<div id="outline-container-org05b436f" class="outline-3">
 <h3 id="b32dc6ad-81bf-41fd-8c1d-24a72d6468f1">The pc speaker device</h3>
 <div class="outline-text-3" id="text-b32dc6ad-81bf-41fd-8c1d-24a72d6468f1">
 <p>
@@ -11991,7 +12028,7 @@ this.
 To provide the option, <code>snd-pcsp</code> is enabled in the kernel configuration that
 Debian supplies; other distros may differ.  To ensure that only <code>pcspkr</code> is
 loaded at boot, one can blacklist <code>snd-pcsp</code> in their <a href="https://man7.org/linux/man-pages/man5/modprobe.d.5.html">modprobe config</a>.  Debian
-instead omits <code>snd-pcsp</code> from the <code>modules.alias</code> file.<sup><a id="fnr.67" class="footref" href="#fn.67" role="doc-backlink">67</a></sup>.  But when we compile our own kernel, with both modules
+instead omits <code>snd-pcsp</code> from the <code>modules.alias</code> file.<sup><a id="fnr.67" class="footref" href="#fn.67">67</a></sup>.  But when we compile our own kernel, with both modules
 enabled, <code>modules.alias</code> will contain both:
 </p>
 <div class="org-src-container">
@@ -12005,7 +12042,7 @@ thus explaining the error above.
 </p>
 </div>
 </div>
-<div id="outline-container-b4a93119-0bd3-4bac-8275-68a40f8a6f69" class="outline-3">
+<div id="outline-container-org53c8724" class="outline-3">
 <h3 id="b4a93119-0bd3-4bac-8275-68a40f8a6f69">Module auto-loading</h3>
 <div class="outline-text-3" id="text-b4a93119-0bd3-4bac-8275-68a40f8a6f69">
 <p>
@@ -12047,7 +12084,7 @@ request may need to verify the module is &ldquo;up&rdquo; before proceeding).</l
 </ul>
 </div>
 </div>
-<div id="outline-container-11713263-20ae-4326-a076-dd7fcb4d0b76" class="outline-3">
+<div id="outline-container-org2dfba21" class="outline-3">
 <h3 id="11713263-20ae-4326-a076-dd7fcb4d0b76">Source kernel uninstall script</h3>
 <div class="outline-text-3" id="text-11713263-20ae-4326-a076-dd7fcb4d0b76">
 <div class="org-src-container">
@@ -12148,7 +12185,7 @@ request may need to verify the module is &ldquo;up&rdquo; before proceeding).</l
 </div>
 </div>
 </div>
-<div id="outline-container-ad4353ca-42df-48b3-98ac-e9ebbf309dab" class="outline-3">
+<div id="outline-container-orgcb1fb78" class="outline-3">
 <h3 id="ad4353ca-42df-48b3-98ac-e9ebbf309dab">Procfs</h3>
 <div class="outline-text-3" id="text-ad4353ca-42df-48b3-98ac-e9ebbf309dab">
 <p>
@@ -12199,7 +12236,7 @@ file.)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-61c6e16b-a1bf-49ef-8bd9-4385461387b8" class="outline-3">
+<div id="outline-container-org8dc7398" class="outline-3">
 <h3 id="61c6e16b-a1bf-49ef-8bd9-4385461387b8">Setting up a credential helper for git</h3>
 <div class="outline-text-3" id="text-61c6e16b-a1bf-49ef-8bd9-4385461387b8">
 <p>
@@ -12238,7 +12275,7 @@ to; it&rsquo;s not the raw key&#x2013;value pairs.  (I can only presume that suc
 information is guesswork as to what the attributes represent.  (If this
 assumption is true, then it must be rather austere, because it doesn&rsquo;t even
 show the <code>xdg:schema</code> attribute that it&rsquo;s adding to new
-passwords.))))<sup><a id="fnr.68" class="footref" href="#fn.68" role="doc-backlink">68</a></sup>
+passwords.))))<sup><a id="fnr.68" class="footref" href="#fn.68">68</a></sup>
 </p>
 
 <p>
@@ -12263,7 +12300,7 @@ gnome-keyring-daemon -r -d
 </div>
 </div>
 </div>
-<div id="outline-container-5bf573bb-0efb-4e59-b714-df47a537a1ea" class="outline-3">
+<div id="outline-container-org3f10fce" class="outline-3">
 <h3 id="5bf573bb-0efb-4e59-b714-df47a537a1ea">Mailing list archives</h3>
 <div class="outline-text-3" id="text-5bf573bb-0efb-4e59-b714-df47a537a1ea">
 <p>
@@ -12307,67 +12344,67 @@ discussions inside a comment or commit message (use the &ldquo;permalink&rdquo; 
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This includes, not least of which, the
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">This includes, not least of which, the
 awesome <a href="https://orgmode.org/">org mode</a>, which I used to write and generate this document!</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">In order to share files, we
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">In order to share files, we
 need to specify some &ldquo;fake&rdquo; file permissions at mount time.  I was lazy and
 just used 0777 enable all the bits, but this turned out to have problems,
 which you can read about <a href="#db5b3b96-8ee6-4f86-8208-6958c1b28a34">here</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Yet another problem with the samba share
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">Yet another problem with the samba share
 I discuss <a href="#062d9a4b-848d-4faf-8456-65d7546d08e9">here</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">You can submit changes and corrections
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">You can submit changes and corrections
 to these documents via, at most recent glance, the lwn tree:
-<code>git://git.lwn.net/linux.git#docs-next</code>.<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup></p></div></div>
+<code>git://git.lwn.net/linux.git#docs-next</code>.<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup></p></div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Git URLs have a special syntax:<br />
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">Git URLs have a special syntax:<br />
 <code>&lt;protocol&gt;://[&lt;user&gt;[:&lt;password&gt;]@]&lt;hostname&gt;[:&lt;port&gt;]/&lt;path&gt;.git[#&lt;ref&gt;]</code></p></div></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">See <a href="#062d9a4b-848d-4faf-8456-65d7546d08e9">appendix</a> regarding an issue I encountered here.</p></div></div>
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">See <a href="#062d9a4b-848d-4faf-8456-65d7546d08e9">appendix</a> regarding an issue I encountered here.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This has
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">This has
 changed <a href="https://lore.kernel.org/lkml/lnbkvt5hhvgksgjqko7t6niw6uzr5ewjp32wyy2s26rzwdgh2y@l775iv6f6tkz/">as of kmod 31</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Exclusive-OR,
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">Exclusive-OR,
 to be distinguish from inclusive-OR.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">In my case, I also encountered some new kernel
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">In my case, I also encountered some new kernel
 messages at startup about &ldquo;uninitialised urandom read (16 bytes read)&rdquo;.
 Seemingly, QEMU was no longer providing enough entropy during boot.  I&rsquo;m not
 sure why this would be the case now and not earlier (perhaps it&rsquo;s a QEMU
 thing?), but for our purposes it&rsquo;s probably harmless.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Inclusive-OR, to be distinguish from exclusive-OR.</p></div></div>
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">Inclusive-OR, to be distinguish from exclusive-OR.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Oops!  In emacs, you fix this by running
+<div class="footdef"><sup><a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"><p class="footpara">Oops!  In emacs, you fix this by running
 <code>set-buffer-file-coding-system</code> and setting it to &ldquo;unix&rdquo;.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12" role="doc-backlink">12</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Fatigue:
+<div class="footdef"><sup><a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"><p class="footpara">Fatigue:
 the silent killer.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13" role="doc-backlink">13</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">To improve kernel boot times and avoid
+<div class="footdef"><sup><a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"><p class="footpara">To improve kernel boot times and avoid
 duplication of responsibilities, some work has been done to move the job of
 creating the device nodes (normally done with <code>mknod</code>) back into kernel-space.
 More can be read about <i>devtmpfs</i> <a href="https://lwn.net/Articles/331818/">(totally not just a reinvention of devfs)
 here</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14" role="doc-backlink">14</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">:Eudev, a fork of udev, removes this dependency on
+<div class="footdef"><sup><a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"><p class="footpara">:Eudev, a fork of udev, removes this dependency on
 systemd, allowing it to interoperate withing other init systems.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15" role="doc-backlink">15</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">What I&rsquo;ve observed on my system, which has devtmpfs
+<div class="footdef"><sup><a id="fn.15" class="footnum" href="#fnr.15">15</a></sup> <div class="footpara"><p class="footpara">What I&rsquo;ve observed on my system, which has devtmpfs
 enabled, is that devtmpfs will create the canonical device node for each
 device, and udev simply creates the symlinks that alias them.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16" role="doc-backlink">16</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I use
+<div class="footdef"><sup><a id="fn.16" class="footnum" href="#fnr.16">16</a></sup> <div class="footpara"><p class="footpara">I use
 the PARTUUID symlinks in a backup script so that I can be certain that I&rsquo;m
 mounting and backing up the correct partition.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17" role="doc-backlink">17</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">See the <a href="#b4a93119-0bd3-4bac-8275-68a40f8a6f69">appendix</a> for more detail
+<div class="footdef"><sup><a id="fn.17" class="footnum" href="#fnr.17">17</a></sup> <div class="footpara"><p class="footpara">See the <a href="#b4a93119-0bd3-4bac-8275-68a40f8a6f69">appendix</a> for more detail
 on the kmod project.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18" role="doc-backlink">18</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Well,
+<div class="footdef"><sup><a id="fn.18" class="footnum" href="#fnr.18">18</a></sup> <div class="footpara"><p class="footpara">Well,
 for the most part anyway.  Sometimes ostensibly different kinds of device
 will come under the same umbrella.  For example, <code>/dev/null</code> and <code>/dev/zero</code> are
 both managed by major number 1 (<a href="https://docs.kernel.org/admin-guide/devices.html">memory devices</a>), despite having slightly
@@ -12378,7 +12415,7 @@ are two separate namespaces for major numbers: block devices and char
 devices.  For example, <code>/dev/random</code> (a char device) and <code>/dev/ram0</code> (a block
 device) both have major number 1, but are governed by different drivers.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19" role="doc-backlink">19</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This would limit us to a
+<div class="footdef"><sup><a id="fn.19" class="footnum" href="#fnr.19">19</a></sup> <div class="footpara"><p class="footpara">This would limit us to a
 maximum of 7 partitions per device.  However, we can increase the number of
 minor numbers the driver allocates per device, either by setting
 <code>CONFIG_MMC_BLOCK_MINORS</code>, or by modifying the <code>mmcblk.perdev_minors</code> option at
@@ -12386,32 +12423,32 @@ module load time.  The latter may be set via either the kernel boot
 parameters, or as an argument to <code>modprobe</code>.  Many kernel modules are
 configurable in this kind of fashion.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20" role="doc-backlink">20</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">On eMMC chips, there are two 128
+<div class="footdef"><sup><a id="fn.20" class="footnum" href="#fnr.20">20</a></sup> <div class="footpara"><p class="footpara">On eMMC chips, there are two 128
 KiB areas of memory reserved for use by the bootloader, which is why there are
 two regions dedicated to <code>mmcblk1boot0</code> and <code>mmcblk1boot1</code>, despite being which
 appear as though there were separate disks from <code>mmcblk1</code>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.21" class="footnum" href="#fnr.21" role="doc-backlink">21</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">&ldquo;Hang on&#x2014; Everyone&rsquo;s been lying to me!
+<div class="footdef"><sup><a id="fn.21" class="footnum" href="#fnr.21">21</a></sup> <div class="footpara"><p class="footpara">&ldquo;Hang on&#x2014; Everyone&rsquo;s been lying to me!
 &lsquo;Everything is a file&rsquo; my ass<sup>‍<sup>‍<sup>embly.&ldquo;</sup></sup></sup></p></div></div>
 
-<div class="footdef"><sup><a id="fn.22" class="footnum" href="#fnr.22" role="doc-backlink">22</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The
+<div class="footdef"><sup><a id="fn.22" class="footnum" href="#fnr.22">22</a></sup> <div class="footpara"><p class="footpara">The
 <code>__user</code> thing is a special type annotation to help with static analysis; more
 on this <a href="#e174e541-7e7c-4077-956a-217cb3c4154d">later</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.23" class="footnum" href="#fnr.23" role="doc-backlink">23</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">A lot of the trees listed here are semi-private, and need not
+<div class="footdef"><sup><a id="fn.23" class="footnum" href="#fnr.23">23</a></sup> <div class="footpara"><p class="footpara">A lot of the trees listed here are semi-private, and need not
 concern us.  Also, if a tree is listed as having been idle for a long
 time, that&rsquo;s a good indication it&rsquo;s no longer in use.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.24" class="footnum" href="#fnr.24" role="doc-backlink">24</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I should clarify that this is not
+<div class="footdef"><sup><a id="fn.24" class="footnum" href="#fnr.24">24</a></sup> <div class="footpara"><p class="footpara">I should clarify that this is not
 strictly true.  In git, push and pull are not perfectly symmetrical
 operations.  <a href="https://felipec.wordpress.com/2021/07/05/git-update/">This article</a> (Credit: Felipe Contreras) elaborates on this, which
 is not possible to summarise here.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.25" class="footnum" href="#fnr.25" role="doc-backlink">25</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">But, for the reasons mentioned ibid.,<sup><a id="fnr.24.100" class="footref" href="#fn.24" role="doc-backlink">24</a></sup> I
+<div class="footdef"><sup><a id="fn.25" class="footnum" href="#fnr.25">25</a></sup> <div class="footpara"><p class="footpara">But, for the reasons mentioned ibid.,<sup><a id="fnr.24.100" class="footref" href="#fn.24">24</a></sup> I
 would advise against this, except when the merge is a <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">fast-forward</a>.  For this
 reason, I have <code>pull.ff</code> set to <code>only</code> in my <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration">gitconfig</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.26" class="footnum" href="#fnr.26" role="doc-backlink">26</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The reason that the
+<div class="footdef"><sup><a id="fn.26" class="footnum" href="#fnr.26">26</a></sup> <div class="footpara"><p class="footpara">The reason that the
 fetching of tags involves a separate flag is because, unlike branches, tags
 have a global namespace, and are not associated with a particular tree or
 branch.  This was exemplified by a recent incident where <a href="https://lwn.net/Articles/848265/">v5.12-rc1 was marked
@@ -12422,30 +12459,30 @@ master branch and/or tags would not remove their local copy of the now
 verboten original tag.  Maintainers were thus encouraged to manually delete
 the old tag (or just clone a new copy of Linus&rsquo;s git tree).</p></div></div>
 
-<div class="footdef"><sup><a id="fn.27" class="footnum" href="#fnr.27" role="doc-backlink">27</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Originally, it wasn&rsquo;t intended for
+<div class="footdef"><sup><a id="fn.27" class="footnum" href="#fnr.27">27</a></sup> <div class="footpara"><p class="footpara">Originally, it wasn&rsquo;t intended for
 this filesystem to become part of the stable user-space ABI, but <a href="https://lwn.net/Articles/309298/">things turned
-out differently</a>.<sup><a id="fnr.28" class="footref" href="#fn.28" role="doc-backlink">28</a></sup></p></div></div>
+out differently</a>.<sup><a id="fnr.28" class="footref" href="#fn.28">28</a></sup></p></div></div>
 
-<div class="footdef"><sup><a id="fn.28" class="footnum" href="#fnr.28" role="doc-backlink">28</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">This is a good illustration of a couple of rules about
+<div class="footdef"><sup><a id="fn.28" class="footnum" href="#fnr.28">28</a></sup> <div class="footpara"><p class="footpara">This is a good illustration of a couple of rules about
 kernel development: never break user-space; assume that features of the ABI
 which remain in the kernel for long enough will eventually make their way into
 the <a href="https://xkcd.com/1172/">workflow of at least some users and ossify to the point where removing
-them</a> will piss people off.<sup><a id="fnr.29" class="footref" href="#fn.29" role="doc-backlink">29</a></sup></p></div></div>
+them</a> will piss people off.<sup><a id="fnr.29" class="footref" href="#fn.29">29</a></sup></p></div></div>
 
-<div class="footdef"><sup><a id="fn.29" class="footnum" href="#fnr.29" role="doc-backlink">29</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">See also: <a href="https://xkcd.com/1172/">xkcd 1172</a>.</p></div></div>
+<div class="footdef"><sup><a id="fn.29" class="footnum" href="#fnr.29">29</a></sup> <div class="footpara"><p class="footpara">See also: <a href="https://xkcd.com/1172/">xkcd 1172</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.30" class="footnum" href="#fnr.30" role="doc-backlink">30</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The kernel assigns to every physical page on the
+<div class="footdef"><sup><a id="fn.30" class="footnum" href="#fnr.30">30</a></sup> <div class="footpara"><p class="footpara">The kernel assigns to every physical page on the
 system a <code>struct page</code>.  This data structure possesses a sizeable heft; multiply
 that by the number of physical pages present, and you&rsquo;re taking up a decent
 chunk of the total memory available.  <a href="https://lwn.net/Articles/937839/">This lwn article</a> on efforts made to
 refactor <code>struct page</code> is worth a read.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.31" class="footnum" href="#fnr.31" role="doc-backlink">31</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Confusingly, the ktype, though reachable directly from
+<div class="footdef"><sup><a id="fn.31" class="footnum" href="#fnr.31">31</a></sup> <div class="footpara"><p class="footpara">Confusingly, the ktype, though reachable directly from
 the kobject, is instead retrieved from the <i>ksets</i> ktype, should it be part of
 one.  Fortunately, there is a <code>get_ktype()</code> function that fetches the correct
 one.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.32" class="footnum" href="#fnr.32" role="doc-backlink">32</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">At the time of writing, one had to set
+<div class="footdef"><sup><a id="fn.32" class="footnum" href="#fnr.32">32</a></sup> <div class="footpara"><p class="footpara">At the time of writing, one had to set
 &ldquo;plain text mode&rdquo; from the compose window, but this setting tended to revert
 back to <code>text/html</code> when you weren&rsquo;t looking.  It also auto-wraps plain text
 messages at ~80 characters, and <i>does not</i> show this wrapping in the composer
@@ -12455,63 +12492,63 @@ service though, so I shouldn&rsquo;t complain too much.  It&rsquo;s just annoyin
 can&rsquo;t get small UX stuff like this right, however rational its causes.  Blame
 this on the <a href="https://nothinghuman.substack.com/p/the-tyranny-of-the-marginal-user">marginal user</a>, some would say.)</p></div></div>
 
-<div class="footdef"><sup><a id="fn.33" class="footnum" href="#fnr.33" role="doc-backlink">33</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">For what it&rsquo;s worth, he uses mutt as his MUA, with mbsync as an
+<div class="footdef"><sup><a id="fn.33" class="footnum" href="#fnr.33">33</a></sup> <div class="footpara"><p class="footpara">For what it&rsquo;s worth, he uses mutt as his MUA, with mbsync as an
 MRA.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.34" class="footnum" href="#fnr.34" role="doc-backlink">34</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I use <a href="https://www.thunderbird.net/">Thunderbird</a>.</p></div></div>
+<div class="footdef"><sup><a id="fn.34" class="footnum" href="#fnr.34">34</a></sup> <div class="footpara"><p class="footpara">I use <a href="https://www.thunderbird.net/">Thunderbird</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.35" class="footnum" href="#fnr.35" role="doc-backlink">35</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">It would be nice if there were a way to set up git to work with
+<div class="footdef"><sup><a id="fn.35" class="footnum" href="#fnr.35">35</a></sup> <div class="footpara"><p class="footpara">It would be nice if there were a way to set up git to work with
 two-factor auth, butq I&rsquo;m not aware of a way to do this (though to be clear, I
 didn&rsquo;t exactly look all that hard).</p></div></div>
 
-<div class="footdef"><sup><a id="fn.36" class="footnum" href="#fnr.36" role="doc-backlink">36</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I found that I also
+<div class="footdef"><sup><a id="fn.36" class="footnum" href="#fnr.36">36</a></sup> <div class="footpara"><p class="footpara">I found that I also
 needed to install some the perl packages; see <a href="https://wiki.archlinux.org/title/Git#Directly_sending_patches_to_a_mailing_list">here</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.37" class="footnum" href="#fnr.37" role="doc-backlink">37</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Including
+<div class="footdef"><sup><a id="fn.37" class="footnum" href="#fnr.37">37</a></sup> <div class="footpara"><p class="footpara">Including
 ourselves is a good idea.  Often, we would be subscribed to the same mailing
 list we&rsquo;re sending our patch off to anyway, but if we CC ourselves, we can
 only hope that gmail is smart enough to merge the duplicate emails.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.38" class="footnum" href="#fnr.38" role="doc-backlink">38</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">In
+<div class="footdef"><sup><a id="fn.38" class="footnum" href="#fnr.38">38</a></sup> <div class="footpara"><p class="footpara">In
 Thunderbird, I had to install the ImportExportTools extension.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.39" class="footnum" href="#fnr.39" role="doc-backlink">39</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I
+<div class="footdef"><sup><a id="fn.39" class="footnum" href="#fnr.39">39</a></sup> <div class="footpara"><p class="footpara">I
 encountered some python errors here.  The fix was to install some packages
 needed by the <code>checkpatch.pl</code> script; <code>python-ply</code> and <code>python-gitpython</code>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.40" class="footnum" href="#fnr.40" role="doc-backlink">40</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Installing the <code>sparse</code> package from the AUR did the trick for
+<div class="footdef"><sup><a id="fn.40" class="footnum" href="#fnr.40">40</a></sup> <div class="footpara"><p class="footpara">Installing the <code>sparse</code> package from the AUR did the trick for
 me.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.41" class="footnum" href="#fnr.41" role="doc-backlink">41</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Installing the <code>coccinelle-git</code>
+<div class="footdef"><sup><a id="fn.41" class="footnum" href="#fnr.41">41</a></sup> <div class="footpara"><p class="footpara">Installing the <code>coccinelle-git</code>
 package from the AUR did the trick for me.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.42" class="footnum" href="#fnr.42" role="doc-backlink">42</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Only the default &ldquo;report&rdquo; mode seemed
+<div class="footdef"><sup><a id="fn.42" class="footnum" href="#fnr.42">42</a></sup> <div class="footpara"><p class="footpara">Only the default &ldquo;report&rdquo; mode seemed
 to work for me. ​¯​\​_​(ツ)​_​/​¯</p></div></div>
 
-<div class="footdef"><sup><a id="fn.43" class="footnum" href="#fnr.43" role="doc-backlink">43</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I&rsquo;ve no idea what this would have to say about variable stack
+<div class="footdef"><sup><a id="fn.43" class="footnum" href="#fnr.43">43</a></sup> <div class="footpara"><p class="footpara">I&rsquo;ve no idea what this would have to say about variable stack
 frames.  But I presume the use of <a href="https://en.wikipedia.org/wiki/Variable-length_array">VLAs</a> would be rare and/or discouraged in
 the kernel anyway.  (I know <i>I</i> sure as heck wouldn&rsquo;t want to be using
 them.)</p></div></div>
 
-<div class="footdef"><sup><a id="fn.44" class="footnum" href="#fnr.44" role="doc-backlink">44</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">But
+<div class="footdef"><sup><a id="fn.44" class="footnum" href="#fnr.44">44</a></sup> <div class="footpara"><p class="footpara">But
 this is arguably not a problem: If we need a header, we should pull it in
 ourselves explicitly, rather than relying on some other header we pull in
 to include it.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.45" class="footnum" href="#fnr.45" role="doc-backlink">45</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">It was somewhat of a
+<div class="footdef"><sup><a id="fn.45" class="footnum" href="#fnr.45">45</a></sup> <div class="footpara"><p class="footpara">It was somewhat of a
 surprise to learn that, by making some modifications to your config, you
 can kernel compile the kernel with clang as well.  My understanding was
 that the linux kernel was coupled to GCC because of the use of GNU C
 extensions, but clang now supports those too!  Neat.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.46" class="footnum" href="#fnr.46" role="doc-backlink">46</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Famous last
+<div class="footdef"><sup><a id="fn.46" class="footnum" href="#fnr.46">46</a></sup> <div class="footpara"><p class="footpara">Famous last
 words.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.47" class="footnum" href="#fnr.47" role="doc-backlink">47</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">As it turned, my root
+<div class="footdef"><sup><a id="fn.47" class="footnum" href="#fnr.47">47</a></sup> <div class="footpara"><p class="footpara">As it turned, my root
 filesystem didn&rsquo;t have enough space for this.  See the <a href="#51a7d5ac-e259-4d53-aa3d-27f4893f3a77">appendices</a> for how I
 remedied this.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.48" class="footnum" href="#fnr.48" role="doc-backlink">48</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">I found I needed
+<div class="footdef"><sup><a id="fn.48" class="footnum" href="#fnr.48">48</a></sup> <div class="footpara"><p class="footpara">I found I needed
 to install <code>libssl-dev</code>, <code>libelf-dev</code>, and <code>bc</code> to get compilation working.  In some
 cases I encountered an error saying &ldquo;No rule to make target
 &lsquo;debian/certs/benh@debian.org.cert.pem&rsquo;&#x2026;&rdquo;, which I fixed by clearing
@@ -12520,33 +12557,33 @@ name of a PEM-formatted file containing trusted X.509 certs to be included in
 the default system keyring.  This file is normally included in the
 <code>linux-source</code> package distributed with Debian.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.49" class="footnum" href="#fnr.49" role="doc-backlink">49</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The only exception is the message about <code>CONFIG_X86_X32</code>.  This
+<div class="footdef"><sup><a id="fn.49" class="footnum" href="#fnr.49">49</a></sup> <div class="footpara"><p class="footpara">The only exception is the message about <code>CONFIG_X86_X32</code>.  This
 option enables support on 64-bit processors for running binaries built against
 the x32 native 32-bit ABI.  A version of binutils that supports <code>elf32_x86_64</code>
 is required to compile a kernel with this option set, which I didn&rsquo;t have
 installed; I just ignored this.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.50" class="footnum" href="#fnr.50" role="doc-backlink">50</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">As mentioned in <a href="#f7859da4-52ed-4327-a352-7c892bf99cd8">task 02</a>, we should always
+<div class="footdef"><sup><a id="fn.50" class="footnum" href="#fnr.50">50</a></sup> <div class="footpara"><p class="footpara">As mentioned in <a href="#f7859da4-52ed-4327-a352-7c892bf99cd8">task 02</a>, we should always
 run the <code>modules_install</code> target <i>before</i> we run <code>install</code>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.51" class="footnum" href="#fnr.51" role="doc-backlink">51</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Some drivers, such as <code>sm501</code>, actually use <i>both</i> macros,
+<div class="footdef"><sup><a id="fn.51" class="footnum" href="#fnr.51">51</a></sup> <div class="footpara"><p class="footpara">Some drivers, such as <code>sm501</code>, actually use <i>both</i> macros,
 registering themselves with a bus and as a platform driver, because their
 device could be encountered on more than one interface.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.52" class="footnum" href="#fnr.52" role="doc-backlink">52</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">There is also an input device file symlinked at
+<div class="footdef"><sup><a id="fn.52" class="footnum" href="#fnr.52">52</a></sup> <div class="footpara"><p class="footpara">There is also an input device file symlinked at
 <code>/dev/input/by-path/platform-pcspkr-event-spkr/</code>.  I&rsquo;m not sure how to use it.
 Likely it&rsquo;s related to the <code>snd-pcsp</code> module (see <a href="#b32dc6ad-81bf-41fd-8c1d-24a72d6468f1">appendix</a>).</p></div></div>
 
-<div class="footdef"><sup><a id="fn.53" class="footnum" href="#fnr.53" role="doc-backlink">53</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">In my
+<div class="footdef"><sup><a id="fn.53" class="footnum" href="#fnr.53">53</a></sup> <div class="footpara"><p class="footpara">In my
 opinion, the name <code>list_head</code> is not ideal; it could be referring to a head OR
 a node.  Though a good choice of name for the object can help with this.  In
 the example regarding <code>struct task_struct</code> given later, for instance, we could
 interpret <code>children</code> as meaning &ldquo;<i>my</i> children&rdquo;, and <code>sibling</code> (singular) as
 meaning &ldquo;I am <i>a</i> sibling&rdquo;.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.54" class="footnum" href="#fnr.54" role="doc-backlink">54</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">These functions aren&rsquo;t part of libc, sadly.</p></div></div>
+<div class="footdef"><sup><a id="fn.54" class="footnum" href="#fnr.54">54</a></sup> <div class="footpara"><p class="footpara">These functions aren&rsquo;t part of libc, sadly.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.55" class="footnum" href="#fnr.55" role="doc-backlink">55</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">That
+<div class="footdef"><sup><a id="fn.55" class="footnum" href="#fnr.55">55</a></sup> <div class="footpara"><p class="footpara">That
 Windows apps work similarly is the secret to how <a href="https://en.wikipedia.org/wiki/Wine_(software)">WINE</a> is able to work its
 magic; it intercepts and translates Win32 library calls into native POSIX ones
 before they enter into (what the program believes to be) the NT kernel.
@@ -12554,7 +12591,7 @@ Recent developments to Linux (syscall user dispatch) have made it possible to
 intercept even the odd syscall that is invoked manually without the use of
 system libraries.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.56" class="footnum" href="#fnr.56" role="doc-backlink">56</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">To dispel any potential confusion: x32 is not
+<div class="footdef"><sup><a id="fn.56" class="footnum" href="#fnr.56">56</a></sup> <div class="footpara"><p class="footpara">To dispel any potential confusion: x32 is not
 the same thing as the i386 ABI.  It is an esoteric ABI designed, as per
 <a href="https://en.wikipedia.org/wiki/X32_ABI">Wikipedia</a>, to &ldquo;take advantage of the benefits of x86-64 instruction set
 (larger number of CPU registers, better floating-point performance, faster
@@ -12564,31 +12601,31 @@ avoiding the overhead of 64-bit pointers.&rdquo;  Binaries that target x32 may r
 on x86-64 (provided that x32 support has been enabled in the kernel), but not
 on i386 systems.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.57" class="footnum" href="#fnr.57" role="doc-backlink">57</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">&ldquo;C&rdquo; stands for &ldquo;checker&rdquo; in case you were wondering.</p></div></div>
+<div class="footdef"><sup><a id="fn.57" class="footnum" href="#fnr.57">57</a></sup> <div class="footpara"><p class="footpara">&ldquo;C&rdquo; stands for &ldquo;checker&rdquo; in case you were wondering.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.58" class="footnum" href="#fnr.58" role="doc-backlink">58</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Nftables
+<div class="footdef"><sup><a id="fn.58" class="footnum" href="#fnr.58">58</a></sup> <div class="footpara"><p class="footpara">Nftables
 replaces the older (but still widely used) <code>{ip,ip6,arp,eb}-tables</code> family of
 tools.  For more complex use cases, the <a href="https://en.wikipedia.org/wiki/EBPF">Berkeley Packet Filter (BPF)</a> subsystem
 may be employed in lieu of nftables.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.59" class="footnum" href="#fnr.59" role="doc-backlink">59</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Most of the tables in this article are collapsed
+<div class="footdef"><sup><a id="fn.59" class="footnum" href="#fnr.59">59</a></sup> <div class="footpara"><p class="footpara">Most of the tables in this article are collapsed
 by default, making it hard to ctrl+f/grep.  The <a href="https://en.wikipedia.org/w/index.php?title=Design_of_the_FAT_file_system&amp;printable=yes">printable version</a> is a bit
 better in this respect.  (It would be nice if Wikipedia provided a
 &ldquo;collapse/expand all&rdquo; toggle button somewhere.)</p></div></div>
 
-<div class="footdef"><sup><a id="fn.60" class="footnum" href="#fnr.60" role="doc-backlink">60</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Should
-one use &ldquo;a&rdquo; or &ldquo;an&rdquo; before an acronym? 🤔<sup><a id="fnr.61" class="footref" href="#fn.61" role="doc-backlink">61</a></sup></p></div></div>
+<div class="footdef"><sup><a id="fn.60" class="footnum" href="#fnr.60">60</a></sup> <div class="footpara"><p class="footpara">Should
+one use &ldquo;a&rdquo; or &ldquo;an&rdquo; before an acronym? 🤔<sup><a id="fnr.61" class="footref" href="#fn.61">61</a></sup></p></div></div>
 
-<div class="footdef"><sup><a id="fn.61" class="footnum" href="#fnr.61" role="doc-backlink">61</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">For posterity, apparently you&rsquo;re
+<div class="footdef"><sup><a id="fn.61" class="footnum" href="#fnr.61">61</a></sup> <div class="footpara"><p class="footpara">For posterity, apparently you&rsquo;re
 supposed to use the one your ears most agree with; for example, &ldquo;<i>an</i> MRI scan&rdquo;,
 or &ldquo;<i>a</i> CAT scan&rdquo;.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.62" class="footnum" href="#fnr.62" role="doc-backlink">62</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Both
+<div class="footdef"><sup><a id="fn.62" class="footnum" href="#fnr.62">62</a></sup> <div class="footpara"><p class="footpara">Both
 the tools that I tested my code with &#x2014; <code>fatlabel</code> (from the <code>dosfstools</code>
 package) and <code>mlabel</code> (from the <code>mtools</code> package) &#x2014; read the label from the root
 directory, which suggests that it is primary.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.63" class="footnum" href="#fnr.63" role="doc-backlink">63</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">As it turns out, zram device files have a sector size of 4096.
+<div class="footdef"><sup><a id="fn.63" class="footnum" href="#fnr.63">63</a></sup> <div class="footpara"><p class="footpara">As it turns out, zram device files have a sector size of 4096.
 This was likely responsible for a &ldquo;Not enough clusters for a 32-bit FAT&rdquo;
 warning that I was seeing when trying to format the disk.  A cluster must be
 at least as large as a sector, thus with such a large cluster size, fewer are
@@ -12598,28 +12635,28 @@ drivers may distinguish between FAT12, FAT16, and FAT32; more on this in the
 <a href="https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Size_limits">wiki</a>.  To fix this, I remapped the device with <code>--sector-size</code> set to a more
 typical 512 bytes.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.64" class="footnum" href="#fnr.64" role="doc-backlink">64</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The grammar used in the task suggests
+<div class="footdef"><sup><a id="fn.64" class="footnum" href="#fnr.64">64</a></sup> <div class="footpara"><p class="footpara">The grammar used in the task suggests
 this is pronounced &ldquo;I/O control&rdquo;, though in my head it&rsquo;s always been
 &ldquo;yock-tl&rdquo;.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.65" class="footnum" href="#fnr.65" role="doc-backlink">65</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">ff.
+<div class="footdef"><sup><a id="fn.65" class="footnum" href="#fnr.65">65</a></sup> <div class="footpara"><p class="footpara">ff.
 &ldquo;Capabilities and Restricted Operations&rdquo;, pg. 144.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.66" class="footnum" href="#fnr.66" role="doc-backlink">66</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Buffer heads have long been superceded by other data
+<div class="footdef"><sup><a id="fn.66" class="footnum" href="#fnr.66">66</a></sup> <div class="footpara"><p class="footpara">Buffer heads have long been superceded by other data
 structures that handle I/O operations more efficiently, which is why
 instances of their use (buffer heads) are scarce.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.67" class="footnum" href="#fnr.67" role="doc-backlink">67</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Module aliases are
+<div class="footdef"><sup><a id="fn.67" class="footnum" href="#fnr.67">67</a></sup> <div class="footpara"><p class="footpara">Module aliases are
 covered in <a href="#1b41b15a-5d3b-4eb9-a2f4-a2246de3533d">task 05</a>.</p></div></div>
 
-<div class="footdef"><sup><a id="fn.68" class="footnum" href="#fnr.68" role="doc-backlink">68</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Someone published a <a href="https://gitlab.com/GrantMoyer/lssecret">helpful program</a> to just print them all
+<div class="footdef"><sup><a id="fn.68" class="footnum" href="#fnr.68">68</a></sup> <div class="footpara"><p class="footpara">Someone published a <a href="https://gitlab.com/GrantMoyer/lssecret">helpful program</a> to just print them all
 exhaustively (credit: GrantMoyer).</p></div></div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
 </div>
 </body>
 </html>

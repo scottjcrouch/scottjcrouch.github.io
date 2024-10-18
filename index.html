@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hello.</title>
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -29,9 +29,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -39,22 +38,22 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -189,7 +188,8 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
 <style type="text/css">
@@ -373,12 +373,58 @@ a:visited:hover { color: white; background-color: #9251ac; }
 .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }
 </style>
 <style type="text/css"> body { margin: auto; font-family: monospace; font-size: 12px } h1.title { text-align: left; } pre.src.src-text { margin: 0px; padding: 0.5em; } .org-ul li:before,.org-ul ul:before,.org-ul:before { content:""; display:block; position:absolute; left:0 } .org-ul,.org-ul ul { margin:0 0 0 1em; padding:0; list-style:none; position:relative } .org-ul ul { margin-left:.5em } .org-ul ul:before,.org-ul:before { width:0; top:0; bottom:0; border-left:1px solid } .org-ul li { margin:0; padding:0 1.5em; line-height:1.5em; position:relative } .org-ul li:before { width:10px; height:0; border-top:1px solid; margin-top:-3px; top:1em } .org-ul li:last-child:before { background:#fff7f4; height:auto; top:1em; bottom:0 } a { text-decoration: none; } </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">Hello.</h1>
 
-<div id="outline-container-projects" class="outline-2">
+<div id="outline-container-orga1e84b1" class="outline-2">
 <h2 id="projects">projects/</h2>
 <div class="outline-text-2" id="text-projects">
 <ul class="org-ul">
@@ -479,7 +525,7 @@ README.txt
 </ul>
 </div>
 </div>
-<div id="outline-container-logs" class="outline-2">
+<div id="outline-container-org70eef34" class="outline-2">
 <h2 id="logs">logs/</h2>
 <div class="outline-text-2" id="text-logs">
 <ul class="org-ul">
@@ -504,7 +550,7 @@ README.txt
 </ul>
 </div>
 </div>
-<div id="outline-container-bookmarks" class="outline-2">
+<div id="outline-container-orgf244c78" class="outline-2">
 <h2 id="bookmarks">bookmarks/</h2>
 <div class="outline-text-2" id="text-bookmarks">
 <ul class="org-ul">
@@ -570,6 +616,7 @@ README.txt
 <li><a href="https://philosophybear.substack.com/p/notes-on-punishment">Notes on punishment</a></li>
 <li><a href="https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944">Wittgenstein vs Freud: Does the unconscious exist?</a></li>
 <li><a href="https://robhorning.substack.com/p/after-the-sunsets">After the sunsets</a></li>
+<li><a href="https://philosophybear.substack.com/p/has-bayesianism-made-traditional-393">Has Bayesianism made traditional epistemology obsolete?</a></li>
 </ul></li>
 <li>psychology/
 <ul class="org-ul">
@@ -859,7 +906,7 @@ README.txt
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.3 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
 </div>
 </body>
 </html>
