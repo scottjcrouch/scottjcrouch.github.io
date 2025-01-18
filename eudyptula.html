@@ -2210,7 +2210,7 @@ two modules that this task wants us to clean up are (a) our original <code>hello
 module from <a href="#5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a">task 01</a>, and (b) this other one I found:
 </p>
 <div class="org-src-container">
-<pre class="src src-c" id="orge875d5c"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
+<pre class="src src-c" id="org90c17f3"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/kernel.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;asm/delay.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/slab.h&gt;</span>
@@ -3718,7 +3718,7 @@ With regard to block device drivers, typically the minor numbers will iterate
 over not just physical devices but all the partitions as well.  For example,
 here is the output of <code class="src src-bash">ls -l /dev/mmcblk*</code>:
 </p>
-<pre class="example" id="org830b7dc">
+<pre class="example" id="org62b728d">
 brw-rw---- 1 root disk 179, 0   Jan 1 2000 /dev/mmcblk0
 brw-rw---- 1 root disk 179, 1   Jan 1 2000 /dev/mmcblk0p1
 brw-rw---- 1 root disk 179, 2   Jan 1 2000 /dev/mmcblk0p2
@@ -5841,7 +5841,7 @@ So its warnings and errors are good candidates for fixes.
 To run this on all the files in <code>drivers/staging/</code>, I ran the following:<sup><a id="fnr.39" class="footref" href="#fn.39" role="doc-backlink">39</a></sup>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="org51966f3">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
+<pre class="src src-bash" id="org1c62787">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
 </pre>
 </div>
 
@@ -6030,7 +6030,7 @@ operation if the prospective patch contains any problems as identified by
 checkpatch:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="org44bcd10"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
+<pre class="src src-bash" id="org53da27a"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
 git show --format=email HEAD | ./scripts/checkpatch.pl --strict --codespell
 </pre>
 </div>
@@ -6729,7 +6729,7 @@ this patch:
 <li>reset my master branch onto the latest tag</li>
 <li>scoured for checkpatch issues
 <ul class="org-ul">
-<li>see <a href="#org51966f3">the one-liner I used earlier</a></li>
+<li>see <a href="#org1c62787">the one-liner I used earlier</a></li>
 </ul></li>
 <li>went through them to pick out something
 <ul class="org-ul">
@@ -10108,11 +10108,11 @@ to a loopback address; these are routed to the virtual loopback interface).
 <p>
 Handlers for each network protocol define their own set of hooks at select
 points in this processing pipeline of their packet-type.  In IPv4, it looks
-something like figure <a href="#org5e5e80b">1</a> below (a much more detailed,
+something like figure <a href="#org78734af">1</a> below (a much more detailed,
 protocol-agnostic view is given <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg">here</a>):
 </p>
 
-<div id="org5e5e80b" class="figure">
+<div id="org78734af" class="figure">
 <p><img src="img/netfilter-hooks.png" alt="netfilter-hooks.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span><i>A simplified view of Netfilter hooks for the IPv4 packet handler (circumscribed by the dotted-line).  Boxes with solid-lines represent hook sites; diamonds represent where routing logic occurs.</i></p>
@@ -10291,7 +10291,7 @@ network traffic that is coming into the machine&rdquo;.  That&rsquo;s a little a
 </ul>
 
 <p>
-Looking back at figure <a href="#org5e5e80b">1</a>, we can see that the
+Looking back at figure <a href="#org78734af">1</a>, we can see that the
 <code>NF_INET_PRE_ROUTING</code> and <code>NF_INET_LOCAL_IN</code> hooks reflect this distinction.
 </p>
 
