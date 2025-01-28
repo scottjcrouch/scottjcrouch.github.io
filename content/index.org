@@ -146,6 +146,8 @@
   - [[https://www.astralcodexten.com/p/your-book-review-autobiography-of][/The Autobiography of Yukichi Fukuzawa/ (Yukichi Fukuzawa)]]
   - [[https://evetushnet.substack.com/p/philip-roths-holocaust-novel][/The Ghost Writer/ (Philip Roth)]]
   - [[https://insidestory.org.au/no-happy-endings/][/Dorothy Parker in Hollywood/ (Gail Crowther)]]
+  - [[https://novum.substack.com/p/the-new-vertigo-years][/The Vertigo Years: Change and Culture in the West, 1900-1914/ (Philipp Blom)]]
+  - [[https://robhorning.substack.com/p/crosscurrents][/Tristano/ (Nanni Balestrini)]]
 - philosophy/
   - [[https://asteriskmag.com/issues/01/making-sense-of-moral-change][Making Sense of Moral Change]]
   - [[https://www.youtube.com/watch?v=rbaD66oTvuo][Hinge Epistemology [yt]​]]
@@ -177,6 +179,8 @@
   - [[https://iai.tv/articles/why-wittgenstein-called-himself-a-follower-of-freud-auid-2944][Wittgenstein vs Freud: Does the unconscious exist?]]
   - [[https://robhorning.substack.com/p/after-the-sunsets][After the sunsets]]
   - [[https://philosophybear.substack.com/p/has-bayesianism-made-traditional-393][Has Bayesianism made traditional epistemology obsolete?]]
+  - [[https://asteriskmag.com/issues/09/where-the-wild-things-arent][Where the Wild Things Aren't]]
+  - [[https://aeon.co/essays/why-does-philosophy-hold-clothes-in-such-low-regard][What do clothes say?]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -194,6 +198,7 @@
   - [[https://robhorning.substack.com/p/no-flipping][No flipping]]
   - [[https://www.lesswrong.com/posts/5FAnfAStc7birapMx/the-hostile-telepaths-problem][The hostile telepaths problem]]
   - [[https://mappingignorance.org/2024/11/20/i-hate-that-i-love-you-the-neuroscience-of-heartbreak/][I hate that I love you: The neuroscience of heartbreak]]
+  - [[https://psyche.co/ideas/uncertainty-is-stressful-but-heres-why-we-need-to-feel-it][Uncertainty is stressful, but here’s why we need to feel it]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -320,6 +325,7 @@
     - git-gud/
       - [[https://johnmathews.is/blog/rys-git-tutorial][Ry's Git Tutorial]]
       - [[https://jvns.ca/blog/2023/11/01/confusing-git-terminology/][Confusing git terminology]]
+      - [[https://wizardzines.com/git-cheat-sheet.pdf][Git cheat sheet]]
       - [[https://ohshitgit.com/][Oh Shit, Git!?!]]
       - [[https://felipec.wordpress.com/2021/07/05/git-update/][git update: The Odyssey for a Sensible git pull]]
       - [[https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/][git rebase: What can Go Wrong?]]
@@ -362,6 +368,7 @@
   - [[https://dynomight.net/espionage/][Everything is espionage: Things I learned researching Assange]]
   - [[https://www.awanderingmind.blog/posts/2022-07-30-state-of-south-africa.html][The state of South Africa, 28ish years post-apartheid]]
   - [[https://aeon.co/essays/the-myth-of-civic-vs-ethnic-nationhood-in-europe-east-and-west][The myth of civic vs. ethnic nationhood in Europe, east and west]]
+  - [[https://www.conspicuouscognition.com/p/status-class-and-the-crisis-of-expertise][Status, class, and the crisis of expertise]]
 - syntax-and-structure/
   - [[https://www.lesswrong.com/s/pC6DYFLPMTCbEwH8W/p/i42Dfoh4HtsCAfXxL][Babble]]
   - [[https://www.reddit.com/r/slatestarcodex/comments/m57i1c/prose_is_bad/][Prose is Bad]]
@@ -393,6 +400,7 @@
   - [[https://www.youtube.com/watch?v=IJwYUMAEwRU][Election [I like to roll this one out whenever election-season arrives]​]]
   - [[https://www.ribbonfarm.com/2021/05/27/space-luck/][Space Luck]]
   - [[https://www.smbc-comics.com/comic/veiled][At the annual colloquium of Evil Philosophers [hahaha]​]]
+  - [[https://www.smbc-comics.com/comic/strong-3][Hard times create strong m—]]
 - misc/
   - [[https://www.marginalia.nu/log/19-website-discoverability-crisis/][The Small Website Discoverability Crisis [the (partial) inspiration for this list]​]]
   - [[https://www.raptitude.com/2022/01/everything-must-be-paid-for-twice/][Everything Must be Paid For Twice]]
