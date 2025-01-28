@@ -9,6 +9,57 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
 
+* Tuesday, 28 January, 2025
+:PROPERTIES:
+:ID:       7a3fbe39-6d54-4f8a-8644-e0a709da02d3
+:CUSTOM_ID: 7a3fbe39-6d54-4f8a-8644-e0a709da02d3
+:END:
+Question:
+#+begin_quote
+In the context of supervised fine-tuning of an LLM, what kinds of "labels" may
+be applied to input data, other than simple binary "correct" and "incorrect"?
+#+end_quote
+Answer (Claude 3.5 Sonnet):
+#+begin_quote
+Let me explain the different types of labels commonly used in supervised fine-tuning of LLMs:
+
+- *Quality/Performance Scores*:
+  - Numerical ratings (e.g., 1-5 scale) assessing response quality
+  - Multiple dimensions like accuracy, coherence, relevance, and helpfulness
+  - Expert-assigned grades or rubric-based scores
+- *Behavioral Classifications*:
+  - Toxicity levels and content safety ratings
+  - Style markers (formal/informal, technical/simple)
+  - Sentiment classifications
+  - Task-specific categories (e.g., question type, reasoning approach used)
+- *Alignment-Related Labels*:
+  - Helpfulness measures
+  - Truthfulness/factual accuracy scores
+  - Ethical adherence ratings
+  - Bias assessments
+- *Structural/Format Labels*:
+  - Response length appropriateness
+  - Writing style consistency
+  - Format compliance (e.g., following specified templates)
+  - Language register appropriateness
+- *Task-Specific Performance Metrics*:
+  - Math problem-solving accuracy
+  - Code functionality scores
+  - Translation quality metrics
+  - Reasoning step completeness
+- *Human Preference Data*:
+  - Ranked preferences between multiple outputs
+  - A/B comparison results
+  - Human feedback on specific aspects
+  - Direct reward modeling signals
+- *Meta-Labels*:
+  - Confidence scores
+  - Uncertainty measurements
+  - Required expertise level
+  - Context relevance ratings
+
+The key is that these labels can be combined and weighted differently depending on the specific fine-tuning objectives.
+#+end_quote
 * Monday, 25 March, 2024
 :PROPERTIES:
 :ID:       0402cbcd-975f-4bea-a7f7-b3ad5dda44fc
