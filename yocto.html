@@ -204,13 +204,13 @@ h6 { margin-bottom: 0; padding-bottom: 0; font-size: 0.8em; font-style: italic; 
 #table-of-contents { position: fixed; left: 0; top: 0; width: 300px; height: 100%; overflow: auto; padding-left: 5px; padding-right: 5px; text-align:center; font-size: 0.85em; }
 #table-of-contents ul { padding: 0; margin: 5px; padding-left: 15px; text-align:left; }
 pre { margin-left: 3em; border-left: 2px solid #767676; background: #F1F1F1; padding: 1em 0em 1em 1em; font-size: 0.95em; }
-pre.src { overflow-x: auto; overflow-y: visible; }
+pre.src { overflow-x: auto; overflow-y: visible; font-size: 0.8em; }
 pre.src:hover:before { display: inline; margin-top: 14px; }
 #postamble { text-align: center; font-size: 0.7em; border-top: 1px solid #ABA6A6; margin-top: 4em; color: #808080; }
 #postamble p { width: 100%; }
 body { font-family: EB Garamond; /*or 'Palatino Linotype', serif; */ font-size: 1.20em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 html { scrollbar-color: #ABA6A6 #fff7f4; scroll-behavior: smooth; }
-code { background: #EDEDED; font-size: 1.2em; font-weight: normal; font-style: normal; }
+code { background: #EDEDED; font-size: 0.8em; font-weight: normal; font-style: normal; }
 p, li { max-width: 59em; }
 li p { margin: 0px; }
 ul { list-style-type: disc; }
@@ -1832,7 +1832,7 @@ download <a href="#b00db72c-5c93-441d-887d-9878b84ec993">Poky</a> and check out 
 source the setup script to create/enter the <a href="#51cba0dc-6701-431d-9b93-9b2e39761fbc">build</a> environment
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">source oe-init-build-env <span class="org-comment-delimiter"># </span><span class="org-comment">an optional arg names the new directory; defaults to 'build'</span>
+<pre class="src src-bash"><span class="org-builtin">source</span> oe-init-build-env <span class="org-comment-delimiter"># </span><span class="org-comment">an optional arg names the new directory; defaults to 'build'</span>
 </pre>
 </div></li>
 </ul>
@@ -2723,8 +2723,8 @@ install them easily:
 to start the server (which must be done in our dev environment):
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">source oe-init-build-env
-source toaster start
+<pre class="src src-bash"><span class="org-builtin">source</span> oe-init-build-env
+<span class="org-builtin">source</span> toaster start
 </pre>
 </div></li>
 <li>then we just open up <code>127.0.0.1:8000</code> in the browser</li>

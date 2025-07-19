@@ -204,13 +204,13 @@ h6 { margin-bottom: 0; padding-bottom: 0; font-size: 0.8em; font-style: italic; 
 #table-of-contents { position: fixed; left: 0; top: 0; width: 300px; height: 100%; overflow: auto; padding-left: 5px; padding-right: 5px; text-align:center; font-size: 0.85em; }
 #table-of-contents ul { padding: 0; margin: 5px; padding-left: 15px; text-align:left; }
 pre { margin-left: 3em; border-left: 2px solid #767676; background: #F1F1F1; padding: 1em 0em 1em 1em; font-size: 0.95em; }
-pre.src { overflow-x: auto; overflow-y: visible; }
+pre.src { overflow-x: auto; overflow-y: visible; font-size: 0.8em; }
 pre.src:hover:before { display: inline; margin-top: 14px; }
 #postamble { text-align: center; font-size: 0.7em; border-top: 1px solid #ABA6A6; margin-top: 4em; color: #808080; }
 #postamble p { width: 100%; }
 body { font-family: EB Garamond; /*or 'Palatino Linotype', serif; */ font-size: 1.20em; min-width: 250px; max-width: 650px; margin-left: 340px; padding-left: 15px; text-align: left; background-color: #fff7f4; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 html { scrollbar-color: #ABA6A6 #fff7f4; scroll-behavior: smooth; }
-code { background: #EDEDED; font-size: 1.2em; font-weight: normal; font-style: normal; }
+code { background: #EDEDED; font-size: 0.8em; font-weight: normal; font-style: normal; }
 p, li { max-width: 59em; }
 li p { margin: 0px; }
 ul { list-style-type: disc; }
@@ -373,7 +373,6 @@ a:visited:hover { color: white; background-color: #9251ac; }
 .org-widget-inactive { /* widget-inactive */ color: #7f7f7f; }
 .org-widget-single-line-field { /* widget-single-line-field */ background-color: #d9d9d9; }
 </style>
-<style type="text/css"> code { font-size: 1.0em; } </style>
 <script>
   window.MathJax = {
     tex: {
@@ -736,12 +735,8 @@ The eudyptula challenge had not been accepting new applicants for a few years,
 and seemed to be spoken of in the paste tense (the <a href="http://eudyptula-challenge.org/">original website</a> has been
 dormant since 2017).  That being said, if you&rsquo;re going through the tasks
 yourself, I would suggest only referring to these notes when you&rsquo;re stuck, or
-as a sanity check once you&rsquo;ve completed a task.  At some point after
-publishing this, I&rsquo;ll include my solutions on github.
-</p>
-
-<p>
-(🚨 <a href="https://github.com/scottjcrouch/eudyptula-challenge">WEEWW HERE THEY ARE!</a> 🚨)
+as a sanity check once you&rsquo;ve completed a task.  My solutions can be found
+<a href="//github.com/scottjcrouch/eudyptula-challenge">here</a>.
 </p>
 
 <p>
@@ -780,7 +775,7 @@ create a base image
 install development tools (see the <a href="https://www.kernel.org/doc/html/latest/process/changes.html">official docs</a>)
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">apt install gcc make git bc libssl-dev libncurses5-dev linux-headers-$(uname -r) samba
+<pre class="src src-bash">apt install gcc make git bc libssl-dev libncurses5-dev linux-headers-$(<span class="org-sh-quoted-exec">uname -r</span>) samba
 </pre>
 </div></li>
 <li><p>
@@ -1155,8 +1150,8 @@ refer to it by name (sans <code>.ko</code> suffix).
 To install the module:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">mkdir -p /lib/modules/$(uname -r)/mymodules
-ln -s /mnt/qemu/hello.ko /lib/modules/$(uname -r)/mymodules
+<pre class="src src-bash">mkdir -p /lib/modules/$(<span class="org-sh-quoted-exec">uname -r</span>)/mymodules
+ln -s /mnt/qemu/hello.ko /lib/modules/$(<span class="org-sh-quoted-exec">uname -r</span>)/mymodules
 depmod
 </pre>
 </div>
@@ -1344,7 +1339,7 @@ throughput tends to vary from <code>nproc + 1</code> to <code>nproc * 2</code>.
 Punch it!
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">make -j$(($(nproc) + 1)) <span class="org-comment-delimiter"># </span><span class="org-comment">you do not (and ought not) run this as root!!!</span>
+<pre class="src src-bash">make -j$(<span class="org-sh-quoted-exec">($(nproc</span>) + 1)) <span class="org-comment-delimiter"># </span><span class="org-comment">you do not (and ought not) run this as root!!!</span>
 </pre>
 </div>
 
@@ -2210,7 +2205,7 @@ two modules that this task wants us to clean up are (a) our original <code>hello
 module from <a href="#5fd7fcd5-aa63-41f5-a706-0bbb1fb00b0a">task 01</a>, and (b) this other one I found:
 </p>
 <div class="org-src-container">
-<pre class="src src-c" id="org39cafc5"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
+<pre class="src src-c" id="orgecdf8ec"><span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/module.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/kernel.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;asm/delay.h&gt;</span>
 <span class="org-preprocessor">#include</span> <span class="org-string">&lt;linux/slab.h&gt;</span>
@@ -2611,7 +2606,7 @@ can be useful for analysing event timing.</dd>
 <dt><code class="src src-bash">udevadm monitor --udev --property</code></dt><dd>This listens
 for events <i>after</i> processing by udev.  This can similarly be useful for
 analysing event timing.</dd>
-<dt><code class="src src-bash">udevadm test $(udevadm info --query=path --name=/dev/foobar)</code></dt><dd>This
+<dt><code class="src src-bash">udevadm test $(<span class="org-sh-quoted-exec">udevadm info --query=path --name=/dev/foobar</span>)</code></dt><dd>This
 simulates events for the given device, and the actions that would
 subsequently be triggered.</dd>
 <dt><code class="src src-bash">udevadm test --action=$<span class="org-variable-name">action</span> $<span class="org-variable-name">dev_path</span></code></dt><dd>This
@@ -2786,7 +2781,7 @@ sysfs.  For example:
 <div class="org-src-container">
 <pre class="src src-bash">udevadm info -a -p /sys/block/sda
 <span class="org-comment-delimiter"># </span><span class="org-comment">OR, if we don't know where it is but do have the device node</span>
-udevadm info -a -p $(udevadm info -q path -n /dev/sda)
+udevadm info -a -p $(<span class="org-sh-quoted-exec">udevadm info -q path -n /dev/sda</span>)
 </pre>
 </div>
 </div>
@@ -2996,7 +2991,7 @@ that it will (I hope) match all USB keyboards:
 An alternative approach: query the udev database for device attributes:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">udevadm info -a -p $(udevadm info -q path -n /dev/input/by-id/usb-Logitech_Logitech_Illuminated_Keyboard-event-kbd)
+<pre class="src src-bash">udevadm info -a -p $(<span class="org-sh-quoted-exec">udevadm info -q path -n /dev/input/by-id/usb-Logitech_Logitech_Illuminated_Keyboard-event-kbd</span>)
 </pre>
 </div>
 <p>
@@ -3027,7 +3022,7 @@ Unsurprisingly, my initial attempt at writing a rule didn&rsquo;t work, so it&rs
 to debug:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">udevadm test --action=add $(udevadm info --query=path --name=/dev/input/by-id/usb-Logitech_Logitech_Illuminated_Keyboard-event-kbd)
+<pre class="src src-bash">udevadm test --action=add $(<span class="org-sh-quoted-exec">udevadm info --query=path --name=/dev/input/by-id/usb-Logitech_Logitech_Illuminated_Keyboard-event-kbd</span>)
 </pre>
 </div>
 <p>
@@ -3718,7 +3713,7 @@ With regard to block device drivers, typically the minor numbers will iterate
 over not just physical devices but all the partitions as well.  For example,
 here is the output of <code class="src src-bash">ls -l /dev/mmcblk*</code>:
 </p>
-<pre class="example" id="org01f4113">
+<pre class="example" id="org6311d01">
 brw-rw---- 1 root disk 179, 0   Jan 1 2000 /dev/mmcblk0
 brw-rw---- 1 root disk 179, 1   Jan 1 2000 /dev/mmcblk0p1
 brw-rw---- 1 root disk 179, 2   Jan 1 2000 /dev/mmcblk0p2
@@ -4266,7 +4261,7 @@ Let&rsquo;s view the recent tags:
 I&rsquo;ll just checkout the most recent one:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">git checkout $(git tag -l <span class="org-string">"next-*"</span> | tail -n 1)
+<pre class="src src-bash">git checkout $(<span class="org-sh-quoted-exec">git tag -l "next-*" | tail -n 1</span>)
 </pre>
 </div>
 
@@ -4282,7 +4277,7 @@ There might be some new config options &#x2014; just select the defaults:
 Punch it!
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">make -j$(($(nproc) + 1))
+<pre class="src src-bash">make -j$(<span class="org-sh-quoted-exec">($(nproc</span>) + 1))
 </pre>
 </div>
 
@@ -5353,7 +5348,7 @@ Despite the fact that my machine is single-user with an encrypted root
 filesystem, I&rsquo;m not so enthused about storing passwords in plaintext.  One
 workaround for this would be to encrypt the file that contains the password,
 and manually decrypt it when using the software &#x2014; something like
-<code class="src src-bash">git send-email --smtp-pass=$(gpg2 --decrypt your_passkey.gpg) patch_to_send.patch</code>.  But this is not ideal since it will
+<code class="src src-bash">git send-email --smtp-pass=$(<span class="org-sh-quoted-exec">gpg2 --decrypt your_passkey.gpg</span>) patch_to_send.patch</code>.  But this is not ideal since it will
 be visible in <code class="src src-bash">/proc/$<span class="org-variable-name">PID</span>/cmdline</code> for the lifetime of
 the process.
 </p>
@@ -5841,7 +5836,7 @@ So its warnings and errors are good candidates for fixes.
 To run this on all the files in <code>drivers/staging/</code>, I ran the following:<sup><a id="fnr.39" class="footref" href="#fn.39" role="doc-backlink">39</a></sup>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="orgfb99f10">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
+<pre class="src src-bash" id="org7553d13">find drivers/staging/ -name <span class="org-string">'*.[ch]'</span> | xargs scripts/checkpatch.pl --terse --summary-file -f 2&gt; /dev/null
 </pre>
 </div>
 
@@ -6030,7 +6025,7 @@ operation if the prospective patch contains any problems as identified by
 checkpatch:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash" id="orgac53b09"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
+<pre class="src src-bash" id="orga1e8cc0"><span class="org-comment-delimiter">#</span><span class="org-comment">!/usr/bin/</span><span class="org-keyword">env</span><span class="org-comment"> bash</span>
 git show --format=email HEAD | ./scripts/checkpatch.pl --strict --codespell
 </pre>
 </div>
@@ -6729,7 +6724,7 @@ this patch:
 <li>reset my master branch onto the latest tag</li>
 <li>scoured for checkpatch issues
 <ul class="org-ul">
-<li>see <a href="#orgfb99f10">the one-liner I used earlier</a></li>
+<li>see <a href="#org7553d13">the one-liner I used earlier</a></li>
 </ul></li>
 <li>went through them to pick out something
 <ul class="org-ul">
@@ -10108,11 +10103,11 @@ to a loopback address; these are routed to the virtual loopback interface).
 <p>
 Handlers for each network protocol define their own set of hooks at select
 points in this processing pipeline of their packet-type.  In IPv4, it looks
-something like figure <a href="#org192f28d">1</a> below (a much more detailed,
+something like figure <a href="#org55746d4">1</a> below (a much more detailed,
 protocol-agnostic view is given <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Netfilter-packet-flow.svg">here</a>):
 </p>
 
-<div id="org192f28d" class="figure">
+<div id="org55746d4" class="figure">
 <p><img src="img/netfilter-hooks.png" alt="netfilter-hooks.png" width="100%" />
 </p>
 <p><span class="figure-number">Figure 1: </span><i>A simplified view of Netfilter hooks for the IPv4 packet handler (circumscribed by the dotted-line).  Boxes with solid-lines represent hook sites; diamonds represent where routing logic occurs.</i></p>
@@ -10291,7 +10286,7 @@ network traffic that is coming into the machine&rdquo;.  That&rsquo;s a little a
 </ul>
 
 <p>
-Looking back at figure <a href="#org192f28d">1</a>, we can see that the
+Looking back at figure <a href="#org55746d4">1</a>, we can see that the
 <code>NF_INET_PRE_ROUTING</code> and <code>NF_INET_LOCAL_IN</code> hooks reflect this distinction.
 </p>
 
@@ -10513,7 +10508,7 @@ arrived; a &lsquo;you have mail!&rsquo; kind of thing.&rdquo;</li>
 and call it a day.&rdquo;
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">ping localhost -4 -p <span class="org-string">"$(echo -n "eudyptula" | xxd -p -u)"</span> -c 1
+<pre class="src src-bash">ping localhost -4 -p <span class="org-string">"$(</span><span class="org-sh-quoted-exec">echo -n "eudyptula" | xxd -p -u</span><span class="org-string">)"</span> -c 1
 </pre>
 </div></li>
 </ul>
@@ -11249,7 +11244,7 @@ physical block device would be involved.  For example:
 </p>
 <div class="org-src-container">
 <pre class="src src-bash"><span class="org-comment-delimiter"># </span><span class="org-comment">create a temporary directory</span>
-<span class="org-variable-name">tmp_dir</span>=$(mktemp --tmpdir -d <span class="org-string">"${0##*/}-XXXXXXXX"</span>)
+<span class="org-variable-name">tmp_dir</span>=$(<span class="org-sh-quoted-exec">mktemp --tmpdir -d "${0##*/}-XXXXXXXX"</span>)
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">create an empty file inside it</span>
 <span class="org-variable-name">img</span>=<span class="org-string">"${tmp_dir}/foobar.img"</span>
@@ -12074,7 +12069,7 @@ request may need to verify the module is &ldquo;up&rdquo; before proceeding).</l
 
 <span class="org-keyword">function</span> <span class="org-function-name">installed</span>
 {
-    command -v <span class="org-string">"$1"</span> &amp;&gt; /dev/null;
+    <span class="org-builtin">command</span> -v <span class="org-string">"$1"</span> &amp;&gt; /dev/null;
 }
 
 <span class="org-keyword">function</span> <span class="org-function-name">die</span>
@@ -12095,7 +12090,7 @@ request may need to verify the module is &ldquo;up&rdquo; before proceeding).</l
     <span class="org-keyword">done</span>
 }
 
-[[ <span class="org-string">"$(id -u)"</span> = 0 ]] || die <span class="org-string">"Script must be run as root"</span>
+[[ <span class="org-string">"$(</span><span class="org-sh-quoted-exec">id -u</span><span class="org-string">)"</span> = 0 ]] || die <span class="org-string">"Script must be run as root"</span>
 
 <span class="org-variable-name">deps</span>=(dpkg grub-mkconfig)
 <span class="org-keyword">for</span> dep<span class="org-keyword"> in</span> <span class="org-string">"${deps[@]}"</span>; <span class="org-keyword">do</span>
@@ -12116,17 +12111,17 @@ request may need to verify the module is &ldquo;up&rdquo; before proceeding).</l
 <span class="org-keyword">if</span> [[ <span class="org-string">"$1"</span> = <span class="org-string">"list"</span> ]]; <span class="org-keyword">then</span>
     <span class="org-keyword">for</span> module_dir<span class="org-keyword"> in</span> /lib/modules/*; <span class="org-keyword">do</span>
         [[ <span class="org-negation-char">!</span> -d <span class="org-string">"$module_dir"</span> ]] &amp;&amp; <span class="org-keyword">continue</span>
-        <span class="org-variable-name">kernel_version</span>=<span class="org-string">"$(basename "$module_dir")"</span>
+        <span class="org-variable-name">kernel_version</span>=<span class="org-string">"$(</span><span class="org-sh-quoted-exec">basename "$module_dir"</span><span class="org-string">)"</span>
         <span class="org-builtin">echo</span> -n <span class="org-string">"$kernel_version"</span>
         { pkg_check <span class="org-string">"$kernel_version"</span> &amp;&amp; <span class="org-builtin">echo</span> <span class="org-string">" (OWNED BY DPKG)"</span>; } || <span class="org-builtin">echo</span>
         <span class="org-keyword">for</span> file<span class="org-keyword"> in</span> /boot/*<span class="org-string">"${kernel_version}"</span>; <span class="org-keyword">do</span>
-            <span class="org-variable-name">file</span>=<span class="org-string">"$(basename "$file")"</span>
+            <span class="org-variable-name">file</span>=<span class="org-string">"$(</span><span class="org-sh-quoted-exec">basename "$file"</span><span class="org-string">)"</span>
             <span class="org-builtin">echo</span> <span class="org-string">"${indent}${file}"</span>
         <span class="org-keyword">done</span>
         <span class="org-builtin">echo</span>
     <span class="org-keyword">done</span>
 <span class="org-keyword">elif</span> [[ <span class="org-string">"$1"</span> = <span class="org-string">"remove"</span> &amp;&amp; -n <span class="org-string">"${2-}"</span> ]]; <span class="org-keyword">then</span>
-    <span class="org-variable-name">kernel_version</span>=<span class="org-string">"$(basename "$2")"</span>
+    <span class="org-variable-name">kernel_version</span>=<span class="org-string">"$(</span><span class="org-sh-quoted-exec">basename "$2"</span><span class="org-string">)"</span>
     <span class="org-variable-name">module_dir</span>=<span class="org-string">"/lib/modules/${kernel_version}/"</span>
     [[ -d <span class="org-string">"$module_dir"</span> ]] || die <span class="org-string">"No kernel by that name"</span>
     pkg_check <span class="org-string">"${kernel_version}"</span> &amp;&amp; die <span class="org-string">"$kernel_version is owned by dpkg"</span>
