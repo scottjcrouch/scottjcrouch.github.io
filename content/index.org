@@ -181,6 +181,7 @@
   - [[https://philosophybear.substack.com/p/has-bayesianism-made-traditional-393][Has Bayesianism made traditional epistemology obsolete?]]
   - [[https://asteriskmag.com/issues/09/where-the-wild-things-arent][Where the Wild Things Aren't]]
   - [[https://aeon.co/essays/why-does-philosophy-hold-clothes-in-such-low-regard][What do clothes say?]]
+  - [[https://linch.substack.com/p/the-precocious-babys-guide-to-anthropics][A Baby's Guide to Anthropics]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
