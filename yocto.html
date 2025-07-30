@@ -1889,8 +1889,8 @@ list all <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipes</a> available:
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">bitbake-layers show-recipes
-<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
-bitbake -s
+<span class="org-comment-delimiter"># </span><span class="org-comment">or
+</span>bitbake -s
 </pre>
 </div></li>
 <li><p>
@@ -1918,9 +1918,9 @@ list available overrides for a specific machine:
 optional frontends:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">bitbake -u ncurses <span class="org-comment-delimiter"># </span><span class="org-comment">TUI</span>
-bitbake -u hob <span class="org-comment-delimiter"># </span><span class="org-comment">GUI</span>
-bitbake -u goggle <span class="org-comment-delimiter"># </span><span class="org-comment">simpler GUI</span>
+<pre class="src src-bash">bitbake -u ncurses <span class="org-comment-delimiter"># </span><span class="org-comment">TUI
+</span>bitbake -u hob <span class="org-comment-delimiter"># </span><span class="org-comment">GUI
+</span>bitbake -u goggle <span class="org-comment-delimiter"># </span><span class="org-comment">simpler GUI</span>
 </pre>
 </div></li>
 <li><p>
@@ -1928,8 +1928,8 @@ generate a dependency graph for a <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">bitbake $<span class="org-variable-name">recipe_name</span> -g
-<span class="org-comment-delimiter"># </span><span class="org-comment">then, to convert them to images</span>
-dot -v -Tpng -o package-depends.png package-depends.dot
+<span class="org-comment-delimiter"># </span><span class="org-comment">then, to convert them to images
+</span>dot -v -Tpng -o package-depends.png package-depends.dot
 dot -v -Tpng -o pn-depends.png pn-depends.dot
 dot -v -Tsvg -o task-depends.svg task-depends.dot
 </pre>
@@ -1947,8 +1947,8 @@ generate an SDK/eSDK for a particular <a href="#d04f848b-f29b-4fc5-b2c6-1c233145
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">bitbake $<span class="org-variable-name">image_recipe</span> -c populate_sdk
-<span class="org-comment-delimiter"># </span><span class="org-comment">or</span>
-bitbake $<span class="org-variable-name">image_recipe</span> -c populate_sdk_ext
+<span class="org-comment-delimiter"># </span><span class="org-comment">or
+</span>bitbake $<span class="org-variable-name">image_recipe</span> -c populate_sdk_ext
 </pre>
 </div></li>
 <li><p>
@@ -2026,8 +2026,8 @@ offer helpful building blocks of commonly used functionality, e.g.:
 <div class="org-src-container">
 <pre class="src src-conf">inherit core-image
 
-<span class="org-variable-name">IMAGE_FEATURES +</span>= <span class="org-string">"ssh-server-openssh splash"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">we would instead use EXTRA_IMAGE_FEATURES if this were our conf/local.conf</span>
-<span class="org-variable-name">CORE_IMAGE_EXTRA_INSTALL +</span>= <span class="org-string">"strace"</span>
+<span class="org-variable-name">IMAGE_FEATURES +</span>= <span class="org-string">"ssh-server-openssh splash"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">we would instead use EXTRA_IMAGE_FEATURES if this were our conf/local.conf
+</span><span class="org-variable-name">CORE_IMAGE_EXTRA_INSTALL +</span>= <span class="org-string">"strace"</span>
 </pre>
 </div></li>
 </ul>
@@ -2141,8 +2141,8 @@ our <a href="#d2fee7d5-7007-4e33-85cb-6c9a370990fd">append</a> file would contai
 </p>
 <div class="org-src-container">
 <pre class="src src-conf"><span class="org-variable-name">EXTRA_OECONF +</span>= <span class="org-string">"--enable-foo-feature --disable-bar-feature"</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">or, for example, if our change is conditional on the hardware we're building for</span>
-<span class="org-variable-name">EXTRA_OECONF:append:arm</span> = <span class="org-string">" --enable-arm-feature"</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">or, for example, if our change is conditional on the hardware we're building for
+</span><span class="org-variable-name">EXTRA_OECONF:append:arm</span> = <span class="org-string">" --enable-arm-feature"</span>
 </pre>
 </div></li>
 </ul>
@@ -2160,8 +2160,8 @@ directories in the searching algorithm, making the additional file visible
 to <a href="#623a901f-d7c6-44b6-97a0-e2bea2f861bc">BitBake</a>, as shown here:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">this will be a subdirectory containing just our patch file</span>
-<span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://mypatch.patch"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the patch file to the list of source files in this recipe</span>
+<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">this will be a subdirectory containing just our patch file
+</span><span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://mypatch.patch"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the patch file to the list of source files in this recipe</span>
 </pre>
 </div></li>
 <li><code>SRC_URI</code> lists the source files that are needed for the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> to build</li>
@@ -2211,9 +2211,9 @@ rest of the <a href="#49922abe-989a-4049-a4e1-d9cd49db6f60">recipe</a> files (se
 here&rsquo;s an example that adds a new configuration file:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">a subdirectory containing our new file</span>
-<span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://newconfig.conf"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the file to the list of source files in this recipe</span>
-
+<pre class="src src-conf"><span class="org-variable-name">FILESEXTRAPATHS:prepend :</span>= <span class="org-string">"${THISDIR}/${PN}-${PV}:"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">a subdirectory containing our new file
+</span><span class="org-variable-name">SRC_URI +</span>= <span class="org-string">"file://newconfig.conf"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">append the file to the list of source files in this recipe
+</span>
 do_install:append() {
     install -D -m 644 ${WORKDIR}/newconfig.conf \
                       ${D}${sysconfdir}/newconfig.conf
@@ -2274,8 +2274,8 @@ to generate a configuration fragment that modifies the kernel&rsquo;s config, fo
 example, we should do something like this:
 </p>
 <div class="org-src-container">
-<pre class="src src-bash">bitbake virtual/kernel -c menuconfig <span class="org-comment-delimiter"># </span><span class="org-comment">make changes here</span>
-bitbake virtual/kernel -c diffconfig <span class="org-comment-delimiter"># </span><span class="org-comment">generates the configuration fragment file for us</span>
+<pre class="src src-bash">bitbake virtual/kernel -c menuconfig <span class="org-comment-delimiter"># </span><span class="org-comment">make changes here
+</span>bitbake virtual/kernel -c diffconfig <span class="org-comment-delimiter"># </span><span class="org-comment">generates the configuration fragment file for us</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -2436,8 +2436,8 @@ comes in; it keeps a history of the contents of artifacts</li>
 to enable it:
 </p>
 <div class="org-src-container">
-<pre class="src src-conf"><span class="org-variable-name">INHERIT +</span>= <span class="org-string">"buildhistory"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">adds the necessary class hooks</span>
-<span class="org-variable-name">BUILDHISTORY_COMMIT</span> = <span class="org-string">"1"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">auto-commit to the buildhistory repo on every build</span>
+<pre class="src src-conf"><span class="org-variable-name">INHERIT +</span>= <span class="org-string">"buildhistory"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">adds the necessary class hooks
+</span><span class="org-variable-name">BUILDHISTORY_COMMIT</span> = <span class="org-string">"1"</span>    <span class="org-comment-delimiter"># </span><span class="org-comment">auto-commit to the buildhistory repo on every build</span>
 </pre>
 </div></li>
 <li>the data is stored under <code>build/buildhistory/</code> as text files</li>
@@ -2918,58 +2918,58 @@ of our custom BSP</li>
 <h2 id="cabd0da0-d7ec-4bdc-80db-34a2563ab39e">Config syntax</h2>
 <div class="outline-text-2" id="text-cabd0da0-d7ec-4bdc-80db-34a2563ab39e">
 <div class="org-src-container">
-<pre class="src src-conf"><span class="org-variable-name">FOO</span>   = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are lazily resolved</span>
-<span class="org-variable-name">FOO  :</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are immediately resolved</span>
-<span class="org-variable-name">FOO  ?</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like = but won't overwrite already assigned variable</span>
-<span class="org-variable-name">FOO ??</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">as above, but even weaker; is to ?= what ?= is to =</span>
-
-<span class="org-variable-name">FOO +</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-append; automatically inserts an extra space to separate elements</span>
-<span class="org-variable-name">FOO</span> =+ ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-prepend; automatically inserts an extra space to separate elements</span>
-<span class="org-variable-name">FOO .</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-append; no extra space inserted</span>
-<span class="org-variable-name">FOO</span> =. ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-prepend; no extra space inserted</span>
-
-<span class="org-variable-name">FOO</span>[<span class="org-constant">a</span>] = <span class="org-string">"abc"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">set/modify value of a variable flag (extra info tagged onto a variable)</span>
-
-<span class="org-variable-name">FOO:append</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like .= but will queue the append (overwriting FOO won't squash its effect)</span>
-<span class="org-variable-name">FOO:prepend</span> = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like =. but will queue the prepend (overwriting FOO won't squash its effect)</span>
-<span class="org-variable-name">FOO:remove</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">removes a list element (procs after all appends and prepends)</span>
-
-<span class="org-variable-name">OVERRIDES</span> = <span class="org-string">"linux:arm:mymachine"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">for specifying a colon-separated list of flags, such that...</span>
-<span class="org-variable-name">FOO:linux</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">will proc</span>
-<span class="org-variable-name">FOO:other</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc</span>
-<span class="org-variable-name">FOO:append:arm</span>    = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">will proc</span>
-<span class="org-variable-name">FOO:remove:hello</span>  = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc</span>
-
-require  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in an .inc file; raise a ParseError if it can't be found</span>
-include  <span class="org-comment-delimiter"># </span><span class="org-comment">attempt to pull in an .inc file, i.e. as an option</span>
-
-inherit  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in a .bbclass file</span>
-
-<span class="org-variable-name">DATE</span> = <span class="org-string">"${@time.strftime('%Y%m%d',time.gmtime())}"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">inline python code expansion; what comes after the @</span>
-
-<span class="org-type">do_install()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in shell script (POSIX-compliant stuff only; no bash-isms)</span>
-    <span class="org-variable-name">oe_runmake install DESTDIR</span>=${D}
+<pre class="src src-conf"><span class="org-variable-name">FOO</span>   = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are lazily resolved
+</span><span class="org-variable-name">FOO  :</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">assignment; variables are immediately resolved
+</span><span class="org-variable-name">FOO  ?</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like = but won't overwrite already assigned variable
+</span><span class="org-variable-name">FOO ??</span>= ...  <span class="org-comment-delimiter"># </span><span class="org-comment">as above, but even weaker; is to ?= what ?= is to =
+</span>
+<span class="org-variable-name">FOO +</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-append; automatically inserts an extra space to separate elements
+</span><span class="org-variable-name">FOO</span> =+ ...   <span class="org-comment-delimiter"># </span><span class="org-comment">list-prepend; automatically inserts an extra space to separate elements
+</span><span class="org-variable-name">FOO .</span>= ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-append; no extra space inserted
+</span><span class="org-variable-name">FOO</span> =. ...   <span class="org-comment-delimiter"># </span><span class="org-comment">string-prepend; no extra space inserted
+</span>
+<span class="org-variable-name">FOO</span>[<span class="org-constant">a</span>] = <span class="org-string">"abc"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">set/modify value of a variable flag (extra info tagged onto a variable)
+</span>
+<span class="org-variable-name">FOO:append</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like .= but will queue the append (overwriting FOO won't squash its effect)
+</span><span class="org-variable-name">FOO:prepend</span> = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">like =. but will queue the prepend (overwriting FOO won't squash its effect)
+</span><span class="org-variable-name">FOO:remove</span>  = ...  <span class="org-comment-delimiter"># </span><span class="org-comment">removes a list element (procs after all appends and prepends)
+</span>
+<span class="org-variable-name">OVERRIDES</span> = <span class="org-string">"linux:arm:mymachine"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">for specifying a colon-separated list of flags, such that...
+</span><span class="org-variable-name">FOO:linux</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">will proc
+</span><span class="org-variable-name">FOO:other</span> = ...                    <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc
+</span><span class="org-variable-name">FOO:append:arm</span>    = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">will proc
+</span><span class="org-variable-name">FOO:remove:hello</span>  = ...            <span class="org-comment-delimiter"># </span><span class="org-comment">won't proc
+</span>
+require  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in an .inc file; raise a ParseError if it can't be found
+</span>include  <span class="org-comment-delimiter"># </span><span class="org-comment">attempt to pull in an .inc file, i.e. as an option
+</span>
+inherit  <span class="org-comment-delimiter"># </span><span class="org-comment">pull in a .bbclass file
+</span>
+<span class="org-variable-name">DATE</span> = <span class="org-string">"${@time.strftime('%Y%m%d',time.gmtime())}"</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">inline python code expansion; what comes after the @
+</span>
+<span class="org-type">do_install()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in shell script (POSIX-compliant stuff only; no bash-isms)
+</span>    <span class="org-variable-name">oe_runmake install DESTDIR</span>=${D}
 }
 
-do_install:append() { <span class="org-comment-delimiter"># </span><span class="org-comment">extend an existing task</span>
-    rmdir ${FOO_DIR}
+do_install:append() { <span class="org-comment-delimiter"># </span><span class="org-comment">extend an existing task
+</span>    rmdir ${FOO_DIR}
 }
 
-<span class="org-type">python do_printdate()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in python</span>
-    d.setVar(<span class="org-string">"TEXT"</span>, <span class="org-string">"Hello World"</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">'d' is a special object for accessing the BitBake environment</span>
-    print d.getVar(<span class="org-string">"TEXT"</span>)
+<span class="org-type">python do_printdate()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">defines a task in python
+</span>    d.setVar(<span class="org-string">"TEXT"</span>, <span class="org-string">"Hello World"</span>) <span class="org-comment-delimiter"># </span><span class="org-comment">'d' is a special object for accessing the BitBake environment
+</span>    print d.getVar(<span class="org-string">"TEXT"</span>)
     import time
     print(time.strftime(<span class="org-string">'%Y%m%d'</span>,time.gmtime()))
 }
 
-<span class="org-type">python ()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">anonymous python task; will be run at the end of parsing</span>
-    if d.getVar(<span class="org-string">'SOMEVAR'</span>) == <span class="org-string">'value'</span>:
+<span class="org-type">python ()</span> { <span class="org-comment-delimiter"># </span><span class="org-comment">anonymous python task; will be run at the end of parsing
+</span>    if d.getVar(<span class="org-string">'SOMEVAR'</span>) == <span class="org-string">'value'</span>:
         d.setVar(<span class="org-string">'ANOTHERVAR'</span>, <span class="org-string">'value2'</span>)
-    bb.build.exec_func(<span class="org-string">"do_printdate"</span>, d) <span class="org-comment-delimiter"># </span><span class="org-comment">manually call some other locally-defined python function</span>
-}
+    bb.build.exec_func(<span class="org-string">"do_printdate"</span>, d) <span class="org-comment-delimiter"># </span><span class="org-comment">manually call some other locally-defined python function
+</span>}
 
-def get_depends(d): <span class="org-comment-delimiter"># </span><span class="org-comment">defines a python utility function (non-task)</span>
-    if d.getVar(<span class="org-string">'SOMECONDITION'</span>):
+def get_depends(d): <span class="org-comment-delimiter"># </span><span class="org-comment">defines a python utility function (non-task)
+</span>    if d.getVar(<span class="org-string">'SOMECONDITION'</span>):
         return <span class="org-string">"dependencywithcond"</span>
     else:
         return <span class="org-string">"dependency"</span>
@@ -2985,89 +2985,89 @@ def get_depends(d): <span class="org-comment-delimiter"># </span><span class="or
 <h3 id="3b6f0f7c-d816-4b65-8096-dc2e720a8f68"><code>local.conf</code></h3>
 <div class="outline-text-3" id="text-3b6f0f7c-d816-4b65-8096-dc2e720a8f68">
 <div class="org-src-container">
-<pre class="src src-conf"><span class="org-variable-name">MACHINE ?</span>= <span class="org-string">"qemux86-64"</span>                <span class="org-comment-delimiter"># </span><span class="org-comment">see meta/conf/machine/ and meta-yocto-bsp/conf/machine/ for more options</span>
-<span class="org-variable-name">DISTRO ?</span>= <span class="org-string">"poky"</span>                       <span class="org-comment-delimiter"># </span><span class="org-comment">set the policy (distro)</span>
-<span class="org-variable-name">PACKAGE_CLASSES ?</span>= <span class="org-string">"package_ipk"</span>       <span class="org-comment-delimiter"># </span><span class="org-comment">specify the package format to use</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">SDKMACHINE ?= "x86_64"                # SDK target architecture; only i686, x86_64, aarch64 are supported</span>
-<span class="org-variable-name">EXTRA_IMAGE_FEATURES ?</span>= <span class="org-string">"debug-tweaks"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">misc. stuff for development, e.g. give ssh root a blank password</span>
-<span class="org-variable-name">USER_CLASSES ?</span>= <span class="org-string">"buildstats"</span>           <span class="org-comment-delimiter"># </span><span class="org-comment">collect build statistics</span>
+<pre class="src src-conf"><span class="org-variable-name">MACHINE ?</span>= <span class="org-string">"qemux86-64"</span>                <span class="org-comment-delimiter"># </span><span class="org-comment">see meta/conf/machine/ and meta-yocto-bsp/conf/machine/ for more options
+</span><span class="org-variable-name">DISTRO ?</span>= <span class="org-string">"poky"</span>                       <span class="org-comment-delimiter"># </span><span class="org-comment">set the policy (distro)
+</span><span class="org-variable-name">PACKAGE_CLASSES ?</span>= <span class="org-string">"package_ipk"</span>       <span class="org-comment-delimiter"># </span><span class="org-comment">specify the package format to use
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">SDKMACHINE ?= "x86_64"                # SDK target architecture; only i686, x86_64, aarch64 are supported
+</span><span class="org-variable-name">EXTRA_IMAGE_FEATURES ?</span>= <span class="org-string">"debug-tweaks"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">misc. stuff for development, e.g. give ssh root a blank password
+</span><span class="org-variable-name">USER_CLASSES ?</span>= <span class="org-string">"buildstats"</span>           <span class="org-comment-delimiter"># </span><span class="org-comment">collect build statistics
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testimage"          # enable support for testing the image in QEMU (see testimage.bbclass)
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testsdk"            # enable support for testing the SDK (see testsdk.bbclass)
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">TESTIMAGE_AUTO:qemuall = "1"          # run imagetest automatically for qemu* targets
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">OE_TERMINAL = "auto"                  # enable shell when user input is needed, e.g. patch resolution
+</span><span class="org-variable-name">PATCHRESOLVE</span> = <span class="org-string">"noop"</span>                  <span class="org-comment-delimiter"># </span><span class="org-comment">disable interactive patch resolution (tasks will just fail instead)
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">fail the build if we're running low on disk space
+</span><span class="org-variable-name">BB_DISKMON_DIRS ??</span>= <span class="org-string">"\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    HALT,${TMPDIR},100M,1K \
+    HALT,${DL_DIR},100M,1K \
+    HALT,${SSTATE_DIR},100M,1K \
+    HALT,/tmp,10M,1K"</span>
 
-<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testimage"          # enable support for testing the image in QEMU (see testimage.bbclass)</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_CLASSES += "testsdk"            # enable support for testing the SDK (see testsdk.bbclass)</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">TESTIMAGE_AUTO:qemuall = "1"          # run imagetest automatically for qemu* targets</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">OE_TERMINAL = "auto"                  # enable shell when user input is needed, e.g. patch resolution</span>
-<span class="org-variable-name">PATCHRESOLVE</span> = <span class="org-string">"noop"</span>                  <span class="org-comment-delimiter"># </span><span class="org-comment">disable interactive patch resolution (tasks will just fail instead)</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">fail the build if we're running low on disk space</span>
-<span class="org-variable-name">BB_DISKMON_DIRS ??</span>= <span class="org-string">"\</span>
-<span class="org-string">    STOPTASKS,${TMPDIR},1G,100K \</span>
-<span class="org-string">    STOPTASKS,${DL_DIR},1G,100K \</span>
-<span class="org-string">    STOPTASKS,${SSTATE_DIR},1G,100K \</span>
-<span class="org-string">    STOPTASKS,/tmp,100M,100K \</span>
-<span class="org-string">    HALT,${TMPDIR},100M,1K \</span>
-<span class="org-string">    HALT,${DL_DIR},100M,1K \</span>
-<span class="org-string">    HALT,${SSTATE_DIR},100M,1K \</span>
-<span class="org-string">    HALT,/tmp,10M,1K"</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">sstate mirrors (fetch prebuilt build artefacts to speed up the build)</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">OR</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"</span>
-
-<span class="org-variable-name">PACKAGECONFIG:append:pn-qemu-system-native</span> = <span class="org-string">" sdl"</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">if we're targeting QEMU, enable the SDL UI frontend</span>
-<span class="org-variable-name">ASSUME_PROVIDED +</span>= <span class="org-string">"libsdl2-native"</span>                   <span class="org-comment-delimiter"># </span><span class="org-comment">we need not bother building the SDL library ourselves</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">PACKAGECONFIG:append:pn-qemu-system-native = " gtk+" # enable Gtk UI frontend, which has an actual menu</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">CONF_VERSION = "2"  # version counter, mostly for convenience but completely optional</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"  # max threads for BitBake to dedicate to tasks</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"   # max threads for make</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">if we want an image based on directfb without x11</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " directfb"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:remove = "x11"</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">DEBUG_BUILD = "1"                 # optimisation to make debugging easer, at the possible cost of performance</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_STRIP = "1"       # disable the stripping of the installed binaries</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_DEBUG_SPLIT = "1" # disable the split of the debug information into -dbg files</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">The following options will build a companion 'debug filesystem' in addition</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">to the normal deployable filesystem.  This companion system allows a</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">debugger to know the symbols and related sources.  It can be used to</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">debug a remote 'production' system without having to add the debug symbols</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">and sources to remote system.</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_GEN_DEBUGFS = "1"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_FSTYPES_DEBUGFS = "tar.gz"</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/security_flags.inc # enable more secure code generation with extra gcc, ld flags</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE = "core-image-minimal-initramfs"  # for early userspace (e.g. if mounting rootfs requires a module)</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE_BUNDLE = "1"                      # if we want to embed the initramfs inside the kernel image</span>
-
-<span class="org-comment-delimiter">#</span><span class="org-comment">INIT_MANAGER = "none"  # other options include sysvinit, systemd, mdev-busybox</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">if we want a full set of packages instead of busybox for base utils</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">PREFERRED_PROVIDER_base-utils = "packagegroup-core-base-utils"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils = "packagegroup-core-base-utils"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-syslog = "syslog"</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">enable LTO system-wide</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/lto.inc</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " lto"</span>
-
-<span class="org-variable-name">SDK_PS1 ?</span>= <span class="org-string">"${SDK_NAME}${SDK_VENDOR}:\$ "</span> <span class="org-comment-delimiter"># </span><span class="org-comment">use this custom prompt when inside the SDK</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">enable local PR service to auto-increment PR whenever a package changes (with some extra sanity checks)</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">PRSERV_HOST = "localhost:0"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">INHERIT += "buildhistory"</span>
-<span class="org-comment-delimiter">#</span><span class="org-comment">BUILDHISTORY_COMMIT = "1"</span>
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">generate a Software Bill of Materials</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">INHERIT += "create-spdx"</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">SPDX_PRETTY = "1" # make the json human-readable/non-minified</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">sstate mirrors (fetch prebuilt build artefacts to speed up the build)
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">BB_HASHSERVE_UPSTREAM = "hashserv.yocto.io:8687"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">OR
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">SSTATE_MIRRORS ?= "file://.* http://sstate.yoctoproject.org/all/PATH;downloadfilename=PATH"
+</span>
+<span class="org-variable-name">PACKAGECONFIG:append:pn-qemu-system-native</span> = <span class="org-string">" sdl"</span>   <span class="org-comment-delimiter"># </span><span class="org-comment">if we're targeting QEMU, enable the SDL UI frontend
+</span><span class="org-variable-name">ASSUME_PROVIDED +</span>= <span class="org-string">"libsdl2-native"</span>                   <span class="org-comment-delimiter"># </span><span class="org-comment">we need not bother building the SDL library ourselves
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">PACKAGECONFIG:append:pn-qemu-system-native = " gtk+" # enable Gtk UI frontend, which has an actual menu
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">CONF_VERSION = "2"  # version counter, mostly for convenience but completely optional
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">BB_NUMBER_THREADS ?= "${@oe.utils.cpu_count()}"  # max threads for BitBake to dedicate to tasks
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">PARALLEL_MAKE ?= "-j ${@oe.utils.cpu_count()}"   # max threads for make
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">if we want an image based on directfb without x11
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " directfb"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:remove = "x11"
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">DEBUG_BUILD = "1"                 # optimisation to make debugging easer, at the possible cost of performance
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_STRIP = "1"       # disable the stripping of the installed binaries
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">INHIBIT_PACKAGE_DEBUG_SPLIT = "1" # disable the split of the debug information into -dbg files
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">The following options will build a companion 'debug filesystem' in addition
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">to the normal deployable filesystem.  This companion system allows a
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">debugger to know the symbols and related sources.  It can be used to
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">debug a remote 'production' system without having to add the debug symbols
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">and sources to remote system.
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_GEN_DEBUGFS = "1"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">IMAGE_FSTYPES_DEBUGFS = "tar.gz"
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/security_flags.inc # enable more secure code generation with extra gcc, ld flags
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE = "core-image-minimal-initramfs"  # for early userspace (e.g. if mounting rootfs requires a module)
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">INITRAMFS_IMAGE_BUNDLE = "1"                      # if we want to embed the initramfs inside the kernel image
+</span>
+<span class="org-comment-delimiter">#</span><span class="org-comment">INIT_MANAGER = "none"  # other options include sysvinit, systemd, mdev-busybox
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">if we want a full set of packages instead of busybox for base utils
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">PREFERRED_PROVIDER_base-utils = "packagegroup-core-base-utils"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils = "packagegroup-core-base-utils"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-hwclock = "util-linux-hwclock"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">VIRTUAL-RUNTIME_base-utils-syslog = "syslog"
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">enable LTO system-wide
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">require conf/distro/include/lto.inc
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">DISTRO_FEATURES:append = " lto"
+</span>
+<span class="org-variable-name">SDK_PS1 ?</span>= <span class="org-string">"${SDK_NAME}${SDK_VENDOR}:\$ "</span> <span class="org-comment-delimiter"># </span><span class="org-comment">use this custom prompt when inside the SDK
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">enable local PR service to auto-increment PR whenever a package changes (with some extra sanity checks)
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">PRSERV_HOST = "localhost:0"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">INHERIT += "buildhistory"
+</span><span class="org-comment-delimiter">#</span><span class="org-comment">BUILDHISTORY_COMMIT = "1"
+</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">generate a Software Bill of Materials
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">INHERIT += "create-spdx"
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">SPDX_PRETTY = "1" # make the json human-readable/non-minified</span>
 </pre>
 </div>
 </div>
@@ -3081,8 +3081,8 @@ def get_depends(d): <span class="org-comment-delimiter"># </span><span class="or
 <span class="org-variable-name">LICENSE</span> = <span class="org-string">"MIT"</span>
 <span class="org-variable-name">LIC_FILES_CHKSUM</span> = <span class="org-string">"file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"</span>
 
-<span class="org-variable-name">SRC_URI</span> = <span class="org-string">"file://myhello.c"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">list of all source files in the recipe (just one in this case)</span>
-
+<span class="org-variable-name">SRC_URI</span> = <span class="org-string">"file://myhello.c"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">list of all source files in the recipe (just one in this case)
+</span>
 <span class="org-variable-name">S</span> = <span class="org-string">"${WORKDIR}"</span>
 
 <span class="org-type">do_compile()</span> {
@@ -3090,12 +3090,12 @@ def get_depends(d): <span class="org-comment-delimiter"># </span><span class="or
 }
 
 <span class="org-type">do_install()</span> {
-        install -D -m 0755 myhello ${D}${bindir}/helloworld  <span class="org-comment-delimiter"># </span><span class="org-comment">${D} is the requisite location inside build/tmp/work/</span>
-}
+        install -D -m 0755 myhello ${D}${bindir}/helloworld  <span class="org-comment-delimiter"># </span><span class="org-comment">${D} is the requisite location inside build/tmp/work/
+</span>}
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">If a project is already based on autotools (or cmake/meson/etc.), then</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">instead of defining the above tasks manually, we can make use of the</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">autotools class. (See existing recipes for tips.)</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">If a project is already based on autotools (or cmake/meson/etc.), then
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">instead of defining the above tasks manually, we can make use of the
+</span><span class="org-comment-delimiter"># </span><span class="org-comment">autotools class. (See existing recipes for tips.)</span>
 </pre>
 </div>
 </div>
