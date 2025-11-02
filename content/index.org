@@ -182,6 +182,7 @@
   - [[https://asteriskmag.com/issues/09/where-the-wild-things-arent][Where the Wild Things Aren't]]
   - [[https://aeon.co/essays/why-does-philosophy-hold-clothes-in-such-low-regard][What do clothes say?]]
   - [[https://linch.substack.com/p/the-precocious-babys-guide-to-anthropics][A Baby's Guide to Anthropics]]
+  - [[https://julianphilosophy.substack.com/p/the-years-of-sublime-confusion][The Years of Sublime Confusion]]
 - psychology/
   - [[https://psyche.co/ideas/as-a-psychiatrist-ive-seen-how-chasing-happiness-leads-to-misery][As a psychiatrist, I've seen how chasing happiness leads to misery]]
   - [[https://www.lesswrong.com/posts/K2JBqDeETX2yEgyyZ/the-limits-of-introspection][The limits of introspection]]
@@ -200,6 +201,7 @@
   - [[https://www.lesswrong.com/posts/5FAnfAStc7birapMx/the-hostile-telepaths-problem][The hostile telepaths problem]]
   - [[https://mappingignorance.org/2024/11/20/i-hate-that-i-love-you-the-neuroscience-of-heartbreak/][I hate that I love you: The neuroscience of heartbreak]]
   - [[https://psyche.co/ideas/uncertainty-is-stressful-but-heres-why-we-need-to-feel-it][Uncertainty is stressful, but here’s why we need to feel it]]
+  - [[https://psyche.co/ideas/why-are-we-curious-about-some-things-and-indifferent-to-others][Why are we curious about some things and indifferent to others?]]
 - audio-visual/
   - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
   - [[https://www.youtube.com/watch?v=yUpr1F1dZt0][Naomi Sato demonstrates the shō [yt; It's just a beautiful instrument]​]]
@@ -247,6 +249,7 @@
     - [[https://necsus-ejms.org/the-elephant-mans-sound-tracked/][The Elephant Man's Sound, Tracked]]
     - [[https://obscuritory.com/essay/incredible-boxes-of-hock-wah-yeo/][The incredible boxes of Hock Wah Yeo]]
     - [[https://www.youtube.com/watch?v=ffllV6-aqWU][David Lynch: The Treachery of Language [yt]​]]
+    - [[https://wisdomofcrowds.live/p/a-few-doubts-about-neo-romanticism][A Few Doubts About Neo-Romanticism]]
   - essays-on-architecture/
     - [[https://www.currentaffairs.org/2017/10/why-you-hate-contemporary-architecture][Why You Hate Contemporary Architecture]]
     - [[https://www.currentaffairs.org/2021/04/when-is-the-revolution-in-architecture-coming][When Is the Revolution in Architecture Coming?]]
@@ -281,6 +284,7 @@
   - [[https://ciechanow.ski/internal-combustion-engine/][Internal Combustion Engines [how they work]​]]
   - [[https://thebaffler.com/salvos/enter-the-supersensorium-hoel][Enter The Supersensorium [on the purpose of dreams]​]]
   - [[https://ourworldindata.org/limits-personal-experience][The Limits of our Personal Experience and the Value of Statistics]]
+  - [[https://www.youtube.com/watch?v=f8O3XMrC8hg][A Rock Is Trapped Light [yt]​]]
   - math/
     - [[https://www.youtube.com/playlist?list=PLqHnHG5X2PXBVZsf_rvAwGnUgZ-mGdqCy][Math Mornings at Yale [yt]​]]
     - [[https://www.youtube.com/watch?v=1QAqxiO8VHM][Is this one connected curve, or two? [yt]​]]
@@ -335,7 +339,7 @@
       - [[https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/][Let's Stop Ascribing Meaning to Code Points]]
       - [[https://tonsky.me/blog/unicode/][The Absolute Minimum Every Software Developer Must Know About Unicode in 2023]]
       - [[https://github.com/codebox/homoglyph/blob/master/raw_data/chars.txt][A list of homoglyphs [sets of unicode characters that look annoyingly identical]​]]
-    - llms/
+    - ai/
       - [[https://blog.domenic.me/chatgpt-simulacrum/][ChatGPT Is Not a Blurry JPEG of the Web.  It's a Simulacrum.]]
       - [[https://dynomight.net/llms/][Historical analogies for LLMs]]
       - [[https://www.reddit.com/r/slatestarcodex/comments/16x2q57/alignment_is_malleable/][Alignment is Malleable]]
@@ -346,6 +350,7 @@
       - [[https://robhorning.substack.com/p/so-called-well-meaning][So-called well-meaning]]
       - [[https://robhorning.substack.com/p/implosion-sites][Implosion sites]]
       - [[https://www.youtube.com/watch?v=wjZofJX0v4M][But what is a GPT? Visual intro to Transformers [yt]​]] ([[https://www.youtube.com/watch?v=eMlx5fFNoYc][part 2]])
+      - [[https://www.theintrinsicperspective.com/p/our-overfitted-century][Our Overfitted Century]]
 - history/
   - [[https://www.exurbe.com/black-death-covid-and-why-we-keep-telling-the-myth-of-a-renaissance-golden-age-and-bad-middle-ages/][Black Death, COVID, and Why We Keep Telling the Myth of a Renaissance Golden Age and Bad Middle Ages]]
   - [[https://www.exurbe.com/on-progress-and-historical-change/][On Progress and Historical Change]]
