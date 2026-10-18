@@ -9,103 +9,6 @@
 #+OPTIONS: toc:nil
 #+HTML_HEAD: <style type="text/css"> body { margin: auto; } h1.title { text-align: left; } </style>
 
-* Tuesday, 28 January, 2025
-:PROPERTIES:
-:ID:       7a3fbe39-6d54-4f8a-8644-e0a709da02d3
-:CUSTOM_ID: 7a3fbe39-6d54-4f8a-8644-e0a709da02d3
-:END:
-Question:
-#+begin_quote
-In the context of supervised fine-tuning of an LLM, what kinds of "labels" may
-be applied to input data, other than simple binary "correct" and "incorrect"?
-#+end_quote
-Answer (Claude 3.5 Sonnet):
-#+begin_quote
-Let me explain the different types of labels commonly used in supervised fine-tuning of LLMs:
-
-- *Quality/Performance Scores*:
-  - Numerical ratings (e.g., 1-5 scale) assessing response quality
-  - Multiple dimensions like accuracy, coherence, relevance, and helpfulness
-  - Expert-assigned grades or rubric-based scores
-- *Behavioral Classifications*:
-  - Toxicity levels and content safety ratings
-  - Style markers (formal/informal, technical/simple)
-  - Sentiment classifications
-  - Task-specific categories (e.g., question type, reasoning approach used)
-- *Alignment-Related Labels*:
-  - Helpfulness measures
-  - Truthfulness/factual accuracy scores
-  - Ethical adherence ratings
-  - Bias assessments
-- *Structural/Format Labels*:
-  - Response length appropriateness
-  - Writing style consistency
-  - Format compliance (e.g., following specified templates)
-  - Language register appropriateness
-- *Task-Specific Performance Metrics*:
-  - Math problem-solving accuracy
-  - Code functionality scores
-  - Translation quality metrics
-  - Reasoning step completeness
-- *Human Preference Data*:
-  - Ranked preferences between multiple outputs
-  - A/B comparison results
-  - Human feedback on specific aspects
-  - Direct reward modeling signals
-- *Meta-Labels*:
-  - Confidence scores
-  - Uncertainty measurements
-  - Required expertise level
-  - Context relevance ratings
-
-The key is that these labels can be combined and weighted differently depending on the specific fine-tuning objectives.
-#+end_quote
-* Monday, 25 March, 2024
-:PROPERTIES:
-:ID:       0402cbcd-975f-4bea-a7f7-b3ad5dda44fc
-:CUSTOM_ID: 0402cbcd-975f-4bea-a7f7-b3ad5dda44fc
-:END:
-Some old notes I jotted when I was first trying to get into poetry:
-- get a feel for the style and length of verse (usually iambic pentameter/hexameter)
-- try vocalising the words, emphasising their rhythm and percussion
-- read slowly, as if you have all day to get through one stanza
-- pay small emphasis on the last syllable of each verse
-- commas are often used to help delineate rhythmic feet/units; apostrophes are often used to excise syllables; ellipses are often used to excise words
-- read the poem twice (at least)
-
-#+begin_center
-○
-#+end_center
-
-A couple of old poems:
-\\
-\\
-#+begin_verse
-/Hollow tin is struck ---/
-
-/reverberates all around,/
-
-/into emptiness./
-#+end_verse
-\\
-\\
-#+begin_verse
-/Where float you now, friend?/
-
-/Kept your head above water?/
-
-/Time is against us./
-#+end_verse
-\\
-* Monday, 18 March, 2024
-:PROPERTIES:
-:ID:       a2346381-a557-4d4e-b003-41b5ab7f3b66
-:CUSTOM_ID: a2346381-a557-4d4e-b003-41b5ab7f3b66
-:END:
-It upsets me that my self-talk is a kind of conversation with an imaginary
-person, but that person never talks back and chimes in with its own opinions.
-I need someone to tell me I'm wrong every once and a while, not just a Yes
-Man.
 * Tuesday, 27 February, 2024
 :PROPERTIES:
 :ID:       dda22b2d-98e6-493b-999e-b5a8dfe2980b
@@ -145,53 +48,6 @@ one person will run into the same risk.
 "Something something finite context window."
 
 Etc.
-* Monday, 1 February, 2024
-:PROPERTIES:
-:ID:       7b4b6f53-22c6-46eb-a3b6-2b8d50ec98ae
-:CUSTOM_ID: 7b4b6f53-22c6-46eb-a3b6-2b8d50ec98ae
-:END:
-A bunch of old quotes and random musings that were perhaps too short for
-separate posts:
-- "Don't talk to me or my self ever again." 👨‍👦
-- I am, therefore I think.
-- There's no such thing as always good advice, viz. universally applicable for
-  all persons in all circumstances. (Obviously, that includes /this/ advice.)
-- One can never see the ground directly under their feet.
-- I want what is my own to be universal.  I want what is universal to be my
-  own.
-- Some other quotes (not mine) that I loved:
-  - "Anxiety expands to occupy the space it's allowed to."
-  - "Concepts are bundled at the level of maximum abstraction that's useful."
-  - "One speaks in defence of things they fear are the least defensible."
-- I feel like noise music is the most zen of all music.[fn::Unless you think
-  silence counts as music, but I won't believe you unless you literally have
-  John Cage's 4’33” in your playlist.]  Why?  Because, at its extreme, it
-  converges towards silence.  When you listen to noise music, the act of
-  actually /listening/ requires a kind of mindfulness of the present moment,
-  where memory-of-the-past and anticipation-of-the-future hold the least
-  bearing on how the immediate is experienced.  Amidst noise, it is /silence/
-  that is deafening.
-- Something else that occurred to me was noise music's similarity to inclement
-  weather.  My pet theory is that the cosiness we tend to feel when taking
-  shelter from a storm, as though wrapped in a blanket, is perhaps in part
-  because it is a time when predators (i.e., other humans) are less likely to
-  be roaming about. (I've done literally zero research on this though. Someone
-  I know said they think it's because a storm portends the availability of
-  water.)  Perhaps the analogue for noise is the threat of our own thoughts.
-- Why aren't ethicists more ethical?  To this I would respond by asking why we
-  would expect it to be so; whether we are as in control of our thoughts and
-  actions as we have led ourselves to believe.
-- It feels unfair that the business world should have a better understanding
-  of a person's psychology than the person does of themselves (with regard to
-  marketing, public relations, lobbying, etc.).  It seems like wage-slavery,
-  but applied to the psychological domain; if one does not possess the freedom
-  to choose otherwise, they cannot be said to consent to begin with.
-- The saying "No one is an island" extends to our dependency on society for
-  recognition.  My desire for independence reaffirms my dependency on what I
-  wish to stand apart from.  It is through the sacrifice of our particularity
-  that we reconnect with the universal.  The desire for independence taken to
-  its logical conclusion would be a desire for complete alienation, to become
-  a pure contingency.  But who would desire this?
 * Sunday, 26 November, 2023
 :PROPERTIES:
 :ID:       5b94478a-4878-470e-bdff-6ec996f206d3
@@ -270,64 +126,6 @@ If I'm going in the other direction like this, if I'm trying to produce integral
 #+end_quote
 
 See also: [[https://en.wikipedia.org/wiki/Inverse_problem][Inverse problem (Wikipedia)]]
-* Wednesday, 15 November, 2023
-:PROPERTIES:
-:ID:       4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c
-:CUSTOM_ID: 4ae9aa2b-8ea5-4eaf-a9da-21896c7cd90c
-:END:
-A binary relation is a subset of the set of ordered pairs between two sets
-(which could be the same set).  In other words, it is defined as a subset of a
-cartesian product: $R \subseteq X \times Y$.
-
-Thus a relation could be thought of as a kind of carving out of the space of
-possibility, such that an inference can be made about one element given
-another in the same pair.
-
-Note that this simple definition does not imply symmetry, that $x \sim y \iff
-y \sim x$.  As such, the term "relation" does not necessarily imply
-bidirectionality.  In [[https://en.wikipedia.org/wiki/Category_theory][category theory]], a relation is represented by a directed
-arrow.  It seems as though the directed arrow as a concept cannot be broken
-down further; is prior to, or a component of, the concept of symmetry; is
-fundamental to relation /qua/ idea.  However, in casual use one may consider it
-bidirectional in the sense of there being implied a [[https://en.wikipedia.org/wiki/Opposite_category][dual category]] (e.g. the
-$\ge$ relation has $\lt$ as its dual).
-
-I consider this because it seems as though, when an object comes into
-consciousness, semantically adjacent objects invariably come to mind as well.
-For example, "gambling" brings to mind (or perhaps "[[https://en.wikipedia.org/wiki/Priming_(psychology)][primes]]") "sport", but so
-too does "sport" bring to mind "gambling".[fn::I hate how [[https://en.wikipedia.org/wiki/Gambling_in_Australia][Australian]] this
-example is.]  One can think of connections between neurons as being binary
-relations; from this view, "semantic adjecency" would be a symmetric relation.
-This lead me to ask:
-#+begin_quote
-It has been said that "neurons that fire together wire together".  Does this
-mean that most neuronal connections in the brain are bidirectional?
-#+end_quote
-
-ChatGPT:
-#+begin_quote
-The phrase "neurons that fire together wire together" refers to Hebbian
-theory, which suggests that when two neurons are active at the same time, the
-connection between them strengthens. This concept doesn't necessarily imply
-that most neuronal connections in the brain are bidirectional.
-
-Neuronal connections can indeed be bidirectional in some cases, especially in
-networks where information flows back and forth between neurons. However, not
-all connections are bidirectional. In many cases, neuronal connections are
-unidirectional, meaning they transmit information in one direction only.
-
-For instance, in a typical neural pathway, information flows from one neuron
-(the presynaptic neuron) to another (the postsynaptic neuron) across a
-synapse. This flow of information is unidirectional, with signals transmitted
-from the presynaptic neuron to the postsynaptic neuron.
-
-While bidirectional connections do exist, they are not the majority in the
-brain. The brain's structural and functional complexity arises from a
-combination of unidirectional and bidirectional connections among neurons and
-neural networks. Both types of connections contribute to information
-processing, learning, and memory formation in the brain.
-#+end_quote
-
 * Wednesday, 21 June, 2023
 :PROPERTIES:
 :ID:       d93ec70e-fc24-446e-a747-d9fde1bd70b2
@@ -541,59 +339,6 @@ Just as meaning logically presupposes a use, it would seem that an instance of
 use (of language) presupposes a certainty.  One is obviously capable of
 /expressing/ uncertainty, but such an expression could not rest upon a
 /foundation/ of uncertainty.
-* Friday, 16 June, 2023
-:PROPERTIES:
-:ID:       e6c1d84c-1278-4759-8b8f-9d3383477d5a
-:CUSTOM_ID: e6c1d84c-1278-4759-8b8f-9d3383477d5a
-:END:
-Some more ChatGPT goodness, prompted by [[https://www.youtube.com/watch?v=5uLxFmhYnl0][this explanation]] of Poisson point
-processes and exponential distributions (see also: [[https://en.wikipedia.org/wiki/Exponential_distribution][Wikipedia]]).
-
-User:
-#+begin_quote
-In probability theory and statistics, the exponential distribution, or
-negative exponential distribution, is the probability distribution of the time
-between events in a Poisson point process, i.e., a process in which events
-occur continuously and independently at a constant average rate.
-
-Why is this distribution over values of $x$ greater than or equal to zero?  If
-it is assumed that two points cannot occur at the same time, then shouldn't
-the distribution be undefined at $x = 0$?
-#+end_quote
-
-ChatGPT:
-#+begin_quote
-The exponential distribution is indeed defined for values greater than or
-equal to zero, and it is a continuous probability distribution.  The reason
-for this is that even though the probability of observing an event exactly at
-time zero is theoretically zero, the probability of observing an event within
-an infinitesimally small interval around zero is still non-zero.
-
-In probability theory, the probability density function (PDF) describes the
-likelihood of a random variable taking on a specific value. For the
-exponential distribution, the PDF is given by:
-
-$f(x) = \lambda \cdot e^{-\lambda x}$
-
-Where $\lambda$ is the rate parameter of the distribution.  When $x = 0$, the
-PDF evaluates to $f(0) = \lambda$.  Although the value of the PDF at $x = 0$
-is non-zero, it represents a point of discontinuity, meaning that the
-distribution is not continuous at that specific point.  However, the integral
-of the PDF over any interval that includes zero is still well-defined and
-yields a meaningful probability.
-
-When we calculate probabilities or expectations involving the exponential
-distribution, we usually consider intervals starting from a value greater than
-zero.  This is because the exponential distribution is often used to model the
-time between events in a Poisson process, where the events are assumed to
-occur independently and continuously starting from time zero.  Therefore, the
-distribution is typically defined and analyzed for values greater than or
-equal to zero.
-
-In summary, while the exponential distribution is technically discontinuous at
-$x = 0$, it is still defined for values greater than or equal to zero, and the
-probabilities associated with intervals that include zero are well-defined.
-#+end_quote
 * Tuesday, 6 June, 2023
 :PROPERTIES:
 :ID:       775d8d65-72c1-4785-808c-472d4641d07e
@@ -671,58 +416,6 @@ that, were the mind taken to be something governed by a formal system, then
 this system would be one that short-circuits its evaluation of propositions
 --- should it be capable of performing recursion, it would not be the same
 sort of recursion that a formal system performs.
-* Wednesday, 17 May, 2023
-:PROPERTIES:
-:ID:       dfbf5fb4-3b3d-4326-a95b-7f96b12b4171
-:CUSTOM_ID: dfbf5fb4-3b3d-4326-a95b-7f96b12b4171
-:END:
-Because I was curious about this for a long time:
-#+begin_quote
-What lessons did the allies learn from the handling of Germany in the
-aftermath of World War 1 and the rise of Nazism, and what did they do
-differently in the aftermath of World War 2 to ensure that those mistakes were
-not repeated?
-#+end_quote
-
-ChatGPT:
-#+begin_quote
-The Allies learned several lessons from the handling of Germany after World
-War I and the rise of Nazism.  These lessons influenced their approach to
-post-World War II Germany to avoid repeating the mistakes of the past:
-- Harsh Treaty of Versailles :: The Allies realized that imposing excessively
-  punitive terms on Germany, as done in the Treaty of Versailles after World
-  War I, can breed resentment and economic instability.  They aimed to create
-  a more balanced and fair peace settlement after World War II.
-- Economic Stability and Rebuilding :: The Allies recognized the importance of
-  promoting economic stability and assisting in the rebuilding of Germany.
-  They understood that economic hardship could contribute to political
-  instability and extremist movements.  Initiatives like the Marshall Plan
-  were implemented to support the recovery and reconstruction of war-torn
-  nations, including Germany.
-- Democratization and Denazification :: The Allies understood the need to
-  dismantle the Nazi regime and promote democracy in Germany.  They conducted
-  extensive denazification programs to remove Nazi influence from various
-  spheres of society.  Additionally, they implemented democratic reforms,
-  including free elections and the establishment of a parliamentary system.
-- Occupation and Division :: In contrast to the lack of a unified and coherent
-  occupation strategy after World War I, the Allies established a
-  comprehensive occupation plan for Germany after World War II.  Germany was
-  divided into four zones controlled by the United States, the Soviet Union,
-  Britain, and France.  Each zone had a distinct approach to occupation, but
-  the Allies maintained coordination and cooperation to ensure stability and
-  prevent a resurgence of Nazism.
-- Focus on Education and Re-education :: The Allies prioritized education and
-  re-education programs to counter Nazi ideology and promote democratic
-  values.  They implemented curriculum reforms, conducted propaganda
-  campaigns, and supported initiatives aimed at fostering a democratic mindset
-  among the German population.
-
-Overall, the Allies learned from the mistakes of the post-World War I era and
-adopted a more comprehensive and thoughtful approach in the aftermath of World
-War II.  They sought to address the root causes of extremism, promote
-democracy, rebuild Germany's economy, and establish a cooperative occupation
-strategy to ensure lasting peace.
-#+end_quote
 * Thursday, 23 February, 2023
 :PROPERTIES:
 :ID:       001f745e-80e8-47fa-8131-2b494354e345
@@ -994,32 +687,6 @@ more incredible, if nothing should prove to be divine any more unless it were
 error, blindness, the lie --- if God himself should prove to be our most
 enduring lie? ---
 #+end_quote
-* Monday, 18 July, 2022
-:PROPERTIES:
-:ID:       ce782ae0-4e76-4d3d-abe5-98277e4fc03b
-:CUSTOM_ID: ce782ae0-4e76-4d3d-abe5-98277e4fc03b
-:END:
-​(*cough​*)
-
-#+begin_quote
-Ah, at last!  This forceful exhalation of breath, and the resulting
-dislodgement of phlegm from my throat, has finally drawn to conclusion this
-wretched episode of convalescence.  Never again will my throat be fettered
-with such a miserable and incessant source of irritation.
-#+end_quote
-
-(​​*30 seconds pass​*)
-
-(​*cough​*)
-
-#+BEGIN_CENTER
-○
-#+END_CENTER
-
-It would be reasonable, I think, regarding Nietzsche's maxim that "what
-doesn't kill me, makes me stronger", should have the proviso that it does not
-apply to mortal wounds.  But what we are to consider a mortal wound is up for
-debate --- a most serious one.
 * Sunday, 22 May, 2022
 :PROPERTIES:
 :ID:       ebb60e9c-5a7f-4104-8309-a328d5518f35
