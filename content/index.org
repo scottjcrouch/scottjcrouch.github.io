@@ -194,6 +194,7 @@
   - [[https://mappingignorance.org/2024/11/20/i-hate-that-i-love-you-the-neuroscience-of-heartbreak/][I hate that I love you: The neuroscience of heartbreak]]
   - [[https://psyche.co/ideas/uncertainty-is-stressful-but-heres-why-we-need-to-feel-it][Uncertainty is stressful, but here’s why we need to feel it]]
   - [[https://psyche.co/ideas/why-are-we-curious-about-some-things-and-indifferent-to-others][Why are we curious about some things and indifferent to others?]]
+  - [[https://hanfling.id.au/wp-content/uploads/2021/07/19520101-On-cooling.pdf][On Cooling the Mark Out: Some Aspects of Adaptation to Failure]]
 - art-and-aesthetics/
   - audio-visual/
     - [[https://www.youtube.com/watch?v=mFUkaGEMhD8][The Anatomy of: Animal Collective - What Would I Want? Sky [yt]​]]
@@ -255,6 +256,8 @@
       - [[https://aeon.co/essays/the-architectural-style-wars-have-started-all-over-again][The New Architecture Wars]]
       - [[https://mcmansionhell.com/post/741171396971053056/weve-found-it-folks-mcmansion-heaven][McMansion Heaven]]
       - [[https://etiennefd.substack.com/p/how-expensive-is-architectural-ornamentation][How Expensive Is Architectural Ornamentation?]]
+      - [[https://asteriskmag.com/issues/16/why-don-t-we-life-in-an-art-nouveau-world][Why Don't We Live in an Art Nouveau World?]]
+      - [[https://jenn.site/patrick-collison-you-are-wrong-about-street-furniture/][You are wrong about street furniture]]
 - stem/
   - [[https://idlewords.com/2010/03/scott_and_scurvy.htm][Scott and Scurvy]]
   - [[https://www.experimental-history.com/p/how-to-keep-cakes-moist-and-cause][How to Keep Cakes Moist and Cause the Greatest Tragedies of the 20th Century]]
@@ -429,3 +432,4 @@
   - [[https://robhorning.substack.com/p/spacing-the-cans][Spacing the cans]]
   - [[https://lithub.com/what-the-all-american-delusion-of-the-polygraph-says-about-our-relationship-to-fact-and-fiction/][What the All-American Delusion of the Polygraph Says About Our Relationship to Fact and Fiction]]
   - [[https://www.ribbonfarm.com/2020/01/16/the-internet-of-beefs/][The Internet of Beefs]]
+  - [[https://notnottalmud.substack.com/p/the-action-at-a-distance-theory-of][The action at a distance theory of income inequality]]
