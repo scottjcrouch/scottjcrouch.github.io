@@ -255,6 +255,7 @@
       - [[https://aeon.co/essays/the-architectural-style-wars-have-started-all-over-again][The New Architecture Wars]]
       - [[https://mcmansionhell.com/post/741171396971053056/weve-found-it-folks-mcmansion-heaven][McMansion Heaven]]
       - [[https://etiennefd.substack.com/p/how-expensive-is-architectural-ornamentation][How Expensive Is Architectural Ornamentation?]]
+      - [[https://asteriskmag.com/issues/16/why-don-t-we-life-in-an-art-nouveau-world][Why Don't We Live in an Art Nouveau World?]]
 - stem/
   - [[https://idlewords.com/2010/03/scott_and_scurvy.htm][Scott and Scurvy]]
   - [[https://www.experimental-history.com/p/how-to-keep-cakes-moist-and-cause][How to Keep Cakes Moist and Cause the Greatest Tragedies of the 20th Century]]
